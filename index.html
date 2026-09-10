@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Especiales Mejía | Transporte Especial de Pasajeros</title>
+<meta name="description" content="Transportes Mejía S.A.S. — Más de 35 años de experiencia en transporte especial de pasajeros. Certificados ISO 9001:2015 e ISO 45001:2018. Palmira, Valle del Cauca.">
+<link rel="icon" href="img/isotipo.png">
+<style>
+/* ============================================================
+   SISTEMA DE COLOR — Teoría aplicada
+   ------------------------------------------------------------
+   Base extraída del logo institucional:
+     Verde  #67943E  (H≈93°)  -> naturaleza, confianza, sostenibilidad
+     Naranja #FF6600 (H≈24°)  -> energía, movimiento, acción
+   Relación: complementarios divididos (~69° de separación en el
+   círculo cromático). Se usa proporción 60-30-10:
+     60% neutros claros/oscuros, 30% verde, 10% naranja (solo CTA
+     y micro-acentos), evitando vibración cromática por saturación.
+   Escalas construidas por variación de luminosidad manteniendo
+   el matiz constante -> armonía monocromática por familia.
+   ============================================================ */
+:root{
+  /* Familia verde (primaria) */
+  --verde-900:#1C2A12;
+  --verde-800:#2C4220;
+  --verde-700:#41612F;
+  --verde-600:#537A38;
+  --verde-500:#67943E;   /* MARCA */
+  --verde-300:#9CBE7C;
+  --verde-100:#E8F0DF;
+
+  /* Familia naranja (acento, 10%) */
+  --naranja-700:#C24E00;
+  --naranja-500:#FF6600;  /* MARCA */
+  --naranja-300:#FFA24D;
+  --naranja-100:#FFEEE0;
+
+  /* Neutros (60%) — cálidos, afines al matiz naranja para cohesión */
+  --neutro-000:#FFFFFF;
+  --neutro-050:#FAFAF7;
+  --neutro-100:#F1F2EC;
+  --neutro-300:#D6D8CE;
+  --neutro-600:#6B6F63;
+  --neutro-900:#1A1C17;
+
+  --texto:var(--neutro-900);
+  --texto-suave:var(--neutro-600);
+  --fondo:var(--neutro-050);
+  --superficie:var(--neutro-000);
+  --borde:var(--neutro-300);
+
+  --radio:14px;
+  --radio-sm:8px;
+  --sombra:0 2px 4px rgba(28,42,18,.05), 0 12px 28px rgba(28,42,18,.07);
+  --max:1180px;
+  --fuente:"Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ---------- RESET ---------- */
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;overflow-x:hidden;font-family:var(--fuente);color:var(--texto);background:var(--fondo);line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--verde-600);text-decoration:none}
+h1,h2,h3,h4{line-height:1.2;margin:0 0 .5em;font-weight:800;letter-spacing:-.01em}
+p{margin:0 0 1em}
+
+/* ---------- UTILIDADES ---------- */
+.contenedor{width:100%;max-width:var(--max);margin-inline:auto;padding-inline:20px}
+.seccion{padding-block:84px}
+.seccion--claro{background:var(--superficie)}
+.seccion--verde{background:var(--verde-900);color:var(--neutro-100)}
+.seccion--verde h2,.seccion--verde h3{color:#fff}
+.etiqueta{display:inline-block;font-size:.75rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--naranja-500);margin-bottom:.6em}
+.seccion--verde .etiqueta{color:var(--naranja-300)}
+.titulo{font-size:clamp(1.7rem,3.6vw,2.5rem);margin-bottom:.4em}
+.entradilla{font-size:1.05rem;color:var(--texto-suave);max-width:70ch}
+.seccion--verde .entradilla{color:var(--verde-300)}
+.centrado{text-align:center}
+.centrado .entradilla{margin-inline:auto}
+.rejilla{display:grid;gap:26px}
+@media(min-width:760px){
+  .rejilla--2{grid-template-columns:repeat(2,1fr)}
+  .rejilla--3{grid-template-columns:repeat(3,1fr)}
+  .rejilla--4{grid-template-columns:repeat(2,1fr)}
+}
+@media(min-width:1040px){ .rejilla--4{grid-template-columns:repeat(4,1fr)} }
+
+.boton{display:inline-block;padding:14px 28px;border-radius:100px;font-weight:700;font-size:.98rem;transition:transform .18s ease, box-shadow .18s ease, background .18s ease}
+.boton:hover{transform:translateY(-2px)}
+.boton--primario{background:var(--naranja-500);color:#fff;box-shadow:0 8px 20px rgba(255,102,0,.28)}
+.boton--primario:hover{background:var(--naranja-700)}
+.boton--fantasma{border:2px solid rgba(255,255,255,.65);color:#fff}
+.boton--fantasma:hover{background:#fff;color:var(--verde-800)}
+.boton--verde{background:var(--verde-500);color:#fff}
+.boton--verde:hover{background:var(--verde-700)}
+
+/* ============================================================
+   MÓDULO 01 — CABECERA
+   ============================================================ */
+.cabecera{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--borde)}
+.cabecera__fila{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:12px}
+.cabecera__logo img{height:38px;width:auto}
+.nav{display:none;gap:26px;font-size:.94rem;font-weight:600}
+.nav a{color:var(--verde-800);position:relative;padding-block:4px}
+.nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--naranja-500);transition:width .2s ease}
+.nav a:hover::after{width:100%}
+@media(min-width:920px){ .nav{display:flex} }
+.cabecera .boton{padding:10px 20px;font-size:.9rem}
+
+/* ============================================================
+   MÓDULO 02 — HÉROE
+   ============================================================ */
+.heroe{position:relative;color:#fff;isolation:isolate}
+.heroe__media{position:absolute;inset:0;z-index:-2}
+.heroe__media img{width:100%;height:100%;object-fit:cover}
+.heroe::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(100deg, rgba(28,42,18,.94) 0%, rgba(44,66,32,.86) 45%, rgba(44,66,32,.45) 100%)}
+.heroe__cuerpo{padding-block:110px 96px;max-width:730px}
+.heroe h1{font-size:clamp(2.1rem,5.4vw,3.5rem);margin-bottom:.35em}
+.heroe h1 em{font-style:normal;color:var(--naranja-300)}
+.heroe p{font-size:1.12rem;color:#E3EAD9;max-width:60ch}
+.heroe__acciones{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+.heroe__sellos{display:flex;flex-wrap:wrap;gap:10px;margin-top:38px}
+.sello{font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  border:1px solid rgba(255,255,255,.35);border-radius:100px;padding:7px 15px;color:#fff}
+
+/* ============================================================
+   MÓDULO 03 — INDICADORES
+   ============================================================ */
+.indicadores{background:var(--verde-500);color:#fff}
+.indicadores .rejilla{gap:8px;padding-block:36px;text-align:center}
+.indicador__cifra{font-size:clamp(1.9rem,4vw,2.6rem);font-weight:800;line-height:1;color:#fff}
+.indicador__texto{font-size:.86rem;letter-spacing:.06em;text-transform:uppercase;color:#E4EFD8;font-weight:600}
+
+/* ============================================================
+   MÓDULO 04 — QUIÉNES SOMOS
+   ============================================================ */
+.dividido{display:grid;gap:44px;align-items:center}
+@media(min-width:900px){ .dividido{grid-template-columns:1.05fr 1fr} .dividido--invertido>*:first-child{order:2} }
+.marco{border-radius:var(--radio);overflow:hidden;box-shadow:var(--sombra)}
+.marco img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.lista-check{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:12px}
+.lista-check li{display:flex;gap:12px;align-items:flex-start;font-size:.98rem}
+.lista-check li::before{content:"";flex:0 0 9px;height:9px;margin-top:.55em;border-radius:50%;background:var(--naranja-500)}
+
+/* ============================================================
+   MÓDULO 05 — MISIÓN / VISIÓN
+   ============================================================ */
+.tarjeta{background:var(--superficie);border:1px solid var(--borde);border-radius:var(--radio);padding:32px;box-shadow:var(--sombra)}
+.seccion--verde .tarjeta{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.14);box-shadow:none}
+.tarjeta--acento{border-top:4px solid var(--naranja-500)}
+.tarjeta--verde{border-top:4px solid var(--verde-500)}
+.tarjeta h3{font-size:1.25rem}
+.tarjeta p:last-child{margin-bottom:0}
+
+/* ============================================================
+   MÓDULO 06 — VALORES
+   ============================================================ */
+.valor{background:var(--superficie);border:1px solid var(--borde);border-radius:var(--radio);padding:28px;transition:border-color .2s ease, transform .2s ease}
+.valor:hover{border-color:var(--verde-300);transform:translateY(-3px)}
+.valor__num{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:10px;
+  background:var(--verde-100);color:var(--verde-700);font-weight:800;font-size:.95rem;margin-bottom:14px}
+.valor:nth-child(3n+2) .valor__num{background:var(--naranja-100);color:var(--naranja-700)}
+.valor h3{font-size:1.02rem;letter-spacing:.02em;text-transform:uppercase}
+.valor p{font-size:.94rem;color:var(--texto-suave);margin:0}
+
+/* ============================================================
+   MÓDULO 07 — SERVICIOS
+   ============================================================ */
+.servicio{background:var(--superficie);border-radius:var(--radio);overflow:hidden;border:1px solid var(--borde);
+  display:flex;flex-direction:column;transition:transform .2s ease, box-shadow .2s ease}
+.servicio:hover{transform:translateY(-4px);box-shadow:var(--sombra)}
+.servicio img{aspect-ratio:16/10;object-fit:cover;width:100%}
+.servicio__cuerpo{padding:22px 24px 26px}
+.servicio h3{font-size:1.08rem;margin-bottom:.35em}
+.servicio p{font-size:.93rem;color:var(--texto-suave);margin:0}
+
+/* ============================================================
+   MÓDULO 08 — CERTIFICACIONES
+   ============================================================ */
+.cert{display:flex;gap:16px;align-items:flex-start;background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.14);border-radius:var(--radio);padding:24px}
+.cert__marca{flex:0 0 auto;font-size:.72rem;font-weight:800;letter-spacing:.08em;background:var(--naranja-500);
+  color:#fff;border-radius:var(--radio-sm);padding:8px 11px;text-transform:uppercase}
+.cert h3{font-size:1rem;margin-bottom:.25em}
+.cert p{font-size:.9rem;color:var(--verde-300);margin:0}
+
+/* ============================================================
+   MÓDULO 09 — SOSTENIBILIDAD
+   ============================================================ */
+.mosaico{display:grid;gap:20px}
+@media(min-width:820px){ .mosaico{grid-template-columns:repeat(3,1fr)} .mosaico__destacado{grid-column:span 2} }
+.mosaico figure{position:relative;margin:0;border-radius:var(--radio);overflow:hidden;min-height:250px;color:#fff}
+.mosaico img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.mosaico figcaption{position:relative;z-index:2;padding:26px;display:flex;flex-direction:column;justify-content:flex-end;min-height:250px;
+  background:linear-gradient(to top, rgba(28,42,18,.92) 8%, rgba(28,42,18,.15) 78%)}
+.mosaico h3{font-size:1.1rem;margin-bottom:.3em;color:#fff}
+.mosaico p{font-size:.9rem;margin:0;color:#DDE7D2}
+
+/* ============================================================
+   MÓDULO 10 — TALENTO HUMANO
+   ============================================================ */
+.talento__galeria{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.talento__galeria img{border-radius:var(--radio);aspect-ratio:1/1;object-fit:cover;width:100%}
+
+/* ============================================================
+   MÓDULO 11 — LLAMADO A LA ACCIÓN
+   ============================================================ */
+.cta{background:linear-gradient(115deg,var(--verde-700),var(--verde-500));color:#fff;text-align:center}
+.cta h2{font-size:clamp(1.6rem,3.4vw,2.3rem);color:#fff}
+.cta p{color:#E6F0DA;max-width:62ch;margin-inline:auto}
+
+/* ============================================================
+   MÓDULO 12 — CONTACTO
+   ============================================================ */
+.contacto__rejilla{display:grid;gap:20px}
+@media(min-width:760px){ .contacto__rejilla{grid-template-columns:repeat(3,1fr)} }
+.contacto__item{background:var(--superficie);border:1px solid var(--borde);border-radius:var(--radio);padding:26px;text-align:center}
+.contacto__item h3{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--naranja-500)}
+.contacto__item p{margin:0;font-size:1.02rem;font-weight:600;color:var(--verde-800);overflow-wrap:anywhere}
+.contacto__item p+p{margin-top:4px}
+
+/* ============================================================
+   MÓDULO 13 — PIE
+   ============================================================ */
+.pie{background:var(--neutro-900);color:var(--neutro-300);padding-block:44px;font-size:.9rem}
+.pie__fila{display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between}
+.pie img{height:42px}
+.pie a{color:var(--verde-300)}
+.pie__legal{font-size:.82rem;color:var(--neutro-600);margin-top:22px;border-top:1px solid #2B2E27;padding-top:18px}
+</style>
+</head>
+<body>
+
+<!-- ========== MÓDULO 01 · CABECERA ========== -->
+<header class="cabecera">
+  <div class="contenedor cabecera__fila">
+    <a class="cabecera__logo" href="#inicio"><img src="img/logo-mejia.png" alt="Especiales Mejía"></a>
+    <nav class="nav">
+      <a href="#nosotros">Nosotros</a>
+      <a href="#proposito">Propósito</a>
+      <a href="#valores">Valores</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#gestion">Certificaciones</a>
+      <a href="#sostenibilidad">Sostenibilidad</a>
+    </nav>
+    <a class="boton boton--primario" href="#contacto">Solicitar servicio</a>
+  </div>
+</header>
+
+<!-- ========== MÓDULO 02 · HÉROE ========== -->
+<section class="heroe" id="inicio">
+  <div class="heroe__media"><img src="img/hero-flota.jpg" alt="Flota de buses de Especiales Mejía"></div>
+  <div class="contenedor heroe__cuerpo">
+    <span class="etiqueta">Transportes Mejía S.A.S.</span>
+    <h1>Transporte especial de pasajeros con <em>más de 35 años</em> de experiencia</h1>
+    <p>Soluciones de movilidad empresarial y turística en el Valle del Cauca y el Cauca, con flota moderna, sistemas de gestión certificados y un compromiso real con la seguridad vial y el medio ambiente.</p>
+    <div class="heroe__acciones">
+      <a class="boton boton--primario" href="#contacto">Cotizar ahora</a>
+      <a class="boton boton--fantasma" href="#servicios">Ver servicios</a>
+    </div>
+    <div class="heroe__sellos">
+      <span class="sello">ISO 9001:2015</span>
+      <span class="sello">ISO 45001:2018</span>
+      <span class="sello">Euro 5 &amp; Euro 6</span>
+      <span class="sello">Energía solar</span>
+    </div>
+  </div>
+</section>
+
+<!-- ========== MÓDULO 03 · INDICADORES ========== -->
+<section class="indicadores">
+  <div class="contenedor">
+    <div class="rejilla rejilla--4">
+      <div><div class="indicador__cifra">35+</div><div class="indicador__texto">Años de experiencia</div></div>
+      <div><div class="indicador__cifra">2</div><div class="indicador__texto">Certificaciones ISO</div></div>
+      <div><div class="indicador__cifra">2</div><div class="indicador__texto">Departamentos atendidos</div></div>
+      <div><div class="indicador__cifra">100%</div><div class="indicador__texto">Flota Euro 5 / Euro 6</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== MÓDULO 04 · QUIÉNES SOMOS ========== -->
+<section class="seccion seccion--claro" id="nosotros">
+  <div class="contenedor dividido">
+    <div>
+      <span class="etiqueta">¿Quiénes somos?</span>
+      <h2 class="titulo">Una empresa construida sobre la confiabilidad</h2>
+      <p class="entradilla">Somos una empresa con más de 35 años de experiencia en el servicio de transporte especial de pasajeros. Contamos con sistemas de gestión certificados en calidad, garantizando la seguridad vial y el bienestar en SST, bajo el firme compromiso de ser una organización socialmente responsable y comprometida con el cuidado del medio ambiente.</p>
+      <ul class="lista-check">
+        <li>Servicio de transporte de empleados para el sector industrial en el Cauca y el Valle del Cauca.</li>
+        <li>Vehículos modernos y confortables, con mantenimiento propio y certificado.</li>
+        <li>Clientes de colegios, agencias de viajes, operadores turísticos y cajas de compensación.</li>
+      </ul>
+    </div>
+    <div class="marco"><img src="img/bus-natural.jpg" alt="Bus de Especiales Mejía en ruta"></div>
+  </div>
+</section>
+
+<!-- ========== MÓDULO 05 · MISIÓN, VISIÓN Y POLÍTICA ========== -->
+<section class="seccion seccion--verde" id="proposito">
+  <div class="contenedor">
+    <div class="centrado" style="margin-bottom:44px">
+      <span class="etiqueta">Nuestro propósito</span>
+      <h2 class="titulo">Misión, visión y política integral</h2>
+      <p class="entradilla">El marco que orienta cada decisión operativa y cada ruta que prestamos.</p>
+    </div>
+    <div class="rejilla rejilla--3">
+      <article class="tarjeta tarjeta--acento">
+        <h3>Nuestra misión</h3>
+        <p>Somos una empresa de transporte especial de pasajeros, comprometida con la ética, la sostenibilidad y el medio ambiente. Trabajamos para ofrecer servicios eficientes y seguros, orientados a satisfacer las necesidades de nuestros clientes y partes interesadas.</p>
+      </article>
+      <article class="tarjeta tarjeta--acento">
+        <h3>Nuestra visión</h3>
+        <p>Para 2030, seremos una empresa reconocida por la generación de soluciones de movilidad empresarial y turística, proporcionando un transporte especial seguro y de calidad, creciendo a través del desarrollo de nuevos negocios de manera sostenible y rentable.</p>
+      </article>
+      <article class="tarjeta tarjeta--acento">
+        <h3>Política integral</h3>
+        <p>En Transportes Mejía S.A.S prestamos servicios de transporte especial de pasajeros comprometidos con la satisfacción de nuestros clientes, la seguridad de las personas, la protección del medio ambiente, la sostenibilidad y el cumplimiento de los requisitos legales y organizacionales aplicables.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== MÓDULO 06 · VALORES CORPORATIVOS ========== -->
+<section class="seccion" id="valores">
+  <div class="contenedor">
+    <div class="centrado" style="margin-bottom:44px">
+      <span class="etiqueta">Valores corporativos</span>
+      <h2 class="titulo">Seis principios que sostienen la operación</h2>
+    </div>
+    <div class="rejilla rejilla--3">
+      <article class="valor"><span class="valor__num">01</span><h3>Confiabilidad</h3><p>Cumplimos rigurosamente con cada requerimiento, respaldados por más de 35 años de experiencia y calidad certificada.</p></article>
+      <article class="valor"><span class="valor__num">02</span><h3>Responsabilidad social y ambiental</h3><p>Operamos bajo prácticas éticas y transparentes que aportan al bienestar de nuestra comunidad y el entorno.</p></article>
+      <article class="valor"><span class="valor__num">03</span><h3>Seguridad</h3><p>Salvaguardamos la vida de nuestros pasajeros y el bienestar del equipo mediante estrictos estándares de SST y seguridad vial.</p></article>
+      <article class="valor"><span class="valor__num">04</span><h3>Respeto</h3><p>Valoramos a nuestros clientes, colaboradores y comunidad, garantizando un trato digno, transparente y con equidad.</p></article>
+      <article class="valor"><span class="valor__num">05</span><h3>Vocación de servicio</h3><p>Nos apasiona atender a nuestros usuarios, brindando soluciones de movilidad cómodas, amables y oportunas.</p></article>
+      <article class="valor"><span class="valor__num">06</span><h3>Trabajo en equipo</h3><p>Unimos esfuerzos, conocimientos y experiencia para asegurar el éxito, la sincronía y la excelencia en cada ruta.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== MÓDULO 07 · SERVICIOS ========== -->
+<section class="seccion seccion--claro" id="servicios">
+  <div class="contenedor">
+    <div class="centrado" style="margin-bottom:44px">
+      <span class="etiqueta">Nuestros servicios</span>
+      <h2 class="titulo">Movilidad para cada necesidad</h2>
+      <p class="entradilla">Prestamos el servicio con vehículos modernos y confortables en el departamento del Cauca y en el Valle del Cauca.</p>
+    </div>
+    <div class="rejilla rejilla--3">
+      <article class="servicio">
+        <img src="img/bus-frontal.jpg" alt="Transporte de personal">
+        <div class="servicio__cuerpo"><h3>Transporte de personal</h3><p>Rutas de empleados para empresas del sector industrial, con programación fija, control de operación y estándares de seguridad vial.</p></div>
+      </article>
+      <article class="servicio">
+        <img src="img/bus-lateral.jpg" alt="Transporte escolar">
+        <div class="servicio__cuerpo"><h3>Transporte escolar</h3><p>Servicio para colegios e instituciones educativas, con conductores capacitados y vehículos revisados diariamente.</p></div>
+      </article>
+      <article class="servicio">
+        <img src="img/bus-round.jpg" alt="Transporte turístico">
+        <div class="servicio__cuerpo"><h3>Turismo y convenios</h3><p>Atendemos agencias de viajes, operadores turísticos y cajas de compensación con flota confortable para recorridos largos.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== MÓDULO 08 · SISTEMAS DE GESTIÓN ========== -->
+<section class="seccion seccion--verde" id="gestion">
+  <div class="contenedor dividido dividido--invertido">
+    <div class="marco"><img src="img/flota.jpg" alt="Flota certificada de Especiales Mejía"></div>
+    <div>
+      <span class="etiqueta">Nuestros sistemas de gestión</span>
+      <h2 class="titulo">Excelencia operativa verificada</h2>
+      <p class="entradilla">Reconocemos que la excelencia operativa y la satisfacción del cliente son fundamentales para nuestro éxito. Por eso hemos implementado varios sistemas de gestión y actualmente estamos certificados en:</p>
+      <div class="rejilla" style="margin-top:26px">
+        <div class="cert"><span class="cert__marca">ISO</span><div><h3>ISO 9001:2015</h3><p>Sistema de gestión de la calidad.</p></div></div>
+        <div class="cert"><span class="cert__marca">ISO</span><div><h3>ISO 45001:2018</h3><p>Seguridad y salud en el trabajo.</p></div></div>
+        <div class="cert"><span class="cert__marca">Res.</span><div><h3>Estación de servicio</h3><p>Resoluciones 40405/2020 y 40198/2021.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== MÓDULO 09 · SOSTENIBILIDAD E INFRAESTRUCTURA ========== -->
+<section class="seccion" id="sostenibilidad">
+  <div class="contenedor">
+    <div class="centrado" style="margin-bottom:44px">
+      <span class="etiqueta">Gestión ambiental</span>
+      <h2 class="titulo">Infraestructura propia, operación sostenible</h2>
+    </div>
+    <div class="mosaico">
+      <figure class="mosaico__destacado">
+        <img src="img/solar.jpg" alt="Paneles solares en la sede de Especiales Mejía">
+        <figcaption><h3>Energía solar autónoma</h3><p>Incorporamos energía solar como fuente autónoma, reafirmando nuestro compromiso ambiental y garantizando un suministro sostenible que reduce la dependencia de fuentes tradicionales y ayuda a conservar los recursos naturales.</p></figcaption>
+      </figure>
+      <figure>
+        <img src="img/estacion.jpg" alt="Estación de servicio propia certificada">
+        <figcaption><h3>Estación de servicio propia</h3><p>Certificada, ratifica nuestro compromiso con las buenas prácticas ambientales.</p></figcaption>
+      </figure>
+      <figure>
+        <img src="img/mantenimiento.jpg" alt="Mantenimiento de flota">
+        <figcaption><h3>Mantenimiento en sede</h3><p>Control directo del estado de cada vehículo, garantizando confiabilidad y un servicio seguro.</p></figcaption>
+      </figure>
+      <figure class="mosaico__destacado">
+        <img src="img/bus-lateral.jpg" alt="Flota Euro 5 y Euro 6">
+        <figcaption><h3>Flota Euro 5 y Euro 6</h3><p>Alineados con las exigencias ambientales, disponemos de una flota de buses de última generación tecnológica que cumple estrictamente con las normativas Euro 5 y Euro 6, reduciendo la emisión de partículas y gases contaminantes.</p></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ========== MÓDULO 10 · TALENTO HUMANO ========== -->
+<section class="seccion seccion--claro" id="talento">
+  <div class="contenedor dividido">
+    <div>
+      <span class="etiqueta">Capacitación</span>
+      <h2 class="titulo">El talento humano es el motor de la seguridad</h2>
+      <p>Nuestra operación se fundamenta en el <strong>fortalecimiento continuo del talento humano</strong>. Gracias a convenios estratégicos con entidades líderes como el <strong>SENA, la Secretaría de Tránsito, nuestra ARL y compañías aseguradoras</strong>, garantizamos que nuestro equipo esté siempre a la vanguardia en normatividad, seguridad vial y servicio al cliente.</p>
+      <p>Priorizamos el bienestar humano como motor de la seguridad. Disponemos de <strong>orientación psicológica permanente</strong> para nuestro personal, asegurando un equipo de trabajo estable, confiable y enfocado en la excelencia del servicio.</p>
+    </div>
+    <div class="talento__galeria">
+      <img src="img/capacitacion.jpg" alt="Jornada de capacitación">
+      <img src="img/capacitacion2.jpg" alt="Formación en seguridad vial">
+      <img src="img/equipo.jpg" alt="Colaborador de Especiales Mejía">
+      <img src="img/equipo-grupo.jpg" alt="Equipo de conductores">
+    </div>
+  </div>
+</section>
+
+<!-- ========== MÓDULO 11 · LLAMADO A LA ACCIÓN ========== -->
+<section class="seccion cta">
+  <div class="contenedor">
+    <h2>¿Necesita movilizar a su equipo con seguridad?</h2>
+    <p>Comunícate con nosotros y descubre más sobre nuestros servicios. Estaremos atentos para atenderte.</p>
+    <p style="margin-top:26px"><a class="boton boton--primario" href="#contacto">Hablar con servicio al cliente</a></p>
+  </div>
+</section>
+
+<!-- ========== MÓDULO 12 · CONTACTO ========== -->
+<section class="seccion" id="contacto">
+  <div class="contenedor">
+    <div class="centrado" style="margin-bottom:40px">
+      <span class="etiqueta">Servicio al cliente</span>
+      <h2 class="titulo">Contáctanos</h2>
+    </div>
+    <div class="contacto__rejilla">
+      <div class="contacto__item">
+        <h3>Teléfonos</h3>
+        <p><a href="tel:+573135933550">313 593 3550</a></p>
+        <p><a href="tel:+573104419500">310 441 9500</a></p>
+      </div>
+      <div class="contacto__item">
+        <h3>Correo electrónico</h3>
+        <p><a href="mailto:pasajeros@transportesespecialesmejia.com">pasajeros@transportesespecialesmejia.com</a></p>
+      </div>
+      <div class="contacto__item">
+        <h3>Dirección</h3>
+        <p>Calle 44 N° 34C-33</p>
+        <p>Palmira, Valle — Colombia</p>
+      </div>
+    </div>
+    <p class="centrado" style="margin-top:34px"><a class="boton boton--verde" href="https://wa.me/573135933550" target="_blank" rel="noopener">Escribir por WhatsApp</a></p>
+  </div>
+</section>
+
+<!-- ========== MÓDULO 13 · PIE ========== -->
+<footer class="pie">
+  <div class="contenedor">
+    <div class="pie__fila">
+      <img src="img/logo.png" alt="Especiales Mejía">
+      <div>
+        <p style="margin:0">Transportes Mejía S.A.S. — Transporte especial de pasajeros</p>
+        <p style="margin:0">Calle 44 N° 34C-33, Palmira, Valle del Cauca, Colombia</p>
+      </div>
+      <div>
+        <p style="margin:0"><a href="tel:+573135933550">313 593 3550</a> / <a href="tel:+573104419500">310 441 9500</a></p>
+        <p style="margin:0"><a href="mailto:pasajeros@transportesespecialesmejia.com">pasajeros@transportesespecialesmejia.com</a></p>
+      </div>
+    </div>
+    <div class="pie__legal">© <span id="anio">2026</span> Transportes Mejía S.A.S. Todos los derechos reservados. · ISO 9001:2015 · ISO 45001:2018</div>
+  </div>
+  <script>document.getElementById('anio').textContent=new Date().getFullYear();</script>
+</footer>
+
+</body>
+</html>
