@@ -5,8 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Transportes Especiales Mejía S.A.S. | Transporte Especial de Pasajeros</title>
 <meta name="description" content="Transportes Especiales Mejía S.A.S. — Más de 35 años en transporte especial de pasajeros. Certificados ISO 9001, ISO 45001 y estación de servicio. Palmira, Valle del Cauca.">
-<link rel="icon" href="img/isotipo.png">
+<link rel="icon" href="../landing/img/isotipo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
+/* ============================================================
+   PROPUESTA V2 · CAPA DE MODERNIZACIÓN VISUAL
+   ------------------------------------------------------------
+   Esta hoja NO toca contenido, textos, estructura ni datos ya
+   aprobados por el cliente en v2.0 (ver CAMBIOS-v2.md). Solo
+   añade/ajusta estilo visual: tipografía, movimiento, profundidad
+   y detalles de interfaz. Todo lo nuevo respeta
+   prefers-reduced-motion y el sistema de color institucional.
+   ============================================================ */
 /* ============================================================
    SISTEMA DE COLOR v2.0 — verde institucional dominante
    ------------------------------------------------------------
@@ -50,8 +62,10 @@
 
   --radio:14px; --radio-sm:8px;
   --sombra:0 2px 4px rgba(44,66,32,.05), 0 12px 28px rgba(44,66,32,.08);
+  --sombra-hover:0 8px 16px rgba(44,66,32,.08), 0 24px 48px rgba(44,66,32,.16);
   --max:1180px;
-  --fuente:"Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --fuente:"Plus Jakarta Sans", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --fuente-titulo:"Manrope", "Plus Jakarta Sans", system-ui, sans-serif;
 }
 
 /* ---------- RESET ---------- */
@@ -71,7 +85,7 @@ section[id],footer[id]{scroll-margin-top:96px}
 body{margin:0;overflow-x:hidden;font-family:var(--fuente);color:var(--texto);background:var(--fondo);line-height:1.7;font-size:1.06rem;-webkit-font-smoothing:antialiased;text-wrap:pretty}
 img{max-width:100%;display:block}
 a{color:var(--verde-600);text-decoration:none}
-h1,h2,h3,h4{line-height:1.22;margin:0 0 .5em;font-weight:800;letter-spacing:-.01em;color:var(--verde-900)}
+h1,h2,h3,h4{font-family:var(--fuente-titulo);line-height:1.22;margin:0 0 .5em;font-weight:800;letter-spacing:-.015em;color:var(--verde-900)}
 p{margin:0 0 1em}
 
 /* ---------- UTILIDADES ---------- */
@@ -443,16 +457,143 @@ p{margin:0 0 1em}
 .con__cuerpo{min-width:0}
 .con .boton{margin-top:8px;min-height:44px;padding:10px 20px;font-size:.96rem}
 @media(max-width:419px){ .con{flex-direction:column;align-items:flex-start} }
+
+/* ============================================================
+   PROPUESTA V2 · MEJORA 1 — Barra de progreso de scroll
+   ============================================================ */
+.progreso{position:fixed;top:0;left:0;height:3px;width:0%;z-index:80;
+ background:linear-gradient(90deg,var(--naranja-500),var(--verde-400));transition:width .1s linear}
+
+/* ============================================================
+   PROPUESTA V2 · MEJORA 2 — Cabecera dinámica (se contrae al bajar)
+   ============================================================ */
+.cabecera{transition:box-shadow .25s ease, padding .25s ease}
+.cabecera.contraida{box-shadow:0 4px 24px rgba(44,66,32,.1)}
+.cabecera.contraida .cabecera__logo img{height:36px;transition:height .25s ease}
+.cabecera__logo img{transition:height .25s ease}
+
+/* ============================================================
+   PROPUESTA V2 · MEJORA 3 — Revelado progresivo al hacer scroll
+   ============================================================ */
+.aparece{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.aparece.visible{opacity:1;transform:translateY(0)}
+.aparece-grupo .aparece:nth-child(1){transition-delay:.05s}
+.aparece-grupo .aparece:nth-child(2){transition-delay:.12s}
+.aparece-grupo .aparece:nth-child(3){transition-delay:.19s}
+.aparece-grupo .aparece:nth-child(4){transition-delay:.26s}
+.aparece-grupo .aparece:nth-child(5){transition-delay:.33s}
+.aparece-grupo .aparece:nth-child(6){transition-delay:.4s}
+@media(prefers-reduced-motion:reduce){ .aparece{opacity:1;transform:none;transition:none} }
+
+/* ============================================================
+   PROPUESTA V2 · MEJORA 4 — Fondos decorativos sutiles
+   ============================================================ */
+.seccion{position:relative}
+.seccion--claro::before,.seccion--suave::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+ background:radial-gradient(560px 320px at 92% -6%, rgba(103,148,62,.07), transparent 65%),
+            radial-gradient(420px 260px at 4% 106%, rgba(194,78,0,.05), transparent 60%)}
+.seccion--claro>.contenedor,.seccion--suave>.contenedor{position:relative;z-index:1}
+
+/* ============================================================
+   PROPUESTA V2 · MEJORA 5 — Divisores orgánicos entre secciones
+   ============================================================ */
+.ola{display:block;width:100%;height:64px;margin-bottom:-1px}
+.ola path{fill:var(--fondo)}
+.heroe .ola{position:absolute;left:0;right:0;bottom:-1px;z-index:1;height:56px}
+.heroe .ola path{fill:var(--n050)}
+@media(min-width:760px){ .ola{height:84px} .heroe .ola{height:72px} }
+
+/* ============================================================
+   PROPUESTA V2 · MEJORA 6 — Héroe: tarjeta flotante de indicadores
+   (sustituye visualmente la banda plana de indicadores por una
+   tarjeta que se superpone al borde de la imagen del héroe)
+   ============================================================ */
+.heroe{padding-bottom:34px}
+.heroe__flotante{position:relative;z-index:2;margin-top:-64px}
+@media(min-width:760px){ .heroe__flotante{margin-top:-46px} }
+.heroe__tarjeta{background:rgba(255,255,255,.97);backdrop-filter:blur(14px);border-radius:var(--radio);
+ box-shadow:0 20px 48px rgba(20,30,12,.28);display:grid;grid-template-columns:repeat(3,1fr);overflow:hidden}
+.heroe__dato{padding:20px 14px;text-align:center;border-right:1px solid var(--verde-100)}
+.heroe__dato:last-child{border-right:none}
+.heroe__dato b{display:block;font-family:var(--fuente-titulo);font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:800;color:var(--verde-700);line-height:1}
+.heroe__dato span{display:block;margin-top:4px;font-size:.86rem;font-weight:700;color:var(--texto-suave)}
+.indicadores{display:none}
+
+/* ============================================================
+   PROPUESTA V2 · MEJORA 7 — Zoom suave de imágenes en tarjetas
+   ============================================================ */
+.servicio,.bus,.marco{overflow:hidden}
+.servicio img,.bus img,.marco img{transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.servicio:hover img,.bus:hover img,.marco:hover img{transform:scale(1.06)}
+.mosaico figure img{transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.mosaico figure:hover img{transform:scale(1.08)}
+.valor__img{transition:transform .4s ease}
+.valor:hover .valor__img{transform:scale(1.05) rotate(-1deg)}
+
+/* ============================================================
+   PROPUESTA V2 · MEJORA 8 — Iconografía con resplandor degradado
+   ============================================================ */
+.pilar__disco{position:relative}
+.pilar__disco::before{content:"";position:absolute;inset:-6px;border-radius:50%;z-index:-1;opacity:0;
+ background:radial-gradient(circle, rgba(103,148,62,.35), transparent 70%);transition:opacity .25s ease}
+.pilar:nth-child(2n) .pilar__disco::before{background:radial-gradient(circle, rgba(194,78,0,.3), transparent 70%)}
+.pilar:hover .pilar__disco::before{opacity:1}
+.chapa{position:relative;box-shadow:0 6px 16px rgba(15,74,46,.1)}
+
+/* ============================================================
+   PROPUESTA V2 · MEJORA 9 — Contador animado en cifras clave
+   ============================================================ */
+.heroe__dato b.contando,.indicador__cifra.contando{font-variant-numeric:tabular-nums}
+
+/* ============================================================
+   PROPUESTA V2 · MEJORA 10 — Botón flotante de WhatsApp
+   ============================================================ */
+.wa-flotante{position:fixed;right:20px;bottom:20px;z-index:70;width:58px;height:58px;border-radius:50%;
+ background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(20,60,20,.32);
+ transition:transform .2s ease,box-shadow .2s ease}
+.wa-flotante:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 14px 32px rgba(20,60,20,.4)}
+.wa-flotante svg{width:28px;height:28px;fill:#fff}
+.wa-flotante::before{content:"";position:absolute;inset:0;border-radius:50%;background:#25D366;opacity:.55;
+ animation:pulso-wa 2.6s ease-out infinite}
+@keyframes pulso-wa{0%{transform:scale(1);opacity:.5}100%{transform:scale(1.9);opacity:0}}
+@media(prefers-reduced-motion:reduce){ .wa-flotante::before{animation:none;display:none} }
+
+/* ============================================================
+   PROPUESTA V2 · MEJORA 11 — Botón "volver arriba"
+   ============================================================ */
+.arriba{position:fixed;right:20px;bottom:88px;z-index:70;width:44px;height:44px;border-radius:50%;
+ background:var(--superficie);border:1px solid var(--borde);box-shadow:var(--sombra);display:flex;align-items:center;
+ justify-content:center;opacity:0;pointer-events:none;transform:translateY(8px);
+ transition:opacity .25s ease,transform .25s ease}
+.arriba.visible{opacity:1;pointer-events:auto;transform:translateY(0)}
+.arriba svg{width:20px;height:20px;stroke:var(--verde-700);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.arriba:hover{border-color:var(--verde-500)}
+
+/* ============================================================
+   PROPUESTA V2 · MEJORA 12 — Acento de borde en tarjetas al hover
+   ============================================================ */
+.tarjeta,.pol,.den,.horario,.hor,.politica,.contacto__item{position:relative}
+.tarjeta,.pol,.hor{transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.tarjeta:hover,.pol:hover,.hor:hover{border-color:var(--verde-400);box-shadow:var(--sombra-hover);transform:translateY(-3px)}
+
+/* ============================================================
+   PROPUESTA V2 · MEJORA 13 — Botones con leve profundidad extra
+   ============================================================ */
+.boton--primario{background:linear-gradient(135deg,var(--naranja-btn),var(--naranja-btn-h))}
+.boton--verde{background:linear-gradient(135deg,var(--verde-500),var(--verde-700))}
+.boton:active{transform:translateY(0)}
 </style>
 </head>
 <body>
+
+<div class="progreso" id="progreso" aria-hidden="true"></div>
 
 <a class="saltar" href="#inicio">Saltar al contenido</a>
 
 <!-- ========== MÓDULO 01 · CABECERA ========== -->
 <header class="cabecera">
   <div class="contenedor cabecera__fila">
-    <a class="cabecera__logo" href="#inicio"><img src="img/logo-alta.png" alt="Transportes Especiales Mejía S.A.S."></a>
+    <a class="cabecera__logo" href="#inicio"><img src="../landing/img/logo-alta.png" alt="Transportes Especiales Mejía S.A.S."></a>
     <nav class="nav">
       <a href="#inicio">Inicio</a>
       <a href="#nosotros">Nosotros</a>
@@ -480,7 +621,7 @@ p{margin:0 0 1em}
 
 <!-- ========== MÓDULO 02 · HÉROE ========== -->
 <section class="heroe" id="inicio">
-  <div class="heroe__media"><img src="img/hero-bus1000.jpg" alt="Bus de Transportes Especiales Mejía S.A.S."></div>
+  <div class="heroe__media"><img src="../landing/img/hero-bus1000.jpg" alt="Bus de Transportes Especiales Mejía S.A.S."></div>
   <div class="contenedor heroe__cuerpo">
     <span class="razon">Transportes Especiales Mejía S.A.S.</span>
     <h1>Transporte especial de pasajeros con <em>más de 35 años</em> de experiencia</h1>
@@ -495,7 +636,17 @@ p{margin:0 0 1em}
       <span class="sello">Estación de servicio certificada</span>
     </div>
   </div>
+  <svg class="ola" viewBox="0 0 1200 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0,40 C300,90 900,-10 1200,40 L1200,80 L0,80 Z"/></svg>
 </section>
+
+<!-- ========== MÓDULO 04 · INDICADORES (propuestaV2: tarjeta flotante sobre el héroe; mismos 3 datos aprobados) ========== -->
+<div class="contenedor heroe__flotante">
+  <div class="heroe__tarjeta" id="tarjetaIndicadores">
+    <div class="heroe__dato"><b data-cuenta="35" data-sufijo="+">0</b><span>Años de experiencia</span></div>
+    <div class="heroe__dato"><b data-cuenta="3">0</b><span>Certificaciones vigentes</span></div>
+    <div class="heroe__dato"><b data-cuenta="3">0</b><span>Capacidades de vehículo</span></div>
+  </div>
+</div>
 
 <!-- ========== MÓDULO 03 · ¿POR QUÉ CONFIAR EN NOSOTROS? ========== -->
 <section class="seccion seccion--claro pilares" id="confianza">
@@ -547,7 +698,7 @@ p{margin:0 0 1em}
         <li>Clientes de colegios, agencias de viajes, operadores turísticos y cajas de compensación.</li>
       </ul>
     </div>
-    <div class="marco"><img src="img/bus-1000.jpg" alt="Bus 1000 de Transportes Especiales Mejía S.A.S."></div>
+    <div class="marco"><img src="../landing/img/bus-1000.jpg" alt="Bus 1000 de Transportes Especiales Mejía S.A.S."></div>
   </div>
 </section>
 
@@ -584,12 +735,12 @@ p{margin:0 0 1em}
       <h2 class="titulo">Seis principios que sostienen la operación</h2>
     </div>
     <div class="rejilla rejilla--3">
-      <article class="valor"><img class="valor__img" src="img/valores/01-confiabilidad.jpg" alt="" width="320" height="320" loading="lazy"><h3>Confiabilidad</h3><p>Cumplimos rigurosamente con cada requerimiento, respaldados por más de 35 años de experiencia y calidad certificada.</p></article>
-      <article class="valor"><img class="valor__img" src="img/valores/02-responsabilidad-social-ambiental.jpg" alt="" width="320" height="320" loading="lazy"><h3>Responsabilidad social y ambiental</h3><p>Operamos bajo prácticas éticas y transparentes que aportan al bienestar de nuestra comunidad y el entorno.</p></article>
-      <article class="valor"><img class="valor__img" src="img/valores/03-seguridad.jpg" alt="" width="320" height="320" loading="lazy"><h3>Seguridad</h3><p>Salvaguardamos la vida de nuestros pasajeros y el bienestar del equipo mediante estrictos estándares de SST y seguridad vial.</p></article>
-      <article class="valor"><img class="valor__img" src="img/valores/04-respeto.jpg" alt="" width="320" height="320" loading="lazy"><h3>Respeto</h3><p>Valoramos a nuestros clientes, colaboradores y comunidad, garantizando un trato digno, transparente y con equidad.</p></article>
-      <article class="valor"><img class="valor__img" src="img/valores/05-vocacion-de-servicio.jpg" alt="" width="320" height="320" loading="lazy"><h3>Vocación de servicio</h3><p>Nos apasiona atender a nuestros usuarios, brindando soluciones de movilidad cómodas, amables y oportunas.</p></article>
-      <article class="valor"><img class="valor__img" src="img/valores/06-trabajo-en-equipo.jpg" alt="" width="320" height="320" loading="lazy"><h3>Trabajo en equipo</h3><p>Unimos esfuerzos, conocimientos y experiencia para asegurar el éxito, la sincronía y la excelencia en cada ruta.</p></article>
+      <article class="valor"><img class="valor__img" src="../landing/img/valores/01-confiabilidad.jpg" alt="" width="320" height="320" loading="lazy"><h3>Confiabilidad</h3><p>Cumplimos rigurosamente con cada requerimiento, respaldados por más de 35 años de experiencia y calidad certificada.</p></article>
+      <article class="valor"><img class="valor__img" src="../landing/img/valores/02-responsabilidad-social-ambiental.jpg" alt="" width="320" height="320" loading="lazy"><h3>Responsabilidad social y ambiental</h3><p>Operamos bajo prácticas éticas y transparentes que aportan al bienestar de nuestra comunidad y el entorno.</p></article>
+      <article class="valor"><img class="valor__img" src="../landing/img/valores/03-seguridad.jpg" alt="" width="320" height="320" loading="lazy"><h3>Seguridad</h3><p>Salvaguardamos la vida de nuestros pasajeros y el bienestar del equipo mediante estrictos estándares de SST y seguridad vial.</p></article>
+      <article class="valor"><img class="valor__img" src="../landing/img/valores/04-respeto.jpg" alt="" width="320" height="320" loading="lazy"><h3>Respeto</h3><p>Valoramos a nuestros clientes, colaboradores y comunidad, garantizando un trato digno, transparente y con equidad.</p></article>
+      <article class="valor"><img class="valor__img" src="../landing/img/valores/05-vocacion-de-servicio.jpg" alt="" width="320" height="320" loading="lazy"><h3>Vocación de servicio</h3><p>Nos apasiona atender a nuestros usuarios, brindando soluciones de movilidad cómodas, amables y oportunas.</p></article>
+      <article class="valor"><img class="valor__img" src="../landing/img/valores/06-trabajo-en-equipo.jpg" alt="" width="320" height="320" loading="lazy"><h3>Trabajo en equipo</h3><p>Unimos esfuerzos, conocimientos y experiencia para asegurar el éxito, la sincronía y la excelencia en cada ruta.</p></article>
     </div>
   </div>
 </section>
@@ -604,15 +755,15 @@ p{margin:0 0 1em}
     </div>
     <div class="rejilla rejilla--3">
       <article class="servicio">
-        <img src="img/flota-40pax.jpg" alt="Transporte de personal">
+        <img src="../landing/img/flota-40pax.jpg" alt="Transporte de personal">
         <div class="servicio__cuerpo"><h3>Transporte de personal</h3><p>Rutas de empleados para empresas del sector industrial, con programación fija, control de operación y estándares de seguridad vial.</p></div>
       </article>
       <article class="servicio">
-        <img src="img/flota-buseta.jpg" alt="Transporte escolar">
+        <img src="../landing/img/flota-buseta.jpg" alt="Transporte escolar">
         <div class="servicio__cuerpo"><h3>Transporte escolar</h3><p>Servicio para colegios e instituciones educativas, con conductores capacitados y vehículos revisados diariamente.</p></div>
       </article>
       <article class="servicio">
-        <img src="img/flota-30pax.jpg" alt="Transporte turístico">
+        <img src="../landing/img/flota-30pax.jpg" alt="Transporte turístico">
         <div class="servicio__cuerpo"><h3>Turismo y convenios</h3><p>Atendemos agencias de viajes, operadores turísticos y cajas de compensación con flota confortable para recorridos largos.</p></div>
       </article>
     </div>
@@ -629,15 +780,15 @@ p{margin:0 0 1em}
     </div>
     <div class="rejilla rejilla--3">
       <article class="bus">
-        <img src="img/flota-40pax.jpg" alt="Bus de 40 pasajeros">
+        <img src="../landing/img/flota-40pax.jpg" alt="Bus de 40 pasajeros">
         <div class="bus__cuerpo"><span class="bus__cap">40 pasajeros</span><h3>Bus</h3><p>Configuración de mayor capacidad, indicada para rutas de personal y traslados de grupos grandes.</p></div>
       </article>
       <article class="bus">
-        <img src="img/flota-30pax.jpg" alt="Bus de 30 pasajeros">
+        <img src="../landing/img/flota-30pax.jpg" alt="Bus de 30 pasajeros">
         <div class="bus__cuerpo"><span class="bus__cap">30 pasajeros</span><h3>Bus</h3><p>Capacidad intermedia, adecuada para recorridos escolares y turísticos de grupo medio.</p></div>
       </article>
       <article class="bus">
-        <img src="img/flota-buseta.jpg" alt="Buseta de 20 pasajeros">
+        <img src="../landing/img/flota-buseta.jpg" alt="Buseta de 20 pasajeros">
         <div class="bus__cuerpo"><span class="bus__cap">20 pasajeros</span><h3>Buseta</h3><p>Vehículo ágil para grupos reducidos, traslados ejecutivos y recorridos urbanos.</p></div>
       </article>
     </div>
@@ -647,15 +798,15 @@ p{margin:0 0 1em}
 <!-- ========== MÓDULO 10 · SISTEMAS DE GESTIÓN ========== -->
 <section class="seccion seccion--verde" id="gestion">
   <div class="contenedor dividido dividido--invertido">
-    <div class="marco"><img src="img/bus-1010.jpg" alt="Bus 1010 de la flota"></div>
+    <div class="marco"><img src="../landing/img/bus-1010.jpg" alt="Bus 1010 de la flota"></div>
     <div>
       <span class="etiqueta">Nuestros sistemas de gestión</span>
       <h2 class="titulo">Excelencia operativa verificada</h2>
       <p class="entradilla justificado">Reconocemos que la excelencia operativa y la satisfacción del cliente son fundamentales para nuestro éxito. Por eso hemos implementado varios sistemas de gestión y actualmente estamos certificados en:</p>
       <div class="rejilla" style="margin-top:26px">
-        <div class="cert"><img class="cert__img" src="img/gestion/iso-9001.jpg" alt="" width="320" height="320" loading="lazy"><div><h3>ISO 9001</h3><p>Sistema de gestión de la calidad.</p></div></div>
-        <div class="cert"><img class="cert__img" src="img/gestion/iso-45001.jpg" alt="" width="320" height="320" loading="lazy"><div><h3>ISO 45001</h3><p>Seguridad y salud en el trabajo.</p></div></div>
-        <div class="cert"><img class="cert__img" src="img/gestion/estacion-servicio.jpg" alt="" width="320" height="320" loading="lazy"><div><h3>Estación de servicio</h3><p>Resoluciones 40405/2020 y 40198/2021.</p></div></div>
+        <div class="cert"><img class="cert__img" src="../landing/img/gestion/iso-9001.jpg" alt="" width="320" height="320" loading="lazy"><div><h3>ISO 9001</h3><p>Sistema de gestión de la calidad.</p></div></div>
+        <div class="cert"><img class="cert__img" src="../landing/img/gestion/iso-45001.jpg" alt="" width="320" height="320" loading="lazy"><div><h3>ISO 45001</h3><p>Seguridad y salud en el trabajo.</p></div></div>
+        <div class="cert"><img class="cert__img" src="../landing/img/gestion/estacion-servicio.jpg" alt="" width="320" height="320" loading="lazy"><div><h3>Estación de servicio</h3><p>Resoluciones 40405/2020 y 40198/2021.</p></div></div>
       </div>
     </div>
   </div>
@@ -670,19 +821,19 @@ p{margin:0 0 1em}
     </div>
     <div class="mosaico">
       <figure class="mosaico__destacado">
-        <img src="img/solar.jpg" alt="Paneles solares en la sede">
+        <img src="../landing/img/solar.jpg" alt="Paneles solares en la sede">
         <figcaption><h3>Energía solar</h3><p>Incorporamos energía solar en nuestra sede, reafirmando nuestro compromiso ambiental y garantizando un suministro sostenible que reduce la dependencia de fuentes tradicionales y ayuda a conservar los recursos naturales.</p></figcaption>
       </figure>
       <figure>
-        <img src="img/estacion.jpg" alt="Estación de servicio propia">
+        <img src="../landing/img/estacion.jpg" alt="Estación de servicio propia">
         <figcaption><h3>Estación de servicio propia</h3><p>Certificada, ratifica nuestro compromiso con las buenas prácticas ambientales.</p></figcaption>
       </figure>
       <figure>
-        <img src="img/mantenimiento.jpg" alt="Mantenimiento de flota en sede">
+        <img src="../landing/img/mantenimiento.jpg" alt="Mantenimiento de flota en sede">
         <figcaption><h3>Seguridad y confianza en ruta</h3><p>Control total de nuestra flota, tranquilidad total para tu negocio.</p></figcaption>
       </figure>
       <figure class="mosaico__destacado">
-        <img src="img/bus-1000.jpg" alt="Flota de última generación tecnológica">
+        <img src="../landing/img/bus-1000.jpg" alt="Flota de última generación tecnológica">
         <figcaption><h3>Flota de última generación</h3><p>Alineados con las exigencias ambientales, renovamos nuestra flota con vehículos de última generación tecnológica que reducen la emisión de partículas y gases contaminantes.</p></figcaption>
       </figure>
     </div>
@@ -848,7 +999,7 @@ p{margin:0 0 1em}
       <article class="con"><div class="chapa"><svg class="ilu" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="58" rx="17" ry="2.6" fill="#D3EEDD" opacity=".55"/><rect x="18" y="4" width="28" height="50" rx="6" fill="#0F4A2E"/><rect x="21.5" y="10" width="21" height="36" rx="2" fill="#D3EEDD"/><rect x="28" y="6.4" width="8" height="1.8" rx=".9" fill="#1F6B45"/><circle cx="32" cy="50" r="2" fill="#6CB294"/><path d="M27 21h3l1.4 3.6-1.7 1.1a8 8 0 003.6 3.6l1.1-1.7 3.6 1.4v3a1 1 0 01-1 1A11.5 11.5 0 0126 22a1 1 0 011-1z" fill="#1F6B45"/><circle cx="46" cy="14" r="7" fill="#E8792F"/><path d="M43 14h6M46 11v6" stroke="#FFFFFF" stroke-width="0"/><circle cx="43.4" cy="14" r="1.2" fill="#FFFFFF"/><circle cx="46" cy="14" r="1.2" fill="#FFFFFF"/><circle cx="48.6" cy="14" r="1.2" fill="#FFFFFF"/></svg></div><div class="con__cuerpo">
         <h3>Teléfonos</h3>
         <p><a href="tel:+573135933550">313 593 3550</a></p><p><a href="tel:+573104419500">310 441 9500</a></p></div></article>
-      <article class="con"><div class="chapa chapa--foto"><img src="img/contacto/whatsapp.png" alt="" width="256" height="256" loading="lazy"></div><div class="con__cuerpo">
+      <article class="con"><div class="chapa chapa--foto"><img src="../landing/img/contacto/whatsapp.png" alt="" width="256" height="256" loading="lazy"></div><div class="con__cuerpo">
         <h3>WhatsApp</h3>
         <p><a href="https://wa.me/573135933550" target="_blank" rel="noopener">313 593 3550</a></p>
         <a class="boton boton--verde" href="https://wa.me/573135933550" target="_blank" rel="noopener">Escribir ahora</a></div></article>
@@ -867,7 +1018,7 @@ p{margin:0 0 1em}
   <div class="contenedor">
     <div class="pie__fila">
       <div>
-        <img src="img/logo.png" alt="Transportes Especiales Mejía S.A.S.">
+        <img src="../landing/img/logo.png" alt="Transportes Especiales Mejía S.A.S.">
         <p style="margin:18px 0 0">Transportes Especiales Mejía S.A.S.</p>
         <p style="margin:0">Calle 44 N.° 34C-33, Palmira, Valle del Cauca, Colombia</p>
       </div>
@@ -896,8 +1047,78 @@ p{margin:0 0 1em}
   </div>
 </footer>
 
+<a class="wa-flotante" href="https://wa.me/573135933550" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.7.44 3.36 1.28 4.82L2 22l5.4-1.42a9.88 9.88 0 004.64 1.18h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.64-1.03-5.13-2.9-7-1.87-1.87-4.35-2.85-6.02-2.85zm0 18.13h-.01a8.2 8.2 0 01-4.18-1.15l-.3-.18-3.11.82.83-3.03-.2-.31a8.2 8.2 0 01-1.26-4.37c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 012.41 5.83c0 4.55-3.7 8.21-8.26 8.21zm4.52-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.78.97-.14.17-.29.19-.53.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.48-1.39-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.36-.77-1.86-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08s.9 2.42 1.02 2.58c.12.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.59.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.28z"/></svg>
+</a>
+<button class="arriba" id="btnArriba" type="button" aria-label="Volver arriba">
+  <svg viewBox="0 0 24 24"><path d="M12 19V5"/><path d="M6 11l6-6 6 6"/></svg>
+</button>
+
 <script>
 document.getElementById('anio').textContent = new Date().getFullYear();
+
+/* PROPUESTA V2 — barra de progreso, cabecera dinámica, botón "arriba" */
+(function () {
+  var barra = document.getElementById('progreso');
+  var cab = document.querySelector('.cabecera');
+  var arriba = document.getElementById('btnArriba');
+  function onScroll() {
+    var alto = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    var pos = window.scrollY || document.documentElement.scrollTop;
+    barra.style.width = (alto > 0 ? (pos / alto) * 100 : 0) + '%';
+    cab.classList.toggle('contraida', pos > 12);
+    arriba.classList.toggle('visible', pos > 480);
+  }
+  document.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+  arriba.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: document.documentElement.style.scrollBehavior === 'auto' ? 'auto' : 'smooth' });
+  });
+})();
+
+/* PROPUESTA V2 — revelado progresivo de secciones al hacer scroll */
+(function () {
+  var objetivos = document.querySelectorAll('.seccion .contenedor > *, .heroe__flotante');
+  if (!('IntersectionObserver' in window)) { return; }
+  objetivos.forEach(function (el) { el.classList.add('aparece'); });
+  var obs = new IntersectionObserver(function (entradas) {
+    entradas.forEach(function (en) {
+      if (en.isIntersecting) { en.target.classList.add('visible'); obs.unobserve(en.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+  objetivos.forEach(function (el) { obs.observe(el); });
+})();
+
+/* PROPUESTA V2 — contador animado en la tarjeta de cifras del héroe */
+(function () {
+  var cifras = document.querySelectorAll('[data-cuenta]');
+  if (!cifras.length) { return; }
+  var reducido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function anima(el) {
+    var meta = parseInt(el.getAttribute('data-cuenta'), 10);
+    var sufijo = el.getAttribute('data-sufijo') || '';
+    if (reducido) { el.textContent = meta + sufijo; return; }
+    var inicio = null, dur = 1100;
+    function paso(t) {
+      if (!inicio) inicio = t;
+      var p = Math.min(1, (t - inicio) / dur);
+      var f = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(f * meta) + sufijo;
+      if (p < 1) requestAnimationFrame(paso);
+    }
+    requestAnimationFrame(paso);
+  }
+  if ('IntersectionObserver' in window) {
+    var obs2 = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (en) {
+        if (en.isIntersecting) { anima(en.target); obs2.unobserve(en.target); }
+      });
+    }, { threshold: 0.6 });
+    cifras.forEach(function (el) { obs2.observe(el); });
+  } else {
+    cifras.forEach(anima);
+  }
+})();
 var btn = document.getElementById('menuBtn'), nav = document.getElementById('navMovil');
 btn.addEventListener('click', function () {
   var abierto = nav.classList.toggle('abierto');
