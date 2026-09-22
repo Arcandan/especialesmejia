@@ -243,6 +243,10 @@ p{margin:0 0 1em}
  border:1px solid rgba(255,255,255,.4);border-radius:var(--radio);padding:24px}
 .cert__marca{flex:0 0 auto;font-size:.8rem;font-weight:800;background:var(--naranja-500);color:#fff;
  border-radius:var(--radio-sm);padding:8px 12px}
+.cert__img{flex:0 0 auto;width:86px;height:86px;border-radius:20px;background:#fff;padding:5px;object-fit:contain}
+@media(max-width:519px){ .cert__img{width:72px;height:72px} }
+.chapa--foto{background:#fff;padding:6px}
+.chapa--foto img{width:100%;height:100%;object-fit:contain}
 .cert h3{font-size:1.14rem;margin-bottom:.25em;color:#fff}
 .cert p{font-size:1rem;color:#F1F7EA;margin:0}
 
@@ -649,9 +653,9 @@ p{margin:0 0 1em}
       <h2 class="titulo">Excelencia operativa verificada</h2>
       <p class="entradilla justificado">Reconocemos que la excelencia operativa y la satisfacción del cliente son fundamentales para nuestro éxito. Por eso hemos implementado varios sistemas de gestión y actualmente estamos certificados en:</p>
       <div class="rejilla" style="margin-top:26px">
-        <div class="cert"><span class="cert__marca">ISO</span><div><h3>ISO 9001</h3><p>Sistema de gestión de la calidad.</p></div></div>
-        <div class="cert"><span class="cert__marca">ISO</span><div><h3>ISO 45001</h3><p>Seguridad y salud en el trabajo.</p></div></div>
-        <div class="cert"><span class="cert__marca">Res.</span><div><h3>Estación de servicio</h3><p>Resoluciones 40405/2020 y 40198/2021.</p></div></div>
+        <div class="cert"><img class="cert__img" src="img/gestion/iso-9001.jpg" alt="" width="320" height="320" loading="lazy"><div><h3>ISO 9001</h3><p>Sistema de gestión de la calidad.</p></div></div>
+        <div class="cert"><img class="cert__img" src="img/gestion/iso-45001.jpg" alt="" width="320" height="320" loading="lazy"><div><h3>ISO 45001</h3><p>Seguridad y salud en el trabajo.</p></div></div>
+        <div class="cert"><img class="cert__img" src="img/gestion/estacion-servicio.jpg" alt="" width="320" height="320" loading="lazy"><div><h3>Estación de servicio</h3><p>Resoluciones 40405/2020 y 40198/2021.</p></div></div>
       </div>
     </div>
   </div>
@@ -844,7 +848,7 @@ p{margin:0 0 1em}
       <article class="con"><div class="chapa"><svg class="ilu" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="58" rx="17" ry="2.6" fill="#D3EEDD" opacity=".55"/><rect x="18" y="4" width="28" height="50" rx="6" fill="#0F4A2E"/><rect x="21.5" y="10" width="21" height="36" rx="2" fill="#D3EEDD"/><rect x="28" y="6.4" width="8" height="1.8" rx=".9" fill="#1F6B45"/><circle cx="32" cy="50" r="2" fill="#6CB294"/><path d="M27 21h3l1.4 3.6-1.7 1.1a8 8 0 003.6 3.6l1.1-1.7 3.6 1.4v3a1 1 0 01-1 1A11.5 11.5 0 0126 22a1 1 0 011-1z" fill="#1F6B45"/><circle cx="46" cy="14" r="7" fill="#E8792F"/><path d="M43 14h6M46 11v6" stroke="#FFFFFF" stroke-width="0"/><circle cx="43.4" cy="14" r="1.2" fill="#FFFFFF"/><circle cx="46" cy="14" r="1.2" fill="#FFFFFF"/><circle cx="48.6" cy="14" r="1.2" fill="#FFFFFF"/></svg></div><div class="con__cuerpo">
         <h3>Teléfonos</h3>
         <p><a href="tel:+573135933550">313 593 3550</a></p><p><a href="tel:+573104419500">310 441 9500</a></p></div></article>
-      <article class="con"><div class="chapa"><svg class="ilu" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="58" rx="17" ry="2.6" fill="#D3EEDD" opacity=".55"/><path d="M32 6a23 23 0 00-19.8 34.7L9 54l13.7-3.1A23 23 0 1032 6z" fill="#0F4A2E"/><path d="M32 11a18 18 0 00-15.3 27.5l-2.1 7.2 7.5-2A18 18 0 1032 11z" fill="#FFFFFF"/><path d="M24.5 21.5c.6-1.4 1.3-1.5 2.4-1.5.5 0 1 .1 1.4 1l1.8 4.2c.2.6 0 1.1-.3 1.5l-1.2 1.5c-.3.3-.3.7-.1 1a14 14 0 006.2 5.6c.4.2.8.1 1-.2l1.5-1.8c.4-.5.9-.5 1.4-.3l4 1.9c.6.3.8.7.7 1.3-.3 2.3-2.4 3.8-4.4 3.9-3 .2-6.8-1.3-10.1-4.6-3.3-3.3-5-7-4.7-9.9.1-.9.5-1.9 1.4-3.6z" fill="#1F6B45"/><circle cx="49" cy="13" r="6" fill="#E8792F"/></svg></div><div class="con__cuerpo">
+      <article class="con"><div class="chapa chapa--foto"><img src="img/contacto/whatsapp.png" alt="" width="256" height="256" loading="lazy"></div><div class="con__cuerpo">
         <h3>WhatsApp</h3>
         <p><a href="https://wa.me/573135933550" target="_blank" rel="noopener">313 593 3550</a></p>
         <a class="boton boton--verde" href="https://wa.me/573135933550" target="_blank" rel="noopener">Escribir ahora</a></div></article>
