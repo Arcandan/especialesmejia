@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anexo técnico 04 · Landing page Transportes Especiales Mejía</title>
+<style>
+:root{--v9:#2C4220;--v8:#3C5A2A;--v7:#4E7533;--v5:#67943E;--v2:#C6DEAE;--v1:#E5F3D9;--v0:#F2F8EC;
+--ntx:#B84A00;--nbt:#C24E00;--n1:#FFEEE0;--g6:#5F6358;--fondo:#FAFAF7;
+--f:"Segoe UI",system-ui,-apple-system,Arial,sans-serif;--m:Consolas,"SF Mono",monospace}
+*,*::before,*::after{box-sizing:border-box}
+html{overflow-x:hidden}
+body{margin:0;overflow-x:hidden;font-family:var(--f);color:var(--v9);background:var(--fondo);line-height:1.7;font-size:1.04rem}
+img{max-width:100%;display:block}
+h1,h2,h3,h4{line-height:1.25;margin:0 0 .5em;font-weight:800;color:var(--v9)}
+p{margin:0 0 1em}
+a{color:var(--v7)}
+code{font-family:var(--m);font-size:.9em;background:var(--v0);padding:1px 5px;border-radius:4px}
+.wrap{max-width:1000px;margin-inline:auto;padding-inline:22px}
+.portada{background:linear-gradient(120deg,var(--v9),var(--v7));color:#fff;padding-block:68px 58px}
+.portada h1{font-size:clamp(1.8rem,4.2vw,2.7rem);color:#fff;margin-bottom:.25em}
+.portada .sub{color:#E8F3DC;font-size:1.08rem;max-width:66ch}
+.portada .meta{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px}
+.chip{display:inline-block;border:1px solid rgba(255,255,255,.5);border-radius:100px;padding:6px 14px;font-size:.84rem;font-weight:700;color:#fff}
+.indice{background:#fff;border-bottom:1px solid var(--v2);padding-block:30px}
+.indice ol{margin:0;padding-left:1.3em;font-size:1rem}
+.indice li{margin-bottom:5px}
+.bloque{padding-block:52px;border-bottom:1px solid var(--v2)}
+.bloque:nth-of-type(even){background:#fff}
+.kicker{display:inline-block;font-size:1.15rem;font-weight:800;color:var(--ntx);margin-bottom:.2em}
+.h2{font-size:clamp(1.45rem,3vw,2rem)}
+.bloque h3{font-size:1.15rem;margin-top:1.4em}
+.intro{color:var(--v7);max-width:72ch}
+.lista{padding-left:1.3em;margin:0 0 1.2em}
+.lista li{margin-bottom:7px}
+table{width:100%;border-collapse:collapse;font-size:.96rem;margin-bottom:18px}
+th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--v2);vertical-align:top}
+th{background:var(--v1);font-size:.86rem;color:var(--v8)}
+.tabla-scroll{overflow-x:auto}
+.nota{border-left:4px solid var(--nbt);background:var(--n1);border-radius:0 8px 8px 0;padding:14px 18px;font-size:.98rem}
+.nota strong{color:#A84300}
+.modulo{background:#fff;border:1px solid var(--v2);border-radius:14px;overflow:hidden;margin-bottom:30px;
+ box-shadow:0 1px 2px rgba(44,66,32,.04),0 10px 24px rgba(44,66,32,.06)}
+.modulo__cab{display:flex;flex-wrap:wrap;align-items:center;gap:14px;padding:16px 24px;background:var(--v7);color:#fff}
+.modulo__id{width:42px;height:42px;border-radius:10px;background:var(--nbt);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800}
+.modulo__cab h3{margin:0;font-size:1.2rem;color:#fff}
+.fase{margin-left:auto;font-size:.86rem;font-weight:700;background:rgba(0,0,0,.2);border-radius:100px;padding:4px 12px}
+.modulo__cuerpo{padding:22px 24px 6px}
+.campo h4{font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ntx);margin-bottom:.45em}
+.campo ul{margin:0 0 18px;padding-left:1.15em}
+.campo li{margin-bottom:5px}
+.campo p{margin:0 0 18px}
+.dos{display:grid;gap:0 26px}
+@media(min-width:780px){.dos{grid-template-columns:1fr 1fr}}
+.ref{margin:0;background:var(--v0);border-top:1px solid var(--v2);padding:18px 24px}
+.ref img{width:100%;border:1px solid var(--v2);border-radius:8px}
+.ref figcaption{font-size:.84rem;color:var(--g6);margin-top:8px}
+.docpie{background:var(--v9);color:var(--v2);padding-block:32px;font-size:.92rem}
+.docpie code{background:rgba(255,255,255,.12);color:var(--v1)}
+@media print{.modulo{break-inside:avoid;box-shadow:none}.portada{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<header class="portada"><div class="wrap">
+<span class="chip">Anexo técnico 04</span>
+<h1>Landing page Transportes Especiales Mejía S.A.S.</h1>
+<p class="sub">Descripción del proyecto, su contexto, y la organización del contenido aprobado en dieciocho secciones, con la función y la justificación de cada una.</p>
+<div class="meta"><span class="chip">Contenido y diseño aprobados</span><span class="chip">Versión 3.2</span><span class="chip">18 secciones</span></div>
+</div></header>
+<nav class="indice"><div class="wrap"><ol>
+<li><a href="#proyecto">Descripción y función del proyecto</a></li>
+<li><a href="#contexto">Contexto</a></li>
+<li><a href="#estructura">Organización del contenido</a></li>
+<li><a href="#secciones">Las dieciocho secciones</a></li>
+<li><a href="#pendientes">Contenido pendiente del cliente</a></li>
+</ol></div></nav>
+<section class="bloque" id="proyecto"><div class="wrap">
+<span class="kicker">1</span><h2 class="h2">Descripción y función del proyecto</h2>
+<p><strong>Qué es.</strong> Una página web de una sola vista (<em>landing page</em>) para Transportes Especiales Mejía S.A.S., empresa de transporte especial de pasajeros con sede en Palmira, Valle del Cauca, y más de 35 años de trayectoria.</p>
+<p><strong>Qué función cumple.</strong> La página tiene cuatro funciones:</p>
+<ol class="lista">
+<li><strong>Presentar</strong> a la empresa ante clientes corporativos, instituciones educativas y operadores turísticos.</li>
+<li><strong>Demostrar</strong> su solvencia con datos verificables: trayectoria, certificaciones, flota e infraestructura propia.</li>
+<li><strong>Publicar</strong> el marco de cumplimiento que exige la ley y los procesos de contratación: políticas corporativas y canal de denuncias.</li>
+<li><strong>Recibir</strong> contactos comerciales, solicitudes de PQRS y postulaciones de empleo.</li>
+</ol>
+<p><strong>Formato técnico.</strong> Un único archivo HTML con estilos y funciones incluidos, sin dependencias externas. Se adapta a celular, tableta y computador. Cumple el nivel AA de las pautas de accesibilidad WCAG en contraste de color y tamaño de áreas táctiles.</p>
+<div class="nota"><strong>Estado.</strong> El contenido y el diseño están aprobados. El formulario de postulación funciona como demostración: valida, simula el envío y confirma con número de radicado, pero todavía no transmite los datos. Se activa al conectar el canal de recepción.</div>
+</div></section>
+<section class="bloque" id="contexto"><div class="wrap">
+<span class="kicker">2</span><h2 class="h2">Contexto</h2>
+<h3>Punto de partida</h3>
+<p>La empresa entregó una presentación institucional («Información TEM — Página WEB», doce diapositivas) y su logotipo. De ahí se extrajeron los textos de misión, visión, política, valores, certificaciones, gestión ambiental, talento humano y contacto, y las primeras fotografías.</p>
+<h3>Desarrollo por rondas</h3>
+<div class="tabla-scroll"><table>
+<thead><tr><th>Versión</th><th>Origen</th><th>Resultado</th></tr></thead>
+<tbody>
+<tr><td><strong>1.0</strong></td><td>Presentación institucional</td><td>Primera propuesta en trece secciones.</td></tr>
+<tr><td><strong>2.0</strong></td><td>Primera ronda: quince observaciones del cliente, documento de información adicional, fotografías de flota</td><td>Corrección de la razón social, verde institucional, tres certificaciones. Nuevas secciones: pilares, flota, políticas, canal de denuncias, trabaja con nosotros, horarios. Retiro de fotografías de personas.</td></tr>
+<tr><td><strong>2.1</strong></td><td>Decisión sobre capacidades</td><td>Se adoptan las capacidades del documento de información: 40, 30 y 20 pasajeros.</td></tr>
+<tr><td><strong>3.0</strong></td><td>Segunda ronda: dieciséis observaciones del cliente y revisión de accesibilidad</td><td>Tipografía ampliada, colores con contraste suficiente, nuevos nombres en sostenibilidad, retiro de la afirmación sobre Euro 5 y Euro 6.</td></tr>
+<tr><td><strong>3.1</strong></td><td>Definición del formulario como demostración</td><td>Envío simulado con confirmación. <strong>Contenido aprobado.</strong></td></tr>
+<tr><td><strong>3.2</strong></td><td>Fase de diseño, sin cambios de contenido</td><td>Ilustraciones en valores corporativos. Iconografía ilustrada y distribución sin espacios vacíos en políticas, canal de denuncias, horarios y contacto. Código QR real. Horario en vivo. Se retiran los indicadores de documento pendiente. <strong>Diseño aprobado.</strong></td></tr>
+</tbody></table></div>
+<h3>Identidad visual</h3>
+<p>Los colores de la página provienen del logotipo y del membrete corporativo: verde institucional <code>#67943E</code> y naranja institucional <code>#FF6600</code>. Para que los textos se lean con claridad, el naranja de los textos y botones usa tonos más profundos de la misma familia (<code>#B84A00</code> y <code>#C24E00</code>); el naranja original se conserva en elementos decorativos.</p>
+<p>Las ilustraciones e íconos usan una paleta complementaria de la misma familia: verde bosque <code>#0F4A2E</code>, esmeralda <code>#1F6B45</code>, menta <code>#6CB294</code>, menta pálida <code>#D3EEDD</code> y el naranja <code>#E8792F</code> como acento. Todos son decorativos: los textos conservan los colores con contraste verificado.</p>
+</div></section>
+<section class="bloque" id="estructura"><div class="wrap">
+<span class="kicker">3</span><h2 class="h2">Organización del contenido</h2>
+<p>Las dieciocho secciones siguen el orden en que un posible cliente evalúa a un proveedor de transporte. Cada grupo responde una pregunta distinta, y cada grupo se apoya en el anterior: la oferta llega después de la credibilidad, y el contacto después de la evidencia.</p>
+<div class="tabla-scroll"><table>
+<thead><tr><th>Fase</th><th>Secciones</th><th>Pregunta que responde</th></tr></thead>
+<tbody><tr><td><strong>Orientación</strong></td><td>01</td><td>Saber dónde está y cómo moverse</td></tr><tr><td><strong>Atracción</strong></td><td>02–04</td><td>¿Quiénes son y por qué me interesan?</td></tr><tr><td><strong>Credibilidad</strong></td><td>05–07</td><td>¿Puedo confiar en ellos?</td></tr><tr><td><strong>Oferta</strong></td><td>08–09</td><td>¿Tienen lo que necesito?</td></tr><tr><td><strong>Prueba</strong></td><td>10–11</td><td>¿Cómo lo demuestran?</td></tr><tr><td><strong>Cumplimiento</strong></td><td>12–13</td><td>¿Operan bajo normas claras?</td></tr><tr><td><strong>Conversión</strong></td><td>14–17</td><td>¿Cómo me comunico con ellos?</td></tr><tr><td><strong>Cierre</strong></td><td>18</td><td>Datos formales de la empresa</td></tr></tbody></table></div>
+<p>Los fondos alternan entre blanco, verde suave y verde institucional. El cambio de fondo marca el paso de una sección a otra, y el verde institucional sólido se reserva para las franjas que interrumpen el ritmo a propósito: indicadores, certificaciones y llamado a la acción.</p>
+</div></section>
+<section class="bloque" id="secciones"><div class="wrap"><span class="kicker">4</span><h2 class="h2">Las dieciocho secciones</h2><p class="intro">Cada ficha indica el contenido de la sección, la función que cumple dentro de la página y la justificación de su existencia.</p>
+<article class="modulo" id="s01">
+<div class="modulo__cab"><span class="modulo__id">01</span><h3>Cabecera</h3><span class="fase">Orientación</span></div>
+<div class="modulo__cuerpo">
+<div class="campo"><h4>Contenido</h4><ul><li>Logotipo institucional en alta resolución, enlazado al inicio.</li><li>Menú de seis entradas en el orden definido por el cliente: Inicio, Nosotros, Servicios, Políticas, Contacto, Trabaja con nosotros.</li><li>Botón «Solicitar servicio».</li><li>En pantallas menores a 1180 px, menú desplegable con ocho entradas que añade Flota y Canal de denuncias.</li></ul></div>
+<div class="dos">
+<div class="campo"><h4>Función</h4><p>Permanece fija en la parte superior durante todo el recorrido. Indica dónde está el visitante y le da acceso a cualquier sección en un solo clic.</p></div>
+<div class="campo"><h4>Justificación</h4><p>En una página única el visitante pierde la referencia de estructura al desplazarse. La cabecera fija resuelve la orientación y mantiene el botón de contacto siempre disponible, que es la acción que la página busca provocar.</p></div>
+</div></div>
+<figure class="ref"><img src="img/m01.jpg" alt="Sección 01: Cabecera" loading="lazy"><figcaption>Sección 01 en la versión aprobada.</figcaption></figure>
+</article>
+<article class="modulo" id="s02">
+<div class="modulo__cab"><span class="modulo__id">02</span><h3>Héroe</h3><span class="fase">Atracción</span></div>
+<div class="modulo__cuerpo">
+<div class="campo"><h4>Contenido</h4><ul><li>Razón social: Transportes Especiales Mejía S.A.S.</li><li>Titular: «Transporte especial de pasajeros con más de 35 años de experiencia».</li><li>Párrafo de alcance: aliado estratégico en transporte empresarial, turístico y escolar.</li><li>Dos botones: «Cotizar ahora» y «Ver servicios».</li><li>Tres sellos: ISO 9001, ISO 45001 y Estación de servicio certificada.</li><li>Fotografía de fondo del bus 1000.</li></ul></div>
+<div class="dos">
+<div class="campo"><h4>Función</h4><p>Declara en la primera pantalla quién es la empresa, qué hace y cuánto tiempo lleva haciéndolo, y ofrece dos caminos según la intención del visitante.</p></div>
+<div class="campo"><h4>Justificación</h4><p>Es lo único que todos los visitantes ven. El dato más fuerte y verificable de la empresa —su trayectoria— se coloca en el titular. Los sellos anticipan las certificaciones que la sección 10 desarrolla.</p></div>
+</div></div>
+<figure class="ref"><img src="img/m02.jpg" alt="Sección 02: Héroe" loading="lazy"><figcaption>Sección 02 en la versión aprobada.</figcaption></figure>
+</article>
+<article class="modulo" id="s03">
+<div class="modulo__cab"><span class="modulo__id">03</span><h3>¿Por qué confiar en nosotros?</h3><span class="fase">Atracción</span></div>
+<div class="modulo__cuerpo">
+<div class="campo"><h4>Contenido</h4><ul><li>Frase de entrada: «Somos un aliado estratégico en el transporte empresarial, turístico y escolar que marca la diferencia por nuestra:».</li><li>Cuatro pilares con ícono y descripción breve: Seguridad, Tecnología, Confort y Calidad.</li><li>Discos de color alternando verde y naranja institucional.</li></ul></div>
+<div class="dos">
+<div class="campo"><h4>Función</h4><p>Resume en cuatro palabras los argumentos de valor de la empresa, antes de cualquier texto largo.</p></div>
+<div class="campo"><h4>Justificación</h4><p>Fue solicitada expresamente por el cliente con una referencia visual. Responde a la pregunta que un prospecto se hace inmediatamente después del héroe, en un formato que se lee de un vistazo.</p></div>
+</div></div>
+<figure class="ref"><img src="img/m03.jpg" alt="Sección 03: ¿Por qué confiar en nosotros?" loading="lazy"><figcaption>Sección 03 en la versión aprobada.</figcaption></figure>
+</article>
+<article class="modulo" id="s04">
+<div class="modulo__cab"><span class="modulo__id">04</span><h3>Indicadores</h3><span class="fase">Atracción</span></div>
+<div class="modulo__cuerpo">
+<div class="campo"><h4>Contenido</h4><ul><li>35+ años de experiencia.</li><li>3 certificaciones vigentes.</li><li>3 capacidades de vehículo.</li></ul></div>
+<div class="dos">
+<div class="campo"><h4>Función</h4><p>Convierte atributos de la empresa en cifras y separa visualmente la zona de apertura del cuerpo de la página.</p></div>
+<div class="campo"><h4>Justificación</h4><p>Las cifras se retienen mejor que los adjetivos. Solo se publican datos verificables: se retiró el indicador de departamentos atendidos a pedido del cliente y el de flota Euro 5 y Euro 6 porque el cliente indicó que no era exacto.</p></div>
+</div></div>
+<figure class="ref"><img src="img/m04.jpg" alt="Sección 04: Indicadores" loading="lazy"><figcaption>Sección 04 en la versión aprobada.</figcaption></figure>
+</article>
+<article class="modulo" id="s05">
+<div class="modulo__cab"><span class="modulo__id">05</span><h3>¿Quiénes somos?</h3><span class="fase">Credibilidad</span></div>
+<div class="modulo__cuerpo">
+<div class="campo"><h4>Contenido</h4><ul><li>Texto institucional: más de 35 años de experiencia, sistemas de gestión certificados, seguridad vial y bienestar en SST, responsabilidad social y ambiental.</li><li>Tres viñetas: transporte de empleados del sector industrial; vehículos modernos con mantenimiento propio y certificado; clientes entre colegios, agencias de viajes, operadores turísticos y cajas de compensación.</li><li>Fotografía del bus 1000.</li></ul></div>
+<div class="dos">
+<div class="campo"><h4>Función</h4><p>Presenta a la empresa con el texto institucional completo y delimita el tipo de cliente que atiende.</p></div>
+<div class="campo"><h4>Justificación</h4><p>Un prospecto necesita reconocerse en la lista de clientes para seguir leyendo. El texto proviene literalmente de la presentación institucional entregada por la empresa.</p></div>
+</div></div>
+<figure class="ref"><img src="img/m05.jpg" alt="Sección 05: ¿Quiénes somos?" loading="lazy"><figcaption>Sección 05 en la versión aprobada.</figcaption></figure>
+</article>
+<article class="modulo" id="s06">
+<div class="modulo__cab"><span class="modulo__id">06</span><h3>Misión, visión y política integral</h3><span class="fase">Credibilidad</span></div>
+<div class="modulo__cuerpo">
+<div class="campo"><h4>Contenido</h4><ul><li>Misión.</li><li>Visión 2030.</li><li>Política integral, con la razón social Transportes Especiales Mejía S.A.S.</li></ul></div>
+<div class="dos">
+<div class="campo"><h4>Función</h4><p>Publica los enunciados formales que exigen los sistemas de gestión certificados.</p></div>
+<div class="campo"><h4>Justificación</h4><p>Son textos normativos: se reproducen sin adaptación editorial. Los compradores corporativos y los procesos de contratación los consultan como parte de la evaluación de proveedores.</p></div>
+</div></div>
+<figure class="ref"><img src="img/m06.jpg" alt="Sección 06: Misión, visión y política integral" loading="lazy"><figcaption>Sección 06 en la versión aprobada.</figcaption></figure>
+</article>
+<article class="modulo" id="s07">
+<div class="modulo__cab"><span class="modulo__id">07</span><h3>Valores corporativos</h3><span class="fase">Credibilidad</span></div>
+<div class="modulo__cuerpo">
+<div class="campo"><h4>Contenido</h4><ul><li>Seis valores numerados: Confiabilidad, Responsabilidad social y ambiental, Seguridad, Respeto, Vocación de servicio y Trabajo en equipo.</li><li>Cada uno con su definición.</li><li>Una ilustración por valor, en la paleta verde bosque, menta y naranja.</li></ul></div>
+<div class="dos">
+<div class="campo"><h4>Función</h4><p>Traduce la cultura de la empresa en seis compromisos concretos.</p></div>
+<div class="campo"><h4>Justificación</h4><p>Forma parte del marco institucional de la presentación. Cada valor lleva una ilustración propia en lugar de los emoticones del documento original, que se muestran de forma distinta en cada sistema operativo. Las ilustraciones hacen reconocible cada valor antes de leerlo.</p></div>
+</div></div>
+<figure class="ref"><img src="img/m07.jpg" alt="Sección 07: Valores corporativos" loading="lazy"><figcaption>Sección 07 en la versión aprobada.</figcaption></figure>
+</article>
+<article class="modulo" id="s08">
+<div class="modulo__cab"><span class="modulo__id">08</span><h3>Nuestros servicios</h3><span class="fase">Oferta</span></div>
+<div class="modulo__cuerpo">
+<div class="campo"><h4>Contenido</h4><ul><li>Transporte de personal: rutas de empleados para empresas del sector industrial.</li><li>Transporte escolar: colegios e instituciones educativas.</li><li>Turismo y convenios: agencias de viajes, operadores turísticos y cajas de compensación.</li><li>Una fotografía de flota por servicio.</li></ul></div>
+<div class="dos">
+<div class="campo"><h4>Función</h4><p>Segmenta la oferta en tres líneas para que cada visitante identifique la que le corresponde.</p></div>
+<div class="campo"><h4>Justificación</h4><p>Es la sección comercial central. Se ubica después de las secciones de identidad porque la oferta se evalúa mejor cuando la credibilidad ya está establecida.</p></div>
+</div></div>
+<figure class="ref"><img src="img/m08.jpg" alt="Sección 08: Nuestros servicios" loading="lazy"><figcaption>Sección 08 en la versión aprobada.</figcaption></figure>
+</article>
+<article class="modulo" id="s09">
+<div class="modulo__cab"><span class="modulo__id">09</span><h3>Nuestra flota</h3><span class="fase">Oferta</span></div>
+<div class="modulo__cuerpo">
+<div class="campo"><h4>Contenido</h4><ul><li>Entradilla: «Contamos con buses con diferentes capacidades».</li><li>Bus de 40 pasajeros.</li><li>Bus de 30 pasajeros.</li><li>Buseta de 20 pasajeros.</li><li>Fotografías entregadas por el cliente.</li></ul></div>
+<div class="dos">
+<div class="campo"><h4>Función</h4><p>Muestra los vehículos disponibles y su capacidad para que el cliente dimensione el servicio según el tamaño de su grupo.</p></div>
+<div class="campo"><h4>Justificación</h4><p>Fue solicitada por el cliente. La capacidad es el primer dato que compara un comprador de transporte. Las cifras siguen el documento de información entregado por la empresa.</p></div>
+</div></div>
+<figure class="ref"><img src="img/m09.jpg" alt="Sección 09: Nuestra flota" loading="lazy"><figcaption>Sección 09 en la versión aprobada.</figcaption></figure>
+</article>
+<article class="modulo" id="s10">
+<div class="modulo__cab"><span class="modulo__id">10</span><h3>Sistemas de gestión</h3><span class="fase">Prueba</span></div>
+<div class="modulo__cuerpo">
+<div class="campo"><h4>Contenido</h4><ul><li>Texto sobre excelencia operativa.</li><li>Tres certificaciones: ISO 9001 (calidad), ISO 45001 (seguridad y salud en el trabajo) y Estación de servicio (Resoluciones 40405/2020 y 40198/2021).</li><li>Fotografía del bus 1010.</li><li>En preparación: una ilustración por certificación, en el estilo de los valores (prompts en Diseño/prompts-imagenes-sistemas-gestion.md).</li></ul></div>
+<div class="dos">
+<div class="campo"><h4>Función</h4><p>Presenta las certificaciones vigentes con su designación.</p></div>
+<div class="campo"><h4>Justificación</h4><p>Para un cliente corporativo la certificación es un requisito de proveedor. Esta sección convierte en información verificable los sellos anunciados en el héroe.</p></div>
+</div></div>
+<figure class="ref"><img src="img/m10.jpg" alt="Sección 10: Sistemas de gestión" loading="lazy"><figcaption>Sección 10 en la versión aprobada.</figcaption></figure>
+</article>
+<article class="modulo" id="s11">
+<div class="modulo__cab"><span class="modulo__id">11</span><h3>Sostenibilidad en movimiento</h3><span class="fase">Prueba</span></div>
+<div class="modulo__cuerpo">
+<div class="campo"><h4>Contenido</h4><ul><li>Energía solar en la sede.</li><li>Estación de servicio propia certificada.</li><li>Seguridad y confianza en ruta: «Control total de nuestra flota, tranquilidad total para tu negocio».</li><li>Flota de última generación que reduce emisiones.</li><li>Mosaico de cuatro fotografías con texto superpuesto.</li></ul></div>
+<div class="dos">
+<div class="campo"><h4>Función</h4><p>Documenta la infraestructura propia de la empresa como ventaja operativa y ambiental.</p></div>
+<div class="campo"><h4>Justificación</h4><p>Diferencia a la empresa de competidores que subcontratan combustible y mantenimiento. Cada afirmación se acompaña de la fotografía que la respalda.</p></div>
+</div></div>
+<figure class="ref"><img src="img/m11.jpg" alt="Sección 11: Sostenibilidad en movimiento" loading="lazy"><figcaption>Sección 11 en la versión aprobada.</figcaption></figure>
+</article>
+<article class="modulo" id="s12">
+<div class="modulo__cab"><span class="modulo__id">12</span><h3>Políticas corporativas</h3><span class="fase">Cumplimiento</span></div>
+<div class="modulo__cuerpo">
+<div class="campo"><h4>Contenido</h4><ul><li>Política integrada de gestión.</li><li>Política de tratamiento de datos personales.</li><li>Términos y condiciones del servicio.</li><li>Política SARLAFT y PTEE.</li><li>Acceso destacado al canal de denuncias.</li><li>Un ícono ilustrado por política; distribución de tres tarjetas arriba y dos anchas abajo.</li></ul></div>
+<div class="dos">
+<div class="campo"><h4>Función</h4><p>Reúne en un solo lugar los documentos que rigen la operación de la empresa.</p></div>
+<div class="campo"><h4>Justificación</h4><p>Fue solicitada por el cliente. La política de datos es obligatoria por la Ley 1581 de 2012 desde que la página recibe datos personales, y SARLAFT y PTEE son requisitos de cumplimiento. El canal de denuncias se destaca en verde oscuro porque es la única tarjeta que lleva a otra sección. Cuando lleguen los documentos, cada tarjeta se enlaza a su archivo.</p></div>
+</div></div>
+<figure class="ref"><img src="img/m12.jpg" alt="Sección 12: Políticas corporativas" loading="lazy"><figcaption>Sección 12 en la versión aprobada.</figcaption></figure>
+</article>
+<article class="modulo" id="s13">
+<div class="modulo__cab"><span class="modulo__id">13</span><h3>Canal de denuncias</h3><span class="fase">Cumplimiento</span></div>
+<div class="modulo__cuerpo">
+<div class="campo"><h4>Contenido</h4><ul><li>Texto sobre el canal confidencial atendido por el oficial de cumplimiento.</li><li>Tres vías numeradas y de igual peso: formulario en línea, correo del oficial de cumplimiento y código QR.</li><li>Código QR generado a partir de la dirección del formulario; abre el formulario desde el celular.</li></ul></div>
+<div class="dos">
+<div class="campo"><h4>Función</h4><p>Ofrece un mecanismo confidencial para reportar conductas contrarias a las políticas de la empresa.</p></div>
+<div class="campo"><h4>Justificación</h4><p>Fue solicitada por el cliente como complemento de la política SARLAFT y PTEE, que exige un canal de reporte accesible. Las tres vías se presentan con el mismo peso para que la persona elija la que le resulte más cómoda, sin que una parezca la obligatoria.</p></div>
+</div></div>
+<figure class="ref"><img src="img/m13.jpg" alt="Sección 13: Canal de denuncias" loading="lazy"><figcaption>Sección 13 en la versión aprobada.</figcaption></figure>
+</article>
+<article class="modulo" id="s14">
+<div class="modulo__cab"><span class="modulo__id">14</span><h3>Trabaja con nosotros</h3><span class="fase">Conversión</span></div>
+<div class="modulo__cuerpo">
+<div class="campo"><h4>Contenido</h4><ul><li>Dos párrafos sobre formación del talento humano: convenios con el SENA, la Secretaría de Tránsito, la ARL y aseguradoras; orientación psicológica permanente.</li><li>Formulario: nombre completo, teléfono, celular, correo electrónico y hoja de vida adjunta.</li><li>Destino declarado: aux.rrhh@transportesespecialesmejia.com.</li><li>Confirmación con número de radicado y resumen de la postulación.</li></ul></div>
+<div class="dos">
+<div class="campo"><h4>Función</h4><p>Recibe hojas de vida de aspirantes y presenta a la empresa como empleador.</p></div>
+<div class="campo"><h4>Justificación</h4><p>Fue solicitada por el cliente. Además recoge el contenido de talento humano de la presentación, que ya no tiene fotografías de personas por la restricción de privacidad indicada por el cliente.</p></div>
+</div></div>
+<figure class="ref"><img src="img/m14.jpg" alt="Sección 14: Trabaja con nosotros" loading="lazy"><figcaption>Sección 14 en la versión aprobada.</figcaption></figure>
+</article>
+<article class="modulo" id="s15">
+<div class="modulo__cab"><span class="modulo__id">15</span><h3>Horarios de atención</h3><span class="fase">Conversión</span></div>
+<div class="modulo__cuerpo">
+<div class="campo"><h4>Contenido</h4><ul><li>Lunes y miércoles: 7:30 a. m. – 12:00 m. y 2:00 p. m. – 5:00 p. m.</li><li>Martes, jueves y viernes: 7:00 a. m. – 12:00 m. y 2:00 p. m. – 4:30 p. m.</li><li>Sábados: 8:00 a. m. – 12:00 m.</li><li>Franja semanal en cada tarjeta con los días que aplican.</li><li>Indicador en vivo «Abierto ahora» o «Cerrado», calculado con la hora de Colombia, y marca «Hoy» en la tarjeta del día.</li></ul></div>
+<div class="dos">
+<div class="campo"><h4>Función</h4><p>Indica cuándo puede el visitante comunicarse con la empresa y si puede hacerlo en este momento.</p></div>
+<div class="campo"><h4>Justificación</h4><p>Fue solicitada por el cliente. Se ubica justo antes del bloque de contacto. El indicador en vivo responde directamente la pregunta del visitante —¿me atienden ahora?— sin que tenga que cruzar el día y la hora con la tabla.</p></div>
+</div></div>
+<figure class="ref"><img src="img/m15.jpg" alt="Sección 15: Horarios de atención" loading="lazy"><figcaption>Sección 15 en la versión aprobada.</figcaption></figure>
+</article>
+<article class="modulo" id="s16">
+<div class="modulo__cab"><span class="modulo__id">16</span><h3>Llamado a la acción</h3><span class="fase">Conversión</span></div>
+<div class="modulo__cuerpo">
+<div class="campo"><h4>Contenido</h4><ul><li>Ícono de comunicación.</li><li>Pregunta: «¿Necesita movilizar a su equipo con seguridad?».</li><li>Invitación a comunicarse.</li><li>Botón «Hablar con servicio al cliente».</li></ul></div>
+<div class="dos">
+<div class="campo"><h4>Función</h4><p>Reúne al visitante que ya decidió y lo dirige al contacto con una sola acción posible.</p></div>
+<div class="campo"><h4>Justificación</h4><p>Se ubica después de toda la evidencia y antes de los datos de contacto. Contiene un solo botón porque ofrecer alternativas en el punto de decisión reduce la acción.</p></div>
+</div></div>
+<figure class="ref"><img src="img/m16.jpg" alt="Sección 16: Llamado a la acción" loading="lazy"><figcaption>Sección 16 en la versión aprobada.</figcaption></figure>
+</article>
+<article class="modulo" id="s17">
+<div class="modulo__cab"><span class="modulo__id">17</span><h3>Contacto y PQRS</h3><span class="fase">Conversión</span></div>
+<div class="modulo__cuerpo">
+<div class="campo"><h4>Contenido</h4><ul><li>Texto de PQRS: peticiones, quejas, reclamos y sugerencias.</li><li>Teléfonos: 313 593 3550 y 310 441 9500.</li><li>Correo: pasajeros@transportesespecialesmejia.com.</li><li>Dirección: Calle 44 N.° 34C-33, Palmira, Valle del Cauca.</li><li>WhatsApp: 313 593 3550, con botón directo.</li><li>Un ícono ilustrado por canal, a la izquierda del dato.</li></ul></div>
+<div class="dos">
+<div class="campo"><h4>Función</h4><p>Entrega todos los canales de contacto de la empresa, activos al toque desde el celular.</p></div>
+<div class="campo"><h4>Justificación</h4><p>Cada visitante elige el canal según su situación, por eso los cuatro tienen el mismo peso visual. La dirección física confirma que la empresa existe y opera en un lugar concreto.</p></div>
+</div></div>
+<figure class="ref"><img src="img/m17.jpg" alt="Sección 17: Contacto y PQRS" loading="lazy"><figcaption>Sección 17 en la versión aprobada.</figcaption></figure>
+</article>
+<article class="modulo" id="s18">
+<div class="modulo__cab"><span class="modulo__id">18</span><h3>Pie de página</h3><span class="fase">Cierre</span></div>
+<div class="modulo__cuerpo">
+<div class="campo"><h4>Contenido</h4><ul><li>Logotipo institucional ampliado.</li><li>Razón social y dirección.</li><li>Enlaces a las secciones.</li><li>Contacto con íconos: teléfonos, correo y WhatsApp.</li><li>Línea legal con año y certificaciones.</li></ul></div>
+<div class="dos">
+<div class="campo"><h4>Función</h4><p>Cierra la página con la identificación legal completa y una segunda vía de acceso a las secciones.</p></div>
+<div class="campo"><h4>Justificación</h4><p>Es el lugar donde el visitante busca por costumbre los datos formales de una empresa. Repite el contacto para quien llegó al final sin detenerse en la sección 17.</p></div>
+</div></div>
+<figure class="ref"><img src="img/m18.jpg" alt="Sección 18: Pie de página" loading="lazy"><figcaption>Sección 18 en la versión aprobada.</figcaption></figure>
+</article>
+</div></section>
+<section class="bloque" id="pendientes"><div class="wrap">
+<span class="kicker">5</span><h2 class="h2">Contenido pendiente del cliente</h2>
+<p>La versión aprobada deja cuatro elementos preparados en la página a la espera de material de la empresa. Ninguno requiere cambiar el diseño: basta con incorporar el archivo o el dato.</p>
+<div class="tabla-scroll"><table>
+<thead><tr><th>Elemento</th><th>Sección</th><th>Qué falta</th></tr></thead>
+<tbody>
+<tr><td>Cinco documentos de políticas</td><td>12</td><td>Los archivos de cada política</td></tr>
+<tr><td>Ilustraciones de certificaciones</td><td>10</td><td>Generar las tres imágenes con los prompts preparados</td></tr>
+<tr><td>Envío real de postulaciones</td><td>14</td><td>El canal de recepción que se contrate</td></tr>
+<tr><td>Publicación en internet</td><td>—</td><td>Dominio y hospedaje</td></tr>
+</tbody></table></div>
+</div></section>
+<footer class="docpie"><div class="wrap">
+<p style="margin:0"><strong>Anexo técnico 04</strong> — Descripción del proyecto y organización del contenido aprobado</p>
+<p style="margin:0">Referido a la versión 3.2 de <code>landing/index.html</code>.</p>
+</div></footer></body></html>
