@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Transportes Especiales Mejía S.A.S. | Transporte Especial de Pasajeros</title>
 <meta name="description" content="Transportes Especiales Mejía S.A.S. — Más de 35 años en transporte especial de pasajeros. Certificados ISO 9001, ISO 45001 y estación de servicio. Palmira, Valle del Cauca.">
-<link rel="icon" href="img/isotipo.png">
+<link rel="icon" href="assets/isotipo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -70,10 +70,10 @@
 
 /* ---------- RESET ---------- */
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:auto} /* Obs.3 #12: salto directo a la sección, sin desplazamiento */
 /* La cabecera fija mide 66px: sin esto, al navegar por el menú el título
    de la sección queda oculto detrás de ella. */
-section[id],footer[id]{scroll-margin-top:96px}
+section[id],footer[id],article[id]{scroll-margin-top:112px}
 :focus-visible{outline:3px solid var(--naranja-btn);outline-offset:3px;border-radius:4px}
 .saltar{position:absolute;left:-9999px;top:0;z-index:200;background:var(--verde-900);color:#fff;
  padding:12px 20px;border-radius:0 0 10px 0;font-weight:700}
@@ -142,9 +142,9 @@ p{margin:0 0 1em}
 .menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 .nav-movil{display:none;border-top:1px solid var(--borde);background:#fff}
 .nav-movil.abierto{display:block}
-@media(min-width:1180px){ .nav{display:flex} .menu-btn{display:none} }
+@media(min-width:1280px){ .nav{display:flex} .menu-btn{display:none} }
 .nav-movil a{display:flex;align-items:center;min-height:52px;padding:14px 20px;border-bottom:1px solid var(--verde-100);font-weight:600;font-size:1.06rem;color:var(--verde-800)}
-@media(min-width:1180px){ .nav-movil{display:none!important} }
+@media(min-width:1280px){ .nav-movil{display:none!important} }
 
 /* ============================================================
    MÓDULO 02 · HÉROE
@@ -311,6 +311,7 @@ p{margin:0 0 1em}
 .campo input[type=file]{padding:9px 12px;background:var(--verde-050)}
 .form__aviso{font-size:.92rem;color:var(--n600);margin:0}
 .campo input:user-invalid{border-color:#B84A00;background:#FFF6F0}
+.campo .error[hidden]{display:none}
 .campo .error{display:block;font-size:.88rem;font-weight:600;color:#A84300;margin-top:5px}
 .form__enviando{position:relative;pointer-events:none;opacity:.6}
 .spin{display:inline-block;width:16px;height:16px;margin-right:9px;vertical-align:-3px;
@@ -582,6 +583,177 @@ p{margin:0 0 1em}
 .boton--primario{background:linear-gradient(135deg,var(--naranja-btn),var(--naranja-btn-h))}
 .boton--verde{background:linear-gradient(135deg,var(--verde-500),var(--verde-700))}
 .boton:active{transform:translateY(0)}
+
+/* ============================================================
+   OBSERVACIONES No. 3 DEL CLIENTE — capa de ajustes
+   Cada bloque indica la observación que atiende.
+   ============================================================ */
+
+/* Obs.20 — más blanco de fondo; el verde suave deja de ser fondo de sección */
+.seccion--suave{background:var(--n050);border-block:1px solid #EFEFE8}
+.seccion--claro{background:#fff}
+/* Obs.20 — más naranja: filete naranja bajo cada título de sección */
+.titulo::after{content:"";display:block;width:64px;height:4px;border-radius:4px;margin-top:14px;
+ background:linear-gradient(90deg,var(--naranja-500),var(--naranja-300))}
+.centrado .titulo::after{margin-inline:auto}
+.encabezado{margin-bottom:44px}
+.valor:hover{border-color:var(--naranja-500)}
+
+/* Obs.1 — logo más grande */
+.cabecera .contenedor{max-width:1480px}
+.cabecera__logo img{height:48px}
+@media(min-width:760px){ .cabecera__logo img{height:60px} }
+.cabecera.contraida .cabecera__logo img{height:48px}
+
+/* Obs.24 — menú desplegable (escritorio) */
+.nav{align-items:center;gap:2px;font-size:.95rem}
+.nav__enlace{display:inline-flex;align-items:center;gap:4px;padding:10px 8px!important;color:var(--verde-800)}
+.nav__chev{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s ease}
+.nav__grupo{position:relative}
+.nav__panel{position:absolute;top:100%;left:-6px;min-width:300px;list-style:none;margin:0;padding:10px;background:#fff;
+ border:1px solid var(--borde);border-top:3px solid var(--naranja-500);border-radius:12px;box-shadow:var(--sombra-hover);
+ opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .18s ease,transform .18s ease,visibility .18s;z-index:70;white-space:normal}
+.nav__grupo:hover .nav__panel,.nav__grupo:focus-within .nav__panel{opacity:1;visibility:visible;transform:none}
+.nav__grupo:hover .nav__chev,.nav__grupo:focus-within .nav__chev{transform:rotate(180deg)}
+.nav__panel a{display:block;padding:9px 12px;border-radius:8px;font-weight:600;font-size:.95rem;color:var(--verde-800);line-height:1.35}
+.nav__panel a::after{display:none}
+.nav__panel a:hover,.nav__panel a:focus-visible{background:var(--naranja-100);color:var(--naranja-txt)}
+/* entre 1280 y 1499 px el botón de cabecera se oculta para que quepa el menú completo;
+   el héroe y el botón de WhatsApp mantienen la llamada a cotizar */
+@media(min-width:1280px) and (max-width:1499px){ .cabecera .boton--primario{display:none} }
+.boton--ico{display:inline-flex;align-items:center;gap:9px}
+.boton--ico svg{width:19px;height:19px;flex:0 0 19px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:479px){ .cabecera .boton--primario{padding:10px 14px;font-size:.9rem} .cabecera .boton--ico svg{display:none} .cabecera__logo img{height:40px} }
+
+/* Obs.25 — héroe según la referencia: degradado solo a la izquierda, bus visible a la derecha */
+.heroe__media img{object-position:68% 88%}
+.heroe::before{background:linear-gradient(90deg,rgba(18,44,24,.95) 0%,rgba(26,60,32,.88) 32%,rgba(34,72,38,.45) 54%,rgba(34,72,38,0) 72%)}
+@media(max-width:899px){ .heroe::before{background:linear-gradient(180deg,rgba(18,44,24,.9),rgba(26,60,32,.82))} }
+.heroe__cuerpo{max-width:var(--max)}
+.heroe__cuerpo>*{max-width:640px}
+.heroe h1{font-size:clamp(2.1rem,4vw,3.1rem)}
+.heroe__cuerpo>h1{max-width:740px}
+.heroe .razon::after{content:"";display:block;width:56px;height:3px;border-radius:2px;background:var(--naranja-500);margin-top:12px}
+.heroe p{max-width:46ch}
+.sello{display:inline-flex;align-items:center;gap:8px;background:rgba(10,28,14,.5)}
+.sello svg{width:18px;height:18px;flex:0 0 18px;stroke:#fff;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+
+/* Obs.25 / #8 — servicios suben bajo el héroe con el formato de la referencia */
+.servicios-franja{padding-block:72px 80px}
+.srv-rejilla{display:grid;gap:20px}
+@media(min-width:900px){ .srv-rejilla{grid-template-columns:repeat(3,minmax(0,1fr))} }
+.srv{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:18px;align-items:start;background:#fff;border:1px solid var(--borde);
+ border-radius:16px;padding:24px 20px 24px 22px;box-shadow:0 6px 20px rgba(44,66,32,.07);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.srv:hover{transform:translateY(-4px);box-shadow:var(--sombra-hover);border-color:var(--verde-400)}
+.srv__ico{width:64px;height:64px;border-radius:50%;background:var(--verde-100);display:flex;align-items:center;justify-content:center}
+.srv__ico svg{width:30px;height:30px;stroke:var(--verde-700);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.srv--naranja .srv__ico{background:var(--naranja-100)}
+.srv--naranja .srv__ico svg{stroke:var(--naranja-btn)}
+.srv h3{font-size:1.14rem;margin:4px 0 .35em}
+.srv p{font-size:.98rem;color:var(--texto-suave);margin:0}
+.srv__ir{align-self:center;display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%}
+.srv__ir svg{width:30px;height:30px;stroke:var(--verde-600);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s ease}
+.srv--naranja .srv__ir svg{stroke:var(--naranja-btn)}
+.srv:hover .srv__ir svg{transform:translateX(3px)}
+@media(max-width:419px){ .srv{grid-template-columns:auto minmax(0,1fr)} .srv__ir{grid-column:2;justify-self:start;margin-left:-10px} }
+
+/* Obs.2 — texto justificado en tarjetas (vista de escritorio; ver anotación en CAMBIOS-obs3.md) */
+@media(min-width:900px){
+  .tarjeta p,.valor p,.srv p,.pol__despliegue p{text-align:justify;hyphens:auto;-webkit-hyphens:auto;text-wrap:initial}
+}
+
+/* Obs.17 — misión y visión en dos columnas */
+.mv-rejilla{max-width:1000px;margin-inline:auto}
+
+/* Obs.13 — principios (3) y valores (4) */
+@media(min-width:1040px){ #valores .valor__img{width:120px;height:120px} }
+.nota-ia{display:block;margin-top:14px;padding-top:10px;border-top:1px dashed var(--borde);font-size:.8rem;font-weight:600;color:var(--n600);line-height:1.45}
+
+/* Obs.17 — política integral desplegable dentro de Políticas */
+@media(min-width:720px){
+  .pol-rejilla{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .pol-rejilla .pol{grid-column:auto}
+  .pol-rejilla .pol--integral{grid-column:1/-1}
+}
+.pol__cab{display:flex;gap:20px;align-items:center}
+@media(max-width:519px){ .pol__cab{flex-direction:column;align-items:flex-start} }
+.pol__toggle{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:10px 20px;border-radius:100px;
+ border:2px solid rgba(255,255,255,.75);background:transparent;color:#fff;font:inherit;font-weight:700;cursor:pointer;transition:background .18s ease,color .18s ease}
+.pol__toggle:hover{background:#fff;color:var(--verde-800)}
+.pol__toggle svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s ease}
+.pol__toggle[aria-expanded="true"] svg{transform:rotate(180deg)}
+.pol__despliegue{border-top:1px solid rgba(255,255,255,.22);padding-top:16px}
+.pol__despliegue:not([hidden]){animation:despliega .3s ease}
+.pol__despliegue p{color:#EEF6E6;font-size:1.04rem;margin:0}
+@keyframes despliega{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+/* Obs.6 — tarjeta sólida (sin foto) en sostenibilidad, en naranja institucional */
+.mosaico__solido{background:linear-gradient(135deg,var(--naranja-btn),var(--naranja-btn-h))}
+.mosaico__solido figcaption{background:none}
+.mosaico__solido p{color:#fff}
+.mosaico__ico{position:absolute;top:24px;left:26px;width:58px;height:58px;border-radius:16px;background:rgba(255,255,255,.16);
+ display:flex;align-items:center;justify-content:center}
+.mosaico__ico svg{width:30px;height:30px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.mosaico strong{color:#fff}
+
+/* Obs.9 — indicio de ubicación: fotos y video del auditorio */
+.pendiente{display:flex;gap:14px;align-items:flex-start;margin-top:18px;padding:18px 20px;border:2px dashed var(--naranja-300);border-radius:14px;background:#fff}
+.pendiente svg{width:30px;height:30px;flex:0 0 30px;stroke:var(--naranja-btn);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.pendiente strong{display:block;color:var(--verde-900)}
+.pendiente span{display:block;font-size:.92rem;color:var(--n600);line-height:1.5}
+
+/* Obs.8 — indicio de ubicación: blogs */
+.blog-rejilla{display:grid;gap:20px;max-width:920px;margin-inline:auto}
+@media(min-width:760px){ .blog-rejilla{grid-template-columns:repeat(2,minmax(0,1fr))} }
+.blog{border:2px dashed var(--borde);border-radius:16px;padding:28px;background:#fff;min-height:170px}
+.blog__estado{display:inline-block;font-size:.82rem;font-weight:800;color:var(--naranja-txt);background:var(--naranja-100);border-radius:100px;padding:4px 12px;margin-bottom:12px}
+.blog h3{font-size:1.16rem}
+.blog p{color:var(--texto-suave);margin:0}
+
+/* Obs.19 — WhatsApp «Cotiza aquí» con aura de disponibilidad */
+.wa-flotante{width:auto;height:auto;border-radius:100px;background:none;box-shadow:none;gap:10px;right:22px;bottom:22px;align-items:center}
+.wa-flotante::before{display:none;animation:none}
+.wa-flotante:hover{transform:translateY(-2px);box-shadow:none}
+.wa-flotante__texto{background:#fff;color:#0E6B39;font-weight:800;font-size:.98rem;padding:10px 16px;border-radius:100px;
+ border:1px solid #CFEBD8;box-shadow:0 8px 22px rgba(20,60,20,.22);white-space:nowrap}
+.wa-flotante__disco{position:relative;width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;
+ box-shadow:0 10px 26px rgba(20,60,20,.35)}
+.wa-flotante__disco svg{position:relative;z-index:1;width:30px;height:30px;fill:#fff;animation:llamada 4s ease-in-out infinite}
+.wa-flotante__disco::before,.wa-flotante__disco::after{content:"";position:absolute;inset:0;border-radius:50%;background:#25D366;z-index:0;
+ animation:aura-wa 2.4s ease-out infinite}
+.wa-flotante__disco::after{animation-delay:1.2s}
+@keyframes aura-wa{0%{transform:scale(1);opacity:.55}100%{transform:scale(1.95);opacity:0}}
+@keyframes llamada{0%,84%,100%{transform:rotate(0)}87%{transform:rotate(-14deg)}90%{transform:rotate(12deg)}93%{transform:rotate(-8deg)}96%{transform:rotate(5deg)}}
+@media(max-width:479px){ .wa-flotante{right:14px;bottom:14px} .wa-flotante__texto{font-size:.88rem;padding:8px 12px} .wa-flotante__disco{width:54px;height:54px} }
+@media(prefers-reduced-motion:reduce){ .wa-flotante__disco::before,.wa-flotante__disco::after{display:none} .wa-flotante__disco svg{animation:none} }
+.arriba{right:30px;bottom:98px}
+
+/* Obs.2 — para que el justificado no abra huecos, las tarjetas ganan ancho de línea:
+   servicios con cabecera (ícono + título) y texto a lo ancho; valores en 2 × 2 horizontales */
+.srv{grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"ico tit ir" "txt txt txt";row-gap:14px;align-items:center}
+.srv__ico{grid-area:ico}
+.srv__cuerpo{display:contents}
+.srv h3{grid-area:tit;margin:0}
+.srv p{grid-area:txt}
+.srv__ir{grid-area:ir}
+@media(max-width:419px){ .srv{grid-template-columns:auto minmax(0,1fr) auto} .srv__ir{grid-column:auto;margin-left:0} }
+@media(min-width:760px){
+  #valores .rejilla--4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #valores .valor{display:grid;grid-template-columns:120px minmax(0,1fr);column-gap:22px;align-content:start}
+  #valores .valor__img{grid-row:1 / span 3;width:120px;height:120px;margin:0}
+  #valores .valor h3{margin-top:6px}
+  #valores .nota-ia{grid-column:2}
+}
+
+/* Obs.20 (contrastes) — el texto de sostenibilidad es más largo: velo más alto para que nunca quede sobre zona clara */
+.mosaico figcaption{background:linear-gradient(to top,rgba(28,48,22,.95) 0%,rgba(28,48,22,.86) 48%,rgba(28,48,22,.45) 100%)}
+.mosaico__solido figcaption{background:none}
+/* Tarjeta de cifras en móvil: sin cortes */
+@media(max-width:559px){
+  .heroe__dato{padding:16px 6px}
+  .heroe__dato b{font-size:1.5rem}
+  .heroe__dato span{font-size:.74rem;line-height:1.3}
+}
 </style>
 </head>
 <body>
@@ -593,21 +765,51 @@ p{margin:0 0 1em}
 <!-- ========== MÓDULO 01 · CABECERA ========== -->
 <header class="cabecera">
   <div class="contenedor cabecera__fila">
-    <a class="cabecera__logo" href="#inicio"><img src="img/logo-alta.png" alt="Transportes Especiales Mejía S.A.S."></a>
-    <nav class="nav">
-      <a href="#inicio">Inicio</a>
-      <a href="#nosotros">Nosotros</a>
-      <a href="#servicios">Servicios</a>
-      <a href="#politicas">Políticas</a>
-      <a href="#contacto">Contacto</a>
-      <a href="#trabaja">Trabaja con nosotros</a>
+    <a class="cabecera__logo" href="#inicio"><img src="assets/logo-alta.png" alt="Transportes Especiales Mejía S.A.S." width="580" height="130"></a>
+    <!-- Obs.3 #24: menú desplegable en escritorio (≥1280 px). En móvil se conserva la lista simple, adaptada. -->
+    <nav class="nav" aria-label="Principal">
+      <a class="nav__enlace" href="#inicio">Inicio</a>
+      <div class="nav__grupo">
+        <a class="nav__enlace" href="#nosotros" aria-haspopup="true">Nosotros<svg class="nav__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+        <ul class="nav__panel">
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#proposito">Misión y visión</a></li>
+          <li><a href="#principios">Principios</a></li>
+          <li><a href="#valores">Valores corporativos</a></li>
+          <li><a href="#confianza">Nuestro valor diferencial</a></li>
+          <li><a href="#gestion">Sistemas de gestión</a></li>
+          <li><a href="#sostenibilidad">Sostenibilidad y responsabilidad ambiental</a></li>
+        </ul>
+      </div>
+      <div class="nav__grupo">
+        <a class="nav__enlace" href="#servicios" aria-haspopup="true">Servicios<svg class="nav__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+        <ul class="nav__panel">
+          <li><a href="#srv-empresarial">Transporte Empresarial</a></li>
+          <li><a href="#srv-escolar">Transporte escolar</a></li>
+          <li><a href="#srv-turistico">Transporte turístico y ocasional</a></li>
+          <li><a href="#flota">Nuestra flota</a></li>
+        </ul>
+      </div>
+      <div class="nav__grupo">
+        <a class="nav__enlace" href="#politicas" aria-haspopup="true">Políticas<svg class="nav__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+        <ul class="nav__panel">
+          <li><a href="#pol-integrada">Política integrada de gestión</a></li>
+          <li><a href="#pol-datos">Tratamiento de datos personales</a></li>
+          <li><a href="#pol-terminos">Términos y condiciones del servicio</a></li>
+          <li><a href="#pol-sarlaft">Política SARLAFT y PTEE</a></li>
+        </ul>
+      </div>
+      <a class="nav__enlace" href="#denuncias">Canal de denuncias</a>
+      <a class="nav__enlace" href="#contacto">Contacto</a>
+      <a class="nav__enlace" href="#trabaja">Trabaja con nosotros</a>
+      <a class="nav__enlace" href="#blogs">Blogs</a>
     </nav>
-    <a class="boton boton--primario" href="#contacto">Solicitar servicio</a>
+    <a class="boton boton--primario boton--ico" href="#contacto"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>Solicitar servicio</a>
     <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navMovil" aria-label="Abrir menú">
       <span></span><span></span><span></span>
     </button>
   </div>
-  <nav class="nav-movil" id="navMovil">
+  <nav class="nav-movil" id="navMovil" aria-label="Principal móvil">
     <a href="#inicio">Inicio</a>
     <a href="#nosotros">Nosotros</a>
     <a href="#servicios">Servicios</a>
@@ -616,24 +818,28 @@ p{margin:0 0 1em}
     <a href="#denuncias">Canal de denuncias</a>
     <a href="#contacto">Contacto</a>
     <a href="#trabaja">Trabaja con nosotros</a>
+    <a href="#blogs">Blogs</a>
   </nav>
 </header>
 
 <!-- ========== MÓDULO 02 · HÉROE ========== -->
 <section class="heroe" id="inicio">
-  <div class="heroe__media"><img src="img/hero-bus1000.jpg" alt="Bus de Transportes Especiales Mejía S.A.S."></div>
+  <div class="heroe__media"><img src="assets/hero-bus1000.jpg" alt="Bus de Transportes Especiales Mejía S.A.S."></div>
   <div class="contenedor heroe__cuerpo">
     <span class="razon">Transportes Especiales Mejía S.A.S.</span>
-    <h1>Transporte especial de pasajeros con <em>más de 35 años</em> de experiencia</h1>
-    <p>Somos un aliado estratégico en el transporte empresarial, turístico y escolar. Operamos con flota moderna, sistemas de gestión certificados y un compromiso real con la seguridad vial y el medio ambiente.</p>
+    <!-- Obs.3 #25: titular y párrafo adoptados de la referencia del cliente.
+         Sustituyen al texto aprobado en v2.0: «Transporte especial de pasajeros con más de 35 años de experiencia»
+         y «Somos un aliado estratégico en el transporte empresarial, turístico y escolar…». -->
+    <h1>Transporte especial de pasajeros <em>a tu medida</em></h1>
+    <p>Brindamos soluciones seguras, cómodas y confiables en transporte empresarial, turístico y escolar, con un equipo comprometido y una flota moderna.</p>
     <div class="heroe__acciones">
-      <a class="boton boton--primario" href="#contacto">Cotizar ahora</a>
-      <a class="boton boton--fantasma" href="#servicios">Ver servicios</a>
+      <a class="boton boton--primario boton--ico" href="#contacto"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>Cotizar ahora</a>
+      <a class="boton boton--fantasma" href="#servicios">Ver servicios →</a>
     </div>
     <div class="heroe__sellos">
-      <span class="sello">ISO 9001</span>
-      <span class="sello">ISO 45001</span>
-      <span class="sello">Estación de servicio certificada</span>
+      <span class="sello"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.2-2.8 7.6-7 9-4.2-1.4-7-4.8-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>ISO 9001</span>
+      <span class="sello"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 15a7 7 0 0114 0"/><path d="M3.5 15h17v2.5h-17z"/><path d="M12 8V5.5M9.5 9l-1-2.2M14.5 9l1-2.2"/></svg>ISO 45001</span>
+      <span class="sello"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20V5a1.5 1.5 0 011.5-1.5h6A1.5 1.5 0 0114 5v15"/><path d="M3.5 20h12"/><path d="M7 7.5h5v3.5H7z"/><path d="M14 9h2.5a1.5 1.5 0 011.5 1.5V16a1.3 1.3 0 002.6 0V8l-2.5-2.5"/></svg>Estación de servicio certificada</span>
     </div>
   </div>
   <svg class="ola" viewBox="0 0 1200 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0,40 C300,90 900,-10 1200,40 L1200,80 L0,80 Z"/></svg>
@@ -642,16 +848,149 @@ p{margin:0 0 1em}
 <!-- ========== MÓDULO 04 · INDICADORES (propuestaV2: tarjeta flotante sobre el héroe; mismos 3 datos aprobados) ========== -->
 <div class="contenedor heroe__flotante">
   <div class="heroe__tarjeta" id="tarjetaIndicadores">
-    <div class="heroe__dato"><b data-cuenta="35" data-sufijo="+">0</b><span>Años de experiencia</span></div>
-    <div class="heroe__dato"><b data-cuenta="3">0</b><span>Certificaciones vigentes</span></div>
-    <div class="heroe__dato"><b data-cuenta="3">0</b><span>Capacidades de vehículo</span></div>
+    <div class="heroe__dato"><b data-cuenta="35" data-sufijo="+">35+</b><span>Años de experiencia</span></div>
+    <div class="heroe__dato"><b data-cuenta="3">3</b><span>Certificaciones vigentes</span></div>
+    <div class="heroe__dato"><b data-cuenta="3">3</b><span>Capacidades de vehículo</span></div>
   </div>
 </div>
 
-<!-- ========== MÓDULO 03 · ¿POR QUÉ CONFIAR EN NOSOTROS? ========== -->
+<!-- ========== MÓDULO 04 · INDICADORES ========== -->
+<section class="indicadores">
+  <div class="contenedor">
+    <div class="rejilla">
+      <div><div class="indicador__cifra">35+</div><div class="indicador__texto">Años de experiencia</div></div>
+      <div><div class="indicador__cifra">3</div><div class="indicador__texto">Certificaciones vigentes</div></div>
+      <div><div class="indicador__cifra">3</div><div class="indicador__texto">Capacidades de vehículo</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== MÓDULO 08 · SERVICIOS (Obs.3 #4, #5 y #25: sube bajo el héroe, formato de la referencia) ========== -->
+<section class="seccion seccion--claro servicios-franja" id="servicios">
+  <div class="contenedor">
+    <div class="centrado encabezado">
+      <span class="etiqueta">Nuestros servicios</span>
+      <h2 class="titulo">Movilidad para cada necesidad</h2>
+      <p class="entradilla">Prestamos el servicio con vehículos modernos y confortables, con conductores capacitados y control permanente de la operación.</p>
+    </div>
+    <div class="srv-rejilla">
+      <article class="srv" id="srv-empresarial">
+        <div class="srv__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="7.5" width="18" height="12" rx="2.5"/><path d="M8.5 7.5V5.8A1.8 1.8 0 0110.3 4h3.4a1.8 1.8 0 011.8 1.8v1.7"/><path d="M3 12.5h18"/><path d="M11 12.5h2v2h-2z"/></svg></div>
+        <div class="srv__cuerpo"><h3>Transporte Empresarial</h3><p>Ofrecemos soluciones de transporte especial de pasajeros con cobertura continua para los sectores empresarial, asegurando el control de la operación y estándares de seguridad vial.</p></div>
+        <a class="srv__ir" href="#contacto" aria-label="Cotizar Transporte Empresarial"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M10.5 8.5L14 12l-3.5 3.5"/></svg></a>
+      </article>
+      <article class="srv srv--naranja" id="srv-escolar">
+        <div class="srv__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2.5 9L12 4.5 21.5 9 12 13.5z"/><path d="M6.5 11v4.5c0 1.6 2.5 3 5.5 3s5.5-1.4 5.5-3V11"/><path d="M21.5 9v5"/></svg></div>
+        <div class="srv__cuerpo"><h3>Transporte escolar</h3><p>Servicio para colegios e instituciones educativas, con conductores capacitados y vehículos revisados diariamente.</p></div>
+        <a class="srv__ir" href="#contacto" aria-label="Cotizar Transporte escolar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M10.5 8.5L14 12l-3.5 3.5"/></svg></a>
+      </article>
+      <article class="srv" id="srv-turistico">
+        <div class="srv__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21v-9"/><path d="M12 12c-1.5-3.5-5-4.5-8-3.5 2-2.8 5.6-3.4 8-1.5 2.4-1.9 6-1.3 8 1.5-3-1-6.5 0-8 3.5z"/><path d="M12 7c-.5-2 .5-3.6 2.5-4.5"/><path d="M6 21h12"/></svg></div>
+        <div class="srv__cuerpo"><h3>Transporte turístico y ocasional</h3><p>Atendemos agencias de viajes, operadores turísticos y cajas de compensación con flota confortable para recorridos largos.</p></div>
+        <a class="srv__ir" href="#contacto" aria-label="Cotizar Transporte turístico y ocasional"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M10.5 8.5L14 12l-3.5 3.5"/></svg></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== MÓDULO 09 · NUESTRA FLOTA ========== -->
+<section class="seccion seccion--suave" id="flota">
+  <div class="contenedor">
+    <div class="centrado" style="margin-bottom:44px">
+      <span class="etiqueta">Nuestra flota</span>
+      <h2 class="titulo">Flota Adaptable a las Necesidades de su Organización</h2>
+      <p class="entradilla">Contamos con buses con diferentes capacidades.</p>
+    </div>
+    <div class="rejilla rejilla--3">
+      <article class="bus">
+        <img src="assets/flota-40pax.jpg" alt="Bus de 40 pasajeros">
+        <div class="bus__cuerpo"><span class="bus__cap">40 pasajeros</span><h3>Bus</h3><p>Configuración de mayor capacidad, indicada para rutas de personal y traslados de grupos grandes.</p></div>
+      </article>
+      <article class="bus">
+        <img src="assets/flota-30pax.jpg" alt="Bus de 30 pasajeros">
+        <div class="bus__cuerpo"><span class="bus__cap">30 pasajeros</span><h3>Bus</h3><p>Capacidad intermedia, adecuada para recorridos escolares y turísticos de grupo medio.</p></div>
+      </article>
+      <article class="bus">
+        <img src="assets/flota-buseta.jpg" alt="Micro de 19 pasajeros">
+        <div class="bus__cuerpo"><span class="bus__cap">19 pasajeros</span><h3>Micro</h3><p>Vehículo ágil para grupos reducidos, traslados ejecutivos y recorridos urbanos.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== MÓDULO 05 · NOSOTROS ========== -->
+<section class="seccion seccion--claro" id="nosotros">
+  <div class="contenedor dividido">
+    <div>
+      <span class="etiqueta">Nosotros</span>
+      <h2 class="titulo">Una empresa construida sobre la confiabilidad</h2>
+      <p class="entradilla justificado">Somos una empresa con más de 35 años de experiencia en el servicio de transporte especial de pasajeros. Contamos con sistemas de gestión certificados en calidad, garantizando la seguridad vial y el bienestar en SST, bajo el firme compromiso de ser una organización socialmente responsable y comprometida con el cuidado del medio ambiente.</p>
+      <ul class="lista-check">
+        <li>Servicio de transporte de empleados para empresas del sector industrial.</li>
+        <li>Vehículos modernos y confortables, con mantenimiento propio y certificado.</li>
+        <li>Clientes de colegios, agencias de viajes, operadores turísticos y cajas de compensación.</li>
+      </ul>
+    </div>
+    <div class="marco"><img src="assets/bus-1000.jpg" alt="Bus 1000 de Transportes Especiales Mejía S.A.S."></div>
+  </div>
+</section>
+
+<!-- ========== MÓDULO 06 · MISIÓN Y VISIÓN (Obs.3 #17: la política integral pasa a Políticas) ========== -->
+<section class="seccion seccion--suave" id="proposito">
+  <div class="contenedor">
+    <div class="centrado" style="margin-bottom:44px">
+      <span class="etiqueta">Nuestro propósito</span>
+      <h2 class="titulo">Misión y visión</h2>
+      <p class="entradilla">El marco que orienta cada decisión operativa y cada ruta que prestamos.</p>
+    </div>
+    <div class="rejilla rejilla--2 mv-rejilla">
+      <article class="tarjeta tarjeta--acento">
+        <h3>Nuestra misión</h3>
+        <p>Somos una empresa de transporte especial de pasajeros, comprometida con la ética, la sostenibilidad y el medio ambiente. Trabajamos para ofrecer servicios eficientes y seguros, orientados a satisfacer las necesidades de nuestros clientes y partes interesadas.</p>
+      </article>
+      <article class="tarjeta tarjeta--acento">
+        <h3>Nuestra visión</h3>
+        <p>Para 2030, seremos una empresa reconocida por la generación de soluciones de movilidad empresarial y turística, proporcionando un transporte especial seguro y de calidad, creciendo a través del desarrollo de nuevos negocios de manera sostenible y rentable.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== MÓDULO 07 · PRINCIPIOS (Obs.3 #13) ========== -->
+<section class="seccion seccion--claro" id="principios">
+  <div class="contenedor">
+    <div class="centrado encabezado">
+      <span class="etiqueta">Principios</span>
+      <h2 class="titulo">Principios corporativos</h2>
+    </div>
+    <div class="rejilla rejilla--3">
+      <article class="valor"><img class="valor__img" src="assets/valores/01-confiabilidad.jpg" alt="" width="320" height="320" loading="lazy"><h3>Confiabilidad</h3><p>Cumplimos rigurosamente con cada requerimiento, respaldados por más de 35 años de experiencia y calidad certificada.</p></article>
+      <article class="valor"><img class="valor__img" src="assets/valores/02-responsabilidad-social-ambiental.jpg" alt="" width="320" height="320" loading="lazy"><h3>Responsabilidad social y ambiental</h3><p>Operamos bajo prácticas éticas y transparentes que aportan al bienestar de nuestra comunidad y el entorno.</p></article>
+      <article class="valor"><img class="valor__img" src="assets/valores/03-seguridad.jpg" alt="" width="320" height="320" loading="lazy"><h3>Seguridad</h3><p>Salvaguardamos la vida de nuestros pasajeros y el bienestar del equipo mediante estrictos estándares de SST y seguridad vial.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== MÓDULO 07b · VALORES (Obs.3 #13) ========== -->
+<section class="seccion seccion--suave" id="valores">
+  <div class="contenedor">
+    <div class="centrado encabezado">
+      <span class="etiqueta">Valores</span>
+      <h2 class="titulo">Valores corporativos</h2>
+    </div>
+    <div class="rejilla rejilla--4">
+      <article class="valor"><img class="valor__img" src="assets/valores/04-respeto.jpg" alt="" width="320" height="320" loading="lazy"><h3>Respeto</h3><p>Valoramos a nuestros clientes, colaboradores y comunidad, garantizando un trato digno, transparente y con equidad.</p></article>
+      <article class="valor valor--provisional"><svg class="valor__img" viewBox="0 0 320 320" role="presentation" aria-hidden="true"><rect width="320" height="320" fill="#fff"/><ellipse cx="160" cy="292" rx="78" ry="9" fill="#0F4A2E" opacity=".12"/><circle cx="160" cy="96" r="36" fill="#1D5234"/><path d="M92 262c0-62 28-102 68-102s68 40 68 102z" fill="#1D5234"/><path d="M118 176c12 12 26 18 42 18s30-6 42-18" fill="none" stroke="#6CB294" stroke-width="10" stroke-linecap="round"/><path d="M160 246c-30-19-40-38-33-52 5-10 19-12 27-3l6 6 6-6c8-9 22-7 27 3 7 14-3 33-33 52z" fill="#E8792F"/><rect x="224" y="42" width="72" height="54" rx="14" fill="#6CB294"/><path d="M238 96l-6 20 22-20z" fill="#6CB294"/><path d="M244 69l10 10 20-20" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="58" cy="84" r="7" fill="#6CB294"/><circle cx="80" cy="54" r="4.5" fill="#E8792F"/><circle cx="48" cy="126" r="4" fill="#1D5234" opacity=".5"/></svg><h3>Honestidad</h3><p>Actuamos con rectitud y transparencia en cada compromiso, generando relaciones de confianza con nuestros clientes, colaboradores y comunidad.</p><span class="nota-ia">Texto e ilustración provisionales generados con IA · pendiente de validación del cliente</span></article>
+      <article class="valor"><img class="valor__img" src="assets/valores/05-vocacion-de-servicio.jpg" alt="" width="320" height="320" loading="lazy"><h3>Vocación de servicio</h3><p>Nos apasiona atender a nuestros usuarios, brindando soluciones de movilidad cómodas, amables y oportunas.</p></article>
+      <article class="valor"><img class="valor__img" src="assets/valores/06-trabajo-en-equipo.jpg" alt="" width="320" height="320" loading="lazy"><h3>Trabajo en equipo</h3><p>Unimos esfuerzos, conocimientos y experiencia para asegurar el éxito, la sincronía y la excelencia en cada ruta.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== MÓDULO 03 · NUESTRO VALOR DIFERENCIAL (Obs.3 #14) ========== -->
 <section class="seccion seccion--claro pilares" id="confianza">
   <div class="contenedor centrado">
-    <h2 class="titulo">¿Por qué confiar en nosotros?</h2>
+    <h2 class="titulo">Nuestro valor diferencial</h2>
     <p class="entradilla">Somos un aliado estratégico en el transporte empresarial, turístico y escolar que marca la diferencia por nuestra:</p>
     <div class="pilares__lista">
       <article class="pilar">
@@ -674,173 +1013,51 @@ p{margin:0 0 1em}
   </div>
 </section>
 
-<!-- ========== MÓDULO 04 · INDICADORES ========== -->
-<section class="indicadores">
-  <div class="contenedor">
-    <div class="rejilla">
-      <div><div class="indicador__cifra">35+</div><div class="indicador__texto">Años de experiencia</div></div>
-      <div><div class="indicador__cifra">3</div><div class="indicador__texto">Certificaciones vigentes</div></div>
-      <div><div class="indicador__cifra">3</div><div class="indicador__texto">Capacidades de vehículo</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== MÓDULO 05 · NOSOTROS ========== -->
-<section class="seccion seccion--claro" id="nosotros">
-  <div class="contenedor dividido">
-    <div>
-      <span class="etiqueta">¿Quiénes somos?</span>
-      <h2 class="titulo">Una empresa construida sobre la confiabilidad</h2>
-      <p class="entradilla justificado">Somos una empresa con más de 35 años de experiencia en el servicio de transporte especial de pasajeros. Contamos con sistemas de gestión certificados en calidad, garantizando la seguridad vial y el bienestar en SST, bajo el firme compromiso de ser una organización socialmente responsable y comprometida con el cuidado del medio ambiente.</p>
-      <ul class="lista-check">
-        <li>Servicio de transporte de empleados para empresas del sector industrial.</li>
-        <li>Vehículos modernos y confortables, con mantenimiento propio y certificado.</li>
-        <li>Clientes de colegios, agencias de viajes, operadores turísticos y cajas de compensación.</li>
-      </ul>
-    </div>
-    <div class="marco"><img src="img/bus-1000.jpg" alt="Bus 1000 de Transportes Especiales Mejía S.A.S."></div>
-  </div>
-</section>
-
-<!-- ========== MÓDULO 06 · MISIÓN, VISIÓN Y POLÍTICA INTEGRAL ========== -->
-<section class="seccion seccion--suave" id="proposito">
-  <div class="contenedor">
-    <div class="centrado" style="margin-bottom:44px">
-      <span class="etiqueta">Nuestro propósito</span>
-      <h2 class="titulo">Misión, visión y política integral</h2>
-      <p class="entradilla">El marco que orienta cada decisión operativa y cada ruta que prestamos.</p>
-    </div>
-    <div class="rejilla rejilla--3">
-      <article class="tarjeta tarjeta--acento">
-        <h3>Nuestra misión</h3>
-        <p>Somos una empresa de transporte especial de pasajeros, comprometida con la ética, la sostenibilidad y el medio ambiente. Trabajamos para ofrecer servicios eficientes y seguros, orientados a satisfacer las necesidades de nuestros clientes y partes interesadas.</p>
-      </article>
-      <article class="tarjeta tarjeta--acento">
-        <h3>Nuestra visión</h3>
-        <p>Para 2030, seremos una empresa reconocida por la generación de soluciones de movilidad empresarial y turística, proporcionando un transporte especial seguro y de calidad, creciendo a través del desarrollo de nuevos negocios de manera sostenible y rentable.</p>
-      </article>
-      <article class="tarjeta tarjeta--acento">
-        <h3>Política integral</h3>
-        <p>En Transportes Especiales Mejía S.A.S. prestamos servicios de transporte especial de pasajeros comprometidos con la satisfacción de nuestros clientes, la seguridad de las personas, la protección del medio ambiente, la sostenibilidad y el cumplimiento de los requisitos legales y organizacionales aplicables.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ========== MÓDULO 07 · VALORES ========== -->
-<section class="seccion seccion--claro" id="valores">
-  <div class="contenedor">
-    <div class="centrado" style="margin-bottom:44px">
-      <span class="etiqueta">Valores corporativos</span>
-      <h2 class="titulo">Seis principios que sostienen la operación</h2>
-    </div>
-    <div class="rejilla rejilla--3">
-      <article class="valor"><img class="valor__img" src="img/valores/01-confiabilidad.jpg" alt="" width="320" height="320" loading="lazy"><h3>Confiabilidad</h3><p>Cumplimos rigurosamente con cada requerimiento, respaldados por más de 35 años de experiencia y calidad certificada.</p></article>
-      <article class="valor"><img class="valor__img" src="img/valores/02-responsabilidad-social-ambiental.jpg" alt="" width="320" height="320" loading="lazy"><h3>Responsabilidad social y ambiental</h3><p>Operamos bajo prácticas éticas y transparentes que aportan al bienestar de nuestra comunidad y el entorno.</p></article>
-      <article class="valor"><img class="valor__img" src="img/valores/03-seguridad.jpg" alt="" width="320" height="320" loading="lazy"><h3>Seguridad</h3><p>Salvaguardamos la vida de nuestros pasajeros y el bienestar del equipo mediante estrictos estándares de SST y seguridad vial.</p></article>
-      <article class="valor"><img class="valor__img" src="img/valores/04-respeto.jpg" alt="" width="320" height="320" loading="lazy"><h3>Respeto</h3><p>Valoramos a nuestros clientes, colaboradores y comunidad, garantizando un trato digno, transparente y con equidad.</p></article>
-      <article class="valor"><img class="valor__img" src="img/valores/05-vocacion-de-servicio.jpg" alt="" width="320" height="320" loading="lazy"><h3>Vocación de servicio</h3><p>Nos apasiona atender a nuestros usuarios, brindando soluciones de movilidad cómodas, amables y oportunas.</p></article>
-      <article class="valor"><img class="valor__img" src="img/valores/06-trabajo-en-equipo.jpg" alt="" width="320" height="320" loading="lazy"><h3>Trabajo en equipo</h3><p>Unimos esfuerzos, conocimientos y experiencia para asegurar el éxito, la sincronía y la excelencia en cada ruta.</p></article>
-    </div>
-  </div>
-</section>
-
-<!-- ========== MÓDULO 08 · SERVICIOS ========== -->
-<section class="seccion seccion--suave" id="servicios">
-  <div class="contenedor">
-    <div class="centrado" style="margin-bottom:44px">
-      <span class="etiqueta">Nuestros servicios</span>
-      <h2 class="titulo">Movilidad para cada necesidad</h2>
-      <p class="entradilla">Prestamos el servicio con vehículos modernos y confortables, con conductores capacitados y control permanente de la operación.</p>
-    </div>
-    <div class="rejilla rejilla--3">
-      <article class="servicio">
-        <img src="img/flota-40pax.jpg" alt="Transporte de personal">
-        <div class="servicio__cuerpo"><h3>Transporte de personal</h3><p>Rutas de empleados para empresas del sector industrial, con programación fija, control de operación y estándares de seguridad vial.</p></div>
-      </article>
-      <article class="servicio">
-        <img src="img/flota-buseta.jpg" alt="Transporte escolar">
-        <div class="servicio__cuerpo"><h3>Transporte escolar</h3><p>Servicio para colegios e instituciones educativas, con conductores capacitados y vehículos revisados diariamente.</p></div>
-      </article>
-      <article class="servicio">
-        <img src="img/flota-30pax.jpg" alt="Transporte turístico">
-        <div class="servicio__cuerpo"><h3>Turismo y convenios</h3><p>Atendemos agencias de viajes, operadores turísticos y cajas de compensación con flota confortable para recorridos largos.</p></div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ========== MÓDULO 09 · NUESTRA FLOTA ========== -->
-<section class="seccion seccion--claro" id="flota">
-  <div class="contenedor">
-    <div class="centrado" style="margin-bottom:44px">
-      <span class="etiqueta">Nuestra flota</span>
-      <h2 class="titulo">Vehículos según el tamaño de su grupo</h2>
-      <p class="entradilla">Contamos con buses con diferentes capacidades.</p>
-    </div>
-    <div class="rejilla rejilla--3">
-      <article class="bus">
-        <img src="img/flota-40pax.jpg" alt="Bus de 40 pasajeros">
-        <div class="bus__cuerpo"><span class="bus__cap">40 pasajeros</span><h3>Bus</h3><p>Configuración de mayor capacidad, indicada para rutas de personal y traslados de grupos grandes.</p></div>
-      </article>
-      <article class="bus">
-        <img src="img/flota-30pax.jpg" alt="Bus de 30 pasajeros">
-        <div class="bus__cuerpo"><span class="bus__cap">30 pasajeros</span><h3>Bus</h3><p>Capacidad intermedia, adecuada para recorridos escolares y turísticos de grupo medio.</p></div>
-      </article>
-      <article class="bus">
-        <img src="img/flota-buseta.jpg" alt="Buseta de 20 pasajeros">
-        <div class="bus__cuerpo"><span class="bus__cap">20 pasajeros</span><h3>Buseta</h3><p>Vehículo ágil para grupos reducidos, traslados ejecutivos y recorridos urbanos.</p></div>
-      </article>
-    </div>
-  </div>
-</section>
-
 <!-- ========== MÓDULO 10 · SISTEMAS DE GESTIÓN ========== -->
 <section class="seccion seccion--verde" id="gestion">
   <div class="contenedor dividido dividido--invertido">
-    <div class="marco"><img src="img/bus-1010.jpg" alt="Bus 1010 de la flota"></div>
+    <div class="marco"><img src="assets/bus-1010.jpg" alt="Bus 1010 de la flota"></div>
     <div>
-      <span class="etiqueta">Nuestros sistemas de gestión</span>
-      <h2 class="titulo">Excelencia operativa verificada</h2>
-      <p class="entradilla justificado">Reconocemos que la excelencia operativa y la satisfacción del cliente son fundamentales para nuestro éxito. Por eso hemos implementado varios sistemas de gestión y actualmente estamos certificados en:</p>
+      <h2 class="titulo">Sistemas de gestión</h2>
+      <p class="entradilla">Respaldamos nuestra operación con procesos estandarizados que aseguran un servicio de transporte confiable, legal y eficiente.</p>
       <div class="rejilla" style="margin-top:26px">
-        <div class="cert"><img class="cert__img" src="img/gestion/iso-9001.jpg" alt="" width="320" height="320" loading="lazy"><div><h3>ISO 9001</h3><p>Sistema de gestión de la calidad.</p></div></div>
-        <div class="cert"><img class="cert__img" src="img/gestion/iso-45001.jpg" alt="" width="320" height="320" loading="lazy"><div><h3>ISO 45001</h3><p>Seguridad y salud en el trabajo.</p></div></div>
-        <div class="cert"><img class="cert__img" src="img/gestion/estacion-servicio.jpg" alt="" width="320" height="320" loading="lazy"><div><h3>Estación de servicio</h3><p>Resoluciones 40405/2020 y 40198/2021.</p></div></div>
+        <div class="cert"><img class="cert__img" src="assets/gestion/iso-9001.jpg" alt="" width="320" height="320" loading="lazy"><div><h3>ISO 9001</h3><p>Sistema de gestión de la calidad.</p></div></div>
+        <div class="cert"><img class="cert__img" src="assets/gestion/iso-45001.jpg" alt="" width="320" height="320" loading="lazy"><div><h3>ISO 45001</h3><p>Seguridad y salud en el trabajo.</p></div></div>
+        <div class="cert"><img class="cert__img" src="assets/gestion/estacion-servicio.jpg" alt="" width="320" height="320" loading="lazy"><div><h3>Estación de servicio</h3><p>Resoluciones 40405/2020 y 40198/2021.</p></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ========== MÓDULO 11 · GESTIÓN AMBIENTAL ========== -->
+<!-- ========== MÓDULO 11 · SOSTENIBILIDAD (Obs.3 #6, #7, #18) ========== -->
 <section class="seccion seccion--claro" id="sostenibilidad">
   <div class="contenedor">
     <div class="centrado" style="margin-bottom:44px">
       <span class="etiqueta">Sostenibilidad en movimiento</span>
-      <h2 class="titulo">Infraestructura propia, operación sostenible</h2>
+      <h2 class="titulo">Sostenibilidad y responsabilidad ambiental</h2>
     </div>
     <div class="mosaico">
       <figure class="mosaico__destacado">
-        <img src="img/solar.jpg" alt="Paneles solares en la sede">
-        <figcaption><h3>Energía solar</h3><p>Incorporamos energía solar en nuestra sede, reafirmando nuestro compromiso ambiental y garantizando un suministro sostenible que reduce la dependencia de fuentes tradicionales y ayuda a conservar los recursos naturales.</p></figcaption>
+        <img src="assets/solar.jpg" alt="Paneles solares en la sede" loading="lazy">
+        <figcaption><h3>Energía solar</h3><p>Hemos integrado <strong>sistemas de energía solar en nuestra infraestructura corporativa</strong>, consolidando nuestra estrategia de sostenibilidad ambiental. Esta transición no solo <strong>reduce la dependencia de la red eléctrica tradicional</strong>, sino que optimiza la eficiencia de nuestra operación mediante el uso de recursos renovables.</p></figcaption>
       </figure>
       <figure>
-        <img src="img/estacion.jpg" alt="Estación de servicio propia">
-        <figcaption><h3>Estación de servicio propia</h3><p>Certificada, ratifica nuestro compromiso con las buenas prácticas ambientales.</p></figcaption>
+        <img src="assets/mantenimiento.jpg" alt="Mantenimiento de un bus de la flota en la sede" loading="lazy">
+        <figcaption><h3>Mantenimiento verde</h3><p>Gestión responsable de residuos automotrices (aceites, llantas y baterías).</p></figcaption>
       </figure>
-      <figure>
-        <img src="img/mantenimiento.jpg" alt="Mantenimiento de flota en sede">
-        <figcaption><h3>Seguridad y confianza en ruta</h3><p>Control total de nuestra flota, tranquilidad total para tu negocio.</p></figcaption>
+      <figure class="mosaico__solido">
+        <div class="mosaico__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.2"/><path d="M3.3 10.5h6.5M14.2 10.5h6.5M12 14.2V21"/></svg></div>
+        <figcaption><h3>Conducción eficiente</h3><p>Contamos con programas de capacitación para disminuir el consumo de combustible por kilómetro recorrido.</p></figcaption>
       </figure>
       <figure class="mosaico__destacado">
-        <img src="img/bus-1000.jpg" alt="Flota de última generación tecnológica">
-        <figcaption><h3>Flota de última generación</h3><p>Alineados con las exigencias ambientales, renovamos nuestra flota con vehículos de última generación tecnológica que reducen la emisión de partículas y gases contaminantes.</p></figcaption>
+        <img src="assets/bus-1000.jpg" alt="Bus de la flota de última generación" loading="lazy">
+        <figcaption><h3>Flota de última generación</h3><p>Contamos con buses Euro 5 y Euro 6. Nos movemos de manera responsable integrando vehículos de bajas emisiones a nuestra operación diaria.</p></figcaption>
       </figure>
     </div>
   </div>
 </section>
 
-<!-- ========== MÓDULO 12 · POLÍTICAS CORPORATIVAS ========== -->
+<!-- ========== MÓDULO 12 · POLÍTICAS CORPORATIVAS (Obs.3 #17 y #21: entra la política integral, sale el canal de denuncias) ========== -->
 <section class="seccion seccion--suave" id="politicas">
   <div class="contenedor">
     <div class="centrado" style="margin-bottom:40px">
@@ -849,17 +1066,19 @@ p{margin:0 0 1em}
       <p class="entradilla">Los documentos que rigen nuestra operación están a disposición de clientes, colaboradores y partes interesadas.</p>
     </div>
     <div class="pol-rejilla">
-      <article class="pol"><div class="chapa"><svg class="ilu" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="58" rx="17" ry="2.6" fill="#D3EEDD" opacity=".55"/><rect x="17" y="8" width="30" height="40" rx="4" fill="#6CB294"/><rect x="13" y="12" width="30" height="40" rx="4" fill="#0F4A2E"/><rect x="19" y="20" width="18" height="3" rx="1.5" fill="#D3EEDD"/><rect x="19" y="27" width="14" height="3" rx="1.5" fill="#6CB294"/><rect x="19" y="34" width="16" height="3" rx="1.5" fill="#6CB294"/><circle cx="42" cy="44" r="10" fill="#E8792F"/><path d="M37.5 44.2l3.2 3.2 5.8-6.4" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <h3>Política integrada de gestión</h3><p>Marco de calidad, seguridad y salud en el trabajo y gestión ambiental.</p></article>
-      <article class="pol"><div class="chapa"><svg class="ilu" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="58" rx="17" ry="2.6" fill="#D3EEDD" opacity=".55"/><path d="M32 6l20 8v13c0 13-8.6 22.6-20 26-11.4-3.4-20-13-20-26V14z" fill="#0F4A2E"/><path d="M32 11l15 6v10c0 10-6.4 17.6-15 20.6z" fill="#1F6B45"/><rect x="22" y="27" width="20" height="15" rx="3" fill="#6CB294"/><path d="M26 27v-4a6 6 0 0112 0v4" fill="none" stroke="#6CB294" stroke-width="3.2"/><circle cx="32" cy="33.5" r="2.6" fill="#E8792F"/><rect x="30.8" y="34" width="2.4" height="5" rx="1.2" fill="#E8792F"/></svg></div>
+      <article class="pol pol--integral pol--destacada" id="pol-integrada">
+        <div class="pol__cab"><div class="chapa"><svg class="ilu" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="58" rx="17" ry="2.6" fill="#D3EEDD" opacity=".55"/><rect x="17" y="8" width="30" height="40" rx="4" fill="#6CB294"/><rect x="13" y="12" width="30" height="40" rx="4" fill="#0F4A2E"/><rect x="19" y="20" width="18" height="3" rx="1.5" fill="#D3EEDD"/><rect x="19" y="27" width="14" height="3" rx="1.5" fill="#6CB294"/><rect x="19" y="34" width="16" height="3" rx="1.5" fill="#6CB294"/><circle cx="42" cy="44" r="10" fill="#E8792F"/><path d="M37.5 44.2l3.2 3.2 5.8-6.4" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><h3>Política integrada de gestión</h3><p>Marco de calidad, seguridad y salud en el trabajo y gestión ambiental.</p></div></div>
+        <button type="button" class="pol__toggle" aria-expanded="false" aria-controls="polIntegralTexto"><span>Leer la política integral</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="pol__despliegue" id="polIntegralTexto" role="region" aria-label="Política integral" hidden>
+          <p>En Transportes Especiales Mejía S.A.S. prestamos servicios de transporte especial de pasajeros comprometidos con la satisfacción de nuestros clientes, la seguridad de las personas, la protección del medio ambiente, la sostenibilidad y el cumplimiento de los requisitos legales y organizacionales aplicables.</p>
+        </div>
+      </article>
+      <article class="pol" id="pol-datos"><div class="chapa"><svg class="ilu" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="58" rx="17" ry="2.6" fill="#D3EEDD" opacity=".55"/><path d="M32 6l20 8v13c0 13-8.6 22.6-20 26-11.4-3.4-20-13-20-26V14z" fill="#0F4A2E"/><path d="M32 11l15 6v10c0 10-6.4 17.6-15 20.6z" fill="#1F6B45"/><rect x="22" y="27" width="20" height="15" rx="3" fill="#6CB294"/><path d="M26 27v-4a6 6 0 0112 0v4" fill="none" stroke="#6CB294" stroke-width="3.2"/><circle cx="32" cy="33.5" r="2.6" fill="#E8792F"/><rect x="30.8" y="34" width="2.4" height="5" rx="1.2" fill="#E8792F"/></svg></div>
         <h3>Tratamiento de datos personales</h3><p>Conforme a la Ley 1581 de 2012 y sus decretos reglamentarios.</p></article>
-      <article class="pol"><div class="chapa"><svg class="ilu" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="58" rx="17" ry="2.6" fill="#D3EEDD" opacity=".55"/><rect x="13" y="10" width="36" height="44" rx="5" fill="#0F4A2E"/><rect x="17" y="16" width="28" height="34" rx="2" fill="#FFFFFF"/><rect x="24" y="6" width="14" height="8" rx="3" fill="#E8792F"/><rect x="21" y="22" width="20" height="3" rx="1.5" fill="#6CB294"/><rect x="21" y="28" width="15" height="3" rx="1.5" fill="#6CB294"/><path d="M21 42c3-4 5 1 7-2s4 2 7-1" fill="none" stroke="#1F6B45" stroke-width="2.4" stroke-linecap="round"/><path d="M44 29l6 6-12 12-7 1 1-7z" fill="#E8792F"/><path d="M44 29l6 6 2.4-2.4-6-6z" fill="#1F6B45"/></svg></div>
+      <article class="pol" id="pol-terminos"><div class="chapa"><svg class="ilu" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="58" rx="17" ry="2.6" fill="#D3EEDD" opacity=".55"/><rect x="13" y="10" width="36" height="44" rx="5" fill="#0F4A2E"/><rect x="17" y="16" width="28" height="34" rx="2" fill="#FFFFFF"/><rect x="24" y="6" width="14" height="8" rx="3" fill="#E8792F"/><rect x="21" y="22" width="20" height="3" rx="1.5" fill="#6CB294"/><rect x="21" y="28" width="15" height="3" rx="1.5" fill="#6CB294"/><path d="M21 42c3-4 5 1 7-2s4 2 7-1" fill="none" stroke="#1F6B45" stroke-width="2.4" stroke-linecap="round"/><path d="M44 29l6 6-12 12-7 1 1-7z" fill="#E8792F"/><path d="M44 29l6 6 2.4-2.4-6-6z" fill="#1F6B45"/></svg></div>
         <h3>Términos y condiciones del servicio</h3><p>Condiciones de contratación y prestación del transporte especial.</p></article>
-      <article class="pol pol--ancha"><div class="chapa"><svg class="ilu" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="58" rx="17" ry="2.6" fill="#D3EEDD" opacity=".55"/><rect x="30" y="10" width="4" height="38" rx="2" fill="#0F4A2E"/><rect x="20" y="48" width="24" height="6" rx="3" fill="#1F6B45"/><rect x="12" y="14" width="40" height="4" rx="2" fill="#0F4A2E"/><circle cx="32" cy="12" r="4" fill="#E8792F"/><path d="M16 18l-7 16h14z" fill="none" stroke="#6CB294" stroke-width="1.8"/><path d="M48 18l-7 16h14z" fill="none" stroke="#6CB294" stroke-width="1.8"/><path d="M6 34h20a10 5 0 01-20 0z" fill="#6CB294"/><path d="M38 34h20a10 5 0 01-20 0z" fill="#E8792F"/></svg></div>
-        <div><h3>Política SARLAFT y PTEE</h3><p>Prevención del lavado de activos y la financiación del terrorismo, transparencia y ética empresarial.</p></div></article>
-      <article class="pol pol--ancha pol--destacada"><div class="chapa"><svg class="ilu" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="58" rx="17" ry="2.6" fill="#D3EEDD" opacity=".55"/><path d="M10 12h36a6 6 0 016 6v18a6 6 0 01-6 6H26l-11 9v-9h-5a6 6 0 01-6-6V18a6 6 0 016-6z" fill="#0F4A2E"/><path d="M46 12a6 6 0 016 6v18a6 6 0 01-6 6h-4V12z" fill="#1F6B45"/><circle cx="28" cy="27" r="10" fill="#E8792F"/><rect x="26.4" y="20" width="3.2" height="9" rx="1.6" fill="#FFFFFF"/><circle cx="28" cy="32.6" r="1.9" fill="#FFFFFF"/></svg></div>
-        <div><h3>Canal de denuncias</h3><p>Mecanismo confidencial para reportar conductas contrarias a nuestras políticas.</p>
-        <a class="pol__ir" href="#denuncias">Ir al canal de denuncias →</a></div></article>
+      <article class="pol" id="pol-sarlaft"><div class="chapa"><svg class="ilu" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="58" rx="17" ry="2.6" fill="#D3EEDD" opacity=".55"/><rect x="30" y="10" width="4" height="38" rx="2" fill="#0F4A2E"/><rect x="20" y="48" width="24" height="6" rx="3" fill="#1F6B45"/><rect x="12" y="14" width="40" height="4" rx="2" fill="#0F4A2E"/><circle cx="32" cy="12" r="4" fill="#E8792F"/><path d="M16 18l-7 16h14z" fill="none" stroke="#6CB294" stroke-width="1.8"/><path d="M48 18l-7 16h14z" fill="none" stroke="#6CB294" stroke-width="1.8"/><path d="M6 34h20a10 5 0 01-20 0z" fill="#6CB294"/><path d="M38 34h20a10 5 0 01-20 0z" fill="#E8792F"/></svg></div>
+        <h3>Política SARLAFT y PTEE</h3><p>Prevención del lavado de activos y la financiación del terrorismo, transparencia y ética empresarial.</p></article>
     </div>
   </div>
 </section>
@@ -895,6 +1114,60 @@ p{margin:0 0 1em}
   </div>
 </section>
 
+<!-- ========== MÓDULO 17 · CONTACTO Y PQRS (Obs.3 #22 y #23: absorbe el llamado a la acción, que se retira) ========== -->
+<section class="seccion seccion--suave" id="contacto">
+  <div class="contenedor">
+    <div class="centrado" style="margin-bottom:38px">
+      <span class="etiqueta">Contáctanos</span>
+      <h2 class="titulo">Servicio al cliente</h2>
+      <p class="entradilla">Tu opinión nos ayuda a mejorar. Si deseas registrar una petición, queja, reclamo o sugerencia (PQRS), ponemos a tu disposición los siguientes canales:</p>
+    </div>
+    <div class="con-rejilla">
+      <article class="con"><div class="chapa"><svg class="ilu" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="58" rx="17" ry="2.6" fill="#D3EEDD" opacity=".55"/><rect x="18" y="4" width="28" height="50" rx="6" fill="#0F4A2E"/><rect x="21.5" y="10" width="21" height="36" rx="2" fill="#D3EEDD"/><rect x="28" y="6.4" width="8" height="1.8" rx=".9" fill="#1F6B45"/><circle cx="32" cy="50" r="2" fill="#6CB294"/><path d="M27 21h3l1.4 3.6-1.7 1.1a8 8 0 003.6 3.6l1.1-1.7 3.6 1.4v3a1 1 0 01-1 1A11.5 11.5 0 0126 22a1 1 0 011-1z" fill="#1F6B45"/><circle cx="46" cy="14" r="7" fill="#E8792F"/><path d="M43 14h6M46 11v6" stroke="#FFFFFF" stroke-width="0"/><circle cx="43.4" cy="14" r="1.2" fill="#FFFFFF"/><circle cx="46" cy="14" r="1.2" fill="#FFFFFF"/><circle cx="48.6" cy="14" r="1.2" fill="#FFFFFF"/></svg></div><div class="con__cuerpo">
+        <h3>Teléfonos</h3>
+        <p><a href="tel:+573135933550">313 593 3550</a></p><p><a href="tel:+573104419500">310 441 9500</a></p></div></article>
+      <article class="con"><div class="chapa chapa--foto"><img src="assets/contacto/whatsapp.png" alt="" width="256" height="256" loading="lazy"></div><div class="con__cuerpo">
+        <h3>WhatsApp</h3>
+        <p><a href="https://wa.me/573135933550" target="_blank" rel="noopener">313 593 3550</a></p>
+        <a class="boton boton--verde" href="https://wa.me/573135933550" target="_blank" rel="noopener">Escribir ahora</a></div></article>
+      <article class="con"><div class="chapa"><svg class="ilu" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="58" rx="17" ry="2.6" fill="#D3EEDD" opacity=".55"/><rect x="7" y="14" width="50" height="34" rx="5" fill="#0F4A2E"/><path d="M7 20l25 16 25-16v-1a5 5 0 00-5-5H12a5 5 0 00-5 5z" fill="#6CB294"/><path d="M11 44l15-12M53 44L38 32" stroke="#1F6B45" stroke-width="2.4" stroke-linecap="round"/><circle cx="48" cy="16" r="9" fill="#E8792F"/><path d="M44.5 16.2l2.6 2.6 4.6-5" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="con__cuerpo">
+        <h3>Correo electrónico</h3>
+        <p><a href="mailto:pasajeros@transportesespecialesmejia.com">pasajeros@<wbr>transportesespecialesmejia.com</a></p></div></article>
+      <article class="con"><div class="chapa"><svg class="ilu" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="58" rx="17" ry="2.6" fill="#D3EEDD" opacity=".55"/><path d="M8 44l14-6 20 6 14-6v14l-14 6-20-6-14 6z" fill="#6CB294"/><path d="M22 38v14l20 6V44z" fill="#D3EEDD"/><path d="M32 4a14 14 0 0114 14c0 11-14 26-14 26S18 29 18 18A14 14 0 0132 4z" fill="#0F4A2E"/><circle cx="32" cy="18" r="6" fill="#FFFFFF"/><circle cx="32" cy="18" r="2.6" fill="#E8792F"/></svg></div><div class="con__cuerpo">
+        <h3>Dirección</h3>
+        <p>Calle 44 N.° 34C-33</p><p>Palmira, Valle del Cauca — Colombia</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== MÓDULO 15 · HORARIOS DE ATENCIÓN ========== -->
+<section class="seccion seccion--claro" id="horarios">
+  <div class="contenedor">
+    <div class="centrado" style="margin-bottom:40px">
+      <span class="etiqueta">Horarios de atención</span>
+      <h2 class="titulo">Cuándo atendemos</h2>
+      <div class="hor-estado" id="horEstado" role="status" hidden><i aria-hidden="true"></i><span></span></div>
+    </div>
+    <div class="hor-rejilla">
+      <article class="hor" data-dias="1,3">
+        <div class="hor__cab"><div class="chapa chapa--sm"><svg class="ilu" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="58" rx="17" ry="2.6" fill="#D3EEDD" opacity=".55"/><circle cx="32" cy="30" r="22" fill="#0F4A2E"/><circle cx="32" cy="30" r="17" fill="#D3EEDD"/><path d="M32 18v12l8 5" fill="none" stroke="#1F6B45" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="32" cy="30" r="3" fill="#E8792F"/><circle cx="32" cy="15.5" r="1.4" fill="#6CB294"/><circle cx="46.5" cy="30" r="1.4" fill="#6CB294"/><circle cx="17.5" cy="30" r="1.4" fill="#6CB294"/><circle cx="32" cy="44.5" r="1.4" fill="#6CB294"/></svg></div><h3>Lunes y miércoles</h3></div>
+        <div class="semana" aria-hidden="true"><span class="on" title="lunes">L</span><span class="" title="martes">M</span><span class="on" title="miércoles">M</span><span class="" title="jueves">J</span><span class="" title="viernes">V</span><span class="" title="sábado">S</span><span class="" title="domingo">D</span></div>
+        <div class="franjas"><div class="franja"><b>Mañana</b>7:30 a. m. – 12:00 m.</div><div class="franja"><b>Tarde</b>2:00 p. m. – 5:00 p. m.</div></div>
+      </article>
+      <article class="hor" data-dias="2,4,5">
+        <div class="hor__cab"><div class="chapa chapa--sm"><svg class="ilu" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="58" rx="17" ry="2.6" fill="#D3EEDD" opacity=".55"/><circle cx="32" cy="30" r="22" fill="#0F4A2E"/><circle cx="32" cy="30" r="17" fill="#D3EEDD"/><path d="M32 18v12l8 5" fill="none" stroke="#1F6B45" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="32" cy="30" r="3" fill="#E8792F"/><circle cx="32" cy="15.5" r="1.4" fill="#6CB294"/><circle cx="46.5" cy="30" r="1.4" fill="#6CB294"/><circle cx="17.5" cy="30" r="1.4" fill="#6CB294"/><circle cx="32" cy="44.5" r="1.4" fill="#6CB294"/></svg></div><h3>Martes, jueves y viernes</h3></div>
+        <div class="semana" aria-hidden="true"><span class="" title="lunes">L</span><span class="on" title="martes">M</span><span class="" title="miércoles">M</span><span class="on" title="jueves">J</span><span class="on" title="viernes">V</span><span class="" title="sábado">S</span><span class="" title="domingo">D</span></div>
+        <div class="franjas"><div class="franja"><b>Mañana</b>7:00 a. m. – 12:00 m.</div><div class="franja"><b>Tarde</b>2:00 p. m. – 4:30 p. m.</div></div>
+      </article>
+      <article class="hor" data-dias="6">
+        <div class="hor__cab"><div class="chapa chapa--sm"><svg class="ilu" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="58" rx="17" ry="2.6" fill="#D3EEDD" opacity=".55"/><circle cx="32" cy="30" r="22" fill="#0F4A2E"/><circle cx="32" cy="30" r="17" fill="#D3EEDD"/><path d="M32 18v12l8 5" fill="none" stroke="#1F6B45" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="32" cy="30" r="3" fill="#E8792F"/><circle cx="32" cy="15.5" r="1.4" fill="#6CB294"/><circle cx="46.5" cy="30" r="1.4" fill="#6CB294"/><circle cx="17.5" cy="30" r="1.4" fill="#6CB294"/><circle cx="32" cy="44.5" r="1.4" fill="#6CB294"/></svg></div><h3>Sábados</h3></div>
+        <div class="semana" aria-hidden="true"><span class="" title="lunes">L</span><span class="" title="martes">M</span><span class="" title="miércoles">M</span><span class="" title="jueves">J</span><span class="" title="viernes">V</span><span class="on" title="sábado">S</span><span class="" title="domingo">D</span></div>
+        <div class="franjas"><div class="franja"><b>Mañana</b>8:00 a. m. – 12:00 m.</div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
 <!-- ========== MÓDULO 14 · TRABAJA CON NOSOTROS ========== -->
 <section class="seccion seccion--suave" id="trabaja">
   <div class="contenedor dividido">
@@ -903,6 +1176,10 @@ p{margin:0 0 1em}
       <h2 class="titulo">Súmese a nuestro equipo</h2>
       <p class="entradilla justificado">Nuestra operación se fundamenta en el fortalecimiento continuo del talento humano. Gracias a convenios estratégicos con el SENA, la Secretaría de Tránsito, nuestra ARL y compañías aseguradoras, nuestro equipo se mantiene a la vanguardia en normatividad, seguridad vial y servicio al cliente.</p>
       <p class="entradilla justificado">Priorizamos el bienestar humano como motor de la seguridad: disponemos de orientación psicológica permanente para nuestro personal, asegurando un equipo estable, confiable y enfocado en la excelencia del servicio.</p>
+      <div class="pendiente" role="note">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M10 9.5v5l4.5-2.5z"/></svg>
+        <div><strong>Espacio reservado · Fotos y video del auditorio</strong><span>Ubicación propuesta para mostrar el auditorio de capacitación una vez finalice su remodelación. Pendiente de material del cliente.</span></div>
+      </div>
     </div>
     <div class="form-zona">
     <form class="form" id="formHV" novalidate>
@@ -947,68 +1224,25 @@ p{margin:0 0 1em}
   </div>
 </section>
 
-<!-- ========== MÓDULO 15 · HORARIOS DE ATENCIÓN ========== -->
-<section class="seccion seccion--claro" id="horarios">
+<!-- ========== MÓDULO 19 · BLOGS (Obs.3 #8: indicio de ubicación; contenido pendiente del cliente) ========== -->
+<section class="seccion seccion--claro" id="blogs">
   <div class="contenedor">
-    <div class="centrado" style="margin-bottom:40px">
-      <span class="etiqueta">Horarios de atención</span>
-      <h2 class="titulo">Cuándo atendemos</h2>
-      <div class="hor-estado" id="horEstado" role="status" hidden><i aria-hidden="true"></i><span></span></div>
+    <div class="centrado encabezado">
+      <span class="etiqueta">Blogs</span>
+      <h2 class="titulo">Blogs</h2>
+      <p class="entradilla">Espacio reservado para los artículos que publicará la empresa. Contenido pendiente de entrega.</p>
     </div>
-    <div class="hor-rejilla">
-      <article class="hor" data-dias="1,3">
-        <div class="hor__cab"><div class="chapa chapa--sm"><svg class="ilu" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="58" rx="17" ry="2.6" fill="#D3EEDD" opacity=".55"/><circle cx="32" cy="30" r="22" fill="#0F4A2E"/><circle cx="32" cy="30" r="17" fill="#D3EEDD"/><path d="M32 18v12l8 5" fill="none" stroke="#1F6B45" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="32" cy="30" r="3" fill="#E8792F"/><circle cx="32" cy="15.5" r="1.4" fill="#6CB294"/><circle cx="46.5" cy="30" r="1.4" fill="#6CB294"/><circle cx="17.5" cy="30" r="1.4" fill="#6CB294"/><circle cx="32" cy="44.5" r="1.4" fill="#6CB294"/></svg></div><h3>Lunes y miércoles</h3></div>
-        <div class="semana" aria-hidden="true"><span class="on" title="lunes">L</span><span class="" title="martes">M</span><span class="on" title="miércoles">M</span><span class="" title="jueves">J</span><span class="" title="viernes">V</span><span class="" title="sábado">S</span><span class="" title="domingo">D</span></div>
-        <div class="franjas"><div class="franja"><b>Mañana</b>7:30 a. m. – 12:00 m.</div><div class="franja"><b>Tarde</b>2:00 p. m. – 5:00 p. m.</div></div>
+    <div class="blog-rejilla">
+      <article class="blog">
+        <span class="blog__estado">Próximamente</span>
+        <h3>Artículo jurídico</h3>
+        <p>Texto en preparación por la asesora jurídica.</p>
       </article>
-      <article class="hor" data-dias="2,4,5">
-        <div class="hor__cab"><div class="chapa chapa--sm"><svg class="ilu" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="58" rx="17" ry="2.6" fill="#D3EEDD" opacity=".55"/><circle cx="32" cy="30" r="22" fill="#0F4A2E"/><circle cx="32" cy="30" r="17" fill="#D3EEDD"/><path d="M32 18v12l8 5" fill="none" stroke="#1F6B45" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="32" cy="30" r="3" fill="#E8792F"/><circle cx="32" cy="15.5" r="1.4" fill="#6CB294"/><circle cx="46.5" cy="30" r="1.4" fill="#6CB294"/><circle cx="17.5" cy="30" r="1.4" fill="#6CB294"/><circle cx="32" cy="44.5" r="1.4" fill="#6CB294"/></svg></div><h3>Martes, jueves y viernes</h3></div>
-        <div class="semana" aria-hidden="true"><span class="" title="lunes">L</span><span class="on" title="martes">M</span><span class="" title="miércoles">M</span><span class="on" title="jueves">J</span><span class="on" title="viernes">V</span><span class="" title="sábado">S</span><span class="" title="domingo">D</span></div>
-        <div class="franjas"><div class="franja"><b>Mañana</b>7:00 a. m. – 12:00 m.</div><div class="franja"><b>Tarde</b>2:00 p. m. – 4:30 p. m.</div></div>
+      <article class="blog">
+        <span class="blog__estado">Próximamente</span>
+        <h3>Artículo ambiental</h3>
+        <p>Texto en preparación por el experto en gestión ambiental.</p>
       </article>
-      <article class="hor" data-dias="6">
-        <div class="hor__cab"><div class="chapa chapa--sm"><svg class="ilu" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="58" rx="17" ry="2.6" fill="#D3EEDD" opacity=".55"/><circle cx="32" cy="30" r="22" fill="#0F4A2E"/><circle cx="32" cy="30" r="17" fill="#D3EEDD"/><path d="M32 18v12l8 5" fill="none" stroke="#1F6B45" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="32" cy="30" r="3" fill="#E8792F"/><circle cx="32" cy="15.5" r="1.4" fill="#6CB294"/><circle cx="46.5" cy="30" r="1.4" fill="#6CB294"/><circle cx="17.5" cy="30" r="1.4" fill="#6CB294"/><circle cx="32" cy="44.5" r="1.4" fill="#6CB294"/></svg></div><h3>Sábados</h3></div>
-        <div class="semana" aria-hidden="true"><span class="" title="lunes">L</span><span class="" title="martes">M</span><span class="" title="miércoles">M</span><span class="" title="jueves">J</span><span class="" title="viernes">V</span><span class="on" title="sábado">S</span><span class="" title="domingo">D</span></div>
-        <div class="franjas"><div class="franja"><b>Mañana</b>8:00 a. m. – 12:00 m.</div></div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ========== MÓDULO 16 · LLAMADO A LA ACCIÓN ========== -->
-<section class="seccion cta">
-  <div class="contenedor">
-    <div class="cta__ico" aria-hidden="true">
-      <svg viewBox="0 0 24 24"><path d="M3 4h11a2 2 0 012 2v5a2 2 0 01-2 2H8l-5 3.5z"/><path d="M18.5 9H20a1.5 1.5 0 011.5 1.5v5A1.5 1.5 0 0120 17h-1v3l-3.2-3h-3.1"/></svg>
-    </div>
-    <h2>¿Necesita movilizar a su equipo con seguridad?</h2>
-    <p>Comunícate con nosotros y descubre más sobre nuestros servicios. Estaremos atentos para atenderte.</p>
-    <p style="margin-top:26px"><a class="boton boton--primario" href="#contacto">Hablar con servicio al cliente</a></p>
-  </div>
-</section>
-
-<!-- ========== MÓDULO 17 · CONTACTO Y PQRS ========== -->
-<section class="seccion seccion--suave" id="contacto">
-  <div class="contenedor">
-    <div class="centrado" style="margin-bottom:38px">
-      <span class="etiqueta">Servicio al cliente</span>
-      <h2 class="titulo">Contáctanos</h2>
-      <p class="entradilla">Tu opinión nos ayuda a mejorar. Si deseas registrar una petición, queja, reclamo o sugerencia (PQRS), ponemos a tu disposición los siguientes canales:</p>
-    </div>
-    <div class="con-rejilla">
-      <article class="con"><div class="chapa"><svg class="ilu" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="58" rx="17" ry="2.6" fill="#D3EEDD" opacity=".55"/><rect x="18" y="4" width="28" height="50" rx="6" fill="#0F4A2E"/><rect x="21.5" y="10" width="21" height="36" rx="2" fill="#D3EEDD"/><rect x="28" y="6.4" width="8" height="1.8" rx=".9" fill="#1F6B45"/><circle cx="32" cy="50" r="2" fill="#6CB294"/><path d="M27 21h3l1.4 3.6-1.7 1.1a8 8 0 003.6 3.6l1.1-1.7 3.6 1.4v3a1 1 0 01-1 1A11.5 11.5 0 0126 22a1 1 0 011-1z" fill="#1F6B45"/><circle cx="46" cy="14" r="7" fill="#E8792F"/><path d="M43 14h6M46 11v6" stroke="#FFFFFF" stroke-width="0"/><circle cx="43.4" cy="14" r="1.2" fill="#FFFFFF"/><circle cx="46" cy="14" r="1.2" fill="#FFFFFF"/><circle cx="48.6" cy="14" r="1.2" fill="#FFFFFF"/></svg></div><div class="con__cuerpo">
-        <h3>Teléfonos</h3>
-        <p><a href="tel:+573135933550">313 593 3550</a></p><p><a href="tel:+573104419500">310 441 9500</a></p></div></article>
-      <article class="con"><div class="chapa chapa--foto"><img src="img/contacto/whatsapp.png" alt="" width="256" height="256" loading="lazy"></div><div class="con__cuerpo">
-        <h3>WhatsApp</h3>
-        <p><a href="https://wa.me/573135933550" target="_blank" rel="noopener">313 593 3550</a></p>
-        <a class="boton boton--verde" href="https://wa.me/573135933550" target="_blank" rel="noopener">Escribir ahora</a></div></article>
-      <article class="con"><div class="chapa"><svg class="ilu" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="58" rx="17" ry="2.6" fill="#D3EEDD" opacity=".55"/><rect x="7" y="14" width="50" height="34" rx="5" fill="#0F4A2E"/><path d="M7 20l25 16 25-16v-1a5 5 0 00-5-5H12a5 5 0 00-5 5z" fill="#6CB294"/><path d="M11 44l15-12M53 44L38 32" stroke="#1F6B45" stroke-width="2.4" stroke-linecap="round"/><circle cx="48" cy="16" r="9" fill="#E8792F"/><path d="M44.5 16.2l2.6 2.6 4.6-5" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="con__cuerpo">
-        <h3>Correo electrónico</h3>
-        <p><a href="mailto:pasajeros@transportesespecialesmejia.com">pasajeros@<wbr>transportesespecialesmejia.com</a></p></div></article>
-      <article class="con"><div class="chapa"><svg class="ilu" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="58" rx="17" ry="2.6" fill="#D3EEDD" opacity=".55"/><path d="M8 44l14-6 20 6 14-6v14l-14 6-20-6-14 6z" fill="#6CB294"/><path d="M22 38v14l20 6V44z" fill="#D3EEDD"/><path d="M32 4a14 14 0 0114 14c0 11-14 26-14 26S18 29 18 18A14 14 0 0132 4z" fill="#0F4A2E"/><circle cx="32" cy="18" r="6" fill="#FFFFFF"/><circle cx="32" cy="18" r="2.6" fill="#E8792F"/></svg></div><div class="con__cuerpo">
-        <h3>Dirección</h3>
-        <p>Calle 44 N.° 34C-33</p><p>Palmira, Valle del Cauca — Colombia</p></div></article>
     </div>
   </div>
 </section>
@@ -1018,7 +1252,7 @@ p{margin:0 0 1em}
   <div class="contenedor">
     <div class="pie__fila">
       <div>
-        <img src="img/logo.png" alt="Transportes Especiales Mejía S.A.S.">
+        <img src="assets/logo.png" alt="Transportes Especiales Mejía S.A.S.">
         <p style="margin:18px 0 0">Transportes Especiales Mejía S.A.S.</p>
         <p style="margin:0">Calle 44 N.° 34C-33, Palmira, Valle del Cauca, Colombia</p>
       </div>
@@ -1031,6 +1265,7 @@ p{margin:0 0 1em}
           <li><a href="#politicas">Políticas corporativas</a></li>
           <li><a href="#denuncias">Canal de denuncias</a></li>
           <li><a href="#trabaja">Trabaja con nosotros</a></li>
+          <li><a href="#blogs">Blogs</a></li>
         </ul>
       </div>
       <div>
@@ -1047,8 +1282,10 @@ p{margin:0 0 1em}
   </div>
 </footer>
 
-<a class="wa-flotante" href="https://wa.me/573135933550" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
-  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.7.44 3.36 1.28 4.82L2 22l5.4-1.42a9.88 9.88 0 004.64 1.18h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.64-1.03-5.13-2.9-7-1.87-1.87-4.35-2.85-6.02-2.85zm0 18.13h-.01a8.2 8.2 0 01-4.18-1.15l-.3-.18-3.11.82.83-3.03-.2-.31a8.2 8.2 0 01-1.26-4.37c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 012.41 5.83c0 4.55-3.7 8.21-8.26 8.21zm4.52-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.78.97-.14.17-.29.19-.53.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.48-1.39-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.36-.77-1.86-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08s.9 2.42 1.02 2.58c.12.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.59.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.28z"/></svg>
+<!-- Obs.3 #19: botón de WhatsApp con aura («aquí estoy») y texto «Cotiza aquí» -->
+<a class="wa-flotante" href="https://wa.me/573135933550" target="_blank" rel="noopener" aria-label="Cotiza aquí por WhatsApp">
+  <span class="wa-flotante__texto">Cotiza aquí</span>
+  <span class="wa-flotante__disco"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.7.44 3.36 1.28 4.82L2 22l5.4-1.42a9.88 9.88 0 004.64 1.18h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.64-1.03-5.13-2.9-7-1.87-1.87-4.35-2.85-6.02-2.85zm0 18.13h-.01a8.2 8.2 0 01-4.18-1.15l-.3-.18-3.11.82.83-3.03-.2-.31a8.2 8.2 0 01-1.26-4.37c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 012.41 5.83c0 4.55-3.7 8.21-8.26 8.21zm4.52-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.78.97-.14.17-.29.19-.53.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.48-1.39-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.36-.77-1.86-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08s.9 2.42 1.02 2.58c.12.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.59.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.28z"/></svg></span>
 </a>
 <button class="arriba" id="btnArriba" type="button" aria-label="Volver arriba">
   <svg viewBox="0 0 24 24"><path d="M12 19V5"/><path d="M6 11l6-6 6 6"/></svg>
@@ -1114,7 +1351,7 @@ document.getElementById('anio').textContent = new Date().getFullYear();
         if (en.isIntersecting) { anima(en.target); obs2.unobserve(en.target); }
       });
     }, { threshold: 0.6 });
-    cifras.forEach(function (el) { obs2.observe(el); });
+    cifras.forEach(function (el) { if (!reducido) { el.textContent = '0' + (el.getAttribute('data-sufijo') || ''); } obs2.observe(el); });
   } else {
     cifras.forEach(anima);
   }
@@ -1269,6 +1506,17 @@ document.addEventListener('keydown', function (e) {
   }
   actualizar(); setInterval(actualizar, 60000);
 })();
+
+/* Obs.3 #17 — política integral desplegable */
+document.querySelectorAll('.pol__toggle').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var r = document.getElementById(b.getAttribute('aria-controls'));
+    var abre = b.getAttribute('aria-expanded') !== 'true';
+    b.setAttribute('aria-expanded', abre ? 'true' : 'false');
+    r.hidden = !abre;
+    b.querySelector('span').textContent = abre ? 'Ocultar la política integral' : 'Leer la política integral';
+  });
+});
 </script>
 </body>
 </html>
