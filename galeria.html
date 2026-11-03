@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Galería | Transportes Especiales Mejía S.A.S.</title>
+<meta name="description" content="Recorra nuestra flota, a nuestros conductores, los interiores y las instalaciones. Transportes Especiales Mejía S.A.S., Palmira, Valle del Cauca.">
+<link rel="icon" href="assets/img/isotipo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<div class="progreso" id="progreso" aria-hidden="true"></div>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<!-- ========== MÓDULO 01 · CABECERA ========== -->
+<header class="cabecera">
+  <div class="contenedor cabecera__fila">
+    <a class="cabecera__logo" href="index.html"><img src="assets/img/logo-alta.png" alt="Transportes Especiales Mejía S.A.S." width="580" height="130"></a>
+    <!-- Obs.3 #24: menú desplegable en escritorio (≥1280 px). En móvil se conserva la lista simple, adaptada. -->
+    <nav class="nav" aria-label="Principal">
+      <a class="nav__enlace" href="index.html">Inicio</a>
+      <div class="nav__grupo">
+        <a class="nav__enlace" href="nosotros.html" aria-haspopup="true">Nosotros<svg class="nav__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+        <ul class="nav__panel">
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="nosotros.html#mision-vision">Misión y visión</a></li>
+          <li><a href="principios-valores.html#principios">Principios</a></li>
+          <li><a href="principios-valores.html#valores">Valores corporativos</a></li>
+          <li><a href="nosotros.html#valor-diferencial">Nuestro valor diferencial</a></li>
+          <li><a href="sistemas-de-gestion.html">Sistemas de gestión</a></li>
+          <li><a href="sostenibilidad.html">Sostenibilidad y responsabilidad ambiental</a></li>
+        </ul>
+      </div>
+      <div class="nav__grupo">
+        <a class="nav__enlace" href="servicios.html" aria-haspopup="true">Servicios<svg class="nav__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+        <ul class="nav__panel">
+          <li><a href="servicios.html#srv-empresarial">Transporte Empresarial</a></li>
+          <li><a href="servicios.html#srv-escolar">Transporte escolar</a></li>
+          <li><a href="servicios.html#srv-turistico">Transporte turístico y ocasional</a></li>
+          <li><a href="servicios.html#flota">Nuestra flota</a></li>
+        </ul>
+      </div>
+      <div class="nav__grupo">
+        <a class="nav__enlace" href="politicas.html" aria-haspopup="true">Políticas<svg class="nav__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+        <ul class="nav__panel">
+          <li><a href="politicas.html#pol-integrada">Política integrada de gestión</a></li>
+          <li><a href="politicas.html#pol-datos">Tratamiento de datos personales</a></li>
+          <li><a href="politicas.html#pol-terminos">Términos y condiciones del servicio</a></li>
+          <li><a href="politicas.html#pol-sarlaft">Política SARLAFT y PTEE</a></li>
+        </ul>
+      </div>
+      <a aria-current="page" class="nav__enlace" href="galeria.html">Galería</a>
+      <a class="nav__enlace" href="canal-de-denuncias.html">Canal de denuncias</a>
+      <a class="nav__enlace" href="contacto.html">Contacto</a>
+      <a class="nav__enlace" href="trabaja-con-nosotros.html">Trabaja con nosotros</a>
+      <a class="nav__enlace" href="blogs.html">Blogs</a>
+    </nav>
+    <a class="boton boton--primario boton--ico" href="contacto.html"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>Solicitar servicio</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navMovil" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="nav-movil" id="navMovil" aria-label="Principal móvil">
+    <a href="index.html">Inicio</a>
+    <a href="nosotros.html">Nosotros</a>
+    <a class="sub" href="principios-valores.html">Principios y valores</a>
+    <a class="sub" href="sistemas-de-gestion.html">Sistemas de gestión</a>
+    <a class="sub" href="sostenibilidad.html">Sostenibilidad</a>
+    <a href="servicios.html">Servicios y flota</a>
+    <a href="politicas.html">Políticas</a>
+    <a aria-current="page" href="galeria.html">Galería</a>
+    <a href="canal-de-denuncias.html">Canal de denuncias</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="trabaja-con-nosotros.html">Trabaja con nosotros</a>
+    <a href="blogs.html">Blogs</a>
+  </nav>
+</header>
+
+
+<main id="contenido">
+<section class="banner" id="inicio">
+  <img class="banner__img" src="assets/banners/23.webp" alt="" width="1600" height="520" style="object-position:50% 65%" fetchpriority="high">
+  <div class="contenedor banner__cuerpo">
+    <nav class="migas" aria-label="Ruta de navegación"><a href="index.html">Inicio</a><span aria-hidden="true">/</span><span aria-current="page">Galería</span></nav>
+    <span class="banner__eyebrow">Nuestra gente y nuestra flota</span>
+    <h1>Galería</h1>
+    <p>Recorra nuestra flota, a nuestros conductores, los interiores y las instalaciones.</p>
+  </div>
+</section>
+<section class="seccion seccion--claro galeria" id="galeria">
+  <div class="contenedor">
+    <div class="galeria__barra">
+      <div class="chips" role="group" aria-label="Filtrar fotografías">
+        <button type="button" class="chip" data-filtro="todas" aria-pressed="true">Todas <i>40</i></button>
+        <button type="button" class="chip" data-filtro="flota" aria-pressed="false">Flota <i>22</i></button>
+        <button type="button" class="chip" data-filtro="conductores" aria-pressed="false">Conductores <i>8</i></button>
+        <button type="button" class="chip" data-filtro="interiores" aria-pressed="false">Interiores <i>5</i></button>
+        <button type="button" class="chip" data-filtro="instalaciones" aria-pressed="false">Instalaciones <i>5</i></button>
+      </div>
+      <p class="galeria__estado" id="galEstado" role="status" aria-live="polite">Mostrando 40 fotografías</p>
+    </div>
+    <ul class="galeria__rejilla" id="galRejilla">
+      <li class="galeria__item" data-cat="conductores"><button type="button" class="galeria__btn" data-n="1" data-full="assets/galeria/01.webp" data-w="2200" data-h="1467" style="background-color:#9aa39e" aria-label="Ampliar: Conductor de brazos cruzados frente al bus 1010"><img src="assets/galeria/min/01.webp" alt="Conductor de brazos cruzados frente al bus 1010" width="800" height="533" loading="lazy" decoding="async"></button></li>
+      <li class="galeria__item" data-cat="conductores"><button type="button" class="galeria__btn" data-n="2" data-full="assets/galeria/02.webp" data-w="2200" data-h="1467" style="background-color:#7f8884" aria-label="Ampliar: Conductor junto a la parte delantera del bus 1010"><img src="assets/galeria/min/02.webp" alt="Conductor junto a la parte delantera del bus 1010" width="800" height="533" loading="lazy" decoding="async"></button></li>
+      <li class="galeria__item" data-cat="conductores"><button type="button" class="galeria__btn" data-n="3" data-full="assets/galeria/03.webp" data-w="2200" data-h="1467" style="background-color:#6e716b" aria-label="Ampliar: Conductor sonriente junto a la puerta del bus"><img src="assets/galeria/min/03.webp" alt="Conductor sonriente junto a la puerta del bus" width="800" height="533" loading="lazy" decoding="async"></button></li>
+      <li class="galeria__item" data-cat="conductores"><button type="button" class="galeria__btn" data-n="4" data-full="assets/galeria/04.webp" data-w="2200" data-h="1467" style="background-color:#767f7b" aria-label="Ampliar: Conductor de pie junto a la puerta del bus 1000"><img src="assets/galeria/min/04.webp" alt="Conductor de pie junto a la puerta del bus 1000" width="800" height="533" loading="lazy" decoding="async"></button></li>
+      <li class="galeria__item" data-cat="flota"><button type="button" class="galeria__btn" data-n="5" data-full="assets/galeria/05.webp" data-w="2200" data-h="1467" style="background-color:#727c73" aria-label="Ampliar: Tres buses de la flota estacionados bajo los árboles"><img src="assets/galeria/min/05.webp" alt="Tres buses de la flota estacionados bajo los árboles" width="800" height="533" loading="lazy" decoding="async"></button></li>
+      <li class="galeria__item" data-cat="flota"><button type="button" class="galeria__btn" data-n="6" data-full="assets/galeria/06.webp" data-w="2200" data-h="1467" style="background-color:#888a84" aria-label="Ampliar: Frente de un bus de la flota, vista cercana"><img src="assets/galeria/min/06.webp" alt="Frente de un bus de la flota, vista cercana" width="800" height="533" loading="lazy" decoding="async"></button></li>
+      <li class="galeria__item" data-cat="flota"><button type="button" class="galeria__btn" data-n="7" data-full="assets/galeria/07.webp" data-w="2200" data-h="1467" style="background-color:#747f75" aria-label="Ampliar: Bus 1000 en vista de tres cuartos bajo los árboles"><img src="assets/galeria/min/07.webp" alt="Bus 1000 en vista de tres cuartos bajo los árboles" width="800" height="533" loading="lazy" decoding="async"></button></li>
+      <li class="galeria__item" data-cat="flota"><button type="button" class="galeria__btn" data-n="8" data-full="assets/galeria/08.webp" data-w="2200" data-h="1467" style="background-color:#6a7466" aria-label="Ampliar: Bus 1010 en vista de tres cuartos bajo los árboles"><img src="assets/galeria/min/08.webp" alt="Bus 1010 en vista de tres cuartos bajo los árboles" width="800" height="533" loading="lazy" decoding="async"></button></li>
+      <li class="galeria__item" data-cat="flota"><button type="button" class="galeria__btn" data-n="9" data-full="assets/galeria/09.webp" data-w="2200" data-h="1467" style="background-color:#6c816c" aria-label="Ampliar: Bus 1010 en vista lateral"><img src="assets/galeria/min/09.webp" alt="Bus 1010 en vista lateral" width="800" height="533" loading="lazy" decoding="async"></button></li>
+      <li class="galeria__item" data-cat="flota"><button type="button" class="galeria__btn" data-n="10" data-full="assets/galeria/10.webp" data-w="2200" data-h="1467" style="background-color:#747e76" aria-label="Ampliar: Bus 1000 en vista lateral"><img src="assets/galeria/min/10.webp" alt="Bus 1000 en vista lateral" width="800" height="533" loading="lazy" decoding="async"></button></li>
+      <li class="galeria__item" data-cat="flota"><button type="button" class="galeria__btn" data-n="11" data-full="assets/galeria/11.webp" data-w="2200" data-h="1467" style="background-color:#6e8271" aria-label="Ampliar: Bus 1000 en vista lateral entre vegetación"><img src="assets/galeria/min/11.webp" alt="Bus 1000 en vista lateral entre vegetación" width="800" height="533" loading="lazy" decoding="async"></button></li>
+      <li class="galeria__item" data-cat="flota"><button type="button" class="galeria__btn" data-n="12" data-full="assets/galeria/12.webp" data-w="2200" data-h="1467" style="background-color:#808680" aria-label="Ampliar: Bus 1000 en vista lateral bajo los árboles"><img src="assets/galeria/min/12.webp" alt="Bus 1000 en vista lateral bajo los árboles" width="800" height="533" loading="lazy" decoding="async"></button></li>
+      <li class="galeria__item" data-cat="conductores"><button type="button" class="galeria__btn" data-n="13" data-full="assets/galeria/13.webp" data-w="2200" data-h="1467" style="background-color:#64747b" aria-label="Ampliar: Conductor al volante en la cabina de un bus"><img src="assets/galeria/min/13.webp" alt="Conductor al volante en la cabina de un bus" width="800" height="533" loading="lazy" decoding="async"></button></li>
+      <li class="galeria__item" data-cat="flota"><button type="button" class="galeria__btn" data-n="14" data-full="assets/galeria/14.webp" data-w="2200" data-h="1467" style="background-color:#6f796f" aria-label="Ampliar: Bus 1030 en vista de tres cuartos"><img src="assets/galeria/min/14.webp" alt="Bus 1030 en vista de tres cuartos" width="800" height="533" loading="lazy" decoding="async"></button></li>
+      <li class="galeria__item" data-cat="flota"><button type="button" class="galeria__btn" data-n="15" data-full="assets/galeria/15.webp" data-w="2200" data-h="1467" style="background-color:#6b766d" aria-label="Ampliar: Bus 1030 en vista frontal"><img src="assets/galeria/min/15.webp" alt="Bus 1030 en vista frontal" width="800" height="533" loading="lazy" decoding="async"></button></li>
+      <li class="galeria__item" data-cat="flota"><button type="button" class="galeria__btn" data-n="16" data-full="assets/galeria/16.webp" data-w="2200" data-h="1467" style="background-color:#6c756a" aria-label="Ampliar: Bus 1030 en vista de tres cuartos con árboles de fondo"><img src="assets/galeria/min/16.webp" alt="Bus 1030 en vista de tres cuartos con árboles de fondo" width="800" height="533" loading="lazy" decoding="async"></button></li>
+      <li class="galeria__item" data-cat="flota"><button type="button" class="galeria__btn" data-n="17" data-full="assets/galeria/17.webp" data-w="2200" data-h="1467" style="background-color:#7b827a" aria-label="Ampliar: Bus 1030 en vista lateral"><img src="assets/galeria/min/17.webp" alt="Bus 1030 en vista lateral" width="800" height="533" loading="lazy" decoding="async"></button></li>
+      <li class="galeria__item galeria__item--ancho" data-cat="conductores"><button type="button" class="galeria__btn" data-n="18" data-full="assets/galeria/18.webp" data-w="2200" data-h="1238" style="background-color:#707b71" aria-label="Ampliar: Cuatro conductores posando frente a un bus de la flota"><img src="assets/galeria/min/18.webp" alt="Cuatro conductores posando frente a un bus de la flota" width="800" height="450" loading="lazy" decoding="async"></button></li>
+      <li class="galeria__item" data-cat="conductores"><button type="button" class="galeria__btn" data-n="19" data-full="assets/galeria/19.webp" data-w="2200" data-h="1467" style="background-color:#83a67f" aria-label="Ampliar: Flota de buses con conductores sobre un prado"><img src="assets/galeria/min/19.webp" alt="Flota de buses con conductores sobre un prado" width="800" height="533" loading="lazy" decoding="async"></button></li>
+      <li class="galeria__item" data-cat="conductores"><button type="button" class="galeria__btn" data-n="20" data-full="assets/galeria/20.webp" data-w="2200" data-h="1467" style="background-color:#7c9e79" aria-label="Ampliar: Buses de la flota y conductores sobre un prado"><img src="assets/galeria/min/20.webp" alt="Buses de la flota y conductores sobre un prado" width="800" height="533" loading="lazy" decoding="async"></button></li>
+      <li class="galeria__item" data-cat="flota"><button type="button" class="galeria__btn" data-n="21" data-full="assets/galeria/21.webp" data-w="2200" data-h="1467" style="background-color:#73996e" aria-label="Ampliar: Fila de buses de la flota sobre el césped"><img src="assets/galeria/min/21.webp" alt="Fila de buses de la flota sobre el césped" width="800" height="533" loading="lazy" decoding="async"></button></li>
+      <li class="galeria__item" data-cat="flota"><button type="button" class="galeria__btn" data-n="22" data-full="assets/galeria/22.webp" data-w="2200" data-h="1467" style="background-color:#48654e" aria-label="Ampliar: Frentes de varios buses alineados"><img src="assets/galeria/min/22.webp" alt="Frentes de varios buses alineados" width="800" height="533" loading="lazy" decoding="async"></button></li>
+      <li class="galeria__item" data-cat="flota"><button type="button" class="galeria__btn" data-n="23" data-full="assets/galeria/23.webp" data-w="2200" data-h="1467" style="background-color:#719670" aria-label="Ampliar: Flota de buses estacionada sobre el prado"><img src="assets/galeria/min/23.webp" alt="Flota de buses estacionada sobre el prado" width="800" height="533" loading="lazy" decoding="async"></button></li>
+      <li class="galeria__item" data-cat="flota"><button type="button" class="galeria__btn" data-n="24" data-full="assets/galeria/24.webp" data-w="2200" data-h="1467" style="background-color:#82a77f" aria-label="Ampliar: Cuatro buses alineados sobre el césped"><img src="assets/galeria/min/24.webp" alt="Cuatro buses alineados sobre el césped" width="800" height="533" loading="lazy" decoding="async"></button></li>
+      <li class="galeria__item" data-cat="flota"><button type="button" class="galeria__btn" data-n="25" data-full="assets/galeria/25.webp" data-w="2200" data-h="1467" style="background-color:#5c6a6a" aria-label="Ampliar: Vehículo 1040 en vista de tres cuartos"><img src="assets/galeria/min/25.webp" alt="Vehículo 1040 en vista de tres cuartos" width="800" height="533" loading="lazy" decoding="async"></button></li>
+      <li class="galeria__item" data-cat="flota"><button type="button" class="galeria__btn" data-n="26" data-full="assets/galeria/26.webp" data-w="2200" data-h="1467" style="background-color:#5f6961" aria-label="Ampliar: Vehículo 1040 fotografiado desde un ángulo bajo"><img src="assets/galeria/min/26.webp" alt="Vehículo 1040 fotografiado desde un ángulo bajo" width="800" height="533" loading="lazy" decoding="async"></button></li>
+      <li class="galeria__item" data-cat="flota"><button type="button" class="galeria__btn" data-n="27" data-full="assets/galeria/27.webp" data-w="2200" data-h="1467" style="background-color:#6e7570" aria-label="Ampliar: Detalle de la rotulación Especiales Mejía en el lateral del vehículo 1040"><img src="assets/galeria/min/27.webp" alt="Detalle de la rotulación Especiales Mejía en el lateral del vehículo 1040" width="800" height="533" loading="lazy" decoding="async"></button></li>
+      <li class="galeria__item" data-cat="flota"><button type="button" class="galeria__btn" data-n="28" data-full="assets/galeria/28.webp" data-w="2200" data-h="1467" style="background-color:#6f7f6a" aria-label="Ampliar: Vehículo 1040 bajo los árboles"><img src="assets/galeria/min/28.webp" alt="Vehículo 1040 bajo los árboles" width="800" height="533" loading="lazy" decoding="async"></button></li>
+      <li class="galeria__item" data-cat="flota"><button type="button" class="galeria__btn" data-n="29" data-full="assets/galeria/29.webp" data-w="2200" data-h="1467" style="background-color:#62756e" aria-label="Ampliar: Vehículo 1040 en vista lateral sobre la vía"><img src="assets/galeria/min/29.webp" alt="Vehículo 1040 en vista lateral sobre la vía" width="800" height="533" loading="lazy" decoding="async"></button></li>
+      <li class="galeria__item" data-cat="flota"><button type="button" class="galeria__btn" data-n="30" data-full="assets/galeria/30.webp" data-w="2200" data-h="1467" style="background-color:#657b7c" aria-label="Ampliar: Vehículo 1040 en una vía arbolada"><img src="assets/galeria/min/30.webp" alt="Vehículo 1040 en una vía arbolada" width="800" height="533" loading="lazy" decoding="async"></button></li>
+      <li class="galeria__item" data-cat="interiores"><button type="button" class="galeria__btn" data-n="31" data-full="assets/galeria/31.webp" data-w="2200" data-h="1467" style="background-color:#264a93" aria-label="Ampliar: Asientos azules e iluminación interior del bus"><img src="assets/galeria/min/31.webp" alt="Asientos azules e iluminación interior del bus" width="800" height="533" loading="lazy" decoding="async"></button></li>
+      <li class="galeria__item" data-cat="interiores"><button type="button" class="galeria__btn" data-n="32" data-full="assets/galeria/32.webp" data-w="2200" data-h="1467" style="background-color:#313a65" aria-label="Ampliar: Luminaria LED en el techo del bus"><img src="assets/galeria/min/32.webp" alt="Luminaria LED en el techo del bus" width="800" height="533" loading="lazy" decoding="async"></button></li>
+      <li class="galeria__item" data-cat="interiores"><button type="button" class="galeria__btn" data-n="33" data-full="assets/galeria/33.webp" data-w="2200" data-h="1467" style="background-color:#2d4770" aria-label="Ampliar: Interior de un bus con asientos azules y luces en el techo"><img src="assets/galeria/min/33.webp" alt="Interior de un bus con asientos azules y luces en el techo" width="800" height="533" loading="lazy" decoding="async"></button></li>
+      <li class="galeria__item" data-cat="interiores"><button type="button" class="galeria__btn" data-n="34" data-full="assets/galeria/34.webp" data-w="2200" data-h="1467" style="background-color:#385985" aria-label="Ampliar: Pasillo y asientos del interior del bus"><img src="assets/galeria/min/34.webp" alt="Pasillo y asientos del interior del bus" width="800" height="533" loading="lazy" decoding="async"></button></li>
+      <li class="galeria__item" data-cat="interiores"><button type="button" class="galeria__btn" data-n="35" data-full="assets/galeria/35.webp" data-w="2200" data-h="1467" style="background-color:#3e5e89" aria-label="Ampliar: Interior del bus con filas de asientos azules"><img src="assets/galeria/min/35.webp" alt="Interior del bus con filas de asientos azules" width="800" height="533" loading="lazy" decoding="async"></button></li>
+      <li class="galeria__item" data-cat="instalaciones"><button type="button" class="galeria__btn" data-n="36" data-full="assets/galeria/36.webp" data-w="2200" data-h="1467" style="background-color:#59666b" aria-label="Ampliar: Bus de la empresa en su estación de servicio"><img src="assets/galeria/min/36.webp" alt="Bus de la empresa en su estación de servicio" width="800" height="533" loading="lazy" decoding="async"></button></li>
+      <li class="galeria__item" data-cat="instalaciones"><button type="button" class="galeria__btn" data-n="37" data-full="assets/galeria/37.webp" data-w="2200" data-h="1467" style="background-color:#5c7c92" aria-label="Ampliar: Vehículo 1040 junto a la estación de servicio de la empresa"><img src="assets/galeria/min/37.webp" alt="Vehículo 1040 junto a la estación de servicio de la empresa" width="800" height="533" loading="lazy" decoding="async"></button></li>
+      <li class="galeria__item" data-cat="instalaciones"><button type="button" class="galeria__btn" data-n="38" data-full="assets/galeria/38.webp" data-w="2200" data-h="1467" style="background-color:#56606f" aria-label="Ampliar: Vehículo 1040 frente a las instalaciones de la empresa"><img src="assets/galeria/min/38.webp" alt="Vehículo 1040 frente a las instalaciones de la empresa" width="800" height="533" loading="lazy" decoding="async"></button></li>
+      <li class="galeria__item galeria__item--alto" data-cat="instalaciones"><button type="button" class="galeria__btn" data-n="39" data-full="assets/galeria/39.webp" data-w="1467" data-h="2200" style="background-color:#5d6e80" aria-label="Ampliar: Vehículo 1040 frente a las instalaciones (vertical)"><img src="assets/galeria/min/39.webp" alt="Vehículo 1040 frente a las instalaciones (vertical)" width="533" height="800" loading="lazy" decoding="async"></button></li>
+      <li class="galeria__item" data-cat="instalaciones"><button type="button" class="galeria__btn" data-n="40" data-full="assets/galeria/40.webp" data-w="2200" data-h="1467" style="background-color:#4f6072" aria-label="Ampliar: Vehículo 1040 frente a la sede de la empresa"><img src="assets/galeria/min/40.webp" alt="Vehículo 1040 frente a la sede de la empresa" width="800" height="533" loading="lazy" decoding="async"></button></li>
+    </ul>
+  </div>
+</section>
+<dialog class="lb" id="lb" aria-label="Visor de fotografías">
+  <div class="lb__marco">
+    <button type="button" class="lb__cerrar" id="lbCerrar" aria-label="Cerrar visor"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <button type="button" class="lb__nav lb__nav--ant" id="lbAnt" aria-label="Fotografía anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <figure class="lb__fig"><img id="lbImg" alt="" decoding="async"><figcaption><span id="lbTxt"></span><b id="lbCnt"></b></figcaption></figure>
+    <button type="button" class="lb__nav lb__nav--sig" id="lbSig" aria-label="Fotografía siguiente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+  </div>
+</dialog>
+
+<nav class="pager" aria-label="Navegación entre páginas"><div class="contenedor pager__fila"><a class="pager__a pager__a--ant" href="politicas.html" rel="prev"><span>← Anterior</span><b>Políticas</b></a><a class="pager__a pager__a--sig" href="canal-de-denuncias.html" rel="next"><span>Siguiente →</span><b>Canal de denuncias</b></a></div></nav>
+</main>
+<!-- ========== MÓDULO 18 · PIE ========== -->
+<footer class="pie">
+  <div class="contenedor">
+    <div class="pie__fila">
+      <div>
+        <img src="assets/img/logo.png" alt="Transportes Especiales Mejía S.A.S.">
+        <p style="margin:18px 0 0">Transportes Especiales Mejía S.A.S.</p>
+        <p style="margin:0">Calle 44 N.° 34C-33, Palmira, Valle del Cauca, Colombia</p>
+      </div>
+      <div>
+        <h4>Enlaces</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="servicios.html">Servicios y flota</a></li>
+          <li><a href="galeria.html">Galería</a></li>
+          <li><a href="politicas.html">Políticas corporativas</a></li>
+          <li><a href="canal-de-denuncias.html">Canal de denuncias</a></li>
+          <li><a href="trabaja-con-nosotros.html">Trabaja con nosotros</a></li>
+          <li><a href="blogs.html">Blogs</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="tel:+573135933550"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 005 5L15 13l5 2v4a1 1 0 01-1.1 1A16 16 0 014 5.1 1 1 0 015 4z"/></svg>313 593 3550</a></li>
+          <li><a href="tel:+573104419500"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 005 5L15 13l5 2v4a1 1 0 01-1.1 1A16 16 0 014 5.1 1 1 0 015 4z"/></svg>310 441 9500</a></li>
+          <li><a href="mailto:pasajeros@transportesespecialesmejia.com"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>Escríbenos</a></li>
+          <li><a href="https://wa.me/573135933550" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.7a8 8 0 01-11.9 7L4 20l1.4-4a8 8 0 1114.6-4.3z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/></svg>WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="pie__legal">© <span id="anio">2026</span> Transportes Especiales Mejía S.A.S. Todos los derechos reservados. · ISO 9001 · ISO 45001 · Estación de servicio certificada</div>
+  </div>
+</footer>
+
+<!-- Obs.3 #19: botón de WhatsApp con aura («aquí estoy») y texto «Cotiza aquí» -->
+<a class="wa-flotante" href="https://wa.me/573135933550" target="_blank" rel="noopener" aria-label="Cotiza aquí por WhatsApp">
+  <span class="wa-flotante__texto">Cotiza aquí</span>
+  <span class="wa-flotante__disco"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.7.44 3.36 1.28 4.82L2 22l5.4-1.42a9.88 9.88 0 004.64 1.18h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.64-1.03-5.13-2.9-7-1.87-1.87-4.35-2.85-6.02-2.85zm0 18.13h-.01a8.2 8.2 0 01-4.18-1.15l-.3-.18-3.11.82.83-3.03-.2-.31a8.2 8.2 0 01-1.26-4.37c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 012.41 5.83c0 4.55-3.7 8.21-8.26 8.21zm4.52-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.78.97-.14.17-.29.19-.53.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.48-1.39-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.36-.77-1.86-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08s.9 2.42 1.02 2.58c.12.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.59.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.28z"/></svg></span>
+</a>
+<button class="arriba" id="btnArriba" type="button" aria-label="Volver arriba">
+  <svg viewBox="0 0 24 24"><path d="M12 19V5"/><path d="M6 11l6-6 6 6"/></svg>
+</button>
+
+
+<script src="assets/js/main.js" defer></script>
+<script src="assets/js/galeria.js" defer></script>
+</body>
+</html>

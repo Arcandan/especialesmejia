@@ -4,827 +4,85 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Transportes Especiales Mejía S.A.S. | Transporte Especial de Pasajeros</title>
-<meta name="description" content="Transportes Especiales Mejía S.A.S. — Más de 35 años en transporte especial de pasajeros. Certificados ISO 9001, ISO 45001 y estación de servicio. Palmira, Valle del Cauca.">
-<link rel="icon" href="assets/isotipo.png">
+<meta name="description" content="Transportes Especiales Mejía S.A.S. — Más de 35 años en transporte especial de pasajeros. Certificados ISO 9001, ISO 45001. Palmira, Valle del Cauca.">
+<link rel="icon" href="assets/img/isotipo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-/* ============================================================
-   PROPUESTA V2 · CAPA DE MODERNIZACIÓN VISUAL
-   ------------------------------------------------------------
-   Esta hoja NO toca contenido, textos, estructura ni datos ya
-   aprobados por el cliente en v2.0 (ver CAMBIOS-v2.md). Solo
-   añade/ajusta estilo visual: tipografía, movimiento, profundidad
-   y detalles de interfaz. Todo lo nuevo respeta
-   prefers-reduced-motion y el sistema de color institucional.
-   ============================================================ */
-/* ============================================================
-   SISTEMA DE COLOR v2.0 — verde institucional dominante
-   ------------------------------------------------------------
-   Corrección aplicada sobre la v1.0 (observaciones 2, 7 y 14
-   del cliente): se retira el verde casi negro como fondo de
-   sección y se adopta el verde institucional #67943E y su
-   escala clara #E5F3D9, tomados del membrete corporativo.
-   El texto corrido pasa de gris neutro a verde institucional
-   oscuro para que la página "tenga más color".
-   Relación verde (H≈93°) / naranja (H≈24°): complementarios
-   divididos. Proporción 60-30-10 mantenida.
-   ============================================================ */
-:root{
-  --verde-900:#2C4220;
-  --verde-800:#3C5A2A;
-  --verde-700:#4E7533;
-  --verde-600:#5B8639;
-  --verde-500:#67943E;   /* VERDE INSTITUCIONAL */
-  --verde-400:#67BA46;   /* verde claro de membrete */
-  --verde-200:#C6DEAE;
-  --verde-100:#E5F3D9;   /* fondo suave institucional */
-  --verde-050:#F2F8EC;
-
-  --naranja-700:#C24E00;
-  --naranja-500:#FF6600;  /* NARANJA INSTITUCIONAL — solo relleno decorativo */
-  --naranja-txt:#B84A00;  /* naranja para TEXTO: 5,23:1 sobre blanco (AA) */
-  --naranja-btn:#C24E00;  /* relleno de botón con texto blanco: 4,79:1 (AA) */
-  --naranja-btn-h:#A84300;
-  --verde-banda:#4E7533;  /* banda de indicadores: blanco encima da 5,36:1 (AA) */
-  --naranja-300:#FFA24D;
-  --naranja-100:#FFEEE0;
-
-  --n000:#FFFFFF; --n050:#FAFAF7; --n100:#F1F2EC; --n300:#D6D8CE;
-  --n600:#6B6F63; --n900:#1A1C17;
-
-  --texto:var(--verde-900);
-  --texto-suave:var(--verde-700);
-  --fondo:var(--n050);
-  --superficie:var(--n000);
-  --borde:var(--verde-200);
-
-  --radio:14px; --radio-sm:8px;
-  --sombra:0 2px 4px rgba(44,66,32,.05), 0 12px 28px rgba(44,66,32,.08);
-  --sombra-hover:0 8px 16px rgba(44,66,32,.08), 0 24px 48px rgba(44,66,32,.16);
-  --max:1180px;
-  --fuente:"Plus Jakarta Sans", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
-  --fuente-titulo:"Manrope", "Plus Jakarta Sans", system-ui, sans-serif;
-}
-
-/* ---------- RESET ---------- */
-*,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:auto} /* Obs.3 #12: salto directo a la sección, sin desplazamiento */
-/* La cabecera fija mide 66px: sin esto, al navegar por el menú el título
-   de la sección queda oculto detrás de ella. */
-section[id],footer[id],article[id]{scroll-margin-top:112px}
-:focus-visible{outline:3px solid var(--naranja-btn);outline-offset:3px;border-radius:4px}
-.saltar{position:absolute;left:-9999px;top:0;z-index:200;background:var(--verde-900);color:#fff;
- padding:12px 20px;border-radius:0 0 10px 0;font-weight:700}
-.saltar:focus{left:0}
-@media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
-}
-body{margin:0;overflow-x:hidden;font-family:var(--fuente);color:var(--texto);background:var(--fondo);line-height:1.7;font-size:1.06rem;-webkit-font-smoothing:antialiased;text-wrap:pretty}
-img{max-width:100%;display:block}
-a{color:var(--verde-600);text-decoration:none}
-h1,h2,h3,h4{font-family:var(--fuente-titulo);line-height:1.22;margin:0 0 .5em;font-weight:800;letter-spacing:-.015em;color:var(--verde-900)}
-p{margin:0 0 1em}
-
-/* ---------- UTILIDADES ---------- */
-.contenedor{width:100%;max-width:var(--max);margin-inline:auto;padding-inline:20px}
-.seccion{padding-block:84px}
-.seccion--claro{background:var(--superficie)}
-.seccion--suave{background:var(--verde-100)}
-.seccion--verde{background:var(--verde-500);color:#fff}
-.seccion--verde h2,.seccion--verde h3{color:#fff}
-.etiqueta{display:inline-block;font-size:1.3rem;font-weight:800;letter-spacing:.01em;color:var(--naranja-txt);margin-bottom:.35em;line-height:1.3}
-.seccion--verde .etiqueta{color:#fff}
-.titulo{font-size:clamp(1.8rem,3.8vw,2.6rem);margin-bottom:.4em}
-.entradilla{font-size:1.14rem;color:var(--texto-suave);max-width:64ch}
-.seccion--verde .entradilla{color:#EEF6E6}
-.centrado{text-align:center}
-/* Justificar solo textos de línea larga, con guionado, porque en columnas
-   estrechas la justificación abre huecos entre palabras. */
-.justificado{text-align:left}
-@media(min-width:900px){ .justificado{text-align:justify;hyphens:auto;-webkit-hyphens:auto;text-wrap:initial} }
-.centrado .entradilla{margin-inline:auto}
-.rejilla{display:grid;gap:26px}
-@media(min-width:760px){ .rejilla--2{grid-template-columns:repeat(2,1fr)} .rejilla--3{grid-template-columns:repeat(3,1fr)} .rejilla--4{grid-template-columns:repeat(2,1fr)} }
-@media(min-width:1040px){ .rejilla--4{grid-template-columns:repeat(4,1fr)} }
-
-.boton{display:inline-block;padding:15px 30px;border-radius:100px;font-weight:700;font-size:1.02rem;min-height:48px;transition:transform .18s ease, box-shadow .18s ease, background .18s ease}
-.boton:hover{transform:translateY(-2px)}
-.boton--primario{background:var(--naranja-btn);color:#fff;box-shadow:0 8px 20px rgba(194,78,0,.3)}
-.boton--primario:hover{background:var(--naranja-btn-h)}
-.boton--fantasma{border:2px solid rgba(255,255,255,.7);color:#fff}
-.boton--fantasma:hover{background:#fff;color:var(--verde-700)}
-.boton--verde{background:var(--verde-500);color:#fff}
-.boton--verde:hover{background:var(--verde-700)}
-
-/* Icono de línea reutilizable */
-.ico{width:22px;height:22px;flex:0 0 22px;stroke:var(--verde-500);fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
-
-/* ============================================================
-   MÓDULO 01 · CABECERA
-   ============================================================ */
-.cabecera{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--borde)}
-.cabecera__fila{display:flex;align-items:center;justify-content:space-between;gap:18px;padding-block:12px}
-.cabecera__logo{display:flex;align-items:center;min-height:46px}
-.cabecera__logo img{height:44px;width:auto}
-.nav{display:none;gap:20px;font-size:1.06rem;font-weight:600;white-space:nowrap}
-.nav a{color:var(--verde-800);position:relative;padding-block:10px}
-.nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--naranja-500);transition:width .2s ease}
-.nav a:hover::after{width:100%}
-.cabecera .boton{padding:12px 22px;font-size:1rem;min-height:46px;white-space:nowrap}
-.menu-btn{display:flex;flex-direction:column;justify-content:center;gap:5px;flex:0 0 48px;width:48px;height:46px;padding:0 11px;
- background:none;border:1px solid var(--borde);border-radius:9px;cursor:pointer;min-height:46px}
-.menu-btn span{display:block;height:2px;background:var(--verde-700);border-radius:2px;transition:transform .2s ease,opacity .2s ease}
-.menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
-.menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.nav-movil{display:none;border-top:1px solid var(--borde);background:#fff}
-.nav-movil.abierto{display:block}
-@media(min-width:1280px){ .nav{display:flex} .menu-btn{display:none} }
-.nav-movil a{display:flex;align-items:center;min-height:52px;padding:14px 20px;border-bottom:1px solid var(--verde-100);font-weight:600;font-size:1.06rem;color:var(--verde-800)}
-@media(min-width:1280px){ .nav-movil{display:none!important} }
-
-/* ============================================================
-   MÓDULO 02 · HÉROE
-   ============================================================ */
-.heroe{position:relative;color:#fff;isolation:isolate}
-.heroe__media{position:absolute;inset:0;z-index:-2}
-.heroe__media img{width:100%;height:100%;object-fit:cover}
-.heroe::before{content:"";position:absolute;inset:0;z-index:-1;
- background:linear-gradient(100deg, rgba(44,66,32,.95) 0%, rgba(78,117,51,.88) 48%, rgba(91,134,57,.62) 100%)}
-.heroe__cuerpo{padding-block:110px 96px;max-width:760px}
-.heroe .razon{display:block;font-size:clamp(1.05rem,2.3vw,1.5rem);font-weight:800;letter-spacing:.04em;color:var(--naranja-300);margin-bottom:.5em}
-.heroe h1{font-size:clamp(2.1rem,5.4vw,3.5rem);margin-bottom:.35em;color:#fff}
-.heroe h1 em{font-style:normal;color:var(--naranja-300)}
-.heroe p{font-size:1.18rem;color:#F1F7EA;max-width:58ch}
-.heroe__acciones{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
-.heroe__sellos{display:flex;flex-wrap:wrap;gap:10px;margin-top:38px}
-.sello{font-size:.96rem;font-weight:700;background:rgba(28,42,18,.62);border:1px solid rgba(255,255,255,.55);border-radius:100px;padding:8px 17px;color:#fff}
-
-/* ============================================================
-   MÓDULO 03 · POR QUÉ CONFIAR (4 pilares)
-   ============================================================ */
-.pilares{position:relative}
-.pilares__lista{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;margin-top:38px}
-@media(min-width:860px){ .pilares__lista{grid-template-columns:repeat(4,1fr)} }
-.pilar{text-align:center;position:relative}
-@media(min-width:860px){
-  .pilar::after{content:"";position:absolute;top:58px;right:-13px;width:26px;height:2px;background:var(--verde-200)}
-  .pilar:last-child::after{display:none}
-}
-.pilar__disco{width:116px;height:116px;margin:0 auto 16px;border-radius:50%;border:2px solid var(--verde-500);
- background:var(--verde-100);display:flex;align-items:center;justify-content:center;transition:transform .2s ease,box-shadow .2s ease}
-.pilar:nth-child(2n) .pilar__disco{background:var(--naranja-100);border-color:var(--naranja-btn)}
-.pilar:hover .pilar__disco{transform:translateY(-4px);box-shadow:0 10px 22px rgba(44,66,32,.16)}
-.pilar__disco svg{width:46px;height:46px;stroke:var(--verde-700);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.pilar:nth-child(2n) .pilar__disco svg{stroke:var(--naranja-btn)}
-.pilar h3{font-size:1.2rem;margin-bottom:.25em}
-.pilar p{font-size:1rem;color:var(--texto-suave);margin:0}
-
-/* ============================================================
-   MÓDULO 04 · INDICADORES
-   ============================================================ */
-.indicadores{background:var(--verde-banda);color:#fff}
-.indicadores .rejilla{gap:14px;padding-block:38px;text-align:center}
-@media(min-width:760px){ .indicadores .rejilla{grid-template-columns:repeat(3,1fr)} }
-.indicador__cifra{font-size:clamp(2rem,4vw,2.8rem);font-weight:800;line-height:1;color:#fff}
-.indicador__texto{font-size:1.04rem;color:#fff;font-weight:600}
-
-/* ============================================================
-   MÓDULO 05 · NOSOTROS
-   ============================================================ */
-.dividido{display:grid;gap:44px;align-items:center}
-.dividido>*{min-width:0}
-@media(min-width:900px){ .dividido{grid-template-columns:1.05fr 1fr} .dividido--invertido>*:first-child{order:2} }
-.marco{border-radius:var(--radio);overflow:hidden;box-shadow:var(--sombra)}
-.marco img{width:100%;aspect-ratio:4/3;object-fit:cover}
-.lista-check{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:12px}
-.lista-check li{display:flex;gap:12px;align-items:flex-start;font-size:1rem}
-.lista-check li::before{content:"";flex:0 0 9px;height:9px;margin-top:.6em;border-radius:50%;background:var(--naranja-500)}
-
-/* ============================================================
-   MÓDULO 06 · MISIÓN / VISIÓN / POLÍTICA
-   ============================================================ */
-.tarjeta{background:var(--superficie);border:1px solid var(--borde);border-radius:var(--radio);padding:32px;box-shadow:var(--sombra)}
-.tarjeta--acento{border-top:4px solid var(--naranja-500)}
-.tarjeta h3{font-size:1.3rem}
-.tarjeta p:last-child{margin-bottom:0}
-
-/* ============================================================
-   MÓDULO 07 · VALORES
-   ============================================================ */
-.valor{background:var(--superficie);border:1px solid var(--borde);border-radius:var(--radio);padding:28px;transition:border-color .2s ease,transform .2s ease}
-.valor:hover{border-color:var(--verde-500);transform:translateY(-3px)}
-.valor__num{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:10px;
- background:var(--verde-100);color:var(--verde-700);font-weight:800;font-size:.98rem;margin-bottom:14px}
-.valor:nth-child(3n+2) .valor__num{background:var(--naranja-100);color:var(--naranja-700)}
-/* Ilustración de cada valor: decorativa (alt vacío), el nombre ya está en el h3 */
-.valor__img{display:block;width:128px;height:128px;object-fit:contain;margin:0 0 14px;border-radius:12px}
-.valor{display:flex;flex-direction:column}
-@media(max-width:759px){ .valor__img{width:112px;height:112px} }
-.valor h3{font-size:1.16rem}
-.valor p{font-size:1rem;color:var(--texto-suave);margin:0}
-
-/* ============================================================
-   MÓDULO 08 · SERVICIOS
-   ============================================================ */
-.servicio{background:var(--superficie);border-radius:var(--radio);overflow:hidden;border:1px solid var(--borde);
- display:flex;flex-direction:column;transition:transform .2s ease,box-shadow .2s ease}
-.servicio:hover{transform:translateY(-4px);box-shadow:var(--sombra)}
-.servicio img{aspect-ratio:16/10;object-fit:cover;width:100%}
-.servicio__cuerpo{padding:22px 24px 26px}
-.servicio h3{font-size:1.2rem;margin-bottom:.35em}
-.servicio p{font-size:1rem;color:var(--texto-suave);margin:0}
-
-/* ============================================================
-   MÓDULO 09 · FLOTA
-   ============================================================ */
-.bus{background:var(--superficie);border:1px solid var(--borde);border-radius:var(--radio);overflow:hidden;
- display:flex;flex-direction:column}
-.bus img{aspect-ratio:3/2;object-fit:cover;width:100%}
-.bus__cuerpo{padding:22px 24px 26px}
-.bus__cap{display:inline-block;background:var(--naranja-500);color:#fff;border-radius:100px;padding:5px 15px;
- font-weight:800;font-size:.92rem;margin-bottom:10px}
-.bus h3{font-size:1.2rem;margin-bottom:.3em}
-.bus p{font-size:1rem;color:var(--texto-suave);margin:0}
-
-/* ============================================================
-   MÓDULO 10 · CERTIFICACIONES
-   ============================================================ */
-.cert{display:flex;gap:16px;align-items:flex-start;background:rgba(255,255,255,.14);
- border:1px solid rgba(255,255,255,.4);border-radius:var(--radio);padding:24px}
-.cert__marca{flex:0 0 auto;font-size:.8rem;font-weight:800;background:var(--naranja-500);color:#fff;
- border-radius:var(--radio-sm);padding:8px 12px}
-.cert__img{flex:0 0 auto;width:86px;height:86px;border-radius:20px;background:#fff;padding:5px;object-fit:contain}
-@media(max-width:519px){ .cert__img{width:72px;height:72px} }
-.chapa--foto{background:#fff;padding:6px}
-.chapa--foto img{width:100%;height:100%;object-fit:contain}
-.cert h3{font-size:1.14rem;margin-bottom:.25em;color:#fff}
-.cert p{font-size:1rem;color:#F1F7EA;margin:0}
-
-/* ============================================================
-   MÓDULO 11 · SOSTENIBILIDAD
-   ============================================================ */
-.mosaico{display:grid;gap:20px}
-@media(min-width:820px){ .mosaico{grid-template-columns:repeat(3,1fr)} .mosaico__destacado{grid-column:span 2} }
-.mosaico figure{position:relative;margin:0;border-radius:var(--radio);overflow:hidden;min-height:250px;color:#fff}
-.mosaico img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.mosaico figcaption{position:relative;z-index:2;padding:26px;display:flex;flex-direction:column;justify-content:flex-end;min-height:250px;
- background:linear-gradient(to top, rgba(44,66,32,.93) 8%, rgba(44,66,32,.15) 78%)}
-.mosaico h3{font-size:1.25rem;margin-bottom:.3em;color:#fff}
-.mosaico p{font-size:1.02rem;margin:0;color:#F0F7E8}
-
-/* ============================================================
-   MÓDULO 12 · POLÍTICAS CORPORATIVAS
-   ============================================================ */
-.politica{display:flex;gap:16px;align-items:flex-start;background:var(--superficie);border:1px solid var(--borde);
- border-radius:var(--radio);padding:22px 24px}
-.politica h3{font-size:1.14rem;margin-bottom:.25em}
-.politica p{font-size:1rem;color:var(--texto-suave);margin:0}
-.politica a{display:inline-flex;align-items:center;min-height:44px;font-weight:700}
-.politica__estado{display:inline-block;margin-top:10px;font-size:.92rem;font-weight:700;color:#A84300;
- background:var(--naranja-100);border-radius:100px;padding:6px 14px}
-
-/* ============================================================
-   MÓDULO 13 · CANAL DE DENUNCIAS
-   ============================================================ */
-.denuncia{display:grid;gap:26px;align-items:center}
-@media(min-width:860px){ .denuncia{grid-template-columns:1fr 240px} }
-.denuncia__qr{background:var(--superficie);border:1px solid var(--borde);border-radius:var(--radio);padding:18px;text-align:center}
-.denuncia__qr img{width:100%;max-width:190px;margin-inline:auto}
-.denuncia__qr span{display:block;font-size:.85rem;color:var(--texto-suave);margin-top:10px}
-.qr-vacio{aspect-ratio:1/1;max-width:190px;margin-inline:auto;border:2px dashed var(--verde-200);border-radius:10px;
- display:flex;align-items:center;justify-content:center;text-align:center;font-size:.82rem;color:var(--n600);padding:12px}
-
-/* ============================================================
-   MÓDULO 14 · TRABAJA CON NOSOTROS
-   ============================================================ */
-.form{display:grid;min-width:0;gap:18px;background:var(--superficie);border:1px solid var(--borde);border-radius:var(--radio);padding:30px}
-@media(min-width:760px){ .form{grid-template-columns:repeat(2,1fr)} .form .ancho{grid-column:1/-1} }
-.campo label{display:block;font-size:.9rem;font-weight:700;color:var(--verde-800);margin-bottom:6px}
-.campo{min-width:0}
-.campo input,.campo textarea{width:100%;max-width:100%;padding:12px 14px;border:1px solid var(--borde);border-radius:var(--radio-sm);
- font-family:inherit;font-size:1rem;color:var(--texto);background:var(--n050)}
-.campo input:focus,.campo textarea:focus{outline:2px solid var(--verde-400);outline-offset:1px}
-.campo input[type=file]{padding:9px 12px;background:var(--verde-050)}
-.form__aviso{font-size:.92rem;color:var(--n600);margin:0}
-.campo input:user-invalid{border-color:#B84A00;background:#FFF6F0}
-.campo .error[hidden]{display:none}
-.campo .error{display:block;font-size:.88rem;font-weight:600;color:#A84300;margin-top:5px}
-.form__enviando{position:relative;pointer-events:none;opacity:.6}
-.spin{display:inline-block;width:16px;height:16px;margin-right:9px;vertical-align:-3px;
- border:2px solid rgba(255,255,255,.45);border-top-color:#fff;border-radius:50%;animation:gira .7s linear infinite}
-@keyframes gira{to{transform:rotate(360deg)}}
-/* Panel de confirmación */
-.exito{background:var(--superficie);border:1px solid var(--verde-200);border-top:5px solid var(--verde-500);
- border-radius:var(--radio);padding:34px 32px;box-shadow:var(--sombra);text-align:center}
-.exito__disco{width:82px;height:82px;margin:0 auto 18px;border-radius:50%;background:var(--verde-100);
- display:flex;align-items:center;justify-content:center}
-.exito__disco svg{width:40px;height:40px;stroke:var(--verde-600);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.exito h3{font-size:1.4rem;margin-bottom:.4em}
-.exito p{font-size:1.04rem;color:var(--texto-suave)}
-.exito__resumen{text-align:left;background:var(--verde-050);border-radius:10px;padding:18px 20px;margin:22px 0 24px}
-.exito__resumen dl{margin:0;display:grid;gap:9px}
-@media(min-width:560px){ .exito__resumen dl{grid-template-columns:auto 1fr;gap:9px 20px;align-items:baseline} }
-.exito__resumen dt{font-size:.92rem;font-weight:700;color:var(--verde-800)}
-.exito__resumen dd{margin:0;font-size:1rem;color:var(--texto-suave);overflow-wrap:break-word}
-.exito__radicado{font-family:"Cascadia Mono",Consolas,monospace;font-weight:700;color:var(--naranja-txt)}
-.maqueta{display:block;margin-top:22px;font-size:.86rem;color:var(--n600);border-top:1px dashed var(--verde-200);padding-top:14px}
-
-/* ============================================================
-   MÓDULO 15 · HORARIOS
-   ============================================================ */
-.horario{background:var(--superficie);border:1px solid var(--borde);border-radius:var(--radio);padding:24px;display:flex;gap:16px;align-items:flex-start}
-.horario h3{font-size:1.14rem;margin-bottom:.35em}
-.horario p{margin:0;font-size:1.04rem;color:var(--texto-suave)}
-
-/* ============================================================
-   MÓDULO 16 · CTA
-   ============================================================ */
-.cta{background:linear-gradient(115deg,var(--verde-600),var(--verde-400));color:#fff;text-align:center}
-.cta h2{font-size:clamp(1.7rem,3.4vw,2.4rem);color:#fff}
-.cta__ico{width:70px;height:70px;margin:0 auto 18px;border-radius:50%;background:rgba(255,255,255,.18);
- border:2px solid rgba(255,255,255,.55);display:flex;align-items:center;justify-content:center}
-.cta__ico svg{width:34px;height:34px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.cta p{color:#F0F8E8;max-width:62ch;margin-inline:auto;font-size:1.08rem}
-
-/* ============================================================
-   MÓDULO 17 · CONTACTO
-   ============================================================ */
-.contacto__rejilla{display:grid;gap:20px}
-@media(min-width:680px){ .contacto__rejilla{grid-template-columns:repeat(2,1fr)} }
-.contacto__item{background:var(--superficie);border:1px solid var(--borde);border-radius:var(--radio);padding:26px}
-.contacto__cab{display:flex;align-items:center;gap:10px;margin-bottom:12px}
-.contacto__cab h3{font-size:1.14rem;margin:0;color:var(--verde-800)}
-.contacto__item p{margin:0;font-size:1.06rem;font-weight:600;color:var(--verde-700);overflow-wrap:break-word;hyphens:none}
-.contacto__item p+p{margin-top:5px}
-/* Los datos de contacto son objetivos táctiles: 44px mínimos en móvil. */
-.contacto__item a{display:inline-flex;align-items:center;min-height:44px;padding-block:2px}
-
-/* ============================================================
-   MÓDULO 18 · PIE
-   ============================================================ */
-.pie{background:var(--verde-900);color:#D9E6CE;padding-block:46px;font-size:.95rem}
-.pie__fila{display:grid;gap:24px}
-@media(min-width:820px){ .pie__fila{grid-template-columns:1.2fr 1fr 1fr} }
-.pie img{height:78px}
-.pie h4{color:#fff;font-size:.98rem;margin-bottom:.6em}
-.pie a{color:var(--verde-200)}
-.pie ul{list-style:none;padding:0;margin:0;display:grid;gap:2px}
-.pie li a{display:flex;align-items:center;gap:10px;min-height:44px}
-.pie .ico{stroke:var(--verde-200);width:19px;height:19px;flex:0 0 19px}
-.pie__legal{max-width:80ch}
-.pie__legal{font-size:.92rem;color:#B9CCA8;margin-top:26px;border-top:1px solid #3C5A2A;padding-top:18px;max-width:78ch}
-
-/* ============================================================
-   ICONOGRAFÍA ILUSTRADA — misma paleta que las ilustraciones de
-   valores (bosque, esmeralda, menta, naranja). Decorativa.
-   ============================================================ */
-.ilu{display:block;width:100%;height:100%}
-.chapa{flex:0 0 auto;width:84px;height:84px;border-radius:22px;background:#EEF8F1;
- display:flex;align-items:center;justify-content:center;padding:5px}
-.chapa--sm{width:64px;height:64px;border-radius:18px;padding:4px}
-
-/* ---- Políticas: 3 + 2, sin huecos ---- */
-.pol-rejilla{display:grid;gap:20px}
-@media(min-width:720px){ .pol-rejilla{grid-template-columns:repeat(6,1fr)}
-  .pol{grid-column:span 3} }
-@media(min-width:1000px){ .pol{grid-column:span 2} .pol--ancha{grid-column:span 3} }
-.pol{background:var(--superficie);border:1px solid var(--borde);border-radius:18px;padding:26px 24px;
- display:flex;flex-direction:column;gap:14px;transition:transform .2s ease,box-shadow .2s ease}
-.pol:hover{transform:translateY(-4px);box-shadow:var(--sombra)}
-.pol h3{font-size:1.18rem;margin:0}
-.pol p{margin:0;font-size:1rem;color:var(--texto-suave)}
-.pol--ancha{flex-direction:row;align-items:center;gap:20px}
-.pol--destacada{background:var(--verde-900);border-color:var(--verde-900)}
-.pol--destacada h3{color:#fff}
-.pol--destacada p{color:#DCEBD2}
-.pol--destacada .chapa{background:rgba(255,255,255,.1)}
-.pol__ir{display:inline-flex;align-items:center;gap:8px;min-height:44px;margin-top:4px;font-weight:700;color:#fff;
- text-decoration:underline;text-underline-offset:4px}
-@media(max-width:519px){ .pol--ancha{flex-direction:column;align-items:flex-start} }
-
-/* ---- Canal de denuncias: tres vías de igual peso ---- */
-.den-rejilla{display:grid;gap:20px}
-@media(min-width:860px){ .den-rejilla{grid-template-columns:repeat(3,1fr)} }
-.den{background:var(--verde-050);border:1px solid var(--borde);border-radius:18px;padding:26px 24px;
- display:flex;flex-direction:column;gap:12px}
-.den h3{font-size:1.18rem;margin:0}
-.den p{margin:0;color:var(--texto-suave)}
-.den .boton{margin-top:auto;align-self:flex-start}
-.den__correo{font-weight:700;overflow-wrap:break-word;display:inline-flex;min-height:44px;align-items:center}
-.den--qr{align-items:center;text-align:center;background:var(--superficie)}
-.qr{width:168px;height:168px;border-radius:10px;border:6px solid #fff;box-shadow:0 0 0 2px var(--verde-200)}
-.den__paso{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;
- background:var(--naranja-btn);color:#fff;font-weight:800;font-size:.95rem}
-.den__cab{display:flex;align-items:center;justify-content:space-between;width:100%}
-
-/* ---- Horarios: franja semanal + estado en vivo ---- */
-.hor-estado{display:inline-flex;align-items:center;gap:10px;margin-top:14px;padding:10px 18px;border-radius:100px;
- font-weight:700;font-size:1rem;background:var(--verde-100);color:var(--verde-800)}
-.hor-estado i{width:11px;height:11px;border-radius:50%;background:var(--verde-600);
- box-shadow:0 0 0 4px rgba(91,134,57,.22)}
-.hor-estado.cerrado{background:var(--naranja-100);color:#A84300}
-.hor-estado.cerrado i{background:#A84300;box-shadow:0 0 0 4px rgba(168,67,0,.18)}
-.hor-rejilla{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(min(100%,318px),1fr))}
-.hor{min-width:0;background:var(--superficie);border:1px solid var(--borde);border-radius:18px;padding:24px;
- display:flex;flex-direction:column;gap:14px;position:relative}
-.hor.hoy{border:2px solid var(--verde-500);box-shadow:var(--sombra)}
-.hor__hoy{position:absolute;top:-12px;right:18px;background:var(--verde-500);color:#fff;font-size:.82rem;
- font-weight:800;border-radius:100px;padding:3px 12px}
-.hor__cab{display:flex;align-items:center;gap:14px}
-.hor__cab h3{font-size:1.16rem;margin:0}
-.semana{display:flex;gap:6px;flex-wrap:wrap}
-.semana span{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;
- font-size:.86rem;font-weight:800;background:var(--n100);color:#8A8E82}
-.semana span.on{background:var(--verde-600);color:#fff}
-.franjas{display:grid;gap:8px}
-.franja{display:flex;align-items:center;gap:10px;background:var(--verde-050);border-radius:10px;padding:10px 12px;
- font-weight:600;color:var(--verde-800);white-space:nowrap;font-size:1rem}
-.franja b{font-size:.8rem;font-weight:800;color:var(--naranja-txt);min-width:54px}
-
-/* ---- Contacto: icono a la izquierda, sin aire muerto ---- */
-.con-rejilla{display:grid;gap:18px;grid-template-columns:minmax(0,1fr)}
-.con,.pol,.den{min-width:0}
-@media(min-width:720px){ .con-rejilla{grid-template-columns:repeat(2,minmax(0,1fr))} }
-.con{background:var(--superficie);border:1px solid var(--borde);border-radius:18px;padding:22px;
- display:flex;align-items:center;gap:20px;transition:transform .2s ease,box-shadow .2s ease}
-.con:hover{transform:translateY(-3px);box-shadow:var(--sombra)}
-.con h3{font-size:1.12rem;margin:0 0 4px}
-.con p{margin:0;font-size:1.06rem;font-weight:600;color:var(--verde-700);overflow-wrap:break-word}
-.con a{display:inline-flex;align-items:center;min-height:40px}
-.con__cuerpo{min-width:0}
-.con .boton{margin-top:8px;min-height:44px;padding:10px 20px;font-size:.96rem}
-@media(max-width:419px){ .con{flex-direction:column;align-items:flex-start} }
-
-/* ============================================================
-   PROPUESTA V2 · MEJORA 1 — Barra de progreso de scroll
-   ============================================================ */
-.progreso{position:fixed;top:0;left:0;height:3px;width:0%;z-index:80;
- background:linear-gradient(90deg,var(--naranja-500),var(--verde-400));transition:width .1s linear}
-
-/* ============================================================
-   PROPUESTA V2 · MEJORA 2 — Cabecera dinámica (se contrae al bajar)
-   ============================================================ */
-.cabecera{transition:box-shadow .25s ease, padding .25s ease}
-.cabecera.contraida{box-shadow:0 4px 24px rgba(44,66,32,.1)}
-.cabecera.contraida .cabecera__logo img{height:36px;transition:height .25s ease}
-.cabecera__logo img{transition:height .25s ease}
-
-/* ============================================================
-   PROPUESTA V2 · MEJORA 3 — Revelado progresivo al hacer scroll
-   ============================================================ */
-.aparece{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
-.aparece.visible{opacity:1;transform:translateY(0)}
-.aparece-grupo .aparece:nth-child(1){transition-delay:.05s}
-.aparece-grupo .aparece:nth-child(2){transition-delay:.12s}
-.aparece-grupo .aparece:nth-child(3){transition-delay:.19s}
-.aparece-grupo .aparece:nth-child(4){transition-delay:.26s}
-.aparece-grupo .aparece:nth-child(5){transition-delay:.33s}
-.aparece-grupo .aparece:nth-child(6){transition-delay:.4s}
-@media(prefers-reduced-motion:reduce){ .aparece{opacity:1;transform:none;transition:none} }
-
-/* ============================================================
-   PROPUESTA V2 · MEJORA 4 — Fondos decorativos sutiles
-   ============================================================ */
-.seccion{position:relative}
-.seccion--claro::before,.seccion--suave::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
- background:radial-gradient(560px 320px at 92% -6%, rgba(103,148,62,.07), transparent 65%),
-            radial-gradient(420px 260px at 4% 106%, rgba(194,78,0,.05), transparent 60%)}
-.seccion--claro>.contenedor,.seccion--suave>.contenedor{position:relative;z-index:1}
-
-/* ============================================================
-   PROPUESTA V2 · MEJORA 5 — Divisores orgánicos entre secciones
-   ============================================================ */
-.ola{display:block;width:100%;height:64px;margin-bottom:-1px}
-.ola path{fill:var(--fondo)}
-.heroe .ola{position:absolute;left:0;right:0;bottom:-1px;z-index:1;height:56px}
-.heroe .ola path{fill:var(--n050)}
-@media(min-width:760px){ .ola{height:84px} .heroe .ola{height:72px} }
-
-/* ============================================================
-   PROPUESTA V2 · MEJORA 6 — Héroe: tarjeta flotante de indicadores
-   (sustituye visualmente la banda plana de indicadores por una
-   tarjeta que se superpone al borde de la imagen del héroe)
-   ============================================================ */
-.heroe{padding-bottom:34px}
-.heroe__flotante{position:relative;z-index:2;margin-top:-64px}
-@media(min-width:760px){ .heroe__flotante{margin-top:-46px} }
-.heroe__tarjeta{background:rgba(255,255,255,.97);backdrop-filter:blur(14px);border-radius:var(--radio);
- box-shadow:0 20px 48px rgba(20,30,12,.28);display:grid;grid-template-columns:repeat(3,1fr);overflow:hidden}
-.heroe__dato{padding:20px 14px;text-align:center;border-right:1px solid var(--verde-100)}
-.heroe__dato:last-child{border-right:none}
-.heroe__dato b{display:block;font-family:var(--fuente-titulo);font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:800;color:var(--verde-700);line-height:1}
-.heroe__dato span{display:block;margin-top:4px;font-size:.86rem;font-weight:700;color:var(--texto-suave)}
-.indicadores{display:none}
-
-/* ============================================================
-   PROPUESTA V2 · MEJORA 7 — Zoom suave de imágenes en tarjetas
-   ============================================================ */
-.servicio,.bus,.marco{overflow:hidden}
-.servicio img,.bus img,.marco img{transition:transform .5s cubic-bezier(.2,.7,.2,1)}
-.servicio:hover img,.bus:hover img,.marco:hover img{transform:scale(1.06)}
-.mosaico figure img{transition:transform .6s cubic-bezier(.2,.7,.2,1)}
-.mosaico figure:hover img{transform:scale(1.08)}
-.valor__img{transition:transform .4s ease}
-.valor:hover .valor__img{transform:scale(1.05) rotate(-1deg)}
-
-/* ============================================================
-   PROPUESTA V2 · MEJORA 8 — Iconografía con resplandor degradado
-   ============================================================ */
-.pilar__disco{position:relative}
-.pilar__disco::before{content:"";position:absolute;inset:-6px;border-radius:50%;z-index:-1;opacity:0;
- background:radial-gradient(circle, rgba(103,148,62,.35), transparent 70%);transition:opacity .25s ease}
-.pilar:nth-child(2n) .pilar__disco::before{background:radial-gradient(circle, rgba(194,78,0,.3), transparent 70%)}
-.pilar:hover .pilar__disco::before{opacity:1}
-.chapa{position:relative;box-shadow:0 6px 16px rgba(15,74,46,.1)}
-
-/* ============================================================
-   PROPUESTA V2 · MEJORA 9 — Contador animado en cifras clave
-   ============================================================ */
-.heroe__dato b.contando,.indicador__cifra.contando{font-variant-numeric:tabular-nums}
-
-/* ============================================================
-   PROPUESTA V2 · MEJORA 10 — Botón flotante de WhatsApp
-   ============================================================ */
-.wa-flotante{position:fixed;right:20px;bottom:20px;z-index:70;width:58px;height:58px;border-radius:50%;
- background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(20,60,20,.32);
- transition:transform .2s ease,box-shadow .2s ease}
-.wa-flotante:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 14px 32px rgba(20,60,20,.4)}
-.wa-flotante svg{width:28px;height:28px;fill:#fff}
-.wa-flotante::before{content:"";position:absolute;inset:0;border-radius:50%;background:#25D366;opacity:.55;
- animation:pulso-wa 2.6s ease-out infinite}
-@keyframes pulso-wa{0%{transform:scale(1);opacity:.5}100%{transform:scale(1.9);opacity:0}}
-@media(prefers-reduced-motion:reduce){ .wa-flotante::before{animation:none;display:none} }
-
-/* ============================================================
-   PROPUESTA V2 · MEJORA 11 — Botón "volver arriba"
-   ============================================================ */
-.arriba{position:fixed;right:20px;bottom:88px;z-index:70;width:44px;height:44px;border-radius:50%;
- background:var(--superficie);border:1px solid var(--borde);box-shadow:var(--sombra);display:flex;align-items:center;
- justify-content:center;opacity:0;pointer-events:none;transform:translateY(8px);
- transition:opacity .25s ease,transform .25s ease}
-.arriba.visible{opacity:1;pointer-events:auto;transform:translateY(0)}
-.arriba svg{width:20px;height:20px;stroke:var(--verde-700);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
-.arriba:hover{border-color:var(--verde-500)}
-
-/* ============================================================
-   PROPUESTA V2 · MEJORA 12 — Acento de borde en tarjetas al hover
-   ============================================================ */
-.tarjeta,.pol,.den,.horario,.hor,.politica,.contacto__item{position:relative}
-.tarjeta,.pol,.hor{transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
-.tarjeta:hover,.pol:hover,.hor:hover{border-color:var(--verde-400);box-shadow:var(--sombra-hover);transform:translateY(-3px)}
-
-/* ============================================================
-   PROPUESTA V2 · MEJORA 13 — Botones con leve profundidad extra
-   ============================================================ */
-.boton--primario{background:linear-gradient(135deg,var(--naranja-btn),var(--naranja-btn-h))}
-.boton--verde{background:linear-gradient(135deg,var(--verde-500),var(--verde-700))}
-.boton:active{transform:translateY(0)}
-
-/* ============================================================
-   OBSERVACIONES No. 3 DEL CLIENTE — capa de ajustes
-   Cada bloque indica la observación que atiende.
-   ============================================================ */
-
-/* Obs.20 — más blanco de fondo; el verde suave deja de ser fondo de sección */
-.seccion--suave{background:var(--n050);border-block:1px solid #EFEFE8}
-.seccion--claro{background:#fff}
-/* Obs.20 — más naranja: filete naranja bajo cada título de sección */
-.titulo::after{content:"";display:block;width:64px;height:4px;border-radius:4px;margin-top:14px;
- background:linear-gradient(90deg,var(--naranja-500),var(--naranja-300))}
-.centrado .titulo::after{margin-inline:auto}
-.encabezado{margin-bottom:44px}
-.valor:hover{border-color:var(--naranja-500)}
-
-/* Obs.1 — logo más grande */
-.cabecera .contenedor{max-width:1480px}
-.cabecera__logo img{height:48px}
-@media(min-width:760px){ .cabecera__logo img{height:60px} }
-.cabecera.contraida .cabecera__logo img{height:48px}
-
-/* Obs.24 — menú desplegable (escritorio) */
-.nav{align-items:center;gap:2px;font-size:.95rem}
-.nav__enlace{display:inline-flex;align-items:center;gap:4px;padding:10px 8px!important;color:var(--verde-800)}
-.nav__chev{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s ease}
-.nav__grupo{position:relative}
-.nav__panel{position:absolute;top:100%;left:-6px;min-width:300px;list-style:none;margin:0;padding:10px;background:#fff;
- border:1px solid var(--borde);border-top:3px solid var(--naranja-500);border-radius:12px;box-shadow:var(--sombra-hover);
- opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .18s ease,transform .18s ease,visibility .18s;z-index:70;white-space:normal}
-.nav__grupo:hover .nav__panel,.nav__grupo:focus-within .nav__panel{opacity:1;visibility:visible;transform:none}
-.nav__grupo:hover .nav__chev,.nav__grupo:focus-within .nav__chev{transform:rotate(180deg)}
-.nav__panel a{display:block;padding:9px 12px;border-radius:8px;font-weight:600;font-size:.95rem;color:var(--verde-800);line-height:1.35}
-.nav__panel a::after{display:none}
-.nav__panel a:hover,.nav__panel a:focus-visible{background:var(--naranja-100);color:var(--naranja-txt)}
-/* entre 1280 y 1499 px el botón de cabecera se oculta para que quepa el menú completo;
-   el héroe y el botón de WhatsApp mantienen la llamada a cotizar */
-@media(min-width:1280px) and (max-width:1499px){ .cabecera .boton--primario{display:none} }
-.boton--ico{display:inline-flex;align-items:center;gap:9px}
-.boton--ico svg{width:19px;height:19px;flex:0 0 19px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-@media(max-width:479px){ .cabecera .boton--primario{padding:10px 14px;font-size:.9rem} .cabecera .boton--ico svg{display:none} .cabecera__logo img{height:40px} }
-
-/* Obs.25 — héroe según la referencia: degradado solo a la izquierda, bus visible a la derecha */
-.heroe__media img{object-position:68% 88%}
-.heroe::before{background:linear-gradient(90deg,rgba(18,44,24,.95) 0%,rgba(26,60,32,.88) 32%,rgba(34,72,38,.45) 54%,rgba(34,72,38,0) 72%)}
-@media(max-width:899px){ .heroe::before{background:linear-gradient(180deg,rgba(18,44,24,.9),rgba(26,60,32,.82))} }
-.heroe__cuerpo{max-width:var(--max)}
-.heroe__cuerpo>*{max-width:640px}
-.heroe h1{font-size:clamp(2.1rem,4vw,3.1rem)}
-.heroe__cuerpo>h1{max-width:740px}
-.heroe .razon::after{content:"";display:block;width:56px;height:3px;border-radius:2px;background:var(--naranja-500);margin-top:12px}
-.heroe p{max-width:46ch}
-.sello{display:inline-flex;align-items:center;gap:8px;background:rgba(10,28,14,.5)}
-.sello svg{width:18px;height:18px;flex:0 0 18px;stroke:#fff;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
-
-/* Obs.25 / #8 — servicios suben bajo el héroe con el formato de la referencia */
-.servicios-franja{padding-block:72px 80px}
-.srv-rejilla{display:grid;gap:20px}
-@media(min-width:900px){ .srv-rejilla{grid-template-columns:repeat(3,minmax(0,1fr))} }
-.srv{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:18px;align-items:start;background:#fff;border:1px solid var(--borde);
- border-radius:16px;padding:24px 20px 24px 22px;box-shadow:0 6px 20px rgba(44,66,32,.07);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
-.srv:hover{transform:translateY(-4px);box-shadow:var(--sombra-hover);border-color:var(--verde-400)}
-.srv__ico{width:64px;height:64px;border-radius:50%;background:var(--verde-100);display:flex;align-items:center;justify-content:center}
-.srv__ico svg{width:30px;height:30px;stroke:var(--verde-700);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.srv--naranja .srv__ico{background:var(--naranja-100)}
-.srv--naranja .srv__ico svg{stroke:var(--naranja-btn)}
-.srv h3{font-size:1.14rem;margin:4px 0 .35em}
-.srv p{font-size:.98rem;color:var(--texto-suave);margin:0}
-.srv__ir{align-self:center;display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%}
-.srv__ir svg{width:30px;height:30px;stroke:var(--verde-600);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s ease}
-.srv--naranja .srv__ir svg{stroke:var(--naranja-btn)}
-.srv:hover .srv__ir svg{transform:translateX(3px)}
-@media(max-width:419px){ .srv{grid-template-columns:auto minmax(0,1fr)} .srv__ir{grid-column:2;justify-self:start;margin-left:-10px} }
-
-/* Obs.2 — texto justificado en tarjetas (vista de escritorio; ver anotación en CAMBIOS-obs3.md) */
-@media(min-width:900px){
-  .tarjeta p,.valor p,.srv p,.pol__despliegue p{text-align:justify;hyphens:auto;-webkit-hyphens:auto;text-wrap:initial}
-}
-
-/* Obs.17 — misión y visión en dos columnas */
-.mv-rejilla{max-width:1000px;margin-inline:auto}
-
-/* Obs.13 — principios (3) y valores (4) */
-@media(min-width:1040px){ #valores .valor__img{width:120px;height:120px} }
-.nota-ia{display:block;margin-top:14px;padding-top:10px;border-top:1px dashed var(--borde);font-size:.8rem;font-weight:600;color:var(--n600);line-height:1.45}
-
-/* Obs.17 — política integral desplegable dentro de Políticas */
-@media(min-width:720px){
-  .pol-rejilla{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .pol-rejilla .pol{grid-column:auto}
-  .pol-rejilla .pol--integral{grid-column:1/-1}
-}
-.pol__cab{display:flex;gap:20px;align-items:center}
-@media(max-width:519px){ .pol__cab{flex-direction:column;align-items:flex-start} }
-.pol__toggle{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:10px 20px;border-radius:100px;
- border:2px solid rgba(255,255,255,.75);background:transparent;color:#fff;font:inherit;font-weight:700;cursor:pointer;transition:background .18s ease,color .18s ease}
-.pol__toggle:hover{background:#fff;color:var(--verde-800)}
-.pol__toggle svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s ease}
-.pol__toggle[aria-expanded="true"] svg{transform:rotate(180deg)}
-.pol__despliegue{border-top:1px solid rgba(255,255,255,.22);padding-top:16px}
-.pol__despliegue:not([hidden]){animation:despliega .3s ease}
-.pol__despliegue p{color:#EEF6E6;font-size:1.04rem;margin:0}
-@keyframes despliega{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
-
-/* Obs.6 — tarjeta sólida (sin foto) en sostenibilidad, en naranja institucional */
-.mosaico__solido{background:linear-gradient(135deg,var(--naranja-btn),var(--naranja-btn-h))}
-.mosaico__solido figcaption{background:none}
-.mosaico__solido p{color:#fff}
-.mosaico__ico{position:absolute;top:24px;left:26px;width:58px;height:58px;border-radius:16px;background:rgba(255,255,255,.16);
- display:flex;align-items:center;justify-content:center}
-.mosaico__ico svg{width:30px;height:30px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.mosaico strong{color:#fff}
-
-/* Obs.9 — indicio de ubicación: fotos y video del auditorio */
-.pendiente{display:flex;gap:14px;align-items:flex-start;margin-top:18px;padding:18px 20px;border:2px dashed var(--naranja-300);border-radius:14px;background:#fff}
-.pendiente svg{width:30px;height:30px;flex:0 0 30px;stroke:var(--naranja-btn);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.pendiente strong{display:block;color:var(--verde-900)}
-.pendiente span{display:block;font-size:.92rem;color:var(--n600);line-height:1.5}
-
-/* Obs.8 — indicio de ubicación: blogs */
-.blog-rejilla{display:grid;gap:20px;max-width:920px;margin-inline:auto}
-@media(min-width:760px){ .blog-rejilla{grid-template-columns:repeat(2,minmax(0,1fr))} }
-.blog{border:2px dashed var(--borde);border-radius:16px;padding:28px;background:#fff;min-height:170px}
-.blog__estado{display:inline-block;font-size:.82rem;font-weight:800;color:var(--naranja-txt);background:var(--naranja-100);border-radius:100px;padding:4px 12px;margin-bottom:12px}
-.blog h3{font-size:1.16rem}
-.blog p{color:var(--texto-suave);margin:0}
-
-/* Obs.19 — WhatsApp «Cotiza aquí» con aura de disponibilidad */
-.wa-flotante{width:auto;height:auto;border-radius:100px;background:none;box-shadow:none;gap:10px;right:22px;bottom:22px;align-items:center}
-.wa-flotante::before{display:none;animation:none}
-.wa-flotante:hover{transform:translateY(-2px);box-shadow:none}
-.wa-flotante__texto{background:#fff;color:#0E6B39;font-weight:800;font-size:.98rem;padding:10px 16px;border-radius:100px;
- border:1px solid #CFEBD8;box-shadow:0 8px 22px rgba(20,60,20,.22);white-space:nowrap}
-.wa-flotante__disco{position:relative;width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;
- box-shadow:0 10px 26px rgba(20,60,20,.35)}
-.wa-flotante__disco svg{position:relative;z-index:1;width:30px;height:30px;fill:#fff;animation:llamada 4s ease-in-out infinite}
-.wa-flotante__disco::before,.wa-flotante__disco::after{content:"";position:absolute;inset:0;border-radius:50%;background:#25D366;z-index:0;
- animation:aura-wa 2.4s ease-out infinite}
-.wa-flotante__disco::after{animation-delay:1.2s}
-@keyframes aura-wa{0%{transform:scale(1);opacity:.55}100%{transform:scale(1.95);opacity:0}}
-@keyframes llamada{0%,84%,100%{transform:rotate(0)}87%{transform:rotate(-14deg)}90%{transform:rotate(12deg)}93%{transform:rotate(-8deg)}96%{transform:rotate(5deg)}}
-@media(max-width:479px){ .wa-flotante{right:14px;bottom:14px} .wa-flotante__texto{font-size:.88rem;padding:8px 12px} .wa-flotante__disco{width:54px;height:54px} }
-@media(prefers-reduced-motion:reduce){ .wa-flotante__disco::before,.wa-flotante__disco::after{display:none} .wa-flotante__disco svg{animation:none} }
-.arriba{right:30px;bottom:98px}
-
-/* Obs.2 — para que el justificado no abra huecos, las tarjetas ganan ancho de línea:
-   servicios con cabecera (ícono + título) y texto a lo ancho; valores en 2 × 2 horizontales */
-.srv{grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"ico tit ir" "txt txt txt";row-gap:14px;align-items:center}
-.srv__ico{grid-area:ico}
-.srv__cuerpo{display:contents}
-.srv h3{grid-area:tit;margin:0}
-.srv p{grid-area:txt}
-.srv__ir{grid-area:ir}
-@media(max-width:419px){ .srv{grid-template-columns:auto minmax(0,1fr) auto} .srv__ir{grid-column:auto;margin-left:0} }
-@media(min-width:760px){
-  #valores .rejilla--4{grid-template-columns:repeat(2,minmax(0,1fr))}
-  #valores .valor{display:grid;grid-template-columns:120px minmax(0,1fr);column-gap:22px;align-content:start}
-  #valores .valor__img{grid-row:1 / span 3;width:120px;height:120px;margin:0}
-  #valores .valor h3{margin-top:6px}
-  #valores .nota-ia{grid-column:2}
-}
-
-/* Obs.20 (contrastes) — el texto de sostenibilidad es más largo: velo más alto para que nunca quede sobre zona clara */
-.mosaico figcaption{background:linear-gradient(to top,rgba(28,48,22,.95) 0%,rgba(28,48,22,.86) 48%,rgba(28,48,22,.45) 100%)}
-.mosaico__solido figcaption{background:none}
-/* Tarjeta de cifras en móvil: sin cortes */
-@media(max-width:559px){
-  .heroe__dato{padding:16px 6px}
-  .heroe__dato b{font-size:1.5rem}
-  .heroe__dato span{font-size:.74rem;line-height:1.3}
-}
-</style>
+<link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-
 <div class="progreso" id="progreso" aria-hidden="true"></div>
-
-<a class="saltar" href="#inicio">Saltar al contenido</a>
-
+<a class="saltar" href="#contenido">Saltar al contenido</a>
 <!-- ========== MÓDULO 01 · CABECERA ========== -->
 <header class="cabecera">
   <div class="contenedor cabecera__fila">
-    <a class="cabecera__logo" href="#inicio"><img src="assets/logo-alta.png" alt="Transportes Especiales Mejía S.A.S." width="580" height="130"></a>
+    <a class="cabecera__logo" href="index.html"><img src="assets/img/logo-alta.png" alt="Transportes Especiales Mejía S.A.S." width="580" height="130"></a>
     <!-- Obs.3 #24: menú desplegable en escritorio (≥1280 px). En móvil se conserva la lista simple, adaptada. -->
     <nav class="nav" aria-label="Principal">
-      <a class="nav__enlace" href="#inicio">Inicio</a>
+      <a aria-current="page" class="nav__enlace" href="index.html">Inicio</a>
       <div class="nav__grupo">
-        <a class="nav__enlace" href="#nosotros" aria-haspopup="true">Nosotros<svg class="nav__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+        <a class="nav__enlace" href="nosotros.html" aria-haspopup="true">Nosotros<svg class="nav__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
         <ul class="nav__panel">
-          <li><a href="#nosotros">Nosotros</a></li>
-          <li><a href="#proposito">Misión y visión</a></li>
-          <li><a href="#principios">Principios</a></li>
-          <li><a href="#valores">Valores corporativos</a></li>
-          <li><a href="#confianza">Nuestro valor diferencial</a></li>
-          <li><a href="#gestion">Sistemas de gestión</a></li>
-          <li><a href="#sostenibilidad">Sostenibilidad y responsabilidad ambiental</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="nosotros.html#mision-vision">Misión y visión</a></li>
+          <li><a href="principios-valores.html#principios">Principios</a></li>
+          <li><a href="principios-valores.html#valores">Valores corporativos</a></li>
+          <li><a href="nosotros.html#valor-diferencial">Nuestro valor diferencial</a></li>
+          <li><a href="sistemas-de-gestion.html">Sistemas de gestión</a></li>
+          <li><a href="sostenibilidad.html">Sostenibilidad y responsabilidad ambiental</a></li>
         </ul>
       </div>
       <div class="nav__grupo">
-        <a class="nav__enlace" href="#servicios" aria-haspopup="true">Servicios<svg class="nav__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+        <a class="nav__enlace" href="servicios.html" aria-haspopup="true">Servicios<svg class="nav__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
         <ul class="nav__panel">
-          <li><a href="#srv-empresarial">Transporte Empresarial</a></li>
-          <li><a href="#srv-escolar">Transporte escolar</a></li>
-          <li><a href="#srv-turistico">Transporte turístico y ocasional</a></li>
-          <li><a href="#flota">Nuestra flota</a></li>
+          <li><a href="servicios.html#srv-empresarial">Transporte Empresarial</a></li>
+          <li><a href="servicios.html#srv-escolar">Transporte escolar</a></li>
+          <li><a href="servicios.html#srv-turistico">Transporte turístico y ocasional</a></li>
+          <li><a href="servicios.html#flota">Nuestra flota</a></li>
         </ul>
       </div>
       <div class="nav__grupo">
-        <a class="nav__enlace" href="#politicas" aria-haspopup="true">Políticas<svg class="nav__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+        <a class="nav__enlace" href="politicas.html" aria-haspopup="true">Políticas<svg class="nav__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
         <ul class="nav__panel">
-          <li><a href="#pol-integrada">Política integrada de gestión</a></li>
-          <li><a href="#pol-datos">Tratamiento de datos personales</a></li>
-          <li><a href="#pol-terminos">Términos y condiciones del servicio</a></li>
-          <li><a href="#pol-sarlaft">Política SARLAFT y PTEE</a></li>
+          <li><a href="politicas.html#pol-integrada">Política integrada de gestión</a></li>
+          <li><a href="politicas.html#pol-datos">Tratamiento de datos personales</a></li>
+          <li><a href="politicas.html#pol-terminos">Términos y condiciones del servicio</a></li>
+          <li><a href="politicas.html#pol-sarlaft">Política SARLAFT y PTEE</a></li>
         </ul>
       </div>
-      <a class="nav__enlace" href="#denuncias">Canal de denuncias</a>
-      <a class="nav__enlace" href="#contacto">Contacto</a>
-      <a class="nav__enlace" href="#trabaja">Trabaja con nosotros</a>
-      <a class="nav__enlace" href="#blogs">Blogs</a>
+      <a class="nav__enlace" href="galeria.html">Galería</a>
+      <a class="nav__enlace" href="canal-de-denuncias.html">Canal de denuncias</a>
+      <a class="nav__enlace" href="contacto.html">Contacto</a>
+      <a class="nav__enlace" href="trabaja-con-nosotros.html">Trabaja con nosotros</a>
+      <a class="nav__enlace" href="blogs.html">Blogs</a>
     </nav>
-    <a class="boton boton--primario boton--ico" href="#contacto"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>Solicitar servicio</a>
+    <a class="boton boton--primario boton--ico" href="contacto.html"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>Solicitar servicio</a>
     <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navMovil" aria-label="Abrir menú">
       <span></span><span></span><span></span>
     </button>
   </div>
   <nav class="nav-movil" id="navMovil" aria-label="Principal móvil">
-    <a href="#inicio">Inicio</a>
-    <a href="#nosotros">Nosotros</a>
-    <a href="#servicios">Servicios</a>
-    <a href="#flota">Nuestra flota</a>
-    <a href="#politicas">Políticas</a>
-    <a href="#denuncias">Canal de denuncias</a>
-    <a href="#contacto">Contacto</a>
-    <a href="#trabaja">Trabaja con nosotros</a>
-    <a href="#blogs">Blogs</a>
+    <a aria-current="page" href="index.html">Inicio</a>
+    <a href="nosotros.html">Nosotros</a>
+    <a class="sub" href="principios-valores.html">Principios y valores</a>
+    <a class="sub" href="sistemas-de-gestion.html">Sistemas de gestión</a>
+    <a class="sub" href="sostenibilidad.html">Sostenibilidad</a>
+    <a href="servicios.html">Servicios y flota</a>
+    <a href="politicas.html">Políticas</a>
+    <a href="galeria.html">Galería</a>
+    <a href="canal-de-denuncias.html">Canal de denuncias</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="trabaja-con-nosotros.html">Trabaja con nosotros</a>
+    <a href="blogs.html">Blogs</a>
   </nav>
 </header>
 
+
+<main id="contenido">
 <!-- ========== MÓDULO 02 · HÉROE ========== -->
 <section class="heroe" id="inicio">
-  <div class="heroe__media"><img src="assets/hero-bus1000.jpg" alt="Bus de Transportes Especiales Mejía S.A.S."></div>
+  <div class="heroe__media"><img src="assets/img/hero-bus1000.jpg" alt="Bus de Transportes Especiales Mejía S.A.S."></div>
   <div class="contenedor heroe__cuerpo">
     <span class="razon">Transportes Especiales Mejía S.A.S.</span>
     <!-- Obs.3 #25: titular y párrafo adoptados de la referencia del cliente.
@@ -833,8 +91,8 @@ p{margin:0 0 1em}
     <h1>Transporte especial de pasajeros <em>a tu medida</em></h1>
     <p>Brindamos soluciones seguras, cómodas y confiables en transporte empresarial, turístico y escolar, con un equipo comprometido y una flota moderna.</p>
     <div class="heroe__acciones">
-      <a class="boton boton--primario boton--ico" href="#contacto"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>Cotizar ahora</a>
-      <a class="boton boton--fantasma" href="#servicios">Ver servicios →</a>
+      <a class="boton boton--primario boton--ico" href="contacto.html"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>Cotizar ahora</a>
+      <a class="boton boton--fantasma" href="servicios.html">Ver servicios →</a>
     </div>
     <div class="heroe__sellos">
       <span class="sello"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.2-2.8 7.6-7 9-4.2-1.4-7-4.8-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>ISO 9001</span>
@@ -854,17 +112,6 @@ p{margin:0 0 1em}
   </div>
 </div>
 
-<!-- ========== MÓDULO 04 · INDICADORES ========== -->
-<section class="indicadores">
-  <div class="contenedor">
-    <div class="rejilla">
-      <div><div class="indicador__cifra">35+</div><div class="indicador__texto">Años de experiencia</div></div>
-      <div><div class="indicador__cifra">3</div><div class="indicador__texto">Certificaciones vigentes</div></div>
-      <div><div class="indicador__cifra">3</div><div class="indicador__texto">Capacidades de vehículo</div></div>
-    </div>
-  </div>
-</section>
-
 <!-- ========== MÓDULO 08 · SERVICIOS (Obs.3 #4, #5 y #25: sube bajo el héroe, formato de la referencia) ========== -->
 <section class="seccion seccion--claro servicios-franja" id="servicios">
   <div class="contenedor">
@@ -877,395 +124,79 @@ p{margin:0 0 1em}
       <article class="srv" id="srv-empresarial">
         <div class="srv__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="7.5" width="18" height="12" rx="2.5"/><path d="M8.5 7.5V5.8A1.8 1.8 0 0110.3 4h3.4a1.8 1.8 0 011.8 1.8v1.7"/><path d="M3 12.5h18"/><path d="M11 12.5h2v2h-2z"/></svg></div>
         <div class="srv__cuerpo"><h3>Transporte Empresarial</h3><p>Ofrecemos soluciones de transporte especial de pasajeros con cobertura continua para los sectores empresarial, asegurando el control de la operación y estándares de seguridad vial.</p></div>
-        <a class="srv__ir" href="#contacto" aria-label="Cotizar Transporte Empresarial"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M10.5 8.5L14 12l-3.5 3.5"/></svg></a>
+        <a class="srv__ir" href="contacto.html" aria-label="Cotizar Transporte Empresarial"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M10.5 8.5L14 12l-3.5 3.5"/></svg></a>
       </article>
       <article class="srv srv--naranja" id="srv-escolar">
         <div class="srv__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2.5 9L12 4.5 21.5 9 12 13.5z"/><path d="M6.5 11v4.5c0 1.6 2.5 3 5.5 3s5.5-1.4 5.5-3V11"/><path d="M21.5 9v5"/></svg></div>
         <div class="srv__cuerpo"><h3>Transporte escolar</h3><p>Servicio para colegios e instituciones educativas, con conductores capacitados y vehículos revisados diariamente.</p></div>
-        <a class="srv__ir" href="#contacto" aria-label="Cotizar Transporte escolar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M10.5 8.5L14 12l-3.5 3.5"/></svg></a>
+        <a class="srv__ir" href="contacto.html" aria-label="Cotizar Transporte escolar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M10.5 8.5L14 12l-3.5 3.5"/></svg></a>
       </article>
       <article class="srv" id="srv-turistico">
         <div class="srv__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21v-9"/><path d="M12 12c-1.5-3.5-5-4.5-8-3.5 2-2.8 5.6-3.4 8-1.5 2.4-1.9 6-1.3 8 1.5-3-1-6.5 0-8 3.5z"/><path d="M12 7c-.5-2 .5-3.6 2.5-4.5"/><path d="M6 21h12"/></svg></div>
         <div class="srv__cuerpo"><h3>Transporte turístico y ocasional</h3><p>Atendemos agencias de viajes, operadores turísticos y cajas de compensación con flota confortable para recorridos largos.</p></div>
-        <a class="srv__ir" href="#contacto" aria-label="Cotizar Transporte turístico y ocasional"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M10.5 8.5L14 12l-3.5 3.5"/></svg></a>
+        <a class="srv__ir" href="contacto.html" aria-label="Cotizar Transporte turístico y ocasional"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M10.5 8.5L14 12l-3.5 3.5"/></svg></a>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ========== MÓDULO 09 · NUESTRA FLOTA ========== -->
-<section class="seccion seccion--suave" id="flota">
-  <div class="contenedor">
-    <div class="centrado" style="margin-bottom:44px">
-      <span class="etiqueta">Nuestra flota</span>
-      <h2 class="titulo">Flota Adaptable a las Necesidades de su Organización</h2>
-      <p class="entradilla">Contamos con buses con diferentes capacidades.</p>
-    </div>
-    <div class="rejilla rejilla--3">
-      <article class="bus">
-        <img src="assets/flota-40pax.jpg" alt="Bus de 40 pasajeros">
-        <div class="bus__cuerpo"><span class="bus__cap">40 pasajeros</span><h3>Bus</h3><p>Configuración de mayor capacidad, indicada para rutas de personal y traslados de grupos grandes.</p></div>
-      </article>
-      <article class="bus">
-        <img src="assets/flota-30pax.jpg" alt="Bus de 30 pasajeros">
-        <div class="bus__cuerpo"><span class="bus__cap">30 pasajeros</span><h3>Bus</h3><p>Capacidad intermedia, adecuada para recorridos escolares y turísticos de grupo medio.</p></div>
-      </article>
-      <article class="bus">
-        <img src="assets/flota-buseta.jpg" alt="Micro de 19 pasajeros">
-        <div class="bus__cuerpo"><span class="bus__cap">19 pasajeros</span><h3>Micro</h3><p>Vehículo ágil para grupos reducidos, traslados ejecutivos y recorridos urbanos.</p></div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ========== MÓDULO 05 · NOSOTROS ========== -->
-<section class="seccion seccion--claro" id="nosotros">
-  <div class="contenedor dividido">
-    <div>
-      <span class="etiqueta">Nosotros</span>
-      <h2 class="titulo">Una empresa construida sobre la confiabilidad</h2>
-      <p class="entradilla justificado">Somos una empresa con más de 35 años de experiencia en el servicio de transporte especial de pasajeros. Contamos con sistemas de gestión certificados en calidad, garantizando la seguridad vial y el bienestar en SST, bajo el firme compromiso de ser una organización socialmente responsable y comprometida con el cuidado del medio ambiente.</p>
-      <ul class="lista-check">
-        <li>Servicio de transporte de empleados para empresas del sector industrial.</li>
-        <li>Vehículos modernos y confortables, con mantenimiento propio y certificado.</li>
-        <li>Clientes de colegios, agencias de viajes, operadores turísticos y cajas de compensación.</li>
-      </ul>
-    </div>
-    <div class="marco"><img src="assets/bus-1000.jpg" alt="Bus 1000 de Transportes Especiales Mejía S.A.S."></div>
-  </div>
-</section>
-
-<!-- ========== MÓDULO 06 · MISIÓN Y VISIÓN (Obs.3 #17: la política integral pasa a Políticas) ========== -->
-<section class="seccion seccion--suave" id="proposito">
-  <div class="contenedor">
-    <div class="centrado" style="margin-bottom:44px">
-      <span class="etiqueta">Nuestro propósito</span>
-      <h2 class="titulo">Misión y visión</h2>
-      <p class="entradilla">El marco que orienta cada decisión operativa y cada ruta que prestamos.</p>
-    </div>
-    <div class="rejilla rejilla--2 mv-rejilla">
-      <article class="tarjeta tarjeta--acento">
-        <h3>Nuestra misión</h3>
-        <p>Somos una empresa de transporte especial de pasajeros, comprometida con la ética, la sostenibilidad y el medio ambiente. Trabajamos para ofrecer servicios eficientes y seguros, orientados a satisfacer las necesidades de nuestros clientes y partes interesadas.</p>
-      </article>
-      <article class="tarjeta tarjeta--acento">
-        <h3>Nuestra visión</h3>
-        <p>Para 2030, seremos una empresa reconocida por la generación de soluciones de movilidad empresarial y turística, proporcionando un transporte especial seguro y de calidad, creciendo a través del desarrollo de nuevos negocios de manera sostenible y rentable.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ========== MÓDULO 07 · PRINCIPIOS (Obs.3 #13) ========== -->
-<section class="seccion seccion--claro" id="principios">
+<section class="seccion seccion--suave" id="explora">
   <div class="contenedor">
     <div class="centrado encabezado">
-      <span class="etiqueta">Principios</span>
-      <h2 class="titulo">Principios corporativos</h2>
+      <span class="etiqueta">Explore el sitio</span>
+      <h2 class="titulo">Todo lo que necesita saber, por secciones</h2>
     </div>
-    <div class="rejilla rejilla--3">
-      <article class="valor"><img class="valor__img" src="assets/valores/01-confiabilidad.jpg" alt="" width="320" height="320" loading="lazy"><h3>Confiabilidad</h3><p>Cumplimos rigurosamente con cada requerimiento, respaldados por más de 35 años de experiencia y calidad certificada.</p></article>
-      <article class="valor"><img class="valor__img" src="assets/valores/02-responsabilidad-social-ambiental.jpg" alt="" width="320" height="320" loading="lazy"><h3>Responsabilidad social y ambiental</h3><p>Operamos bajo prácticas éticas y transparentes que aportan al bienestar de nuestra comunidad y el entorno.</p></article>
-      <article class="valor"><img class="valor__img" src="assets/valores/03-seguridad.jpg" alt="" width="320" height="320" loading="lazy"><h3>Seguridad</h3><p>Salvaguardamos la vida de nuestros pasajeros y el bienestar del equipo mediante estrictos estándares de SST y seguridad vial.</p></article>
+    <div class="hub">
+      <a class="hub__t" href="nosotros.html"><img src="assets/galeria/min/19.webp" alt="" width="800" height="533" loading="lazy"><span class="hub__c"><b>Nosotros</b><small>Nuestra historia, misión, visión y valor diferencial.</small></span><span class="hub__f" aria-hidden="true">→</span></a>
+      <a class="hub__t" href="principios-valores.html"><img src="assets/galeria/min/18.webp" alt="" width="800" height="533" loading="lazy"><span class="hub__c"><b>Principios y valores</b><small>La ética que guía cada servicio.</small></span><span class="hub__f" aria-hidden="true">→</span></a>
+      <a class="hub__t" href="sistemas-de-gestion.html"><img src="assets/galeria/min/22.webp" alt="" width="800" height="533" loading="lazy"><span class="hub__c"><b>Sistemas de gestión</b><small>ISO 9001, ISO 45001 y más.</small></span><span class="hub__f" aria-hidden="true">→</span></a>
+      <a class="hub__t" href="sostenibilidad.html"><img src="assets/galeria/min/21.webp" alt="" width="800" height="533" loading="lazy"><span class="hub__c"><b>Sostenibilidad</b><small>Movilidad responsable con el ambiente.</small></span><span class="hub__f" aria-hidden="true">→</span></a>
+      <a class="hub__t" href="servicios.html"><img src="assets/galeria/min/24.webp" alt="" width="800" height="533" loading="lazy"><span class="hub__c"><b>Servicios y flota</b><small>Empresarial, escolar y turístico.</small></span><span class="hub__f" aria-hidden="true">→</span></a>
+      <a class="hub__t" href="politicas.html"><img src="assets/galeria/min/38.webp" alt="" width="800" height="533" loading="lazy"><span class="hub__c"><b>Políticas</b><small>Nuestro marco de cumplimiento.</small></span><span class="hub__f" aria-hidden="true">→</span></a>
+      <a class="hub__t" href="galeria.html"><img src="assets/galeria/min/23.webp" alt="" width="800" height="533" loading="lazy"><span class="hub__c"><b>Galería</b><small>40 fotografías de flota, equipo e instalaciones.</small></span><span class="hub__f" aria-hidden="true">→</span></a>
+      <a class="hub__t" href="contacto.html"><img src="assets/galeria/min/37.webp" alt="" width="800" height="533" loading="lazy"><span class="hub__c"><b>Contacto</b><small>Teléfonos, WhatsApp, PQRS y horarios.</small></span><span class="hub__f" aria-hidden="true">→</span></a>
     </div>
   </div>
 </section>
-
-<!-- ========== MÓDULO 07b · VALORES (Obs.3 #13) ========== -->
-<section class="seccion seccion--suave" id="valores">
+<section class="seccion seccion--claro" id="muestra">
   <div class="contenedor">
     <div class="centrado encabezado">
-      <span class="etiqueta">Valores</span>
-      <h2 class="titulo">Valores corporativos</h2>
+      <span class="etiqueta">Galería</span>
+      <h2 class="titulo">Nuestra flota y nuestro equipo</h2>
     </div>
-    <div class="rejilla rejilla--4">
-      <article class="valor"><img class="valor__img" src="assets/valores/04-respeto.jpg" alt="" width="320" height="320" loading="lazy"><h3>Respeto</h3><p>Valoramos a nuestros clientes, colaboradores y comunidad, garantizando un trato digno, transparente y con equidad.</p></article>
-      <article class="valor valor--provisional"><svg class="valor__img" viewBox="0 0 320 320" role="presentation" aria-hidden="true"><rect width="320" height="320" fill="#fff"/><ellipse cx="160" cy="292" rx="78" ry="9" fill="#0F4A2E" opacity=".12"/><circle cx="160" cy="96" r="36" fill="#1D5234"/><path d="M92 262c0-62 28-102 68-102s68 40 68 102z" fill="#1D5234"/><path d="M118 176c12 12 26 18 42 18s30-6 42-18" fill="none" stroke="#6CB294" stroke-width="10" stroke-linecap="round"/><path d="M160 246c-30-19-40-38-33-52 5-10 19-12 27-3l6 6 6-6c8-9 22-7 27 3 7 14-3 33-33 52z" fill="#E8792F"/><rect x="224" y="42" width="72" height="54" rx="14" fill="#6CB294"/><path d="M238 96l-6 20 22-20z" fill="#6CB294"/><path d="M244 69l10 10 20-20" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="58" cy="84" r="7" fill="#6CB294"/><circle cx="80" cy="54" r="4.5" fill="#E8792F"/><circle cx="48" cy="126" r="4" fill="#1D5234" opacity=".5"/></svg><h3>Honestidad</h3><p>Actuamos con rectitud y transparencia en cada compromiso, generando relaciones de confianza con nuestros clientes, colaboradores y comunidad.</p><span class="nota-ia">Texto e ilustración provisionales generados con IA · pendiente de validación del cliente</span></article>
-      <article class="valor"><img class="valor__img" src="assets/valores/05-vocacion-de-servicio.jpg" alt="" width="320" height="320" loading="lazy"><h3>Vocación de servicio</h3><p>Nos apasiona atender a nuestros usuarios, brindando soluciones de movilidad cómodas, amables y oportunas.</p></article>
-      <article class="valor"><img class="valor__img" src="assets/valores/06-trabajo-en-equipo.jpg" alt="" width="320" height="320" loading="lazy"><h3>Trabajo en equipo</h3><p>Unimos esfuerzos, conocimientos y experiencia para asegurar el éxito, la sincronía y la excelencia en cada ruta.</p></article>
+    <div class="muestra">
+      <a href="galeria.html#flota"><img src="assets/galeria/min/23.webp" alt="Flota de buses estacionada sobre el prado" width="800" height="533" loading="lazy"></a>
+      <a href="galeria.html#conductores"><img src="assets/galeria/min/03.webp" alt="Conductor sonriente junto a la puerta del bus" width="800" height="533" loading="lazy"></a>
+      <a href="galeria.html#interiores"><img src="assets/galeria/min/31.webp" alt="Asientos azules e iluminación interior del bus" width="800" height="533" loading="lazy"></a>
+      <a href="galeria.html#instalaciones"><img src="assets/galeria/min/38.webp" alt="Vehículo 1040 frente a las instalaciones de la empresa" width="800" height="533" loading="lazy"></a>
+      <a href="galeria.html#flota"><img src="assets/galeria/min/14.webp" alt="Bus 1030 en vista de tres cuartos" width="800" height="533" loading="lazy"></a>
+      <a href="galeria.html#conductores"><img src="assets/galeria/min/18.webp" alt="Cuatro conductores posando frente a un bus de la flota" width="800" height="533" loading="lazy"></a>
     </div>
+    <p class="centrado" style="margin-top:32px"><a class="boton boton--primario" href="galeria.html">Ver toda la galería</a></p>
   </div>
 </section>
 
-<!-- ========== MÓDULO 03 · NUESTRO VALOR DIFERENCIAL (Obs.3 #14) ========== -->
-<section class="seccion seccion--claro pilares" id="confianza">
-  <div class="contenedor centrado">
-    <h2 class="titulo">Nuestro valor diferencial</h2>
-    <p class="entradilla">Somos un aliado estratégico en el transporte empresarial, turístico y escolar que marca la diferencia por nuestra:</p>
-    <div class="pilares__lista">
-      <article class="pilar">
-        <div class="pilar__disco"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.2-2.8 7.6-7 9-4.2-1.4-7-4.8-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
-        <h3>Seguridad</h3><p>Estándares estrictos de SST y seguridad vial en cada ruta.</p>
-      </article>
-      <article class="pilar">
-        <div class="pilar__disco"><svg viewBox="0 0 24 24"><path d="M3.5 9a13 13 0 0117 0"/><path d="M6.5 12.5a9 9 0 0111 0"/><path d="M9.5 16a5 5 0 015 0"/><circle cx="12" cy="19.2" r="1.1"/></svg></div>
-        <h3>Tecnología</h3><p>Flota de última generación con monitoreo y control de operación.</p>
-      </article>
-      <article class="pilar">
-        <div class="pilar__disco"><svg viewBox="0 0 24 24"><path d="M7 4h7a3 3 0 013 3v7H10a3 3 0 01-3-3V4z"/><path d="M4 9v9a2 2 0 002 2h13"/><path d="M17 14h3"/></svg></div>
-        <h3>Confort</h3><p>Vehículos modernos y confortables para recorridos cortos y largos.</p>
-      </article>
-      <article class="pilar">
-        <div class="pilar__disco"><svg viewBox="0 0 24 24"><circle cx="12" cy="9.5" r="5.5"/><path d="M9.5 14.2L8 21l4-2 4 2-1.5-6.8"/><path d="M10 9.5l1.4 1.4 2.6-2.6"/></svg></div>
-        <h3>Calidad</h3><p>Sistemas de gestión certificados y más de 35 años de trayectoria.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ========== MÓDULO 10 · SISTEMAS DE GESTIÓN ========== -->
-<section class="seccion seccion--verde" id="gestion">
-  <div class="contenedor dividido dividido--invertido">
-    <div class="marco"><img src="assets/bus-1010.jpg" alt="Bus 1010 de la flota"></div>
-    <div>
-      <h2 class="titulo">Sistemas de gestión</h2>
-      <p class="entradilla">Respaldamos nuestra operación con procesos estandarizados que aseguran un servicio de transporte confiable, legal y eficiente.</p>
-      <div class="rejilla" style="margin-top:26px">
-        <div class="cert"><img class="cert__img" src="assets/gestion/iso-9001.jpg" alt="" width="320" height="320" loading="lazy"><div><h3>ISO 9001</h3><p>Sistema de gestión de la calidad.</p></div></div>
-        <div class="cert"><img class="cert__img" src="assets/gestion/iso-45001.jpg" alt="" width="320" height="320" loading="lazy"><div><h3>ISO 45001</h3><p>Seguridad y salud en el trabajo.</p></div></div>
-        <div class="cert"><img class="cert__img" src="assets/gestion/estacion-servicio.jpg" alt="" width="320" height="320" loading="lazy"><div><h3>Estación de servicio</h3><p>Resoluciones 40405/2020 y 40198/2021.</p></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== MÓDULO 11 · SOSTENIBILIDAD (Obs.3 #6, #7, #18) ========== -->
-<section class="seccion seccion--claro" id="sostenibilidad">
-  <div class="contenedor">
-    <div class="centrado" style="margin-bottom:44px">
-      <span class="etiqueta">Sostenibilidad en movimiento</span>
-      <h2 class="titulo">Sostenibilidad y responsabilidad ambiental</h2>
-    </div>
-    <div class="mosaico">
-      <figure class="mosaico__destacado">
-        <img src="assets/solar.jpg" alt="Paneles solares en la sede" loading="lazy">
-        <figcaption><h3>Energía solar</h3><p>Hemos integrado <strong>sistemas de energía solar en nuestra infraestructura corporativa</strong>, consolidando nuestra estrategia de sostenibilidad ambiental. Esta transición no solo <strong>reduce la dependencia de la red eléctrica tradicional</strong>, sino que optimiza la eficiencia de nuestra operación mediante el uso de recursos renovables.</p></figcaption>
-      </figure>
-      <figure>
-        <img src="assets/mantenimiento.jpg" alt="Mantenimiento de un bus de la flota en la sede" loading="lazy">
-        <figcaption><h3>Mantenimiento verde</h3><p>Gestión responsable de residuos automotrices (aceites, llantas y baterías).</p></figcaption>
-      </figure>
-      <figure class="mosaico__solido">
-        <div class="mosaico__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.2"/><path d="M3.3 10.5h6.5M14.2 10.5h6.5M12 14.2V21"/></svg></div>
-        <figcaption><h3>Conducción eficiente</h3><p>Contamos con programas de capacitación para disminuir el consumo de combustible por kilómetro recorrido.</p></figcaption>
-      </figure>
-      <figure class="mosaico__destacado">
-        <img src="assets/bus-1000.jpg" alt="Bus de la flota de última generación" loading="lazy">
-        <figcaption><h3>Flota de última generación</h3><p>Contamos con buses Euro 5 y Euro 6. Nos movemos de manera responsable integrando vehículos de bajas emisiones a nuestra operación diaria.</p></figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<!-- ========== MÓDULO 12 · POLÍTICAS CORPORATIVAS (Obs.3 #17 y #21: entra la política integral, sale el canal de denuncias) ========== -->
-<section class="seccion seccion--suave" id="politicas">
-  <div class="contenedor">
-    <div class="centrado" style="margin-bottom:40px">
-      <span class="etiqueta">Políticas corporativas</span>
-      <h2 class="titulo">Nuestro marco de cumplimiento</h2>
-      <p class="entradilla">Los documentos que rigen nuestra operación están a disposición de clientes, colaboradores y partes interesadas.</p>
-    </div>
-    <div class="pol-rejilla">
-      <article class="pol pol--integral pol--destacada" id="pol-integrada">
-        <div class="pol__cab"><div class="chapa"><svg class="ilu" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="58" rx="17" ry="2.6" fill="#D3EEDD" opacity=".55"/><rect x="17" y="8" width="30" height="40" rx="4" fill="#6CB294"/><rect x="13" y="12" width="30" height="40" rx="4" fill="#0F4A2E"/><rect x="19" y="20" width="18" height="3" rx="1.5" fill="#D3EEDD"/><rect x="19" y="27" width="14" height="3" rx="1.5" fill="#6CB294"/><rect x="19" y="34" width="16" height="3" rx="1.5" fill="#6CB294"/><circle cx="42" cy="44" r="10" fill="#E8792F"/><path d="M37.5 44.2l3.2 3.2 5.8-6.4" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><h3>Política integrada de gestión</h3><p>Marco de calidad, seguridad y salud en el trabajo y gestión ambiental.</p></div></div>
-        <button type="button" class="pol__toggle" aria-expanded="false" aria-controls="polIntegralTexto"><span>Leer la política integral</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
-        <div class="pol__despliegue" id="polIntegralTexto" role="region" aria-label="Política integral" hidden>
-          <p>En Transportes Especiales Mejía S.A.S. prestamos servicios de transporte especial de pasajeros comprometidos con la satisfacción de nuestros clientes, la seguridad de las personas, la protección del medio ambiente, la sostenibilidad y el cumplimiento de los requisitos legales y organizacionales aplicables.</p>
-        </div>
-      </article>
-      <article class="pol" id="pol-datos"><div class="chapa"><svg class="ilu" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="58" rx="17" ry="2.6" fill="#D3EEDD" opacity=".55"/><path d="M32 6l20 8v13c0 13-8.6 22.6-20 26-11.4-3.4-20-13-20-26V14z" fill="#0F4A2E"/><path d="M32 11l15 6v10c0 10-6.4 17.6-15 20.6z" fill="#1F6B45"/><rect x="22" y="27" width="20" height="15" rx="3" fill="#6CB294"/><path d="M26 27v-4a6 6 0 0112 0v4" fill="none" stroke="#6CB294" stroke-width="3.2"/><circle cx="32" cy="33.5" r="2.6" fill="#E8792F"/><rect x="30.8" y="34" width="2.4" height="5" rx="1.2" fill="#E8792F"/></svg></div>
-        <h3>Tratamiento de datos personales</h3><p>Conforme a la Ley 1581 de 2012 y sus decretos reglamentarios.</p></article>
-      <article class="pol" id="pol-terminos"><div class="chapa"><svg class="ilu" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="58" rx="17" ry="2.6" fill="#D3EEDD" opacity=".55"/><rect x="13" y="10" width="36" height="44" rx="5" fill="#0F4A2E"/><rect x="17" y="16" width="28" height="34" rx="2" fill="#FFFFFF"/><rect x="24" y="6" width="14" height="8" rx="3" fill="#E8792F"/><rect x="21" y="22" width="20" height="3" rx="1.5" fill="#6CB294"/><rect x="21" y="28" width="15" height="3" rx="1.5" fill="#6CB294"/><path d="M21 42c3-4 5 1 7-2s4 2 7-1" fill="none" stroke="#1F6B45" stroke-width="2.4" stroke-linecap="round"/><path d="M44 29l6 6-12 12-7 1 1-7z" fill="#E8792F"/><path d="M44 29l6 6 2.4-2.4-6-6z" fill="#1F6B45"/></svg></div>
-        <h3>Términos y condiciones del servicio</h3><p>Condiciones de contratación y prestación del transporte especial.</p></article>
-      <article class="pol" id="pol-sarlaft"><div class="chapa"><svg class="ilu" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="58" rx="17" ry="2.6" fill="#D3EEDD" opacity=".55"/><rect x="30" y="10" width="4" height="38" rx="2" fill="#0F4A2E"/><rect x="20" y="48" width="24" height="6" rx="3" fill="#1F6B45"/><rect x="12" y="14" width="40" height="4" rx="2" fill="#0F4A2E"/><circle cx="32" cy="12" r="4" fill="#E8792F"/><path d="M16 18l-7 16h14z" fill="none" stroke="#6CB294" stroke-width="1.8"/><path d="M48 18l-7 16h14z" fill="none" stroke="#6CB294" stroke-width="1.8"/><path d="M6 34h20a10 5 0 01-20 0z" fill="#6CB294"/><path d="M38 34h20a10 5 0 01-20 0z" fill="#E8792F"/></svg></div>
-        <h3>Política SARLAFT y PTEE</h3><p>Prevención del lavado de activos y la financiación del terrorismo, transparencia y ética empresarial.</p></article>
-    </div>
-  </div>
-</section>
-
-<!-- ========== MÓDULO 13 · CANAL DE DENUNCIAS ========== -->
-<section class="seccion seccion--claro" id="denuncias">
-  <div class="contenedor">
-    <div class="centrado" style="margin-bottom:38px">
-      <span class="etiqueta">Canal de denuncias</span>
-      <h2 class="titulo">¿Cómo reportar?</h2>
-      <p class="entradilla">Un canal confidencial, atendido por nuestro oficial de cumplimiento, para reportar cualquier conducta contraria a nuestras políticas corporativas. Elija la vía que le resulte más cómoda:</p>
-    </div>
-    <div class="den-rejilla">
-      <article class="den">
-        <div class="den__cab"><div class="chapa"><svg class="ilu" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="58" rx="17" ry="2.6" fill="#D3EEDD" opacity=".55"/><rect x="8" y="10" width="48" height="32" rx="4" fill="#0F4A2E"/><rect x="12" y="14" width="40" height="24" rx="2" fill="#D3EEDD"/><rect x="16" y="18" width="20" height="4" rx="2" fill="#6CB294"/><rect x="16" y="25" width="32" height="4" rx="2" fill="#FFFFFF"/><rect x="16" y="32" width="12" height="3" rx="1.5" fill="#6CB294"/><path d="M4 44h56l-4 6H8z" fill="#1F6B45"/><circle cx="47" cy="37" r="8" fill="#E8792F"/><path d="M43.5 37h7m-3-3.2l3.2 3.2-3.2 3.2" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="den__paso">1</span></div>
-        <h3>Formulario en línea</h3>
-        <p>Diligencie el formulario desde su computador o celular. Toma pocos minutos.</p>
-        <a class="boton boton--verde" href="https://forms.office.com/r/1CYkJJdMKJ?origin=lprLink" target="_blank" rel="noopener">Abrir formulario</a>
-      </article>
-      <article class="den">
-        <div class="den__cab"><div class="chapa"><svg class="ilu" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="58" rx="17" ry="2.6" fill="#D3EEDD" opacity=".55"/><rect x="7" y="14" width="50" height="34" rx="5" fill="#0F4A2E"/><path d="M7 20l25 16 25-16v-1a5 5 0 00-5-5H12a5 5 0 00-5 5z" fill="#6CB294"/><path d="M11 44l15-12M53 44L38 32" stroke="#1F6B45" stroke-width="2.4" stroke-linecap="round"/><circle cx="48" cy="16" r="9" fill="#E8792F"/><path d="M44.5 16.2l2.6 2.6 4.6-5" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="den__paso">2</span></div>
-        <h3>Correo electrónico</h3>
-        <p>Escriba directamente al oficial de cumplimiento:</p>
-        <a class="den__correo" href="mailto:oficialdecumplimiento@rsestrategica.com">oficialdecumplimiento@<wbr>rsestrategica.com</a>
-      </article>
-      <article class="den den--qr">
-        <div class="den__cab"><span></span><span class="den__paso">3</span></div>
-        <svg class="qr" viewBox="0 0 37 37" role="img" aria-label="Código QR del formulario del canal de denuncias" shape-rendering="crispEdges"><rect width="37" height="37" fill="#fff"/><path fill="#0F4A2E" d="M2 2h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM5 2h1v1h-1zM6 2h1v1h-1zM7 2h1v1h-1zM8 2h1v1h-1zM13 2h1v1h-1zM14 2h1v1h-1zM15 2h1v1h-1zM16 2h1v1h-1zM17 2h1v1h-1zM18 2h1v1h-1zM19 2h1v1h-1zM20 2h1v1h-1zM21 2h1v1h-1zM22 2h1v1h-1zM25 2h1v1h-1zM26 2h1v1h-1zM28 2h1v1h-1zM29 2h1v1h-1zM30 2h1v1h-1zM31 2h1v1h-1zM32 2h1v1h-1zM33 2h1v1h-1zM34 2h1v1h-1zM2 3h1v1h-1zM8 3h1v1h-1zM11 3h1v1h-1zM14 3h1v1h-1zM15 3h1v1h-1zM16 3h1v1h-1zM17 3h1v1h-1zM18 3h1v1h-1zM19 3h1v1h-1zM23 3h1v1h-1zM24 3h1v1h-1zM28 3h1v1h-1zM34 3h1v1h-1zM2 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM8 4h1v1h-1zM10 4h1v1h-1zM11 4h1v1h-1zM14 4h1v1h-1zM15 4h1v1h-1zM19 4h1v1h-1zM20 4h1v1h-1zM21 4h1v1h-1zM22 4h1v1h-1zM23 4h1v1h-1zM24 4h1v1h-1zM25 4h1v1h-1zM26 4h1v1h-1zM28 4h1v1h-1zM30 4h1v1h-1zM31 4h1v1h-1zM32 4h1v1h-1zM34 4h1v1h-1zM2 5h1v1h-1zM4 5h1v1h-1zM5 5h1v1h-1zM6 5h1v1h-1zM8 5h1v1h-1zM10 5h1v1h-1zM11 5h1v1h-1zM12 5h1v1h-1zM13 5h1v1h-1zM16 5h1v1h-1zM17 5h1v1h-1zM18 5h1v1h-1zM21 5h1v1h-1zM24 5h1v1h-1zM28 5h1v1h-1zM30 5h1v1h-1zM31 5h1v1h-1zM32 5h1v1h-1zM34 5h1v1h-1zM2 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM8 6h1v1h-1zM10 6h1v1h-1zM13 6h1v1h-1zM15 6h1v1h-1zM17 6h1v1h-1zM20 6h1v1h-1zM25 6h1v1h-1zM26 6h1v1h-1zM28 6h1v1h-1zM30 6h1v1h-1zM31 6h1v1h-1zM32 6h1v1h-1zM34 6h1v1h-1zM2 7h1v1h-1zM8 7h1v1h-1zM10 7h1v1h-1zM11 7h1v1h-1zM17 7h1v1h-1zM18 7h1v1h-1zM19 7h1v1h-1zM20 7h1v1h-1zM22 7h1v1h-1zM24 7h1v1h-1zM26 7h1v1h-1zM28 7h1v1h-1zM34 7h1v1h-1zM2 8h1v1h-1zM3 8h1v1h-1zM4 8h1v1h-1zM5 8h1v1h-1zM6 8h1v1h-1zM7 8h1v1h-1zM8 8h1v1h-1zM10 8h1v1h-1zM12 8h1v1h-1zM14 8h1v1h-1zM16 8h1v1h-1zM18 8h1v1h-1zM20 8h1v1h-1zM22 8h1v1h-1zM24 8h1v1h-1zM26 8h1v1h-1zM28 8h1v1h-1zM29 8h1v1h-1zM30 8h1v1h-1zM31 8h1v1h-1zM32 8h1v1h-1zM33 8h1v1h-1zM34 8h1v1h-1zM10 9h1v1h-1zM11 9h1v1h-1zM12 9h1v1h-1zM13 9h1v1h-1zM16 9h1v1h-1zM17 9h1v1h-1zM21 9h1v1h-1zM23 9h1v1h-1zM25 9h1v1h-1zM2 10h1v1h-1zM4 10h1v1h-1zM5 10h1v1h-1zM6 10h1v1h-1zM7 10h1v1h-1zM8 10h1v1h-1zM11 10h1v1h-1zM14 10h1v1h-1zM15 10h1v1h-1zM16 10h1v1h-1zM17 10h1v1h-1zM19 10h1v1h-1zM21 10h1v1h-1zM24 10h1v1h-1zM25 10h1v1h-1zM28 10h1v1h-1zM29 10h1v1h-1zM30 10h1v1h-1zM31 10h1v1h-1zM32 10h1v1h-1zM4 11h1v1h-1zM9 11h1v1h-1zM11 11h1v1h-1zM13 11h1v1h-1zM17 11h1v1h-1zM18 11h1v1h-1zM20 11h1v1h-1zM21 11h1v1h-1zM25 11h1v1h-1zM28 11h1v1h-1zM29 11h1v1h-1zM31 11h1v1h-1zM32 11h1v1h-1zM34 11h1v1h-1zM5 12h1v1h-1zM6 12h1v1h-1zM8 12h1v1h-1zM10 12h1v1h-1zM11 12h1v1h-1zM14 12h1v1h-1zM17 12h1v1h-1zM18 12h1v1h-1zM20 12h1v1h-1zM22 12h1v1h-1zM23 12h1v1h-1zM24 12h1v1h-1zM27 12h1v1h-1zM28 12h1v1h-1zM30 12h1v1h-1zM32 12h1v1h-1zM33 12h1v1h-1zM2 13h1v1h-1zM3 13h1v1h-1zM4 13h1v1h-1zM6 13h1v1h-1zM7 13h1v1h-1zM10 13h1v1h-1zM11 13h1v1h-1zM12 13h1v1h-1zM14 13h1v1h-1zM16 13h1v1h-1zM17 13h1v1h-1zM22 13h1v1h-1zM23 13h1v1h-1zM27 13h1v1h-1zM28 13h1v1h-1zM30 13h1v1h-1zM31 13h1v1h-1zM32 13h1v1h-1zM34 13h1v1h-1zM3 14h1v1h-1zM4 14h1v1h-1zM5 14h1v1h-1zM6 14h1v1h-1zM7 14h1v1h-1zM8 14h1v1h-1zM9 14h1v1h-1zM12 14h1v1h-1zM13 14h1v1h-1zM17 14h1v1h-1zM20 14h1v1h-1zM24 14h1v1h-1zM25 14h1v1h-1zM26 14h1v1h-1zM27 14h1v1h-1zM29 14h1v1h-1zM30 14h1v1h-1zM31 14h1v1h-1zM34 14h1v1h-1zM4 15h1v1h-1zM6 15h1v1h-1zM7 15h1v1h-1zM9 15h1v1h-1zM16 15h1v1h-1zM17 15h1v1h-1zM18 15h1v1h-1zM19 15h1v1h-1zM21 15h1v1h-1zM22 15h1v1h-1zM24 15h1v1h-1zM25 15h1v1h-1zM27 15h1v1h-1zM28 15h1v1h-1zM31 15h1v1h-1zM32 15h1v1h-1zM33 15h1v1h-1zM34 15h1v1h-1zM2 16h1v1h-1zM7 16h1v1h-1zM8 16h1v1h-1zM9 16h1v1h-1zM11 16h1v1h-1zM12 16h1v1h-1zM15 16h1v1h-1zM16 16h1v1h-1zM19 16h1v1h-1zM24 16h1v1h-1zM27 16h1v1h-1zM28 16h1v1h-1zM30 16h1v1h-1zM32 16h1v1h-1zM33 16h1v1h-1zM2 17h1v1h-1zM4 17h1v1h-1zM5 17h1v1h-1zM7 17h1v1h-1zM10 17h1v1h-1zM12 17h1v1h-1zM14 17h1v1h-1zM15 17h1v1h-1zM18 17h1v1h-1zM21 17h1v1h-1zM22 17h1v1h-1zM23 17h1v1h-1zM24 17h1v1h-1zM26 17h1v1h-1zM27 17h1v1h-1zM28 17h1v1h-1zM30 17h1v1h-1zM31 17h1v1h-1zM32 17h1v1h-1zM4 18h1v1h-1zM6 18h1v1h-1zM7 18h1v1h-1zM8 18h1v1h-1zM9 18h1v1h-1zM12 18h1v1h-1zM14 18h1v1h-1zM18 18h1v1h-1zM19 18h1v1h-1zM21 18h1v1h-1zM24 18h1v1h-1zM25 18h1v1h-1zM26 18h1v1h-1zM27 18h1v1h-1zM29 18h1v1h-1zM30 18h1v1h-1zM32 18h1v1h-1zM34 18h1v1h-1zM3 19h1v1h-1zM5 19h1v1h-1zM11 19h1v1h-1zM16 19h1v1h-1zM19 19h1v1h-1zM20 19h1v1h-1zM21 19h1v1h-1zM22 19h1v1h-1zM23 19h1v1h-1zM25 19h1v1h-1zM28 19h1v1h-1zM29 19h1v1h-1zM31 19h1v1h-1zM32 19h1v1h-1zM6 20h1v1h-1zM8 20h1v1h-1zM12 20h1v1h-1zM15 20h1v1h-1zM16 20h1v1h-1zM17 20h1v1h-1zM18 20h1v1h-1zM19 20h1v1h-1zM22 20h1v1h-1zM23 20h1v1h-1zM26 20h1v1h-1zM29 20h1v1h-1zM30 20h1v1h-1zM32 20h1v1h-1zM33 20h1v1h-1zM9 21h1v1h-1zM10 21h1v1h-1zM11 21h1v1h-1zM13 21h1v1h-1zM18 21h1v1h-1zM19 21h1v1h-1zM20 21h1v1h-1zM21 21h1v1h-1zM23 21h1v1h-1zM25 21h1v1h-1zM26 21h1v1h-1zM28 21h1v1h-1zM29 21h1v1h-1zM30 21h1v1h-1zM31 21h1v1h-1zM32 21h1v1h-1zM34 21h1v1h-1zM4 22h1v1h-1zM5 22h1v1h-1zM8 22h1v1h-1zM12 22h1v1h-1zM16 22h1v1h-1zM18 22h1v1h-1zM24 22h1v1h-1zM26 22h1v1h-1zM27 22h1v1h-1zM30 22h1v1h-1zM31 22h1v1h-1zM34 22h1v1h-1zM2 23h1v1h-1zM3 23h1v1h-1zM9 23h1v1h-1zM10 23h1v1h-1zM14 23h1v1h-1zM15 23h1v1h-1zM16 23h1v1h-1zM17 23h1v1h-1zM19 23h1v1h-1zM20 23h1v1h-1zM21 23h1v1h-1zM22 23h1v1h-1zM23 23h1v1h-1zM24 23h1v1h-1zM25 23h1v1h-1zM28 23h1v1h-1zM29 23h1v1h-1zM31 23h1v1h-1zM34 23h1v1h-1zM2 24h1v1h-1zM4 24h1v1h-1zM6 24h1v1h-1zM8 24h1v1h-1zM12 24h1v1h-1zM17 24h1v1h-1zM18 24h1v1h-1zM22 24h1v1h-1zM24 24h1v1h-1zM27 24h1v1h-1zM29 24h1v1h-1zM30 24h1v1h-1zM31 24h1v1h-1zM32 24h1v1h-1zM33 24h1v1h-1zM2 25h1v1h-1zM4 25h1v1h-1zM5 25h1v1h-1zM11 25h1v1h-1zM13 25h1v1h-1zM14 25h1v1h-1zM17 25h1v1h-1zM23 25h1v1h-1zM25 25h1v1h-1zM28 25h1v1h-1zM29 25h1v1h-1zM30 25h1v1h-1zM31 25h1v1h-1zM32 25h1v1h-1zM2 26h1v1h-1zM6 26h1v1h-1zM7 26h1v1h-1zM8 26h1v1h-1zM11 26h1v1h-1zM12 26h1v1h-1zM13 26h1v1h-1zM15 26h1v1h-1zM16 26h1v1h-1zM17 26h1v1h-1zM19 26h1v1h-1zM20 26h1v1h-1zM21 26h1v1h-1zM24 26h1v1h-1zM26 26h1v1h-1zM27 26h1v1h-1zM28 26h1v1h-1zM29 26h1v1h-1zM30 26h1v1h-1zM32 26h1v1h-1zM33 26h1v1h-1zM10 27h1v1h-1zM11 27h1v1h-1zM12 27h1v1h-1zM14 27h1v1h-1zM15 27h1v1h-1zM16 27h1v1h-1zM20 27h1v1h-1zM21 27h1v1h-1zM22 27h1v1h-1zM23 27h1v1h-1zM25 27h1v1h-1zM26 27h1v1h-1zM30 27h1v1h-1zM32 27h1v1h-1zM2 28h1v1h-1zM3 28h1v1h-1zM4 28h1v1h-1zM5 28h1v1h-1zM6 28h1v1h-1zM7 28h1v1h-1zM8 28h1v1h-1zM14 28h1v1h-1zM15 28h1v1h-1zM17 28h1v1h-1zM20 28h1v1h-1zM22 28h1v1h-1zM25 28h1v1h-1zM26 28h1v1h-1zM28 28h1v1h-1zM30 28h1v1h-1zM32 28h1v1h-1zM33 28h1v1h-1zM2 29h1v1h-1zM8 29h1v1h-1zM10 29h1v1h-1zM16 29h1v1h-1zM23 29h1v1h-1zM25 29h1v1h-1zM26 29h1v1h-1zM30 29h1v1h-1zM31 29h1v1h-1zM32 29h1v1h-1zM33 29h1v1h-1zM34 29h1v1h-1zM2 30h1v1h-1zM4 30h1v1h-1zM5 30h1v1h-1zM6 30h1v1h-1zM8 30h1v1h-1zM10 30h1v1h-1zM11 30h1v1h-1zM12 30h1v1h-1zM14 30h1v1h-1zM17 30h1v1h-1zM20 30h1v1h-1zM21 30h1v1h-1zM23 30h1v1h-1zM24 30h1v1h-1zM26 30h1v1h-1zM27 30h1v1h-1zM28 30h1v1h-1zM29 30h1v1h-1zM30 30h1v1h-1zM31 30h1v1h-1zM34 30h1v1h-1zM2 31h1v1h-1zM4 31h1v1h-1zM5 31h1v1h-1zM6 31h1v1h-1zM8 31h1v1h-1zM10 31h1v1h-1zM11 31h1v1h-1zM12 31h1v1h-1zM14 31h1v1h-1zM16 31h1v1h-1zM17 31h1v1h-1zM18 31h1v1h-1zM19 31h1v1h-1zM21 31h1v1h-1zM22 31h1v1h-1zM23 31h1v1h-1zM25 31h1v1h-1zM27 31h1v1h-1zM30 31h1v1h-1zM33 31h1v1h-1zM34 31h1v1h-1zM2 32h1v1h-1zM4 32h1v1h-1zM5 32h1v1h-1zM6 32h1v1h-1zM8 32h1v1h-1zM10 32h1v1h-1zM11 32h1v1h-1zM12 32h1v1h-1zM19 32h1v1h-1zM24 32h1v1h-1zM25 32h1v1h-1zM28 32h1v1h-1zM29 32h1v1h-1zM31 32h1v1h-1zM2 33h1v1h-1zM8 33h1v1h-1zM12 33h1v1h-1zM15 33h1v1h-1zM16 33h1v1h-1zM18 33h1v1h-1zM22 33h1v1h-1zM23 33h1v1h-1zM28 33h1v1h-1zM30 33h1v1h-1zM31 33h1v1h-1zM32 33h1v1h-1zM2 34h1v1h-1zM3 34h1v1h-1zM4 34h1v1h-1zM5 34h1v1h-1zM6 34h1v1h-1zM7 34h1v1h-1zM8 34h1v1h-1zM10 34h1v1h-1zM12 34h1v1h-1zM13 34h1v1h-1zM14 34h1v1h-1zM18 34h1v1h-1zM19 34h1v1h-1zM21 34h1v1h-1zM24 34h1v1h-1zM25 34h1v1h-1zM26 34h1v1h-1zM27 34h1v1h-1zM29 34h1v1h-1zM32 34h1v1h-1zM33 34h1v1h-1z"/></svg>
-        <h3>Código QR</h3>
-        <p>Escanéelo con la cámara de su celular para abrir el formulario directamente.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ========== MÓDULO 17 · CONTACTO Y PQRS (Obs.3 #22 y #23: absorbe el llamado a la acción, que se retira) ========== -->
-<section class="seccion seccion--suave" id="contacto">
-  <div class="contenedor">
-    <div class="centrado" style="margin-bottom:38px">
-      <span class="etiqueta">Contáctanos</span>
-      <h2 class="titulo">Servicio al cliente</h2>
-      <p class="entradilla">Tu opinión nos ayuda a mejorar. Si deseas registrar una petición, queja, reclamo o sugerencia (PQRS), ponemos a tu disposición los siguientes canales:</p>
-    </div>
-    <div class="con-rejilla">
-      <article class="con"><div class="chapa"><svg class="ilu" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="58" rx="17" ry="2.6" fill="#D3EEDD" opacity=".55"/><rect x="18" y="4" width="28" height="50" rx="6" fill="#0F4A2E"/><rect x="21.5" y="10" width="21" height="36" rx="2" fill="#D3EEDD"/><rect x="28" y="6.4" width="8" height="1.8" rx=".9" fill="#1F6B45"/><circle cx="32" cy="50" r="2" fill="#6CB294"/><path d="M27 21h3l1.4 3.6-1.7 1.1a8 8 0 003.6 3.6l1.1-1.7 3.6 1.4v3a1 1 0 01-1 1A11.5 11.5 0 0126 22a1 1 0 011-1z" fill="#1F6B45"/><circle cx="46" cy="14" r="7" fill="#E8792F"/><path d="M43 14h6M46 11v6" stroke="#FFFFFF" stroke-width="0"/><circle cx="43.4" cy="14" r="1.2" fill="#FFFFFF"/><circle cx="46" cy="14" r="1.2" fill="#FFFFFF"/><circle cx="48.6" cy="14" r="1.2" fill="#FFFFFF"/></svg></div><div class="con__cuerpo">
-        <h3>Teléfonos</h3>
-        <p><a href="tel:+573135933550">313 593 3550</a></p><p><a href="tel:+573104419500">310 441 9500</a></p></div></article>
-      <article class="con"><div class="chapa chapa--foto"><img src="assets/contacto/whatsapp.png" alt="" width="256" height="256" loading="lazy"></div><div class="con__cuerpo">
-        <h3>WhatsApp</h3>
-        <p><a href="https://wa.me/573135933550" target="_blank" rel="noopener">313 593 3550</a></p>
-        <a class="boton boton--verde" href="https://wa.me/573135933550" target="_blank" rel="noopener">Escribir ahora</a></div></article>
-      <article class="con"><div class="chapa"><svg class="ilu" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="58" rx="17" ry="2.6" fill="#D3EEDD" opacity=".55"/><rect x="7" y="14" width="50" height="34" rx="5" fill="#0F4A2E"/><path d="M7 20l25 16 25-16v-1a5 5 0 00-5-5H12a5 5 0 00-5 5z" fill="#6CB294"/><path d="M11 44l15-12M53 44L38 32" stroke="#1F6B45" stroke-width="2.4" stroke-linecap="round"/><circle cx="48" cy="16" r="9" fill="#E8792F"/><path d="M44.5 16.2l2.6 2.6 4.6-5" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="con__cuerpo">
-        <h3>Correo electrónico</h3>
-        <p><a href="mailto:pasajeros@transportesespecialesmejia.com">pasajeros@<wbr>transportesespecialesmejia.com</a></p></div></article>
-      <article class="con"><div class="chapa"><svg class="ilu" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="58" rx="17" ry="2.6" fill="#D3EEDD" opacity=".55"/><path d="M8 44l14-6 20 6 14-6v14l-14 6-20-6-14 6z" fill="#6CB294"/><path d="M22 38v14l20 6V44z" fill="#D3EEDD"/><path d="M32 4a14 14 0 0114 14c0 11-14 26-14 26S18 29 18 18A14 14 0 0132 4z" fill="#0F4A2E"/><circle cx="32" cy="18" r="6" fill="#FFFFFF"/><circle cx="32" cy="18" r="2.6" fill="#E8792F"/></svg></div><div class="con__cuerpo">
-        <h3>Dirección</h3>
-        <p>Calle 44 N.° 34C-33</p><p>Palmira, Valle del Cauca — Colombia</p></div></article>
-    </div>
-  </div>
-</section>
-
-<!-- ========== MÓDULO 15 · HORARIOS DE ATENCIÓN ========== -->
-<section class="seccion seccion--claro" id="horarios">
-  <div class="contenedor">
-    <div class="centrado" style="margin-bottom:40px">
-      <span class="etiqueta">Horarios de atención</span>
-      <h2 class="titulo">Cuándo atendemos</h2>
-      <div class="hor-estado" id="horEstado" role="status" hidden><i aria-hidden="true"></i><span></span></div>
-    </div>
-    <div class="hor-rejilla">
-      <article class="hor" data-dias="1,3">
-        <div class="hor__cab"><div class="chapa chapa--sm"><svg class="ilu" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="58" rx="17" ry="2.6" fill="#D3EEDD" opacity=".55"/><circle cx="32" cy="30" r="22" fill="#0F4A2E"/><circle cx="32" cy="30" r="17" fill="#D3EEDD"/><path d="M32 18v12l8 5" fill="none" stroke="#1F6B45" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="32" cy="30" r="3" fill="#E8792F"/><circle cx="32" cy="15.5" r="1.4" fill="#6CB294"/><circle cx="46.5" cy="30" r="1.4" fill="#6CB294"/><circle cx="17.5" cy="30" r="1.4" fill="#6CB294"/><circle cx="32" cy="44.5" r="1.4" fill="#6CB294"/></svg></div><h3>Lunes y miércoles</h3></div>
-        <div class="semana" aria-hidden="true"><span class="on" title="lunes">L</span><span class="" title="martes">M</span><span class="on" title="miércoles">M</span><span class="" title="jueves">J</span><span class="" title="viernes">V</span><span class="" title="sábado">S</span><span class="" title="domingo">D</span></div>
-        <div class="franjas"><div class="franja"><b>Mañana</b>7:30 a. m. – 12:00 m.</div><div class="franja"><b>Tarde</b>2:00 p. m. – 5:00 p. m.</div></div>
-      </article>
-      <article class="hor" data-dias="2,4,5">
-        <div class="hor__cab"><div class="chapa chapa--sm"><svg class="ilu" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="58" rx="17" ry="2.6" fill="#D3EEDD" opacity=".55"/><circle cx="32" cy="30" r="22" fill="#0F4A2E"/><circle cx="32" cy="30" r="17" fill="#D3EEDD"/><path d="M32 18v12l8 5" fill="none" stroke="#1F6B45" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="32" cy="30" r="3" fill="#E8792F"/><circle cx="32" cy="15.5" r="1.4" fill="#6CB294"/><circle cx="46.5" cy="30" r="1.4" fill="#6CB294"/><circle cx="17.5" cy="30" r="1.4" fill="#6CB294"/><circle cx="32" cy="44.5" r="1.4" fill="#6CB294"/></svg></div><h3>Martes, jueves y viernes</h3></div>
-        <div class="semana" aria-hidden="true"><span class="" title="lunes">L</span><span class="on" title="martes">M</span><span class="" title="miércoles">M</span><span class="on" title="jueves">J</span><span class="on" title="viernes">V</span><span class="" title="sábado">S</span><span class="" title="domingo">D</span></div>
-        <div class="franjas"><div class="franja"><b>Mañana</b>7:00 a. m. – 12:00 m.</div><div class="franja"><b>Tarde</b>2:00 p. m. – 4:30 p. m.</div></div>
-      </article>
-      <article class="hor" data-dias="6">
-        <div class="hor__cab"><div class="chapa chapa--sm"><svg class="ilu" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="58" rx="17" ry="2.6" fill="#D3EEDD" opacity=".55"/><circle cx="32" cy="30" r="22" fill="#0F4A2E"/><circle cx="32" cy="30" r="17" fill="#D3EEDD"/><path d="M32 18v12l8 5" fill="none" stroke="#1F6B45" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="32" cy="30" r="3" fill="#E8792F"/><circle cx="32" cy="15.5" r="1.4" fill="#6CB294"/><circle cx="46.5" cy="30" r="1.4" fill="#6CB294"/><circle cx="17.5" cy="30" r="1.4" fill="#6CB294"/><circle cx="32" cy="44.5" r="1.4" fill="#6CB294"/></svg></div><h3>Sábados</h3></div>
-        <div class="semana" aria-hidden="true"><span class="" title="lunes">L</span><span class="" title="martes">M</span><span class="" title="miércoles">M</span><span class="" title="jueves">J</span><span class="" title="viernes">V</span><span class="on" title="sábado">S</span><span class="" title="domingo">D</span></div>
-        <div class="franjas"><div class="franja"><b>Mañana</b>8:00 a. m. – 12:00 m.</div></div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ========== MÓDULO 14 · TRABAJA CON NOSOTROS ========== -->
-<section class="seccion seccion--suave" id="trabaja">
-  <div class="contenedor dividido">
-    <div>
-      <span class="etiqueta">Trabaja con nosotros</span>
-      <h2 class="titulo">Súmese a nuestro equipo</h2>
-      <p class="entradilla justificado">Nuestra operación se fundamenta en el fortalecimiento continuo del talento humano. Gracias a convenios estratégicos con el SENA, la Secretaría de Tránsito, nuestra ARL y compañías aseguradoras, nuestro equipo se mantiene a la vanguardia en normatividad, seguridad vial y servicio al cliente.</p>
-      <p class="entradilla justificado">Priorizamos el bienestar humano como motor de la seguridad: disponemos de orientación psicológica permanente para nuestro personal, asegurando un equipo estable, confiable y enfocado en la excelencia del servicio.</p>
-      <div class="pendiente" role="note">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M10 9.5v5l4.5-2.5z"/></svg>
-        <div><strong>Espacio reservado · Fotos y video del auditorio</strong><span>Ubicación propuesta para mostrar el auditorio de capacitación una vez finalice su remodelación. Pendiente de material del cliente.</span></div>
-      </div>
-    </div>
-    <div class="form-zona">
-    <form class="form" id="formHV" novalidate>
-      <div class="campo"><label for="hvNombre">Nombre completo</label>
-        <input type="text" id="hvNombre" name="nombre" autocomplete="name" required aria-describedby="errNombre">
-        <span class="error" id="errNombre" hidden>Escriba su nombre completo.</span></div>
-      <div class="campo"><label for="hvTel">Teléfono</label>
-        <input type="tel" id="hvTel" name="telefono" autocomplete="tel" inputmode="tel"></div>
-      <div class="campo"><label for="hvCel">Celular</label>
-        <input type="tel" id="hvCel" name="celular" autocomplete="tel" inputmode="tel" required aria-describedby="errCel">
-        <span class="error" id="errCel" hidden>Escriba un celular de 10 dígitos.</span></div>
-      <div class="campo"><label for="hvMail">Correo electrónico</label>
-        <input type="email" id="hvMail" name="correo" autocomplete="email" inputmode="email" required aria-describedby="errMail">
-        <span class="error" id="errMail" hidden>Escriba un correo válido.</span></div>
-      <div class="campo ancho"><label for="hvArchivo">Adjunte su hoja de vida (PDF o Word)</label>
-        <input type="file" id="hvArchivo" name="hojaDeVida" accept=".pdf,.doc,.docx" required aria-describedby="errArchivo">
-        <span class="error" id="errArchivo" hidden>Adjunte su hoja de vida en PDF o Word.</span></div>
-      <p class="form__aviso ancho">Su postulación llega a <strong>aux.rrhh@<wbr>transportesespecialesmejia.com</strong>. Al enviarla autoriza el tratamiento de sus datos conforme a nuestra política de tratamiento de datos personales.</p>
-      <div class="ancho"><button type="submit" class="boton boton--verde" id="hvBoton">Enviar postulación</button></div>
-    </form>
-
-    <div class="exito" id="hvExito" role="status" tabindex="-1" hidden>
-      <div class="exito__disco" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.2"/><path d="M8 12.4l2.6 2.6L16 9.6"/></svg>
-      </div>
-      <h3>Postulación recibida</h3>
-      <p>Gracias por su interés en <strong>Transportes Especiales Mejía S.A.S.</strong> Su hoja de vida llegó a nuestro equipo de talento humano y será revisada por el área de recursos humanos.</p>
-      <div class="exito__resumen">
-        <dl>
-          <dt>Número de radicado</dt><dd class="exito__radicado" id="exRad">—</dd>
-          <dt>Postulante</dt><dd id="exNombre">—</dd>
-          <dt>Celular</dt><dd id="exCel">—</dd>
-          <dt>Correo</dt><dd id="exMail">—</dd>
-          <dt>Hoja de vida</dt><dd id="exArch">—</dd>
-          <dt>Recibida el</dt><dd id="exFecha">—</dd>
-        </dl>
-      </div>
-      <button type="button" class="boton boton--verde" id="hvOtra">Enviar otra postulación</button>
-      <span class="maqueta">Vista de demostración: en esta maqueta la postulación no se transmite todavía. El envío real se activa al conectar el canal de recepción.</span>
-    </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== MÓDULO 19 · BLOGS (Obs.3 #8: indicio de ubicación; contenido pendiente del cliente) ========== -->
-<section class="seccion seccion--claro" id="blogs">
-  <div class="contenedor">
-    <div class="centrado encabezado">
-      <span class="etiqueta">Blogs</span>
-      <h2 class="titulo">Blogs</h2>
-      <p class="entradilla">Espacio reservado para los artículos que publicará la empresa. Contenido pendiente de entrega.</p>
-    </div>
-    <div class="blog-rejilla">
-      <article class="blog">
-        <span class="blog__estado">Próximamente</span>
-        <h3>Artículo jurídico</h3>
-        <p>Texto en preparación por la asesora jurídica.</p>
-      </article>
-      <article class="blog">
-        <span class="blog__estado">Próximamente</span>
-        <h3>Artículo ambiental</h3>
-        <p>Texto en preparación por el experto en gestión ambiental.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
+</main>
 <!-- ========== MÓDULO 18 · PIE ========== -->
 <footer class="pie">
   <div class="contenedor">
     <div class="pie__fila">
       <div>
-        <img src="assets/logo.png" alt="Transportes Especiales Mejía S.A.S.">
+        <img src="assets/img/logo.png" alt="Transportes Especiales Mejía S.A.S.">
         <p style="margin:18px 0 0">Transportes Especiales Mejía S.A.S.</p>
         <p style="margin:0">Calle 44 N.° 34C-33, Palmira, Valle del Cauca, Colombia</p>
       </div>
       <div>
         <h4>Enlaces</h4>
         <ul>
-          <li><a href="#nosotros">Nosotros</a></li>
-          <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#flota">Nuestra flota</a></li>
-          <li><a href="#politicas">Políticas corporativas</a></li>
-          <li><a href="#denuncias">Canal de denuncias</a></li>
-          <li><a href="#trabaja">Trabaja con nosotros</a></li>
-          <li><a href="#blogs">Blogs</a></li>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="servicios.html">Servicios y flota</a></li>
+          <li><a href="galeria.html">Galería</a></li>
+          <li><a href="politicas.html">Políticas corporativas</a></li>
+          <li><a href="canal-de-denuncias.html">Canal de denuncias</a></li>
+          <li><a href="trabaja-con-nosotros.html">Trabaja con nosotros</a></li>
+          <li><a href="blogs.html">Blogs</a></li>
         </ul>
       </div>
       <div>
@@ -1291,232 +222,7 @@ p{margin:0 0 1em}
   <svg viewBox="0 0 24 24"><path d="M12 19V5"/><path d="M6 11l6-6 6 6"/></svg>
 </button>
 
-<script>
-document.getElementById('anio').textContent = new Date().getFullYear();
 
-/* PROPUESTA V2 — barra de progreso, cabecera dinámica, botón "arriba" */
-(function () {
-  var barra = document.getElementById('progreso');
-  var cab = document.querySelector('.cabecera');
-  var arriba = document.getElementById('btnArriba');
-  function onScroll() {
-    var alto = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    var pos = window.scrollY || document.documentElement.scrollTop;
-    barra.style.width = (alto > 0 ? (pos / alto) * 100 : 0) + '%';
-    cab.classList.toggle('contraida', pos > 12);
-    arriba.classList.toggle('visible', pos > 480);
-  }
-  document.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-  arriba.addEventListener('click', function () {
-    window.scrollTo({ top: 0, behavior: document.documentElement.style.scrollBehavior === 'auto' ? 'auto' : 'smooth' });
-  });
-})();
-
-/* PROPUESTA V2 — revelado progresivo de secciones al hacer scroll */
-(function () {
-  var objetivos = document.querySelectorAll('.seccion .contenedor > *, .heroe__flotante');
-  if (!('IntersectionObserver' in window)) { return; }
-  objetivos.forEach(function (el) { el.classList.add('aparece'); });
-  var obs = new IntersectionObserver(function (entradas) {
-    entradas.forEach(function (en) {
-      if (en.isIntersecting) { en.target.classList.add('visible'); obs.unobserve(en.target); }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
-  objetivos.forEach(function (el) { obs.observe(el); });
-})();
-
-/* PROPUESTA V2 — contador animado en la tarjeta de cifras del héroe */
-(function () {
-  var cifras = document.querySelectorAll('[data-cuenta]');
-  if (!cifras.length) { return; }
-  var reducido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function anima(el) {
-    var meta = parseInt(el.getAttribute('data-cuenta'), 10);
-    var sufijo = el.getAttribute('data-sufijo') || '';
-    if (reducido) { el.textContent = meta + sufijo; return; }
-    var inicio = null, dur = 1100;
-    function paso(t) {
-      if (!inicio) inicio = t;
-      var p = Math.min(1, (t - inicio) / dur);
-      var f = 1 - Math.pow(1 - p, 3);
-      el.textContent = Math.round(f * meta) + sufijo;
-      if (p < 1) requestAnimationFrame(paso);
-    }
-    requestAnimationFrame(paso);
-  }
-  if ('IntersectionObserver' in window) {
-    var obs2 = new IntersectionObserver(function (entradas) {
-      entradas.forEach(function (en) {
-        if (en.isIntersecting) { anima(en.target); obs2.unobserve(en.target); }
-      });
-    }, { threshold: 0.6 });
-    cifras.forEach(function (el) { if (!reducido) { el.textContent = '0' + (el.getAttribute('data-sufijo') || ''); } obs2.observe(el); });
-  } else {
-    cifras.forEach(anima);
-  }
-})();
-var btn = document.getElementById('menuBtn'), nav = document.getElementById('navMovil');
-btn.addEventListener('click', function () {
-  var abierto = nav.classList.toggle('abierto');
-  btn.setAttribute('aria-expanded', abierto ? 'true' : 'false');
-});
-nav.addEventListener('click', function (e) {
-  if (e.target.tagName === 'A') { nav.classList.remove('abierto'); btn.setAttribute('aria-expanded', 'false'); }
-});
-document.addEventListener('keydown', function (e) {
-  if (e.key === 'Escape' && nav.classList.contains('abierto')) { nav.classList.remove('abierto'); btn.setAttribute('aria-expanded','false'); btn.focus(); }
-});
-/* Formulario de postulación — envío simulado.
-   Esta maqueta valida, muestra el estado de envío y confirma con un
-   radicado, para que el cliente recorra el flujo completo. Al conectar
-   el canal de recepción real, lo único que cambia es el contenido de
-   transmitir(): el resto del flujo ya es el definitivo. */
-(function () {
-  var form = document.getElementById('formHV');
-  var boton = document.getElementById('hvBoton');
-  var exito = document.getElementById('hvExito');
-  var val = function (id) { return (document.getElementById(id).value || '').trim(); };
-
-  var reglas = [
-    ['hvNombre', 'errNombre', function (v) { return v.length >= 5 && v.indexOf(' ') > 0; }],
-    ['hvCel', 'errCel', function (v) { return v.replace(/\D/g, '').length >= 10; }],
-    ['hvMail', 'errMail', function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v); }],
-    ['hvArchivo', 'errArchivo', function (v, el) { return el.files && el.files.length > 0; }]
-  ];
-
-  function validar(mostrar) {
-    var primero = null;
-    reglas.forEach(function (r) {
-      var el = document.getElementById(r[0]);
-      var err = document.getElementById(r[1]);
-      var ok = r[2](val(r[0]), el);
-      if (mostrar) { err.hidden = ok; }
-      el.setAttribute('aria-invalid', ok ? 'false' : 'true');
-      if (!ok && !primero) { primero = el; }
-    });
-    return primero;
-  }
-
-  // Al corregir un campo, su mensaje desaparece sin esperar el reenvío.
-  reglas.forEach(function (r) {
-    var el = document.getElementById(r[0]);
-    el.addEventListener('input', function () {
-      if (r[2](val(r[0]), el)) { document.getElementById(r[1]).hidden = true; }
-    });
-    el.addEventListener('change', function () {
-      if (r[2](val(r[0]), el)) { document.getElementById(r[1]).hidden = true; }
-    });
-  });
-
-  function radicado() {
-    var d = new Date();
-    var n = Math.floor(1000 + Math.random() * 9000);
-    return 'TEM-' + d.getFullYear() + String(d.getMonth() + 1).padStart(2, '0')
-         + String(d.getDate()).padStart(2, '0') + '-' + n;
-  }
-
-  function transmitir() {
-    // Punto único de sustitución cuando exista el canal real.
-    return new Promise(function (r) { setTimeout(r, 1100); });
-  }
-
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var malo = validar(true);
-    if (malo) { malo.focus(); return; }
-
-    var arch = document.getElementById('hvArchivo');
-    boton.disabled = true;
-    boton.innerHTML = '<span class="spin" aria-hidden="true"></span>Enviando…';
-    form.classList.add('form__enviando');
-
-    transmitir().then(function () {
-      document.getElementById('exRad').textContent = radicado();
-      document.getElementById('exNombre').textContent = val('hvNombre');
-      document.getElementById('exCel').textContent = val('hvCel');
-      document.getElementById('exMail').textContent = val('hvMail');
-      document.getElementById('exArch').textContent = arch.files[0] ? arch.files[0].name : '—';
-      document.getElementById('exFecha').textContent = new Date().toLocaleDateString('es-CO',
-        { day: '2-digit', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' });
-      form.hidden = true;
-      form.classList.remove('form__enviando');
-      exito.hidden = false;
-      exito.focus();
-    });
-  });
-
-  document.getElementById('hvOtra').addEventListener('click', function () {
-    form.reset();
-    reglas.forEach(function (r) {
-      document.getElementById(r[1]).hidden = true;
-      document.getElementById(r[0]).setAttribute('aria-invalid', 'false');
-    });
-    boton.disabled = false;
-    boton.textContent = 'Enviar postulación';
-    exito.hidden = true;
-    form.hidden = false;
-    document.getElementById('hvNombre').focus();
-  });
-})();
-
-/* Horario en vivo — hora de Colombia, independiente de la zona del visitante. */
-(function () {
-  var H = {1: [[450, 720], [840, 1020]], 3: [[450, 720], [840, 1020]],
-           2: [[420, 720], [840, 990]], 4: [[420, 720], [840, 990]], 5: [[420, 720], [840, 990]],
-           6: [[480, 720]]};
-  var DIAS = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
-  function hora(m) {
-    var h = Math.floor(m / 60), mi = m % 60;
-    if (m === 720) return '12:00 m.';
-    var s = h < 12 ? 'a. m.' : 'p. m.'; var h12 = h > 12 ? h - 12 : h;
-    return h12 + ':' + String(mi).padStart(2, '0') + ' ' + s;
-  }
-  function ahora() {
-    var p = new Intl.DateTimeFormat('en-US', {timeZone: 'America/Bogota', weekday: 'short', hour: 'numeric',
-      minute: 'numeric', hour12: false}).formatToParts(new Date());
-    var o = {}; p.forEach(function (x) { o[x.type] = x.value; });
-    var d = {Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6}[o.weekday];
-    return {d: d, m: (parseInt(o.hour, 10) % 24) * 60 + parseInt(o.minute, 10)};
-  }
-  function actualizar() {
-    var t = ahora(), caja = document.getElementById('horEstado'), txt = caja.querySelector('span');
-    var hoy = H[t.d] || [], abierto = null, prox = null;
-    hoy.forEach(function (f) { if (t.m >= f[0] && t.m < f[1]) abierto = f; });
-    if (abierto) {
-      txt.textContent = 'Abierto ahora · atendemos hasta las ' + hora(abierto[1]);
-      caja.classList.remove('cerrado');
-    } else {
-      for (var k = 0; k < 8 && !prox; k++) {
-        var dd = (t.d + k) % 7, fr = H[dd] || [];
-        for (var j = 0; j < fr.length; j++) { if (k > 0 || fr[j][0] > t.m) { prox = [k, dd, fr[j][0]]; break; } }
-      }
-      var cuando = prox[0] === 0 ? 'hoy' : prox[0] === 1 ? 'mañana' : 'el ' + DIAS[prox[1]];
-      txt.textContent = 'Cerrado en este momento · abrimos ' + cuando + ' a las ' + hora(prox[2]);
-      caja.classList.add('cerrado');
-    }
-    caja.hidden = false;
-    document.querySelectorAll('.hor').forEach(function (c) {
-      var es = c.getAttribute('data-dias').split(',').indexOf(String(t.d)) > -1;
-      c.classList.toggle('hoy', es);
-      var et = c.querySelector('.hor__hoy');
-      if (es && !et) { et = document.createElement('span'); et.className = 'hor__hoy'; et.textContent = 'Hoy'; c.appendChild(et); }
-      if (!es && et) { et.remove(); }
-    });
-  }
-  actualizar(); setInterval(actualizar, 60000);
-})();
-
-/* Obs.3 #17 — política integral desplegable */
-document.querySelectorAll('.pol__toggle').forEach(function (b) {
-  b.addEventListener('click', function () {
-    var r = document.getElementById(b.getAttribute('aria-controls'));
-    var abre = b.getAttribute('aria-expanded') !== 'true';
-    b.setAttribute('aria-expanded', abre ? 'true' : 'false');
-    r.hidden = !abre;
-    b.querySelector('span').textContent = abre ? 'Ocultar la política integral' : 'Leer la política integral';
-  });
-});
-</script>
+<script src="assets/js/main.js" defer></script>
 </body>
 </html>

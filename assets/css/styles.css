@@ -1,0 +1,845 @@
+
+/* ============================================================
+   PROPUESTA V2 · CAPA DE MODERNIZACIÓN VISUAL
+   ------------------------------------------------------------
+   Esta hoja NO toca contenido, textos, estructura ni datos ya
+   aprobados por el cliente en v2.0 (ver CAMBIOS-v2.md). Solo
+   añade/ajusta estilo visual: tipografía, movimiento, profundidad
+   y detalles de interfaz. Todo lo nuevo respeta
+   prefers-reduced-motion y el sistema de color institucional.
+   ============================================================ */
+/* ============================================================
+   SISTEMA DE COLOR v2.0 — verde institucional dominante
+   ------------------------------------------------------------
+   Corrección aplicada sobre la v1.0 (observaciones 2, 7 y 14
+   del cliente): se retira el verde casi negro como fondo de
+   sección y se adopta el verde institucional #67943E y su
+   escala clara #E5F3D9, tomados del membrete corporativo.
+   El texto corrido pasa de gris neutro a verde institucional
+   oscuro para que la página "tenga más color".
+   Relación verde (H≈93°) / naranja (H≈24°): complementarios
+   divididos. Proporción 60-30-10 mantenida.
+   ============================================================ */
+:root{
+  --verde-900:#2C4220;
+  --verde-800:#3C5A2A;
+  --verde-700:#4E7533;
+  --verde-600:#5B8639;
+  --verde-500:#67943E;   /* VERDE INSTITUCIONAL */
+  --verde-400:#67BA46;   /* verde claro de membrete */
+  --verde-200:#C6DEAE;
+  --verde-100:#E5F3D9;   /* fondo suave institucional */
+  --verde-050:#F2F8EC;
+
+  --naranja-700:#C24E00;
+  --naranja-500:#FF6600;  /* NARANJA INSTITUCIONAL — solo relleno decorativo */
+  --naranja-txt:#B84A00;  /* naranja para TEXTO: 5,23:1 sobre blanco (AA) */
+  --naranja-btn:#C24E00;  /* relleno de botón con texto blanco: 4,79:1 (AA) */
+  --naranja-btn-h:#A84300;
+  --verde-banda:#4E7533;  /* banda de indicadores: blanco encima da 5,36:1 (AA) */
+  --naranja-300:#FFA24D;
+  --naranja-100:#FFEEE0;
+
+  --n000:#FFFFFF; --n050:#FAFAF7; --n100:#F1F2EC; --n300:#D6D8CE;
+  --n600:#6B6F63; --n900:#1A1C17;
+
+  --texto:var(--verde-900);
+  --texto-suave:var(--verde-700);
+  --fondo:var(--n050);
+  --superficie:var(--n000);
+  --borde:var(--verde-200);
+
+  --radio:14px; --radio-sm:8px;
+  --sombra:0 2px 4px rgba(44,66,32,.05), 0 12px 28px rgba(44,66,32,.08);
+  --sombra-hover:0 8px 16px rgba(44,66,32,.08), 0 24px 48px rgba(44,66,32,.16);
+  --max:1180px;
+  --fuente:"Plus Jakarta Sans", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --fuente-titulo:"Manrope", "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+/* ---------- RESET ---------- */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:auto} /* Obs.3 #12: salto directo a la sección, sin desplazamiento */
+/* La cabecera fija mide 66px: sin esto, al navegar por el menú el título
+   de la sección queda oculto detrás de ella. */
+section[id],footer[id],article[id]{scroll-margin-top:112px}
+:focus-visible{outline:3px solid var(--naranja-btn);outline-offset:3px;border-radius:4px}
+.saltar{position:absolute;left:-9999px;top:0;z-index:200;background:var(--verde-900);color:#fff;
+ padding:12px 20px;border-radius:0 0 10px 0;font-weight:700}
+.saltar:focus{left:0}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+body{margin:0;overflow-x:hidden;font-family:var(--fuente);color:var(--texto);background:var(--fondo);line-height:1.7;font-size:1.06rem;-webkit-font-smoothing:antialiased;text-wrap:pretty}
+img{max-width:100%;display:block}
+a{color:var(--verde-600);text-decoration:none}
+h1,h2,h3,h4{font-family:var(--fuente-titulo);line-height:1.22;margin:0 0 .5em;font-weight:800;letter-spacing:-.015em;color:var(--verde-900)}
+p{margin:0 0 1em}
+
+/* ---------- UTILIDADES ---------- */
+.contenedor{width:100%;max-width:var(--max);margin-inline:auto;padding-inline:20px}
+.seccion{padding-block:84px}
+.seccion--claro{background:var(--superficie)}
+.seccion--suave{background:var(--verde-100)}
+.seccion--verde{background:var(--verde-500);color:#fff}
+.seccion--verde h2,.seccion--verde h3{color:#fff}
+.etiqueta{display:inline-block;font-size:1.3rem;font-weight:800;letter-spacing:.01em;color:var(--naranja-txt);margin-bottom:.35em;line-height:1.3}
+.seccion--verde .etiqueta{color:#fff}
+.titulo{font-size:clamp(1.8rem,3.8vw,2.6rem);margin-bottom:.4em}
+.entradilla{font-size:1.14rem;color:var(--texto-suave);max-width:64ch}
+.seccion--verde .entradilla{color:#EEF6E6}
+.centrado{text-align:center}
+/* Justificar solo textos de línea larga, con guionado, porque en columnas
+   estrechas la justificación abre huecos entre palabras. */
+.justificado{text-align:left}
+@media(min-width:900px){ .justificado{text-align:justify;hyphens:auto;-webkit-hyphens:auto;text-wrap:initial} }
+.centrado .entradilla{margin-inline:auto}
+.rejilla{display:grid;gap:26px}
+@media(min-width:760px){ .rejilla--2{grid-template-columns:repeat(2,1fr)} .rejilla--3{grid-template-columns:repeat(3,1fr)} .rejilla--4{grid-template-columns:repeat(2,1fr)} }
+@media(min-width:1040px){ .rejilla--4{grid-template-columns:repeat(4,1fr)} }
+
+.boton{display:inline-block;padding:15px 30px;border-radius:100px;font-weight:700;font-size:1.02rem;min-height:48px;transition:transform .18s ease, box-shadow .18s ease, background .18s ease}
+.boton:hover{transform:translateY(-2px)}
+.boton--primario{background:var(--naranja-btn);color:#fff;box-shadow:0 8px 20px rgba(194,78,0,.3)}
+.boton--primario:hover{background:var(--naranja-btn-h)}
+.boton--fantasma{border:2px solid rgba(255,255,255,.7);color:#fff}
+.boton--fantasma:hover{background:#fff;color:var(--verde-700)}
+.boton--verde{background:var(--verde-500);color:#fff}
+.boton--verde:hover{background:var(--verde-700)}
+
+/* Icono de línea reutilizable */
+.ico{width:22px;height:22px;flex:0 0 22px;stroke:var(--verde-500);fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+
+/* ============================================================
+   MÓDULO 01 · CABECERA
+   ============================================================ */
+.cabecera{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--borde)}
+.cabecera__fila{display:flex;align-items:center;justify-content:space-between;gap:18px;padding-block:12px}
+.cabecera__logo{display:flex;align-items:center;min-height:46px}
+.cabecera__logo img{height:44px;width:auto}
+.nav{display:none;gap:20px;font-size:1.06rem;font-weight:600;white-space:nowrap}
+.nav a{color:var(--verde-800);position:relative;padding-block:10px}
+.nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--naranja-500);transition:width .2s ease}
+.nav a:hover::after{width:100%}
+.cabecera .boton{padding:12px 22px;font-size:1rem;min-height:46px;white-space:nowrap}
+.menu-btn{display:flex;flex-direction:column;justify-content:center;gap:5px;flex:0 0 48px;width:48px;height:46px;padding:0 11px;
+ background:none;border:1px solid var(--borde);border-radius:9px;cursor:pointer;min-height:46px}
+.menu-btn span{display:block;height:2px;background:var(--verde-700);border-radius:2px;transition:transform .2s ease,opacity .2s ease}
+.menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
+.menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.nav-movil{display:none;border-top:1px solid var(--borde);background:#fff}
+.nav-movil.abierto{display:block}
+@media(min-width:1280px){ .nav{display:flex} .menu-btn{display:none} }
+.nav-movil a{display:flex;align-items:center;min-height:52px;padding:14px 20px;border-bottom:1px solid var(--verde-100);font-weight:600;font-size:1.06rem;color:var(--verde-800)}
+@media(min-width:1280px){ .nav-movil{display:none!important} }
+
+/* ============================================================
+   MÓDULO 02 · HÉROE
+   ============================================================ */
+.heroe{position:relative;color:#fff;isolation:isolate}
+.heroe__media{position:absolute;inset:0;z-index:-2}
+.heroe__media img{width:100%;height:100%;object-fit:cover}
+.heroe::before{content:"";position:absolute;inset:0;z-index:-1;
+ background:linear-gradient(100deg, rgba(44,66,32,.95) 0%, rgba(78,117,51,.88) 48%, rgba(91,134,57,.62) 100%)}
+.heroe__cuerpo{padding-block:110px 96px;max-width:760px}
+.heroe .razon{display:block;font-size:clamp(1.05rem,2.3vw,1.5rem);font-weight:800;letter-spacing:.04em;color:var(--naranja-300);margin-bottom:.5em}
+.heroe h1{font-size:clamp(2.1rem,5.4vw,3.5rem);margin-bottom:.35em;color:#fff}
+.heroe h1 em{font-style:normal;color:var(--naranja-300)}
+.heroe p{font-size:1.18rem;color:#F1F7EA;max-width:58ch}
+.heroe__acciones{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+.heroe__sellos{display:flex;flex-wrap:wrap;gap:10px;margin-top:38px}
+.sello{font-size:.96rem;font-weight:700;background:rgba(28,42,18,.62);border:1px solid rgba(255,255,255,.55);border-radius:100px;padding:8px 17px;color:#fff}
+
+/* ============================================================
+   MÓDULO 03 · POR QUÉ CONFIAR (4 pilares)
+   ============================================================ */
+.pilares{position:relative}
+.pilares__lista{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;margin-top:38px}
+@media(min-width:860px){ .pilares__lista{grid-template-columns:repeat(4,1fr)} }
+.pilar{text-align:center;position:relative}
+@media(min-width:860px){
+  .pilar::after{content:"";position:absolute;top:58px;right:-13px;width:26px;height:2px;background:var(--verde-200)}
+  .pilar:last-child::after{display:none}
+}
+.pilar__disco{width:116px;height:116px;margin:0 auto 16px;border-radius:50%;border:2px solid var(--verde-500);
+ background:var(--verde-100);display:flex;align-items:center;justify-content:center;transition:transform .2s ease,box-shadow .2s ease}
+.pilar:nth-child(2n) .pilar__disco{background:var(--naranja-100);border-color:var(--naranja-btn)}
+.pilar:hover .pilar__disco{transform:translateY(-4px);box-shadow:0 10px 22px rgba(44,66,32,.16)}
+.pilar__disco svg{width:46px;height:46px;stroke:var(--verde-700);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.pilar:nth-child(2n) .pilar__disco svg{stroke:var(--naranja-btn)}
+.pilar h3{font-size:1.2rem;margin-bottom:.25em}
+.pilar p{font-size:1rem;color:var(--texto-suave);margin:0}
+
+/* ============================================================
+   MÓDULO 04 · INDICADORES
+   ============================================================ */
+.indicadores{background:var(--verde-banda);color:#fff}
+.indicadores .rejilla{gap:14px;padding-block:38px;text-align:center}
+@media(min-width:760px){ .indicadores .rejilla{grid-template-columns:repeat(3,1fr)} }
+.indicador__cifra{font-size:clamp(2rem,4vw,2.8rem);font-weight:800;line-height:1;color:#fff}
+.indicador__texto{font-size:1.04rem;color:#fff;font-weight:600}
+
+/* ============================================================
+   MÓDULO 05 · NOSOTROS
+   ============================================================ */
+.dividido{display:grid;gap:44px;align-items:center}
+.dividido>*{min-width:0}
+@media(min-width:900px){ .dividido{grid-template-columns:1.05fr 1fr} .dividido--invertido>*:first-child{order:2} }
+.marco{border-radius:var(--radio);overflow:hidden;box-shadow:var(--sombra)}
+.marco img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.lista-check{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:12px}
+.lista-check li{display:flex;gap:12px;align-items:flex-start;font-size:1rem}
+.lista-check li::before{content:"";flex:0 0 9px;height:9px;margin-top:.6em;border-radius:50%;background:var(--naranja-500)}
+
+/* ============================================================
+   MÓDULO 06 · MISIÓN / VISIÓN / POLÍTICA
+   ============================================================ */
+.tarjeta{background:var(--superficie);border:1px solid var(--borde);border-radius:var(--radio);padding:32px;box-shadow:var(--sombra)}
+.tarjeta--acento{border-top:4px solid var(--naranja-500)}
+.tarjeta h3{font-size:1.3rem}
+.tarjeta p:last-child{margin-bottom:0}
+
+/* ============================================================
+   MÓDULO 07 · VALORES
+   ============================================================ */
+.valor{background:var(--superficie);border:1px solid var(--borde);border-radius:var(--radio);padding:28px;transition:border-color .2s ease,transform .2s ease}
+.valor:hover{border-color:var(--verde-500);transform:translateY(-3px)}
+.valor__num{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:10px;
+ background:var(--verde-100);color:var(--verde-700);font-weight:800;font-size:.98rem;margin-bottom:14px}
+.valor:nth-child(3n+2) .valor__num{background:var(--naranja-100);color:var(--naranja-700)}
+/* Ilustración de cada valor: decorativa (alt vacío), el nombre ya está en el h3 */
+.valor__img{display:block;width:128px;height:128px;object-fit:contain;margin:0 0 14px;border-radius:12px}
+.valor{display:flex;flex-direction:column}
+@media(max-width:759px){ .valor__img{width:112px;height:112px} }
+.valor h3{font-size:1.16rem}
+.valor p{font-size:1rem;color:var(--texto-suave);margin:0}
+
+/* ============================================================
+   MÓDULO 08 · SERVICIOS
+   ============================================================ */
+.servicio{background:var(--superficie);border-radius:var(--radio);overflow:hidden;border:1px solid var(--borde);
+ display:flex;flex-direction:column;transition:transform .2s ease,box-shadow .2s ease}
+.servicio:hover{transform:translateY(-4px);box-shadow:var(--sombra)}
+.servicio img{aspect-ratio:16/10;object-fit:cover;width:100%}
+.servicio__cuerpo{padding:22px 24px 26px}
+.servicio h3{font-size:1.2rem;margin-bottom:.35em}
+.servicio p{font-size:1rem;color:var(--texto-suave);margin:0}
+
+/* ============================================================
+   MÓDULO 09 · FLOTA
+   ============================================================ */
+.bus{background:var(--superficie);border:1px solid var(--borde);border-radius:var(--radio);overflow:hidden;
+ display:flex;flex-direction:column}
+.bus img{aspect-ratio:3/2;object-fit:cover;width:100%}
+.bus__cuerpo{padding:22px 24px 26px}
+.bus__cap{display:inline-block;background:var(--naranja-500);color:#fff;border-radius:100px;padding:5px 15px;
+ font-weight:800;font-size:.92rem;margin-bottom:10px}
+.bus h3{font-size:1.2rem;margin-bottom:.3em}
+.bus p{font-size:1rem;color:var(--texto-suave);margin:0}
+
+/* ============================================================
+   MÓDULO 10 · CERTIFICACIONES
+   ============================================================ */
+.cert{display:flex;gap:16px;align-items:flex-start;background:rgba(255,255,255,.14);
+ border:1px solid rgba(255,255,255,.4);border-radius:var(--radio);padding:24px}
+.cert__marca{flex:0 0 auto;font-size:.8rem;font-weight:800;background:var(--naranja-500);color:#fff;
+ border-radius:var(--radio-sm);padding:8px 12px}
+.cert__img{flex:0 0 auto;width:86px;height:86px;border-radius:20px;background:#fff;padding:5px;object-fit:contain}
+@media(max-width:519px){ .cert__img{width:72px;height:72px} }
+.chapa--foto{background:#fff;padding:6px}
+.chapa--foto img{width:100%;height:100%;object-fit:contain}
+.cert h3{font-size:1.14rem;margin-bottom:.25em;color:#fff}
+.cert p{font-size:1rem;color:#F1F7EA;margin:0}
+
+/* ============================================================
+   MÓDULO 11 · SOSTENIBILIDAD
+   ============================================================ */
+.mosaico{display:grid;gap:20px}
+@media(min-width:820px){ .mosaico{grid-template-columns:repeat(3,1fr)} .mosaico__destacado{grid-column:span 2} }
+.mosaico figure{position:relative;margin:0;border-radius:var(--radio);overflow:hidden;min-height:250px;color:#fff}
+.mosaico img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.mosaico figcaption{position:relative;z-index:2;padding:26px;display:flex;flex-direction:column;justify-content:flex-end;min-height:250px;
+ background:linear-gradient(to top, rgba(44,66,32,.93) 8%, rgba(44,66,32,.15) 78%)}
+.mosaico h3{font-size:1.25rem;margin-bottom:.3em;color:#fff}
+.mosaico p{font-size:1.02rem;margin:0;color:#F0F7E8}
+
+/* ============================================================
+   MÓDULO 12 · POLÍTICAS CORPORATIVAS
+   ============================================================ */
+.politica{display:flex;gap:16px;align-items:flex-start;background:var(--superficie);border:1px solid var(--borde);
+ border-radius:var(--radio);padding:22px 24px}
+.politica h3{font-size:1.14rem;margin-bottom:.25em}
+.politica p{font-size:1rem;color:var(--texto-suave);margin:0}
+.politica a{display:inline-flex;align-items:center;min-height:44px;font-weight:700}
+.politica__estado{display:inline-block;margin-top:10px;font-size:.92rem;font-weight:700;color:#A84300;
+ background:var(--naranja-100);border-radius:100px;padding:6px 14px}
+
+/* ============================================================
+   MÓDULO 13 · CANAL DE DENUNCIAS
+   ============================================================ */
+.denuncia{display:grid;gap:26px;align-items:center}
+@media(min-width:860px){ .denuncia{grid-template-columns:1fr 240px} }
+.denuncia__qr{background:var(--superficie);border:1px solid var(--borde);border-radius:var(--radio);padding:18px;text-align:center}
+.denuncia__qr img{width:100%;max-width:190px;margin-inline:auto}
+.denuncia__qr span{display:block;font-size:.85rem;color:var(--texto-suave);margin-top:10px}
+.qr-vacio{aspect-ratio:1/1;max-width:190px;margin-inline:auto;border:2px dashed var(--verde-200);border-radius:10px;
+ display:flex;align-items:center;justify-content:center;text-align:center;font-size:.82rem;color:var(--n600);padding:12px}
+
+/* ============================================================
+   MÓDULO 14 · TRABAJA CON NOSOTROS
+   ============================================================ */
+.form{display:grid;min-width:0;gap:18px;background:var(--superficie);border:1px solid var(--borde);border-radius:var(--radio);padding:30px}
+@media(min-width:760px){ .form{grid-template-columns:repeat(2,1fr)} .form .ancho{grid-column:1/-1} }
+.campo label{display:block;font-size:.9rem;font-weight:700;color:var(--verde-800);margin-bottom:6px}
+.campo{min-width:0}
+.campo input,.campo textarea{width:100%;max-width:100%;padding:12px 14px;border:1px solid var(--borde);border-radius:var(--radio-sm);
+ font-family:inherit;font-size:1rem;color:var(--texto);background:var(--n050)}
+.campo input:focus,.campo textarea:focus{outline:2px solid var(--verde-400);outline-offset:1px}
+.campo input[type=file]{padding:9px 12px;background:var(--verde-050)}
+.form__aviso{font-size:.92rem;color:var(--n600);margin:0}
+.campo input:user-invalid{border-color:#B84A00;background:#FFF6F0}
+.campo .error[hidden]{display:none}
+.campo .error{display:block;font-size:.88rem;font-weight:600;color:#A84300;margin-top:5px}
+.form__enviando{position:relative;pointer-events:none;opacity:.6}
+.spin{display:inline-block;width:16px;height:16px;margin-right:9px;vertical-align:-3px;
+ border:2px solid rgba(255,255,255,.45);border-top-color:#fff;border-radius:50%;animation:gira .7s linear infinite}
+@keyframes gira{to{transform:rotate(360deg)}}
+/* Panel de confirmación */
+.exito{background:var(--superficie);border:1px solid var(--verde-200);border-top:5px solid var(--verde-500);
+ border-radius:var(--radio);padding:34px 32px;box-shadow:var(--sombra);text-align:center}
+.exito__disco{width:82px;height:82px;margin:0 auto 18px;border-radius:50%;background:var(--verde-100);
+ display:flex;align-items:center;justify-content:center}
+.exito__disco svg{width:40px;height:40px;stroke:var(--verde-600);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.exito h3{font-size:1.4rem;margin-bottom:.4em}
+.exito p{font-size:1.04rem;color:var(--texto-suave)}
+.exito__resumen{text-align:left;background:var(--verde-050);border-radius:10px;padding:18px 20px;margin:22px 0 24px}
+.exito__resumen dl{margin:0;display:grid;gap:9px}
+@media(min-width:560px){ .exito__resumen dl{grid-template-columns:auto 1fr;gap:9px 20px;align-items:baseline} }
+.exito__resumen dt{font-size:.92rem;font-weight:700;color:var(--verde-800)}
+.exito__resumen dd{margin:0;font-size:1rem;color:var(--texto-suave);overflow-wrap:break-word}
+.exito__radicado{font-family:"Cascadia Mono",Consolas,monospace;font-weight:700;color:var(--naranja-txt)}
+.maqueta{display:block;margin-top:22px;font-size:.86rem;color:var(--n600);border-top:1px dashed var(--verde-200);padding-top:14px}
+
+/* ============================================================
+   MÓDULO 15 · HORARIOS
+   ============================================================ */
+.horario{background:var(--superficie);border:1px solid var(--borde);border-radius:var(--radio);padding:24px;display:flex;gap:16px;align-items:flex-start}
+.horario h3{font-size:1.14rem;margin-bottom:.35em}
+.horario p{margin:0;font-size:1.04rem;color:var(--texto-suave)}
+
+/* ============================================================
+   MÓDULO 16 · CTA
+   ============================================================ */
+.cta{background:linear-gradient(115deg,var(--verde-600),var(--verde-400));color:#fff;text-align:center}
+.cta h2{font-size:clamp(1.7rem,3.4vw,2.4rem);color:#fff}
+.cta__ico{width:70px;height:70px;margin:0 auto 18px;border-radius:50%;background:rgba(255,255,255,.18);
+ border:2px solid rgba(255,255,255,.55);display:flex;align-items:center;justify-content:center}
+.cta__ico svg{width:34px;height:34px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.cta p{color:#F0F8E8;max-width:62ch;margin-inline:auto;font-size:1.08rem}
+
+/* ============================================================
+   MÓDULO 17 · CONTACTO
+   ============================================================ */
+.contacto__rejilla{display:grid;gap:20px}
+@media(min-width:680px){ .contacto__rejilla{grid-template-columns:repeat(2,1fr)} }
+.contacto__item{background:var(--superficie);border:1px solid var(--borde);border-radius:var(--radio);padding:26px}
+.contacto__cab{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.contacto__cab h3{font-size:1.14rem;margin:0;color:var(--verde-800)}
+.contacto__item p{margin:0;font-size:1.06rem;font-weight:600;color:var(--verde-700);overflow-wrap:break-word;hyphens:none}
+.contacto__item p+p{margin-top:5px}
+/* Los datos de contacto son objetivos táctiles: 44px mínimos en móvil. */
+.contacto__item a{display:inline-flex;align-items:center;min-height:44px;padding-block:2px}
+
+/* ============================================================
+   MÓDULO 18 · PIE
+   ============================================================ */
+.pie{background:var(--verde-900);color:#D9E6CE;padding-block:46px;font-size:.95rem}
+.pie__fila{display:grid;gap:24px}
+@media(min-width:820px){ .pie__fila{grid-template-columns:1.2fr 1fr 1fr} }
+.pie img{height:78px}
+.pie h4{color:#fff;font-size:.98rem;margin-bottom:.6em}
+.pie a{color:var(--verde-200)}
+.pie ul{list-style:none;padding:0;margin:0;display:grid;gap:2px}
+.pie li a{display:flex;align-items:center;gap:10px;min-height:44px}
+.pie .ico{stroke:var(--verde-200);width:19px;height:19px;flex:0 0 19px}
+.pie__legal{max-width:80ch}
+.pie__legal{font-size:.92rem;color:#B9CCA8;margin-top:26px;border-top:1px solid #3C5A2A;padding-top:18px;max-width:78ch}
+
+/* ============================================================
+   ICONOGRAFÍA ILUSTRADA — misma paleta que las ilustraciones de
+   valores (bosque, esmeralda, menta, naranja). Decorativa.
+   ============================================================ */
+.ilu{display:block;width:100%;height:100%}
+.chapa{flex:0 0 auto;width:84px;height:84px;border-radius:22px;background:#EEF8F1;
+ display:flex;align-items:center;justify-content:center;padding:5px}
+.chapa--sm{width:64px;height:64px;border-radius:18px;padding:4px}
+
+/* ---- Políticas: 3 + 2, sin huecos ---- */
+.pol-rejilla{display:grid;gap:20px}
+@media(min-width:720px){ .pol-rejilla{grid-template-columns:repeat(6,1fr)}
+  .pol{grid-column:span 3} }
+@media(min-width:1000px){ .pol{grid-column:span 2} .pol--ancha{grid-column:span 3} }
+.pol{background:var(--superficie);border:1px solid var(--borde);border-radius:18px;padding:26px 24px;
+ display:flex;flex-direction:column;gap:14px;transition:transform .2s ease,box-shadow .2s ease}
+.pol:hover{transform:translateY(-4px);box-shadow:var(--sombra)}
+.pol h3{font-size:1.18rem;margin:0}
+.pol p{margin:0;font-size:1rem;color:var(--texto-suave)}
+.pol--ancha{flex-direction:row;align-items:center;gap:20px}
+.pol--destacada{background:var(--verde-900);border-color:var(--verde-900)}
+.pol--destacada h3{color:#fff}
+.pol--destacada p{color:#DCEBD2}
+.pol--destacada .chapa{background:rgba(255,255,255,.1)}
+.pol__ir{display:inline-flex;align-items:center;gap:8px;min-height:44px;margin-top:4px;font-weight:700;color:#fff;
+ text-decoration:underline;text-underline-offset:4px}
+@media(max-width:519px){ .pol--ancha{flex-direction:column;align-items:flex-start} }
+
+/* ---- Canal de denuncias: tres vías de igual peso ---- */
+.den-rejilla{display:grid;gap:20px}
+@media(min-width:860px){ .den-rejilla{grid-template-columns:repeat(3,1fr)} }
+.den{background:var(--verde-050);border:1px solid var(--borde);border-radius:18px;padding:26px 24px;
+ display:flex;flex-direction:column;gap:12px}
+.den h3{font-size:1.18rem;margin:0}
+.den p{margin:0;color:var(--texto-suave)}
+.den .boton{margin-top:auto;align-self:flex-start}
+.den__correo{font-weight:700;overflow-wrap:break-word;display:inline-flex;min-height:44px;align-items:center}
+.den--qr{align-items:center;text-align:center;background:var(--superficie)}
+.qr{width:168px;height:168px;border-radius:10px;border:6px solid #fff;box-shadow:0 0 0 2px var(--verde-200)}
+.den__paso{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;
+ background:var(--naranja-btn);color:#fff;font-weight:800;font-size:.95rem}
+.den__cab{display:flex;align-items:center;justify-content:space-between;width:100%}
+
+/* ---- Horarios: franja semanal + estado en vivo ---- */
+.hor-estado{display:inline-flex;align-items:center;gap:10px;margin-top:14px;padding:10px 18px;border-radius:100px;
+ font-weight:700;font-size:1rem;background:var(--verde-100);color:var(--verde-800)}
+.hor-estado i{width:11px;height:11px;border-radius:50%;background:var(--verde-600);
+ box-shadow:0 0 0 4px rgba(91,134,57,.22)}
+.hor-estado.cerrado{background:var(--naranja-100);color:#A84300}
+.hor-estado.cerrado i{background:#A84300;box-shadow:0 0 0 4px rgba(168,67,0,.18)}
+.hor-rejilla{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(min(100%,318px),1fr))}
+.hor{min-width:0;background:var(--superficie);border:1px solid var(--borde);border-radius:18px;padding:24px;
+ display:flex;flex-direction:column;gap:14px;position:relative}
+.hor.hoy{border:2px solid var(--verde-500);box-shadow:var(--sombra)}
+.hor__hoy{position:absolute;top:-12px;right:18px;background:var(--verde-500);color:#fff;font-size:.82rem;
+ font-weight:800;border-radius:100px;padding:3px 12px}
+.hor__cab{display:flex;align-items:center;gap:14px}
+.hor__cab h3{font-size:1.16rem;margin:0}
+.semana{display:flex;gap:6px;flex-wrap:wrap}
+.semana span{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;
+ font-size:.86rem;font-weight:800;background:var(--n100);color:#8A8E82}
+.semana span.on{background:var(--verde-600);color:#fff}
+.franjas{display:grid;gap:8px}
+.franja{display:flex;align-items:center;gap:10px;background:var(--verde-050);border-radius:10px;padding:10px 12px;
+ font-weight:600;color:var(--verde-800);white-space:nowrap;font-size:1rem}
+.franja b{font-size:.8rem;font-weight:800;color:var(--naranja-txt);min-width:54px}
+
+/* ---- Contacto: icono a la izquierda, sin aire muerto ---- */
+.con-rejilla{display:grid;gap:18px;grid-template-columns:minmax(0,1fr)}
+.con,.pol,.den{min-width:0}
+@media(min-width:720px){ .con-rejilla{grid-template-columns:repeat(2,minmax(0,1fr))} }
+.con{background:var(--superficie);border:1px solid var(--borde);border-radius:18px;padding:22px;
+ display:flex;align-items:center;gap:20px;transition:transform .2s ease,box-shadow .2s ease}
+.con:hover{transform:translateY(-3px);box-shadow:var(--sombra)}
+.con h3{font-size:1.12rem;margin:0 0 4px}
+.con p{margin:0;font-size:1.06rem;font-weight:600;color:var(--verde-700);overflow-wrap:break-word}
+.con a{display:inline-flex;align-items:center;min-height:40px}
+.con__cuerpo{min-width:0}
+.con .boton{margin-top:8px;min-height:44px;padding:10px 20px;font-size:.96rem}
+@media(max-width:419px){ .con{flex-direction:column;align-items:flex-start} }
+
+/* ============================================================
+   PROPUESTA V2 · MEJORA 1 — Barra de progreso de scroll
+   ============================================================ */
+.progreso{position:fixed;top:0;left:0;height:3px;width:0%;z-index:80;
+ background:linear-gradient(90deg,var(--naranja-500),var(--verde-400));transition:width .1s linear}
+
+/* ============================================================
+   PROPUESTA V2 · MEJORA 2 — Cabecera dinámica (se contrae al bajar)
+   ============================================================ */
+.cabecera{transition:box-shadow .25s ease, padding .25s ease}
+.cabecera.contraida{box-shadow:0 4px 24px rgba(44,66,32,.1)}
+.cabecera.contraida .cabecera__logo img{height:36px;transition:height .25s ease}
+.cabecera__logo img{transition:height .25s ease}
+
+/* ============================================================
+   PROPUESTA V2 · MEJORA 3 — Revelado progresivo al hacer scroll
+   ============================================================ */
+.aparece{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.aparece.visible{opacity:1;transform:translateY(0)}
+.aparece-grupo .aparece:nth-child(1){transition-delay:.05s}
+.aparece-grupo .aparece:nth-child(2){transition-delay:.12s}
+.aparece-grupo .aparece:nth-child(3){transition-delay:.19s}
+.aparece-grupo .aparece:nth-child(4){transition-delay:.26s}
+.aparece-grupo .aparece:nth-child(5){transition-delay:.33s}
+.aparece-grupo .aparece:nth-child(6){transition-delay:.4s}
+@media(prefers-reduced-motion:reduce){ .aparece{opacity:1;transform:none;transition:none} }
+
+/* ============================================================
+   PROPUESTA V2 · MEJORA 4 — Fondos decorativos sutiles
+   ============================================================ */
+.seccion{position:relative}
+.seccion--claro::before,.seccion--suave::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+ background:radial-gradient(560px 320px at 92% -6%, rgba(103,148,62,.07), transparent 65%),
+            radial-gradient(420px 260px at 4% 106%, rgba(194,78,0,.05), transparent 60%)}
+.seccion--claro>.contenedor,.seccion--suave>.contenedor{position:relative;z-index:1}
+
+/* ============================================================
+   PROPUESTA V2 · MEJORA 5 — Divisores orgánicos entre secciones
+   ============================================================ */
+.ola{display:block;width:100%;height:64px;margin-bottom:-1px}
+.ola path{fill:var(--fondo)}
+.heroe .ola{position:absolute;left:0;right:0;bottom:-1px;z-index:1;height:56px}
+.heroe .ola path{fill:var(--n050)}
+@media(min-width:760px){ .ola{height:84px} .heroe .ola{height:72px} }
+
+/* ============================================================
+   PROPUESTA V2 · MEJORA 6 — Héroe: tarjeta flotante de indicadores
+   (sustituye visualmente la banda plana de indicadores por una
+   tarjeta que se superpone al borde de la imagen del héroe)
+   ============================================================ */
+.heroe{padding-bottom:34px}
+.heroe__flotante{position:relative;z-index:2;margin-top:-64px}
+@media(min-width:760px){ .heroe__flotante{margin-top:-46px} }
+.heroe__tarjeta{background:rgba(255,255,255,.97);backdrop-filter:blur(14px);border-radius:var(--radio);
+ box-shadow:0 20px 48px rgba(20,30,12,.28);display:grid;grid-template-columns:repeat(3,1fr);overflow:hidden}
+.heroe__dato{padding:20px 14px;text-align:center;border-right:1px solid var(--verde-100)}
+.heroe__dato:last-child{border-right:none}
+.heroe__dato b{display:block;font-family:var(--fuente-titulo);font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:800;color:var(--verde-700);line-height:1}
+.heroe__dato span{display:block;margin-top:4px;font-size:.86rem;font-weight:700;color:var(--texto-suave)}
+.indicadores{display:none}
+
+/* ============================================================
+   PROPUESTA V2 · MEJORA 7 — Zoom suave de imágenes en tarjetas
+   ============================================================ */
+.servicio,.bus,.marco{overflow:hidden}
+.servicio img,.bus img,.marco img{transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.servicio:hover img,.bus:hover img,.marco:hover img{transform:scale(1.06)}
+.mosaico figure img{transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.mosaico figure:hover img{transform:scale(1.08)}
+.valor__img{transition:transform .4s ease}
+.valor:hover .valor__img{transform:scale(1.05) rotate(-1deg)}
+
+/* ============================================================
+   PROPUESTA V2 · MEJORA 8 — Iconografía con resplandor degradado
+   ============================================================ */
+.pilar__disco{position:relative}
+.pilar__disco::before{content:"";position:absolute;inset:-6px;border-radius:50%;z-index:-1;opacity:0;
+ background:radial-gradient(circle, rgba(103,148,62,.35), transparent 70%);transition:opacity .25s ease}
+.pilar:nth-child(2n) .pilar__disco::before{background:radial-gradient(circle, rgba(194,78,0,.3), transparent 70%)}
+.pilar:hover .pilar__disco::before{opacity:1}
+.chapa{position:relative;box-shadow:0 6px 16px rgba(15,74,46,.1)}
+
+/* ============================================================
+   PROPUESTA V2 · MEJORA 9 — Contador animado en cifras clave
+   ============================================================ */
+.heroe__dato b.contando,.indicador__cifra.contando{font-variant-numeric:tabular-nums}
+
+/* ============================================================
+   PROPUESTA V2 · MEJORA 10 — Botón flotante de WhatsApp
+   ============================================================ */
+.wa-flotante{position:fixed;right:20px;bottom:20px;z-index:70;width:58px;height:58px;border-radius:50%;
+ background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(20,60,20,.32);
+ transition:transform .2s ease,box-shadow .2s ease}
+.wa-flotante:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 14px 32px rgba(20,60,20,.4)}
+.wa-flotante svg{width:28px;height:28px;fill:#fff}
+.wa-flotante::before{content:"";position:absolute;inset:0;border-radius:50%;background:#25D366;opacity:.55;
+ animation:pulso-wa 2.6s ease-out infinite}
+@keyframes pulso-wa{0%{transform:scale(1);opacity:.5}100%{transform:scale(1.9);opacity:0}}
+@media(prefers-reduced-motion:reduce){ .wa-flotante::before{animation:none;display:none} }
+
+/* ============================================================
+   PROPUESTA V2 · MEJORA 11 — Botón "volver arriba"
+   ============================================================ */
+.arriba{position:fixed;right:20px;bottom:88px;z-index:70;width:44px;height:44px;border-radius:50%;
+ background:var(--superficie);border:1px solid var(--borde);box-shadow:var(--sombra);display:flex;align-items:center;
+ justify-content:center;opacity:0;pointer-events:none;transform:translateY(8px);
+ transition:opacity .25s ease,transform .25s ease}
+.arriba.visible{opacity:1;pointer-events:auto;transform:translateY(0)}
+.arriba svg{width:20px;height:20px;stroke:var(--verde-700);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.arriba:hover{border-color:var(--verde-500)}
+
+/* ============================================================
+   PROPUESTA V2 · MEJORA 12 — Acento de borde en tarjetas al hover
+   ============================================================ */
+.tarjeta,.pol,.den,.horario,.hor,.politica,.contacto__item{position:relative}
+.tarjeta,.pol,.hor{transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.tarjeta:hover,.pol:hover,.hor:hover{border-color:var(--verde-400);box-shadow:var(--sombra-hover);transform:translateY(-3px)}
+
+/* ============================================================
+   PROPUESTA V2 · MEJORA 13 — Botones con leve profundidad extra
+   ============================================================ */
+.boton--primario{background:linear-gradient(135deg,var(--naranja-btn),var(--naranja-btn-h))}
+.boton--verde{background:linear-gradient(135deg,var(--verde-500),var(--verde-700))}
+.boton:active{transform:translateY(0)}
+
+/* ============================================================
+   OBSERVACIONES No. 3 DEL CLIENTE — capa de ajustes
+   Cada bloque indica la observación que atiende.
+   ============================================================ */
+
+/* Obs.20 — más blanco de fondo; el verde suave deja de ser fondo de sección */
+.seccion--suave{background:var(--n050);border-block:1px solid #EFEFE8}
+.seccion--claro{background:#fff}
+/* Obs.20 — más naranja: filete naranja bajo cada título de sección */
+.titulo::after{content:"";display:block;width:64px;height:4px;border-radius:4px;margin-top:14px;
+ background:linear-gradient(90deg,var(--naranja-500),var(--naranja-300))}
+.centrado .titulo::after{margin-inline:auto}
+.encabezado{margin-bottom:44px}
+.valor:hover{border-color:var(--naranja-500)}
+
+/* Obs.1 — logo más grande */
+.cabecera .contenedor{max-width:1480px}
+.cabecera__logo img{height:48px}
+@media(min-width:760px){ .cabecera__logo img{height:60px} }
+.cabecera.contraida .cabecera__logo img{height:48px}
+
+/* Obs.24 — menú desplegable (escritorio) */
+.nav{align-items:center;gap:2px;font-size:.95rem}
+.nav__enlace{display:inline-flex;align-items:center;gap:4px;padding:10px 8px!important;color:var(--verde-800)}
+.nav__chev{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s ease}
+.nav__grupo{position:relative}
+.nav__panel{position:absolute;top:100%;left:-6px;min-width:300px;list-style:none;margin:0;padding:10px;background:#fff;
+ border:1px solid var(--borde);border-top:3px solid var(--naranja-500);border-radius:12px;box-shadow:var(--sombra-hover);
+ opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .18s ease,transform .18s ease,visibility .18s;z-index:70;white-space:normal}
+.nav__grupo:hover .nav__panel,.nav__grupo:focus-within .nav__panel{opacity:1;visibility:visible;transform:none}
+.nav__grupo:hover .nav__chev,.nav__grupo:focus-within .nav__chev{transform:rotate(180deg)}
+.nav__panel a{display:block;padding:9px 12px;border-radius:8px;font-weight:600;font-size:.95rem;color:var(--verde-800);line-height:1.35}
+.nav__panel a::after{display:none}
+.nav__panel a:hover,.nav__panel a:focus-visible{background:var(--naranja-100);color:var(--naranja-txt)}
+/* entre 1280 y 1499 px el botón de cabecera se oculta para que quepa el menú completo;
+   el héroe y el botón de WhatsApp mantienen la llamada a cotizar */
+@media(min-width:1280px) and (max-width:1499px){ .cabecera .boton--primario{display:none} }
+.boton--ico{display:inline-flex;align-items:center;gap:9px}
+.boton--ico svg{width:19px;height:19px;flex:0 0 19px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:479px){ .cabecera .boton--primario{padding:10px 14px;font-size:.9rem} .cabecera .boton--ico svg{display:none} .cabecera__logo img{height:40px} }
+
+/* Obs.25 — héroe según la referencia: degradado solo a la izquierda, bus visible a la derecha */
+.heroe__media img{object-position:68% 88%}
+.heroe::before{background:linear-gradient(90deg,rgba(18,44,24,.95) 0%,rgba(26,60,32,.88) 32%,rgba(34,72,38,.45) 54%,rgba(34,72,38,0) 72%)}
+@media(max-width:899px){ .heroe::before{background:linear-gradient(180deg,rgba(18,44,24,.9),rgba(26,60,32,.82))} }
+.heroe__cuerpo{max-width:var(--max)}
+.heroe__cuerpo>*{max-width:640px}
+.heroe h1{font-size:clamp(2.1rem,4vw,3.1rem)}
+.heroe__cuerpo>h1{max-width:740px}
+.heroe .razon::after{content:"";display:block;width:56px;height:3px;border-radius:2px;background:var(--naranja-500);margin-top:12px}
+.heroe p{max-width:46ch}
+.sello{display:inline-flex;align-items:center;gap:8px;background:rgba(10,28,14,.5)}
+.sello svg{width:18px;height:18px;flex:0 0 18px;stroke:#fff;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+
+/* Obs.25 / #8 — servicios suben bajo el héroe con el formato de la referencia */
+.servicios-franja{padding-block:72px 80px}
+.srv-rejilla{display:grid;gap:20px}
+@media(min-width:900px){ .srv-rejilla{grid-template-columns:repeat(3,minmax(0,1fr))} }
+.srv{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:18px;align-items:start;background:#fff;border:1px solid var(--borde);
+ border-radius:16px;padding:24px 20px 24px 22px;box-shadow:0 6px 20px rgba(44,66,32,.07);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.srv:hover{transform:translateY(-4px);box-shadow:var(--sombra-hover);border-color:var(--verde-400)}
+.srv__ico{width:64px;height:64px;border-radius:50%;background:var(--verde-100);display:flex;align-items:center;justify-content:center}
+.srv__ico svg{width:30px;height:30px;stroke:var(--verde-700);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.srv--naranja .srv__ico{background:var(--naranja-100)}
+.srv--naranja .srv__ico svg{stroke:var(--naranja-btn)}
+.srv h3{font-size:1.14rem;margin:4px 0 .35em}
+.srv p{font-size:.98rem;color:var(--texto-suave);margin:0}
+.srv__ir{align-self:center;display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%}
+.srv__ir svg{width:30px;height:30px;stroke:var(--verde-600);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s ease}
+.srv--naranja .srv__ir svg{stroke:var(--naranja-btn)}
+.srv:hover .srv__ir svg{transform:translateX(3px)}
+@media(max-width:419px){ .srv{grid-template-columns:auto minmax(0,1fr)} .srv__ir{grid-column:2;justify-self:start;margin-left:-10px} }
+
+/* Obs.2 — texto justificado en tarjetas (vista de escritorio; ver anotación en CAMBIOS-obs3.md) */
+@media(min-width:900px){
+  .tarjeta p,.valor p,.srv p,.pol__despliegue p{text-align:justify;hyphens:auto;-webkit-hyphens:auto;text-wrap:initial}
+}
+
+/* Obs.17 — misión y visión en dos columnas */
+.mv-rejilla{max-width:1000px;margin-inline:auto}
+
+/* Obs.13 — principios (3) y valores (4) */
+@media(min-width:1040px){ #valores .valor__img{width:120px;height:120px} }
+.nota-ia{display:block;margin-top:14px;padding-top:10px;border-top:1px dashed var(--borde);font-size:.8rem;font-weight:600;color:var(--n600);line-height:1.45}
+
+/* Obs.17 — política integral desplegable dentro de Políticas */
+@media(min-width:720px){
+  .pol-rejilla{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .pol-rejilla .pol{grid-column:auto}
+  .pol-rejilla .pol--integral{grid-column:1/-1}
+}
+.pol__cab{display:flex;gap:20px;align-items:center}
+@media(max-width:519px){ .pol__cab{flex-direction:column;align-items:flex-start} }
+.pol__toggle{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:10px 20px;border-radius:100px;
+ border:2px solid rgba(255,255,255,.75);background:transparent;color:#fff;font:inherit;font-weight:700;cursor:pointer;transition:background .18s ease,color .18s ease}
+.pol__toggle:hover{background:#fff;color:var(--verde-800)}
+.pol__toggle svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s ease}
+.pol__toggle[aria-expanded="true"] svg{transform:rotate(180deg)}
+.pol__despliegue{border-top:1px solid rgba(255,255,255,.22);padding-top:16px}
+.pol__despliegue:not([hidden]){animation:despliega .3s ease}
+.pol__despliegue p{color:#EEF6E6;font-size:1.04rem;margin:0}
+@keyframes despliega{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+/* Obs.6 — tarjeta sólida (sin foto) en sostenibilidad, en naranja institucional */
+.mosaico__solido{background:linear-gradient(135deg,var(--naranja-btn),var(--naranja-btn-h))}
+.mosaico__solido figcaption{background:none}
+.mosaico__solido p{color:#fff}
+.mosaico__ico{position:absolute;top:24px;left:26px;width:58px;height:58px;border-radius:16px;background:rgba(255,255,255,.16);
+ display:flex;align-items:center;justify-content:center}
+.mosaico__ico svg{width:30px;height:30px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.mosaico strong{color:#fff}
+
+/* Obs.9 — indicio de ubicación: fotos y video del auditorio */
+.pendiente{display:flex;gap:14px;align-items:flex-start;margin-top:18px;padding:18px 20px;border:2px dashed var(--naranja-300);border-radius:14px;background:#fff}
+.pendiente svg{width:30px;height:30px;flex:0 0 30px;stroke:var(--naranja-btn);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.pendiente strong{display:block;color:var(--verde-900)}
+.pendiente span{display:block;font-size:.92rem;color:var(--n600);line-height:1.5}
+
+/* Obs.8 — indicio de ubicación: blogs */
+.blog-rejilla{display:grid;gap:20px;max-width:920px;margin-inline:auto}
+@media(min-width:760px){ .blog-rejilla{grid-template-columns:repeat(2,minmax(0,1fr))} }
+.blog{border:2px dashed var(--borde);border-radius:16px;padding:28px;background:#fff;min-height:170px}
+.blog__estado{display:inline-block;font-size:.82rem;font-weight:800;color:var(--naranja-txt);background:var(--naranja-100);border-radius:100px;padding:4px 12px;margin-bottom:12px}
+.blog h3{font-size:1.16rem}
+.blog p{color:var(--texto-suave);margin:0}
+
+/* Obs.19 — WhatsApp «Cotiza aquí» con aura de disponibilidad */
+.wa-flotante{width:auto;height:auto;border-radius:100px;background:none;box-shadow:none;gap:10px;right:22px;bottom:22px;align-items:center}
+.wa-flotante::before{display:none;animation:none}
+.wa-flotante:hover{transform:translateY(-2px);box-shadow:none}
+.wa-flotante__texto{background:#fff;color:#0E6B39;font-weight:800;font-size:.98rem;padding:10px 16px;border-radius:100px;
+ border:1px solid #CFEBD8;box-shadow:0 8px 22px rgba(20,60,20,.22);white-space:nowrap}
+.wa-flotante__disco{position:relative;width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;
+ box-shadow:0 10px 26px rgba(20,60,20,.35)}
+.wa-flotante__disco svg{position:relative;z-index:1;width:30px;height:30px;fill:#fff;animation:llamada 4s ease-in-out infinite}
+.wa-flotante__disco::before,.wa-flotante__disco::after{content:"";position:absolute;inset:0;border-radius:50%;background:#25D366;z-index:0;
+ animation:aura-wa 2.4s ease-out infinite}
+.wa-flotante__disco::after{animation-delay:1.2s}
+@keyframes aura-wa{0%{transform:scale(1);opacity:.55}100%{transform:scale(1.95);opacity:0}}
+@keyframes llamada{0%,84%,100%{transform:rotate(0)}87%{transform:rotate(-14deg)}90%{transform:rotate(12deg)}93%{transform:rotate(-8deg)}96%{transform:rotate(5deg)}}
+@media(max-width:479px){ .wa-flotante{right:14px;bottom:14px} .wa-flotante__texto{font-size:.88rem;padding:8px 12px} .wa-flotante__disco{width:54px;height:54px} }
+@media(prefers-reduced-motion:reduce){ .wa-flotante__disco::before,.wa-flotante__disco::after{display:none} .wa-flotante__disco svg{animation:none} }
+.arriba{right:30px;bottom:98px}
+
+/* Obs.2 — para que el justificado no abra huecos, las tarjetas ganan ancho de línea:
+   servicios con cabecera (ícono + título) y texto a lo ancho; valores en 2 × 2 horizontales */
+.srv{grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"ico tit ir" "txt txt txt";row-gap:14px;align-items:center}
+.srv__ico{grid-area:ico}
+.srv__cuerpo{display:contents}
+.srv h3{grid-area:tit;margin:0}
+.srv p{grid-area:txt}
+.srv__ir{grid-area:ir}
+@media(max-width:419px){ .srv{grid-template-columns:auto minmax(0,1fr) auto} .srv__ir{grid-column:auto;margin-left:0} }
+@media(min-width:760px){
+  #valores .rejilla--4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #valores .valor{display:grid;grid-template-columns:120px minmax(0,1fr);column-gap:22px;align-content:start}
+  #valores .valor__img{grid-row:1 / span 3;width:120px;height:120px;margin:0}
+  #valores .valor h3{margin-top:6px}
+  #valores .nota-ia{grid-column:2}
+}
+
+/* Obs.20 (contrastes) — el texto de sostenibilidad es más largo: velo más alto para que nunca quede sobre zona clara */
+.mosaico figcaption{background:linear-gradient(to top,rgba(28,48,22,.95) 0%,rgba(28,48,22,.86) 48%,rgba(28,48,22,.45) 100%)}
+.mosaico__solido figcaption{background:none}
+/* Tarjeta de cifras en móvil: sin cortes */
+@media(max-width:559px){
+  .heroe__dato{padding:16px 6px}
+  .heroe__dato b{font-size:1.5rem}
+  .heroe__dato span{font-size:.74rem;line-height:1.3}
+}
+
+
+/* ============================================================
+   VERSIÓN PAGINADA — capa de navegación por páginas
+   Mantiene el sistema de color y tipografía aprobados.
+   ============================================================ */
+@view-transition{navigation:auto}
+.cabecera{view-transition-name:cabecera}
+main{display:block}
+section[id]{scroll-margin-top:100px}
+
+/* estado activo del menú */
+.nav__enlace[aria-current="page"]{color:var(--naranja-txt);box-shadow:inset 0 -3px 0 var(--naranja-500)}
+.nav-movil a[aria-current="page"]{color:var(--naranja-txt);font-weight:800;border-left:4px solid var(--naranja-500);padding-left:12px}
+.nav__panel a[aria-current="page"]{background:var(--naranja-100)}
+
+/* banner de página interior */
+.banner{position:relative;isolation:isolate;color:#fff;min-height:clamp(240px,34vw,360px);display:flex;align-items:flex-end;overflow:hidden;background:var(--verde-900)}
+.banner__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.banner::before{content:"";position:absolute;inset:0;z-index:-1;
+ background:linear-gradient(90deg,rgba(18,44,24,.92) 0%,rgba(26,60,32,.78) 38%,rgba(26,60,32,.25) 70%,rgba(26,60,32,.1) 100%),
+            linear-gradient(0deg,rgba(18,44,24,.55),rgba(18,44,24,0) 55%)}
+@media(max-width:759px){ .banner::before{background:linear-gradient(180deg,rgba(18,44,24,.7),rgba(18,44,24,.88))} }
+.banner__cuerpo{padding-block:56px 40px}
+.banner__cuerpo>*{max-width:640px}
+.banner__eyebrow{display:block;font-weight:800;font-size:1.05rem;letter-spacing:.04em;color:var(--naranja-300);margin-bottom:.35em}
+.banner h1{font-size:clamp(2rem,4.6vw,3.1rem);color:#fff;margin:0 0 .3em}
+.banner h1::after{content:"";display:block;width:64px;height:4px;border-radius:4px;margin-top:14px;background:linear-gradient(90deg,var(--naranja-500),var(--naranja-300))}
+.banner p{color:#F1F7EA;font-size:1.12rem;margin:0}
+.migas{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:.92rem;font-weight:600;margin-bottom:18px;color:#E5F3D9}
+.migas a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.migas a:hover{color:var(--naranja-300)}
+.migas [aria-current]{color:#E5F3D9}
+
+/* pager Anterior / Siguiente */
+.pager{background:#fff;border-top:1px solid var(--borde)}
+.pager__fila{display:flex;justify-content:space-between;gap:16px;padding-block:28px}
+.pager__a{display:flex;flex-direction:column;gap:4px;max-width:48%;padding:14px 22px;border:1px solid var(--borde);border-radius:14px;background:#fff;color:var(--verde-800);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.pager__a:hover,.pager__a:focus-visible{border-color:var(--naranja-500);box-shadow:var(--sombra-hover);transform:translateY(-2px)}
+.pager__a span{font-size:.88rem;font-weight:700;color:var(--naranja-txt)}
+.pager__a b{font-family:var(--fuente-titulo);font-size:1.12rem}
+.pager__a--sig{text-align:right;margin-left:auto}
+@media(max-width:559px){ .pager__a{padding:12px 14px;max-width:49%} .pager__a b{font-size:1rem} }
+
+/* inicio: hub de secciones */
+.hub{display:grid;gap:18px;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr))}
+.hub__t{position:relative;display:block;aspect-ratio:4/3;border-radius:16px;overflow:hidden;isolation:isolate;color:#fff;box-shadow:var(--sombra);transition:transform .25s ease,box-shadow .25s ease}
+.hub__t img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .5s ease}
+.hub__t::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(18,44,24,.9) 0%,rgba(18,44,24,.45) 48%,rgba(18,44,24,.05) 100%)}
+.hub__t:hover,.hub__t:focus-visible{transform:translateY(-4px);box-shadow:var(--sombra-hover)}
+.hub__t:hover img{transform:scale(1.06)}
+.hub__c{position:absolute;left:18px;right:56px;bottom:16px;display:flex;flex-direction:column;gap:2px}
+.hub__c b{font-family:var(--fuente-titulo);font-size:1.25rem;line-height:1.2}
+.hub__c small{font-size:.92rem;color:#EEF6E6;line-height:1.35}
+.hub__f{position:absolute;right:14px;bottom:14px;width:36px;height:36px;border-radius:50%;background:var(--naranja-btn);display:flex;align-items:center;justify-content:center;font-weight:800}
+.muestra{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(min-width:760px){ .muestra{grid-template-columns:repeat(3,minmax(0,1fr))} }
+.muestra a{display:block;border-radius:14px;overflow:hidden;aspect-ratio:3/2;box-shadow:var(--sombra)}
+.muestra img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.muestra a:hover img{transform:scale(1.06)}
+
+/* galería */
+.galeria__barra{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin-bottom:28px;position:sticky;top:76px;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);padding:12px 0;border-bottom:1px solid var(--borde)}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:8px 18px;border-radius:100px;border:1.5px solid var(--verde-200);background:#fff;color:var(--verde-800);font:inherit;font-weight:700;cursor:pointer;transition:background .18s,border-color .18s,color .18s}
+.chip i{font-style:normal;font-size:.82rem;background:var(--verde-100);color:var(--verde-800);border-radius:100px;padding:2px 9px}
+.chip:hover{border-color:var(--verde-500)}
+.chip[aria-pressed="true"]{background:var(--verde-700);border-color:var(--verde-700);color:#fff}
+.chip[aria-pressed="true"] i{background:rgba(255,255,255,.22);color:#fff}
+.galeria__estado{margin:0;font-size:.95rem;font-weight:600;color:var(--verde-700)}
+.galeria__rejilla{list-style:none;margin:0;padding:0;display:grid;gap:12px;grid-auto-flow:dense;
+ grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));grid-auto-rows:clamp(190px,24vw,240px)}
+.galeria__item[hidden]{display:none}
+.galeria__item--alto{grid-row:span 2}
+@media(min-width:760px){ .galeria__item--ancho{grid-column:span 2} }
+.galeria__btn{display:block;width:100%;height:100%;padding:0;border:0;border-radius:14px;overflow:hidden;cursor:zoom-in;background-color:var(--verde-100);position:relative;box-shadow:var(--sombra)}
+.galeria__btn img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.galeria__btn::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(18,44,24,.35),rgba(18,44,24,0) 40%);opacity:0;transition:opacity .25s}
+.galeria__btn:hover img,.galeria__btn:focus-visible img{transform:scale(1.06)}
+.galeria__btn:hover::after,.galeria__btn:focus-visible::after{opacity:1}
+.galeria__btn:focus-visible{outline:3px solid var(--naranja-500);outline-offset:3px}
+
+/* visor (lightbox) */
+.lb{border:0;padding:0;background:transparent;max-width:none;max-height:none;width:100vw;height:100vh;height:100dvh;color:#fff}
+.lb::backdrop{background:rgba(10,24,12,.94)}
+.lb__marco{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:56px 64px 24px}
+.lb__fig{margin:0;max-width:100%;max-height:100%;display:flex;flex-direction:column;align-items:center;gap:12px;touch-action:pan-y}
+.lb__fig img{max-width:100%;max-height:calc(100dvh - 130px);object-fit:contain;border-radius:8px;background:#0b180e}
+.lb__fig figcaption{display:flex;gap:14px;align-items:baseline;justify-content:center;flex-wrap:wrap;text-align:center;font-size:.98rem;color:#EEF6E6}
+.lb__fig figcaption b{color:var(--naranja-300);font-weight:800}
+.lb__cerrar,.lb__nav{position:absolute;display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;border:1.5px solid rgba(255,255,255,.4);background:rgba(255,255,255,.1);color:#fff;cursor:pointer;transition:background .18s}
+.lb__cerrar:hover,.lb__nav:hover{background:var(--naranja-btn)}
+.lb__cerrar{top:12px;right:14px}
+.lb__nav{top:50%;transform:translateY(-50%)}
+.lb__nav--ant{left:10px}.lb__nav--sig{right:10px}
+.lb svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:640px){ .lb__marco{padding:60px 8px 16px} .lb__nav{top:auto;bottom:12px;transform:none} .lb__nav--ant{left:calc(50% - 60px)} .lb__nav--sig{right:calc(50% - 60px)} .lb__fig img{max-height:calc(100dvh - 190px)} }
+body.lb-abierto{overflow:hidden}
+@media(prefers-reduced-motion:reduce){ .galeria__btn img,.hub__t img,.muestra img{transition:none} @view-transition{navigation:none} }
+.nav-movil a.sub{padding-left:36px;font-weight:500;font-size:.98rem}
