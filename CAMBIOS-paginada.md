@@ -69,3 +69,19 @@ Criterio aplicado: fotos nítidas, sin velos ni degradados encima del texto; la 
 ## Archivos que ya no se usan (pueden borrarse de `paginada/assets/`)
 - `galeria/` salvo `15, 20, 21, 25` (y sus `min/`); los accesos del inicio y los banners usan además `min/` de 09, 18, 19, 22, 23, 24 — conservar esas miniaturas.
 - `banners/37.webp, 38.webp, 40.webp`; `img/hero-bus1000.jpg`, `img/flota-30pax.jpg`, `img/flota-40pax.jpg`, `img/flota-buseta.jpg`.
+
+---
+
+# Ajuste: fotos completas (17 nov 2026)
+
+Criterio: las fotos de la flota son la carta de presentación. Ninguna foto se recorta, se difumina ni queda incompleta.
+
+1. **Portada:** texto a la izquierda sobre verde sólido; foto del bus 1030 **completa** (3:2) a la derecha, enmarcada con esquinas redondeadas. En móvil, la foto completa va arriba y el texto debajo.
+2. **Banners de páginas interiores:** mismo esquema. Título a la izquierda, foto **completa** a la derecha (en móvil, foto arriba). Los banners se regeneraron desde la foto entera (1200 px, sin recorte); se descartan los recortes panorámicos anteriores.
+3. **Sin zoom al pasar el cursor** sobre fotos (el zoom recortaba los bordes).
+4. **Nosotros y Sistemas de gestión:** la foto lateral se muestra en su proporción original (antes se recortaba a 4:3).
+5. **Sostenibilidad:** tarjetas con la foto completa arriba y el texto debajo, sin velo oscuro (antes la foto era fondo recortado bajo el texto).
+6. **Accesos del inicio:** «Principios y valores» usa la foto 02 (3:2), porque la 18 es panorámica (16:9) y no encaja sin recorte; todas las tarjetas quedan del mismo tamaño.
+7. Verificación automática en las 12 páginas (escritorio 1366 px y móvil 390 px): 0 imágenes recortadas.
+
+Archivos sin uso adicionales: ninguno nuevo; los banners anteriores se sobrescribieron con los mismos nombres.

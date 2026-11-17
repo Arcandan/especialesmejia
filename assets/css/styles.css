@@ -887,3 +887,75 @@ body.lb-abierto{overflow:hidden}
 /* Servicios: letra más grande */
 .srv h3{font-size:1.4rem}
 .srv p{font-size:1.12rem;line-height:1.6}
+
+/* ============================================================
+   VERSIÓN VA — base visual de la versión A con las fotos del
+   encabezado COMPLETAS (sin recorte, sin velo).
+   ============================================================ */
+/* Banner interior: foto a todo el ancho y completa. Si la pantalla es baja,
+   la foto se reduce para caber entera y el sobrante se rellena con verde. */
+.banner__img{height:auto;max-height:calc(100vh - 84px);max-height:calc(100dvh - 84px);object-fit:contain;background:var(--verde-800)}
+/* Héroe: foto pegada al borde derecho, completa (sin corte diagonal) */
+.heroe__media img{object-fit:contain;object-position:100% 50%}
+@media(min-width:900px){
+  .heroe__media{clip-path:none;width:55%}
+  .heroe{min-height:calc(55vw / 1.5)}
+}
+@media(max-width:899px){
+  .heroe__media{height:auto}
+  .heroe__media img{height:auto}
+}
+/* el texto del héroe no invade la foto: su ancho termina antes del borde de la foto (45vw) */
+@media(min-width:900px){
+  .heroe__cuerpo>*,.heroe__cuerpo>h1,.heroe .heroe__cuerpo>p{max-width:min(470px,calc(45vw - max(20px,(100vw - 1140px) / 2) - 40px))}
+}
+
+/* ============================================================
+   ENCABEZADO UNIFICADO (portada y páginas interiores)
+   Texto a la izquierda · foto COMPLETA pegada al borde derecho.
+   La columna de texto ocupa la misma altura que la foto:
+   las migas alinean con el borde superior de la foto y el
+   bloque de título con su borde inferior.
+   ============================================================ */
+.cabeza{display:flex;align-items:stretch;min-height:0;padding-block:44px;background:var(--verde-800);overflow:hidden;color:#fff}
+.cabeza::before{display:none}
+.cabeza .cabeza__texto{flex:0 0 45%;box-sizing:border-box;max-width:none;display:flex;flex-direction:column;justify-content:space-between;gap:28px;
+  padding:6px 52px 6px max(56px,calc((100vw - 1440px) / 2 + 20px))}
+.cabeza .cabeza__texto>*,.cabeza .cabeza__bloque>*{max-width:640px}
+.cabeza__foto{flex:0 0 55%;box-sizing:border-box;margin:0;align-self:center}
+.cabeza__foto img{display:block;width:100%;height:auto;border-radius:18px 0 0 18px;box-shadow:0 24px 50px rgba(0,0,0,.28)}
+
+/* Tipografía del encabezado interior: grande, legible, con la identidad (Manrope + naranja) */
+.cabeza .migas{margin:0;font-size:clamp(1rem,.9vw,1.15rem);letter-spacing:.01em}
+.cabeza .banner__eyebrow{display:block;font-family:var(--fuente-titulo);font-size:clamp(.95rem,1.15vw,1.35rem);font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--naranja-300);margin:0 0 14px}
+.banner.cabeza h1{font-family:var(--fuente-titulo);font-size:clamp(2.6rem,4.6vw,6rem);line-height:1.04;letter-spacing:-.02em;font-weight:800;color:#fff;margin:0}
+.banner.cabeza h1::after{width:84px;height:5px;margin-top:22px}
+.banner.cabeza .cabeza__bloque p{font-size:clamp(1.2rem,1.6vw,1.9rem);line-height:1.45;color:#F1F7EA;margin:22px 0 0;max-width:26ch}
+
+/* Portada: misma retícula; el bloque completo se distribuye en la altura de la foto */
+.heroe.cabeza{padding-block:44px 112px}
+.heroe.cabeza .cabeza__texto{justify-content:center;gap:0}
+.heroe.cabeza .razon{font-family:var(--fuente-titulo);font-size:clamp(.95rem,1.15vw,1.1rem);letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px}
+.heroe.cabeza .razon::after{width:84px;height:5px;margin-top:16px}
+.heroe.cabeza h1{font-size:clamp(2.2rem,3.2vw,4.1rem);line-height:1.06;letter-spacing:-.02em;margin-bottom:18px}
+.heroe.cabeza .cabeza__texto>p{font-size:clamp(1.05rem,1.25vw,1.45rem);line-height:1.55;max-width:42ch}
+.heroe.cabeza .heroe__acciones{margin-top:24px}
+.heroe.cabeza .heroe__sellos{margin-top:20px;gap:8px}
+.heroe.cabeza .sello{font-size:.88rem;padding:6px 13px}
+.heroe.cabeza .razon{margin-bottom:14px}
+
+/* la portada tiene más texto: entre 900 y 1199 px se apila igual que en móvil para que el texto no supere a la foto */
+@media(min-width:900px) and (max-width:1199px){
+  .heroe.cabeza{flex-direction:column;padding-block:0 112px}
+  .heroe.cabeza .cabeza__foto{order:-1;flex:none}
+  .heroe.cabeza .cabeza__foto img{border-radius:0;box-shadow:none}
+  .heroe.cabeza .cabeza__texto{flex:none;padding:36px 56px 0}
+  .heroe.cabeza .cabeza__texto>*{max-width:720px}
+}
+@media(max-width:899px){
+  .cabeza{flex-direction:column;padding-block:0 36px}
+  .heroe.cabeza{padding-block:0 104px}
+  .cabeza__foto{order:-1;flex:none}
+  .cabeza__foto img{border-radius:0;box-shadow:none}
+  .cabeza .cabeza__texto{flex:none;padding:28px 20px 0;gap:18px}
+}
