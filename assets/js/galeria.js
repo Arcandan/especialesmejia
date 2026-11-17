@@ -1,31 +1,6 @@
-/* Galería: filtros con enlace directo (#flota, #conductores…) y visor accesible */
+/* Galería: visor accesible (teclado, táctil, foco) */
 (function () {
-  var chips = Array.prototype.slice.call(document.querySelectorAll('.chip'));
   var items = Array.prototype.slice.call(document.querySelectorAll('.galeria__item'));
-  var estado = document.getElementById('galEstado');
-  var validos = chips.map(function (c) { return c.getAttribute('data-filtro'); });
-  var filtro = 'todas';
-
-  function aplicar(f, actualizaHash) {
-    if (validos.indexOf(f) < 0) { f = 'todas'; }
-    filtro = f;
-    var n = 0;
-    items.forEach(function (li) {
-      var ok = f === 'todas' || li.getAttribute('data-cat') === f;
-      li.hidden = !ok;
-      if (ok) { n++; }
-    });
-    chips.forEach(function (c) { c.setAttribute('aria-pressed', c.getAttribute('data-filtro') === f ? 'true' : 'false'); });
-    estado.textContent = 'Mostrando ' + n + (n === 1 ? ' fotografía' : ' fotografías') + (f === 'todas' ? '' : ' · ' + document.querySelector('.chip[data-filtro="' + f + '"]').firstChild.textContent.trim());
-    if (actualizaHash) {
-      try { history.replaceState(null, '', f === 'todas' ? location.pathname : '#' + f); } catch (e) {}
-    }
-  }
-  chips.forEach(function (c) {
-    c.addEventListener('click', function () { aplicar(c.getAttribute('data-filtro'), true); });
-  });
-  window.addEventListener('hashchange', function () { aplicar(location.hash.replace('#', ''), false); });
-  aplicar(location.hash.replace('#', ''), false);
 
   /* ---- visor ---- */
   var dlg = document.getElementById('lb');
@@ -37,7 +12,7 @@
   var lista = [], pos = 0, origen = null;
 
   function visibles() {
-    return items.filter(function (li) { return !li.hidden; }).map(function (li) { return li.querySelector('.galeria__btn'); });
+    return items.map(function (li) { return li.querySelector('.galeria__btn'); });
   }
   function precarga(i) {
     if (i < 0 || i >= lista.length) { return; }

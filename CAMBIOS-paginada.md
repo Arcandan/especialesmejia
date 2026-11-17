@@ -40,3 +40,32 @@ Las fotos originales (`original/img/Galery`) NO forman parte de la carpeta publi
 2. **Estación de servicio:** las fotos 36–37 muestran la estación; la Obs. 18 pidió eliminar «Estación de servicio propia» del texto. Confirmar si estas fotos se mantienen.
 3. Vehículo 1040: en los textos de las fotos aparece como «Vehículo 1040», sin nombrarlo Micro/Buseta, hasta confirmar la denominación.
 4. Agrupación de páginas y la inclusión de Galería en el menú son propuesta; ajustable.
+
+---
+
+# Observaciones No. 4 (3 nov 2026) — «página viva pero limpia»
+
+Criterio aplicado: fotos nítidas, sin velos ni degradados encima del texto; la animación (aparición al desplazar, contadores, aura de WhatsApp) se conserva.
+
+| # | Observación | Qué se hizo |
+|---|---|---|
+| 1 | No poner difuminadas las fotos | Se eliminan los degradados oscuros sobre las fotos (banners, héroe y accesos del inicio). Banner: foto limpia arriba y título sobre franja verde sólida debajo. |
+| 2 | No poner esa foto en la portada | Se retira `hero-bus1000.jpg` (fondo de la estación). |
+| 3 | Colocar la foto indicada | Portada con el bus 1030 (foto 15 de la galería), a la derecha y sin velo; el texto va sobre verde sólido a la izquierda. En móvil la foto va arriba y el texto debajo. |
+| 4 | Cambiar la foto oscura de Contacto (pared) | Contacto usa ahora la foto 20 (flota y conductores sobre césped). Se retiran de banners las fotos de la estación y de la sede (37, 38, 40). Políticas pasa a la foto 09 y Canal de denuncias a la 12. |
+| 5 | Unificar el tamaño de las fotos | Galería en cuadrícula 2×2, todas en proporción 3:2. Accesos del inicio, también 3:2. |
+| 6 | Galería: sin secciones, solo 4 fotos | Se quitan filtros y categorías. Quedan las 4 fotos del documento: 15 (bus 1030), 25 (buseta 19), 21 (buses alineados), 20 (buses con conductores). Se mantiene el visor ampliado. |
+| 7 | Buseta 19 pax / Bus de 40 pax / Bus 38 pax | Flota: 19 pax → foto 25; 40 pax → foto 21; la tarjeta de 30 pax pasa a **38 pasajeros** con la foto 20. Fotos nuevas en `assets/img/flota-*.webp`. |
+| 8 | Letra más grande (servicios) | Tarjetas de servicios: título 1,14 → 1,4 rem; texto 0,98 → 1,12 rem. |
+| 9 | Contacto: «Escríbanos o llámenos estamos para atenderle» sin dos puntos | Queda «Escríbanos o llámenos, estamos para atenderle.» (coma en lugar de dos puntos). |
+| 10 | Sin dos puntos en «Priorizamos el bienestar humano…» | Queda «…como motor de la seguridad, disponemos de orientación psicológica…». |
+
+## Decisiones tomadas que conviene confirmar
+1. En 9 y 10 el cliente escribió la frase sin signo; se usó coma. Si prefiere punto o sin puntuación, es un cambio de una línea.
+2. «Buseta 19 pax»: se mantiene el nombre **Micro** acordado en la Obs. 16 de la ronda anterior; confirmar si el cliente quiere «Buseta».
+3. «Bus 38 pax» cambia la capacidad de 30 a 38 en la tarjeta; el indicador «3 capacidades de vehículo» no cambia.
+4. La foto 20 (conductores identificables) se usa en flota, galería y Contacto; sigue pendiente la confirmación de uso de imagen.
+
+## Archivos que ya no se usan (pueden borrarse de `paginada/assets/`)
+- `galeria/` salvo `15, 20, 21, 25` (y sus `min/`); los accesos del inicio y los banners usan además `min/` de 09, 18, 19, 22, 23, 24 — conservar esas miniaturas.
+- `banners/37.webp, 38.webp, 40.webp`; `img/hero-bus1000.jpg`, `img/flota-30pax.jpg`, `img/flota-40pax.jpg`, `img/flota-buseta.jpg`.
