@@ -85,3 +85,14 @@ Criterio: las fotos de la flota son la carta de presentación. Ninguna foto se r
 7. Verificación automática en las 12 páginas (escritorio 1366 px y móvil 390 px): 0 imágenes recortadas.
 
 Archivos sin uso adicionales: ninguno nuevo; los banners anteriores se sobrescribieron con los mismos nombres.
+
+---
+
+# Refactor: se elimina la Galería (19 nov 2026)
+
+1. Página `galeria.html` (P08) eliminada, con su script `assets/js/galeria.js` y los estilos de galería, filtros y visor.
+2. Referencias retiradas: menú de escritorio y móvil, pie de página, Anterior/Siguiente, tarjeta «Galería» del inicio (P01-S4, G23) y sección «muestra de galería» del inicio (P01-S5).
+3. Menú: solo páginas, sin secciones. Nosotros agrupa 4 páginas en un desplegable; el resto son enlaces directos.
+4. Inicio: 7 accesos, última fila centrada.
+5. Carpeta `assets/galeria/` renombrada a `assets/fotos/`; archivos sin uso borrados (fotos 15, 20, 21, 25; miniaturas 02, 15, 23, 25; `banners/23.webp`).
+6. Verificación: 11 páginas, 0 enlaces rotos, 0 menciones de «galería», sin desbordes a 1280, 1366, 1440, 1024 y 390 px.
