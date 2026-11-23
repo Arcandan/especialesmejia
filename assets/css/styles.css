@@ -847,6 +847,52 @@ section[id]{scroll-margin-top:100px}
 @media(max-width:799px){.hub__t{flex-basis:calc((100% - 18px)/2)}}
 @media(max-width:539px){.hub__t{flex-basis:100%}}
 
+/* foto completa en su proporción original (P04-S2-F1 = G36): sin recorte ni zoom */
+.marco--completa img{aspect-ratio:auto;height:auto;object-fit:contain}
+.marco--completa:hover img{transform:none}
+
+/* Valor diferencial (P06-S4): 3 fotos completas bajo los pilares */
+.vd-fotos{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+.vd-fotos figure{margin:0;border-radius:16px;overflow:hidden;box-shadow:var(--sombra)}
+.vd-fotos img{display:block;width:100%;height:auto}
+@media(max-width:799px){.vd-fotos{grid-template-columns:1fr;gap:14px}}
+
+/* Nuestros servicios (P06-S2): 2 fotos completas bajo las tarjetas */
+.vd-fotos--2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:799px){.vd-fotos--2{grid-template-columns:1fr}}
+
+/* Conducción eficiente (P05-S2-F4 = G26): misma tarjeta naranja, ahora con la foto de fondo bajo un velo naranja,
+   igual que las demás tarjetas del mosaico (que llevan velo verde) */
+.mosaico__solido--fondo{background:var(--naranja-btn)}
+.mosaico .mosaico__solido--fondo figcaption{background:linear-gradient(to top,rgba(194,78,0,.95) 0%,rgba(194,78,0,.86) 48%,rgba(194,78,0,.55) 100%)}
+.mosaico__solido--fondo .mosaico__ico{z-index:3}
+
+
+/* ===== Explore el sitio: accesos con la foto del encabezado de cada página ===== */
+/* Nosotros como tarjeta ancha (elegida el 23 nov), foto completa a la izquierda y sus 4 páginas al lado */
+.hub--alt{gap:18px}
+.hub-grupo{flex:0 0 100%;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);align-items:center;background:#fff;border:1px solid var(--borde);border-radius:16px;overflow:hidden;box-shadow:var(--sombra)}
+.hub-grupo__foto{display:block;align-self:stretch;background:var(--verde-800);display:flex;align-items:center}
+.hub-grupo__foto img{display:block;width:100%;height:auto}
+.hub-grupo__texto{padding:28px 32px}
+.hub-grupo__eti{display:block;font-family:var(--fuente-titulo);font-weight:800;font-size:.9rem;letter-spacing:.14em;text-transform:uppercase;color:var(--naranja-txt);margin-bottom:6px}
+.hub-grupo h3{font-family:var(--fuente-titulo);font-size:clamp(1.5rem,2.2vw,2rem);line-height:1.15;color:var(--verde-900);margin:0 0 8px}
+.hub-grupo p{margin:0 0 16px;color:var(--texto-suave);font-size:1.05rem}
+.hub-grupo__lista{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.hub-grupo__lista a{position:relative;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 14px 12px 16px;border:1px solid var(--borde);border-radius:12px;background:var(--superficie,#fff);color:var(--verde-900);text-decoration:none;transition:border-color .2s ease,transform .2s ease}
+.hub-grupo__lista a>span:first-child{display:flex;flex-direction:column;gap:1px}
+.hub-grupo__lista b{font-family:var(--fuente-titulo);font-size:1.08rem}
+.hub-grupo__lista small{color:var(--texto-suave);font-size:.95rem}
+.hub-grupo__lista .hub__f{position:static;flex:none;color:#fff}
+.hub-grupo__lista a:hover,.hub-grupo__lista a:focus-visible{border-color:var(--naranja-500);transform:translateX(3px)}
+.hub--alt .hub__t{flex-basis:calc((100% - 36px)/3)}
+@media(max-width:899px){.hub-grupo{grid-template-columns:1fr}.hub-grupo__texto{padding:22px 20px}}
+@media(max-width:799px){.hub--alt .hub__t{flex-basis:calc((100% - 18px)/2)}}
+@media(max-width:539px){.hub--alt .hub__t{flex-basis:100%}}
+@media(min-width:1100px){.hub-grupo__lista{grid-template-columns:1fr 1fr}.hub-grupo__lista a{align-items:flex-start;min-height:100%}.hub-grupo__lista a .hub__f{margin-top:2px}}
+.hub-grupo__foto{background:transparent}
+@media(min-width:1100px){.hub-grupo{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}.hub-grupo__texto{padding:22px 26px}.hub-grupo p{margin-bottom:12px}.hub-grupo__lista{gap:8px}.hub-grupo__lista a{padding:10px 12px}}
+
 /* ============================================================
    VERSIÓN VA — base visual de la versión A con las fotos del
    encabezado COMPLETAS (sin recorte, sin velo).
@@ -873,12 +919,12 @@ section[id]{scroll-margin-top:100px}
    ENCABEZADO UNIFICADO (portada y páginas interiores)
    Texto a la izquierda · foto COMPLETA pegada al borde derecho.
    La columna de texto ocupa la misma altura que la foto:
-   las migas alinean con el borde superior de la foto y el
-   bloque de título con su borde inferior.
+   páginas interiores: migas y bloque de título alineados arriba,
+   a la altura del borde superior de la foto.
    ============================================================ */
 .cabeza{display:flex;align-items:stretch;min-height:0;padding-block:44px;background:var(--verde-800);overflow:hidden;color:#fff}
 .cabeza::before{display:none}
-.cabeza .cabeza__texto{flex:0 0 45%;box-sizing:border-box;max-width:none;display:flex;flex-direction:column;justify-content:space-between;gap:28px;
+.cabeza .cabeza__texto{flex:0 0 45%;box-sizing:border-box;max-width:none;display:flex;flex-direction:column;justify-content:flex-start;gap:clamp(28px,3vw,48px);
   padding:6px 52px 6px max(56px,calc((100vw - 1440px) / 2 + 20px))}
 .cabeza .cabeza__texto>*,.cabeza .cabeza__bloque>*{max-width:640px}
 .cabeza__foto{flex:0 0 55%;box-sizing:border-box;margin:0;align-self:center}
