@@ -13,7 +13,7 @@ Esta es la carpeta activa. Se creó el 17 nov 2026 como copia limpia de la versi
 
 1. **Mismo ordenamiento en las 11 páginas:** texto 45 % / foto 55 %, foto pegada al borde derecho, completa (proporción original), esquinas izquierdas redondeadas y sombra suave. Sin diagonal, sin velo, sin recorte.
 2. **Texto del mismo alto que la foto:**
-   - Páginas interiores: las migas de pan se alinean con el borde superior de la foto y el bloque de título con su borde inferior.
+   - Páginas interiores (desde 22 nov 2026): migas y bloque de título alineados arriba, a la altura del borde superior de la foto.
    - Portada: el bloque (razón social, título, párrafo, botones, sellos) se centra y mide aprox. lo mismo que la foto (1366 px: texto 445 / foto 501; 1920 px: 641 / 704).
 3. **Tipografía (identidad: Manrope + naranja institucional):**
    - Antetítulo en mayúsculas espaciadas, naranja claro.

@@ -893,6 +893,13 @@ section[id]{scroll-margin-top:100px}
 .hub-grupo__foto{background:transparent}
 @media(min-width:1100px){.hub-grupo{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}.hub-grupo__texto{padding:22px 26px}.hub-grupo p{margin-bottom:12px}.hub-grupo__lista{gap:8px}.hub-grupo__lista a{padding:10px 12px}}
 
+/* Contacto (P10-S2): el correo es largo; letra un poco menor y corte seguro para que no se salga de su recuadro */
+.con a[href^="mailto"]{display:inline;font-size:clamp(.86rem,.72rem + .45vw,1rem);line-height:1.45;overflow-wrap:anywhere}
+@media(min-width:720px) and (max-width:899px){.con{flex-direction:column;align-items:flex-start}.con a[href^="mailto"]{font-size:.9rem}}
+
+/* Inicio (P01-S2): se retira «Capacidades de vehículo»; quedan 2 indicadores, centrados y con el mismo ancho por dato */
+.heroe__tarjeta{grid-template-columns:repeat(2,1fr);max-width:760px;margin-inline:auto}
+
 /* ============================================================
    VERSIÓN VA — base visual de la versión A con las fotos del
    encabezado COMPLETAS (sin recorte, sin velo).
