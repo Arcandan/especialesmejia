@@ -1,0 +1,15 @@
+# Transportes Especiales Mejía S.A.S. · www.transportesespecialesmejia.com
+# Solo para servidores Apache con mod_rewrite. En Nginx o en otro alojamiento, configurar las mismas reglas en el panel.
+Options -Indexes
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # 1. Todo a HTTPS y a www (una sola redirección 301)
+  RewriteCond %{HTTPS} off [OR]
+  RewriteCond %{HTTP_HOST} !^www\. [NC]
+  RewriteRule ^ https://www.transportesespecialesmejia.com%{REQUEST_URI} [L,R=301]
+  # 2. /index.html -> / (una sola dirección para el inicio)
+  RewriteCond %{THE_REQUEST} \s/index\.html[\s?] [NC]
+  RewriteRule ^index\.html$ https://www.transportesespecialesmejia.com/ [L,R=301]
+</IfModule>
